@@ -1,0 +1,1234 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>&#84;&#52;&#12495;&#12531;&#12489;&#12498;&#12473;&#12488;&#12522;&#12540;&#12398;&#12524;&#12499;&#12517;&#12540;</title>
+  <style>
+    :root {
+      --bg: #f7f1e8;
+      --panel: rgba(255, 252, 247, 0.92);
+      --panel-strong: #fffdf9;
+      --ink: #1f1a18;
+      --muted: #6d645d;
+      --line: rgba(70, 54, 41, 0.12);
+      --accent: #9a4d22;
+      --accent-soft: rgba(154, 77, 34, 0.12);
+      --alt-accent: #1f6f97;
+      --alt-soft: rgba(31, 111, 151, 0.12);
+      --tag: rgba(35, 28, 24, 0.07);
+      --shadow: 0 24px 60px rgba(63, 46, 34, 0.12);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: "BIZ UDPGothic", "Hiragino Sans", "Yu Gothic", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(154, 77, 34, 0.12), transparent 26%),
+        radial-gradient(circle at top right, rgba(34, 82, 116, 0.10), transparent 24%),
+        linear-gradient(180deg, #fbf7f1 0%, var(--bg) 100%);
+    }
+
+    a { color: inherit; }
+
+    .page {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 32px 22px 72px;
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+
+    .hero {
+      padding: 30px;
+      margin-bottom: 18px;
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.86), rgba(255, 250, 244, 0.76)),
+        linear-gradient(180deg, rgba(234, 216, 195, 0.6), transparent);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3, p { margin: 0; }
+
+    h1 {
+      margin-top: 16px;
+      font-size: clamp(32px, 4vw, 48px);
+      letter-spacing: -0.03em;
+    }
+
+    .lead {
+      max-width: 760px;
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .hero-stat {
+      padding: 12px 16px;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.72);
+      min-width: 170px;
+    }
+
+    .hero-stat strong {
+      display: block;
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .hero-stat span {
+      display: block;
+      margin-top: 6px;
+      font-size: 19px;
+      font-weight: 700;
+    }
+
+    .toolbar {
+      position: sticky;
+      top: 14px;
+      z-index: 10;
+      display: grid;
+      gap: 14px;
+      margin-bottom: 18px;
+      padding: 18px;
+      background: rgba(255, 251, 246, 0.88);
+    }
+
+    .toolbar-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .toolbar-copy {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .search {
+      width: min(560px, 100%);
+      border: 1px solid rgba(59, 44, 34, 0.14);
+      border-radius: 16px;
+      padding: 14px 16px;
+      font-size: 15px;
+      background: var(--panel-strong);
+      color: var(--ink);
+      outline: none;
+    }
+
+    .search:focus {
+      border-color: rgba(154, 77, 34, 0.4);
+      box-shadow: 0 0 0 4px rgba(154, 77, 34, 0.08);
+    }
+
+    .filter-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .date-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .date-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid var(--line);
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .date-chip strong {
+      color: var(--ink);
+      font-size: 12px;
+    }
+
+    .empty-state {
+      padding: 28px;
+    }
+
+    .empty-state p {
+      margin-top: 10px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .day-section {
+      padding: 24px;
+      margin-top: 18px;
+    }
+
+    .day-header {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: end;
+      justify-content: space-between;
+      margin-bottom: 18px;
+    }
+
+    .day-kicker {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .day-header h2 {
+      font-size: clamp(24px, 2vw, 30px);
+      letter-spacing: -0.03em;
+    }
+
+    .day-count {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(35, 28, 24, 0.06);
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .review-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .review-card {
+      display: grid;
+      grid-template-columns: 96px minmax(0, 1fr) 72px;
+      gap: 18px;
+      align-items: start;
+      padding: 18px;
+      border-radius: 22px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.82);
+      text-decoration: none;
+      transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+    }
+
+    .review-card:hover,
+    .review-card:focus-visible {
+      transform: translateY(-2px);
+      border-color: rgba(154, 77, 34, 0.26);
+      box-shadow: 0 16px 36px rgba(67, 49, 38, 0.1);
+      outline: none;
+    }
+
+    .review-card-alt {
+      border-color: rgba(31, 111, 151, 0.18);
+      background:
+        linear-gradient(135deg, rgba(233, 245, 251, 0.9), rgba(255, 255, 255, 0.86)),
+        rgba(255, 255, 255, 0.82);
+    }
+
+    .review-card-alt:hover,
+    .review-card-alt:focus-visible {
+      border-color: rgba(31, 111, 151, 0.34);
+      box-shadow: 0 16px 36px rgba(35, 72, 96, 0.12);
+    }
+
+    .time-rail {
+      display: grid;
+      gap: 6px;
+      padding: 10px 10px 0 0;
+      border-right: 1px solid var(--line);
+      text-align: left;
+    }
+
+    .review-card-alt .time-rail {
+      border-color: rgba(31, 111, 151, 0.18);
+    }
+
+    .time-value {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+    }
+
+    .time-date {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .review-head {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: start;
+      justify-content: space-between;
+    }
+
+    .review-head h3 {
+      max-width: 860px;
+      font-size: 23px;
+      line-height: 1.3;
+      letter-spacing: -0.02em;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: end;
+    }
+
+    .tag {
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: var(--tag);
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .tag-accent {
+      background: rgba(154, 77, 34, 0.12);
+      color: var(--accent);
+    }
+
+    .tag-alt {
+      background: var(--alt-soft);
+      color: var(--alt-accent);
+    }
+
+    .overview {
+      margin-top: 12px;
+      color: var(--ink);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .meta-item {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      min-height: 40px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(250, 246, 239, 0.72);
+      color: var(--ink);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .meta-item strong {
+      color: var(--muted);
+      font-size: 11px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .meta-item.is-dim {
+      color: var(--muted);
+      background: rgba(255, 255, 255, 0.52);
+    }
+
+    .review-card-alt .meta-item {
+      background: rgba(238, 247, 252, 0.78);
+    }
+
+    .review-card-alt .meta-item.is-dim {
+      background: rgba(247, 252, 255, 0.8);
+    }
+
+    .open-label {
+      align-self: center;
+      justify-self: end;
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .review-card-alt .time-value,
+    .review-card-alt .open-label {
+      color: var(--alt-accent);
+    }
+
+    .no-results {
+      margin-top: 18px;
+      padding: 20px;
+      border-radius: 22px;
+      border: 1px dashed rgba(80, 62, 48, 0.2);
+      background: rgba(255, 255, 255, 0.58);
+      color: var(--muted);
+    }
+
+    [hidden] { display: none !important; }
+
+    @media (max-width: 900px) {
+      .review-card {
+        grid-template-columns: 1fr;
+      }
+
+      .time-rail {
+        grid-template-columns: auto auto;
+        align-items: center;
+        gap: 12px;
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+        padding: 0 0 12px;
+      }
+
+      .review-head h3 {
+        font-size: 20px;
+      }
+
+      .open-label {
+        justify-self: start;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        padding-inline: 14px;
+      }
+
+      .hero,
+      .toolbar,
+      .day-section {
+        padding: 18px;
+        border-radius: 22px;
+      }
+
+      .hero-stat {
+        width: 100%;
+      }
+
+      .review-card {
+        padding: 16px;
+      }
+
+      .meta-item {
+        width: 100%;
+        justify-content: space-between;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page" id="top">
+    <section class="hero panel">
+      <span class="eyebrow">&#84;&#52;&#12495;&#12531;&#12489;&#12524;&#12499;&#12517;&#12540;</span>
+      <h1>&#84;&#52;&#12495;&#12531;&#12489;&#12498;&#12473;&#12488;&#12522;&#12540;&#12398;&#12524;&#12499;&#12517;&#12540;</h1>
+      <p class="lead">&#12524;&#12499;&#12517;&#12540;&#28168;&#12415;&#12495;&#12531;&#12489;&#12434;&#26085;&#20184;&#12372;&#12392;&#12395;&#35211;&#28193;&#12379;&#12427;&#19968;&#35239;&#12391;&#12377;&#12290;&#21508;&#12459;&#12540;&#12489;&#12395;&#12479;&#12452;&#12488;&#12523;&#12289;&#26178;&#21051;&#12289;&#35201;&#28857;&#12434;&#12414;&#12392;&#12417;&#12390;&#12356;&#12414;&#12377;&#12290;</p>
+      <div class="hero-meta">
+        <div class="hero-stat">
+          <strong>&#21454;&#37682;&#25968;</strong>
+          <span>27&#20214; / 9&#26085; / &#12510;&#12473;&#12463; 4&#20214;</span>
+        </div>
+        <div class="hero-stat">
+          <strong>&#26368;&#26032;&#12524;&#12499;&#12517;&#12540;</strong>
+          <span>2026.04.12 15:43</span>
+        </div>
+        <div class="hero-stat">
+          <strong>&#29983;&#25104;&#26178;&#21051;</strong>
+          <span>2026.04.13 18:34:12</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="toolbar panel">
+      <div class="toolbar-row">
+        <p class="toolbar-copy">&#12479;&#12452;&#12488;&#12523;&#12289;&#12498;&#12540;&#12525;&#12540;&#12289;&#12508;&#12540;&#12489;&#12289;&#32080;&#26524;&#12391;&#32094;&#12426;&#36796;&#12417;&#12414;&#12377;&#12290;</p>
+        <input id="searchInput" class="search" type="search" placeholder="&#26908;&#32034;&#58;&#32;&#12479;&#12452;&#12488;&#12523;&#32;&#47;&#32;&#12498;&#12540;&#12525;&#12540;&#32;&#47;&#32;&#12508;&#12540;&#12489;&#32;&#47;&#32;&#32080;&#26524;" autocomplete="off" />
+      </div>
+      <div class="toolbar-row">
+        <div class="filter-meta">
+          <span id="visibleCounter">27 / 27&#20214;</span>
+        </div>
+        <nav class="date-nav" aria-label="&#26085;&#20184;&#12472;&#12515;&#12531;&#12503;">
+  <a class="date-chip" href="#day-20260402">
+  <span>4/2</span>
+  <strong>1</strong>
+</a>
+<a class="date-chip" href="#day-20260405">
+  <span>4/5</span>
+  <strong>5</strong>
+</a>
+<a class="date-chip" href="#day-20260406">
+  <span>4/6</span>
+  <strong>8</strong>
+</a>
+<a class="date-chip" href="#day-20260407">
+  <span>4/7</span>
+  <strong>6</strong>
+</a>
+<a class="date-chip" href="#day-20260408">
+  <span>4/8</span>
+  <strong>1</strong>
+</a>
+<a class="date-chip" href="#day-20260409">
+  <span>4/9</span>
+  <strong>3</strong>
+</a>
+<a class="date-chip" href="#day-20260410">
+  <span>4/10</span>
+  <strong>1</strong>
+</a>
+<a class="date-chip" href="#day-20260411">
+  <span>4/11</span>
+  <strong>1</strong>
+</a>
+<a class="date-chip" href="#day-20260412">
+  <span>4/12</span>
+  <strong>1</strong>
+</a>
+</nav>
+      </div>
+    </section>
+
+    <div id="reviewContainer">
+      <section class="day-section panel" id="day-20260402">
+  <div class="day-header">
+    <div>
+      <p class="day-kicker">&#12524;&#12499;&#12517;&#12540;&#26085;</p>
+      <h2>2026.04.02 (木)</h2>
+    </div>
+    <span class="day-count" data-default-count="1">1&#20214;</span>
+  </div>
+  <div class="review-list">
+    <a class="review-card" href="./tenfour_20260402_0342_QmQEas.html" data-search="btn 3bet pot aqo レビュー ikutan btn asqs hj hj open 2bb, btn 3bet 7.5bb, hj call ad 5h 4h / 9d / 7s hero river fold, villain は turn で set 完成 tenfour_20260402_0342_qmqeas">
+  <div class="time-rail">
+    <span class="time-value">03:42</span>
+    <span class="time-date">4/2</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>BTN 3bet pot AQo レビュー</h3>
+      <div class="tag-row"><span class="tag tag-accent">&#26368;&#26032;</span></div>
+    </div>
+    <p class="overview">Hero: ikutaN BTN AsQs / Board: Ad 5h 4h / 9d / 7s / Result: Hero river fold, Villain は turn で set 完成</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>ikutaN BTN AsQs</span></span>
+<span class="meta-item"><strong>Board</strong><span>Ad 5h 4h / 9d / 7s</span></span>
+<span class="meta-item"><strong>Result</strong><span>Hero river fold, Villain は turn で set 完成</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>tenfour_20260402_0342_QmQEas</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+  </div>
+</section>
+<section class="day-section panel" id="day-20260405">
+  <div class="day-header">
+    <div>
+      <p class="day-kicker">&#12524;&#12499;&#12517;&#12540;&#26085;</p>
+      <h2>2026.04.05 (日)</h2>
+    </div>
+    <span class="day-count" data-default-count="5">5&#20214;</span>
+  </div>
+  <div class="review-list">
+    <a class="review-card" href="./tenfour_20260405_2333_q3qjkL_masked.html" data-search="hj open-call 22 vs sb 3bet レビュー hj 2♥2♣ sb hj raise 2bb, sb 3bet 7.5bb, hj call 8♦ 5♠ 2♠ / k♥ / 4♠ hero three of a kind, villain one pair tenfour_20260405_2333_q3qjkl_masked">
+  <div class="time-rail">
+    <span class="time-value">23:33</span>
+    <span class="time-date">4/5</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>HJ open-call 22 vs SB 3bet レビュー</h3>
+      <div class="tag-row"></div>
+    </div>
+    <p class="overview">Hero: HJ 2♥2♣ / Board: 8♦ 5♠ 2♠ / K♥ / 4♠ / Result: Hero three of a kind, Villain one pair</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>HJ 2♥2♣</span></span>
+<span class="meta-item"><strong>Board</strong><span>8♦ 5♠ 2♠ / K♥ / 4♠</span></span>
+<span class="meta-item"><strong>Result</strong><span>Hero three of a kind, Villain one pair</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>tenfour_20260405_2333_q3qjkL_masked</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card" href="./tenfour_20260405_2242_BCsM3Z_masked.html" data-search="hj 3bet vs bb cold 4bet ajs レビュー hj a♦j♦ bb utg raise 2bb, hj raise 6.5bb, bb cold 4bet 11bb, utg fold, hj call k♦ q♥ 2♠ / 2♦ / 8♥ hero one pair, villain two pair tenfour_20260405_2242_bcsm3z_masked">
+  <div class="time-rail">
+    <span class="time-value">22:42</span>
+    <span class="time-date">4/5</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>HJ 3bet vs BB cold 4bet AJs レビュー</h3>
+      <div class="tag-row"></div>
+    </div>
+    <p class="overview">Hero: HJ A♦J♦ / Board: K♦ Q♥ 2♠ / 2♦ / 8♥ / Result: Hero one pair, Villain two pair</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>HJ A♦J♦</span></span>
+<span class="meta-item"><strong>Board</strong><span>K♦ Q♥ 2♠ / 2♦ / 8♥</span></span>
+<span class="meta-item"><strong>Result</strong><span>Hero one pair, Villain two pair</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>tenfour_20260405_2242_BCsM3Z_masked</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card" href="./tenfour_20260405_1639_Uszfq5_masked.html" data-search="sb iso raise vs utg limp a5s レビュー sb ac5c utg utg limp 1bb, sb raise 5bb, bb fold, utg call jh 4d 2c / ts / 6h hero high card, villain one pair tenfour_20260405_1639_uszfq5_masked">
+  <div class="time-rail">
+    <span class="time-value">16:39</span>
+    <span class="time-date">4/5</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>SB iso raise vs UTG limp A5s レビュー</h3>
+      <div class="tag-row"></div>
+    </div>
+    <p class="overview">Hero: SB Ac5c / Board: Jh 4d 2c / Ts / 6h / Result: Hero high card, Villain one pair</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>SB Ac5c</span></span>
+<span class="meta-item"><strong>Board</strong><span>Jh 4d 2c / Ts / 6h</span></span>
+<span class="meta-item"><strong>Result</strong><span>Hero high card, Villain one pair</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>tenfour_20260405_1639_Uszfq5_masked</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card" href="./tenfour_20260405_1638_D8Ozoc.html" data-search="sb vs bb ajo レビュー ikutan sb adjh bb sb open 3bb, bb call jc 5d 2s / 2d / 9c hero two pair, villain one pair tenfour_20260405_1638_d8ozoc">
+  <div class="time-rail">
+    <span class="time-value">16:38</span>
+    <span class="time-date">4/5</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>SB vs BB AJo レビュー</h3>
+      <div class="tag-row"></div>
+    </div>
+    <p class="overview">Hero: ikutaN SB AdJh / Board: Jc 5d 2s / 2d / 9c / Result: Hero two pair, Villain one pair</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>ikutaN SB AdJh</span></span>
+<span class="meta-item"><strong>Board</strong><span>Jc 5d 2s / 2d / 9c</span></span>
+<span class="meta-item"><strong>Result</strong><span>Hero two pair, Villain one pair</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>tenfour_20260405_1638_D8Ozoc</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card" href="./tenfour_20260405_0445_68sVKn.html" data-search="bb vs btn asts レビュー ikutan bb asts btn btn open 2.5bb, bb call 8s 8h 2s / ac / qs hero flush, villain two pair tenfour_20260405_0445_68svkn">
+  <div class="time-rail">
+    <span class="time-value">04:45</span>
+    <span class="time-date">4/5</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>BB vs BTN AsTs レビュー</h3>
+      <div class="tag-row"></div>
+    </div>
+    <p class="overview">Hero: ikutaN BB AsTs / Board: 8s 8h 2s / Ac / Qs / Result: Hero flush, Villain two pair</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>ikutaN BB AsTs</span></span>
+<span class="meta-item"><strong>Board</strong><span>8s 8h 2s / Ac / Qs</span></span>
+<span class="meta-item"><strong>Result</strong><span>Hero flush, Villain two pair</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>tenfour_20260405_0445_68sVKn</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+  </div>
+</section>
+<section class="day-section panel" id="day-20260406">
+  <div class="day-header">
+    <div>
+      <p class="day-kicker">&#12524;&#12499;&#12517;&#12540;&#26085;</p>
+      <h2>2026.04.06 (月)</h2>
+    </div>
+    <span class="day-count" data-default-count="8">8&#20214;</span>
+  </div>
+  <div class="review-list">
+    <a class="review-card" href="./tenfour_20260406_0209_DHWVMl.html" data-search="hj open q♥j♥ vs sb x/r レビュー hj q♥j♥ sb hj raise 2bb, sb call, bb fold j♠ j♣ 9♥ / 3♦ / j♦ hero four of a kind, villain full house tenfour_20260406_0209_dhwvml">
+  <div class="time-rail">
+    <span class="time-value">02:09</span>
+    <span class="time-date">4/6</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>HJ open Q♥J♥ vs SB x/r レビュー</h3>
+      <div class="tag-row"></div>
+    </div>
+    <p class="overview">Hero: HJ Q♥J♥ / Board: J♠ J♣ 9♥ / 3♦ / J♦ / Result: Hero four of a kind, Villain full house</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>HJ Q♥J♥</span></span>
+<span class="meta-item"><strong>Board</strong><span>J♠ J♣ 9♥ / 3♦ / J♦</span></span>
+<span class="meta-item"><strong>Result</strong><span>Hero four of a kind, Villain full house</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>tenfour_20260406_0209_DHWVMl</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card" href="./tenfour_20260406_0134_QjnVFg.html" data-search="bb defend 44 vs co open レビュー bb 4♦4♣ co co raise 2.5bb, bb call k♠ 7♥ 7♦ / t♦ / 4♥ hero full house, villain two pair tenfour_20260406_0134_qjnvfg">
+  <div class="time-rail">
+    <span class="time-value">01:34</span>
+    <span class="time-date">4/6</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>BB defend 44 vs CO open レビュー</h3>
+      <div class="tag-row"></div>
+    </div>
+    <p class="overview">Hero: BB 4♦4♣ / Board: K♠ 7♥ 7♦ / T♦ / 4♥ / Result: Hero full house, Villain two pair</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>BB 4♦4♣</span></span>
+<span class="meta-item"><strong>Board</strong><span>K♠ 7♥ 7♦ / T♦ / 4♥</span></span>
+<span class="meta-item"><strong>Result</strong><span>Hero full house, Villain two pair</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>tenfour_20260406_0134_QjnVFg</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card" href="./tenfour_20260406_0131_DJD8YK.html" data-search="co 4bet qq vs sb 3bet レビュー co q♥q♣ sb co raise 2.3bb, sb 3bet 9.2bb, co 4bet 23bb, sb call q♦ 9♦ 9♣ / a♥ / 2♦ hero full house, villain flush tenfour_20260406_0131_djd8yk">
+  <div class="time-rail">
+    <span class="time-value">01:31</span>
+    <span class="time-date">4/6</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>CO 4bet QQ vs SB 3bet レビュー</h3>
+      <div class="tag-row"></div>
+    </div>
+    <p class="overview">Hero: CO Q♥Q♣ / Board: Q♦ 9♦ 9♣ / A♥ / 2♦ / Result: Hero full house, Villain flush</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>CO Q♥Q♣</span></span>
+<span class="meta-item"><strong>Board</strong><span>Q♦ 9♦ 9♣ / A♥ / 2♦</span></span>
+<span class="meta-item"><strong>Result</strong><span>Hero full house, Villain flush</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>tenfour_20260406_0131_DJD8YK</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card" href="./tenfour_20260406_0115_uTvvr4.html" data-search="bb cold 4bet kk vs co open / btn 3bet レビュー bb k♦k♣ co co raise 2.3bb, btn 3bet 7.5bb, bb 4bet 22.5bb, co call, btn fold 9♣ 4♦ 2♣ / 6♠ / 3♦ hero one pair, villain high card tenfour_20260406_0115_utvvr4">
+  <div class="time-rail">
+    <span class="time-value">01:15</span>
+    <span class="time-date">4/6</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>BB cold 4bet KK vs CO open / BTN 3bet レビュー</h3>
+      <div class="tag-row"></div>
+    </div>
+    <p class="overview">Hero: BB K♦K♣ / Board: 9♣ 4♦ 2♣ / 6♠ / 3♦ / Result: Hero one pair, Villain high card</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>BB K♦K♣</span></span>
+<span class="meta-item"><strong>Board</strong><span>9♣ 4♦ 2♣ / 6♠ / 3♦</span></span>
+<span class="meta-item"><strong>Result</strong><span>Hero one pair, Villain high card</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>tenfour_20260406_0115_uTvvr4</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card" href="./tenfour_20260406_0113_ZuVpjK.html" data-search="bb defend kqo vs co open レビュー bb k♣q♠ co co raise 2.5bb, bb call q♥ 6♣ 4♦ / k♥ / 4♣ hero two pair, villain two pair tenfour_20260406_0113_zuvpjk">
+  <div class="time-rail">
+    <span class="time-value">01:13</span>
+    <span class="time-date">4/6</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>BB defend KQo vs CO open レビュー</h3>
+      <div class="tag-row"></div>
+    </div>
+    <p class="overview">Hero: BB K♣Q♠ / Board: Q♥ 6♣ 4♦ / K♥ / 4♣ / Result: Hero two pair, Villain two pair</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>BB K♣Q♠</span></span>
+<span class="meta-item"><strong>Board</strong><span>Q♥ 6♣ 4♦ / K♥ / 4♣</span></span>
+<span class="meta-item"><strong>Result</strong><span>Hero two pair, Villain two pair</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>tenfour_20260406_0113_ZuVpjK</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card" href="./tenfour_20260406_0104_XJw1Ty_masked.html" data-search="bb defend q6s vs hj open レビュー bb q♦6♦ hj hj raise 2bb, bb call j♥ 9♣ 3♠ / 8♥ / 2♦ tenfour_20260406_0104_xjw1ty_masked">
+  <div class="time-rail">
+    <span class="time-value">01:04</span>
+    <span class="time-date">4/6</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>BB defend Q6s vs HJ open レビュー</h3>
+      <div class="tag-row"></div>
+    </div>
+    <p class="overview">Hero: BB Q♦6♦ / Board: J♥ 9♣ 3♠ / 8♥ / 2♦ / Preflop: HJ raise 2BB, BB call</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>BB Q♦6♦</span></span>
+<span class="meta-item"><strong>Board</strong><span>J♥ 9♣ 3♠ / 8♥ / 2♦</span></span>
+<span class="meta-item is-dim"><strong>Preflop</strong><span>HJ raise 2BB, BB call</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>tenfour_20260406_0104_XJw1Ty_masked</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card" href="./tenfour_20260406_0059_znjoTr.html" data-search="sb 3bet kqo vs utg open レビュー sb k♦q♣ utg utg raise 2.3bb, sb raise 11bb, utg call t♦ 9♥ 9♣ / q♦ / 5♦ hero two pair, villain two pair tenfour_20260406_0059_znjotr">
+  <div class="time-rail">
+    <span class="time-value">00:59</span>
+    <span class="time-date">4/6</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>SB 3bet KQo vs UTG open レビュー</h3>
+      <div class="tag-row"></div>
+    </div>
+    <p class="overview">Hero: SB K♦Q♣ / Board: T♦ 9♥ 9♣ / Q♦ / 5♦ / Result: Hero two pair, Villain two pair</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>SB K♦Q♣</span></span>
+<span class="meta-item"><strong>Board</strong><span>T♦ 9♥ 9♣ / Q♦ / 5♦</span></span>
+<span class="meta-item"><strong>Result</strong><span>Hero two pair, Villain two pair</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>tenfour_20260406_0059_znjoTr</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card" href="./tenfour_20260406_0059_DlRhVC.html" data-search="utg aa vs bb defend レビュー utg a♠a♥ bb utg raise 2bb, bb call k♣ q♠ j♣ / a♦ / 7♠ hero three of a kind, villain straight tenfour_20260406_0059_dlrhvc">
+  <div class="time-rail">
+    <span class="time-value">00:59</span>
+    <span class="time-date">4/6</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>UTG AA vs BB defend レビュー</h3>
+      <div class="tag-row"></div>
+    </div>
+    <p class="overview">Hero: UTG A♠A♥ / Board: K♣ Q♠ J♣ / A♦ / 7♠ / Result: Hero three of a kind, Villain straight</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>UTG A♠A♥</span></span>
+<span class="meta-item"><strong>Board</strong><span>K♣ Q♠ J♣ / A♦ / 7♠</span></span>
+<span class="meta-item"><strong>Result</strong><span>Hero three of a kind, Villain straight</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>tenfour_20260406_0059_DlRhVC</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+  </div>
+</section>
+<section class="day-section panel" id="day-20260407">
+  <div class="day-header">
+    <div>
+      <p class="day-kicker">&#12524;&#12499;&#12517;&#12540;&#26085;</p>
+      <h2>2026.04.07 (火)</h2>
+    </div>
+    <span class="day-count" data-default-count="6">6&#20214;</span>
+  </div>
+  <div class="review-list">
+    <a class="review-card" href="./tenfour_20260407_2337_GmU9SO.html" data-search="bb q♠j♣ の bvb flop stab と turn barrel レビュー bb q♠j♣ sb k♦j♥ folds to sb raise 2.5bb, bb call 7♣ 3♦ 3♣ / 7♥ hero bluff 成功, villain k♦j♥ fold tenfour_20260407_2337_gmu9so">
+  <div class="time-rail">
+    <span class="time-value">23:37</span>
+    <span class="time-date">4/7</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>BB Q♠J♣ の BvB flop stab と turn barrel レビュー</h3>
+      <div class="tag-row"></div>
+    </div>
+    <p class="overview">Hero: BB Q♠J♣ / Board: 7♣ 3♦ 3♣ / 7♥ / Result: Hero bluff 成功, Villain K♦J♥ fold</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>BB Q♠J♣</span></span>
+<span class="meta-item"><strong>Board</strong><span>7♣ 3♦ 3♣ / 7♥</span></span>
+<span class="meta-item"><strong>Result</strong><span>Hero bluff 成功, Villain K♦J♥ fold</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>tenfour_20260407_2337_GmU9SO</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card" href="./tenfour_20260407_1558_34zSk4.html" data-search="btn k♠j♦ の co 3bet pot レビュー btn k♠j♦ co a♥q♣ co raise 2.3bb, btn raise 7.5bb, co call a♠ 9♦ 8♠ / a♣ / j♥ hero fold, villain trips a♥q♣ tenfour_20260407_1558_34zsk4">
+  <div class="time-rail">
+    <span class="time-value">15:58</span>
+    <span class="time-date">4/7</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>BTN K♠J♦ の CO 3bet pot レビュー</h3>
+      <div class="tag-row"></div>
+    </div>
+    <p class="overview">Hero: BTN K♠J♦ / Board: A♠ 9♦ 8♠ / A♣ / J♥ / Result: Hero fold, Villain trips A♥Q♣</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>BTN K♠J♦</span></span>
+<span class="meta-item"><strong>Board</strong><span>A♠ 9♦ 8♠ / A♣ / J♥</span></span>
+<span class="meta-item"><strong>Result</strong><span>Hero fold, Villain trips A♥Q♣</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>tenfour_20260407_1558_34zSk4</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card" href="./tenfour_20260407_1556_WDT7IR.html" data-search="bb k♠t♣ の utg 3bar 対応レビュー bb k♠t♣ utg q♦t♦ utg raise 2.5bb, bb call k♦ 9♠ 7♣ / j♦ / 2♦ hero fold, villain q♦t♦ turned straight → river flush tenfour_20260407_1556_wdt7ir">
+  <div class="time-rail">
+    <span class="time-value">15:56</span>
+    <span class="time-date">4/7</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>BB K♠T♣ の UTG 3bar 対応レビュー</h3>
+      <div class="tag-row"></div>
+    </div>
+    <p class="overview">Hero: BB K♠T♣ / Board: K♦ 9♠ 7♣ / J♦ / 2♦ / Result: Hero fold, Villain Q♦T♦ turned straight → river flush</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>BB K♠T♣</span></span>
+<span class="meta-item"><strong>Board</strong><span>K♦ 9♠ 7♣ / J♦ / 2♦</span></span>
+<span class="meta-item"><strong>Result</strong><span>Hero fold, Villain Q♦T♦ turned straight → river flush</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>tenfour_20260407_1556_WDT7IR</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card" href="./tenfour_20260407_1223_EMYlOp.html" data-search="bb q♣6♣ の flop float と river overbet レビュー bb q♣6♣ btn j♥t♥ btn raise 3bb, bb call a♥ k♣ 4♥ / t♦ / j♣ hero straight, villain two pair tenfour_20260407_1223_emylop">
+  <div class="time-rail">
+    <span class="time-value">12:23</span>
+    <span class="time-date">4/7</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>BB Q♣6♣ の flop float と river overbet レビュー</h3>
+      <div class="tag-row"></div>
+    </div>
+    <p class="overview">Hero: BB Q♣6♣ / Board: A♥ K♣ 4♥ / T♦ / J♣ / Result: Hero straight, Villain two pair</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>BB Q♣6♣</span></span>
+<span class="meta-item"><strong>Board</strong><span>A♥ K♣ 4♥ / T♦ / J♣</span></span>
+<span class="meta-item"><strong>Result</strong><span>Hero straight, Villain two pair</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>tenfour_20260407_1223_EMYlOp</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card" href="./tenfour_20260407_0358_EhoIqV.html" data-search="co open q♣9♣ vs sb turn x/r レビュー co q♣9♣ sb a♠6♦ co raise 2.3bb, sb call q♥ 7♦ 5♠ / 9♠ / j♣ hero two pair, villain high card tenfour_20260407_0358_ehoiqv">
+  <div class="time-rail">
+    <span class="time-value">03:58</span>
+    <span class="time-date">4/7</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>CO open Q♣9♣ vs SB turn x/r レビュー</h3>
+      <div class="tag-row"></div>
+    </div>
+    <p class="overview">Hero: CO Q♣9♣ / Board: Q♥ 7♦ 5♠ / 9♠ / J♣ / Result: Hero two pair, Villain high card</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>CO Q♣9♣</span></span>
+<span class="meta-item"><strong>Board</strong><span>Q♥ 7♦ 5♠ / 9♠ / J♣</span></span>
+<span class="meta-item"><strong>Result</strong><span>Hero two pair, Villain high card</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>tenfour_20260407_0358_EhoIqV</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card" href="./tenfour_20260407_0201_v8UPdC.html" data-search="co 4bet-call aa vs hj 5bet レビュー co a♠a♦ hj q♠q♦ utg raise 2.5bb, hj raise 6.5bb, co raise 16.25bb, utg fold, hj raise 32.5bb, co call t♥ 5♣ 2♦ / 8♥ / 9♣ hero one pair aa, villain one pair qq tenfour_20260407_0201_v8updc">
+  <div class="time-rail">
+    <span class="time-value">02:01</span>
+    <span class="time-date">4/7</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>CO 4bet-call AA vs HJ 5bet レビュー</h3>
+      <div class="tag-row"></div>
+    </div>
+    <p class="overview">Hero: CO A♠A♦ / Board: T♥ 5♣ 2♦ / 8♥ / 9♣ / Result: Hero one pair AA, Villain one pair QQ</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>CO A♠A♦</span></span>
+<span class="meta-item"><strong>Board</strong><span>T♥ 5♣ 2♦ / 8♥ / 9♣</span></span>
+<span class="meta-item"><strong>Result</strong><span>Hero one pair AA, Villain one pair QQ</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>tenfour_20260407_0201_v8UPdC</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+  </div>
+</section>
+<section class="day-section panel" id="day-20260408">
+  <div class="day-header">
+    <div>
+      <p class="day-kicker">&#12524;&#12499;&#12517;&#12540;&#26085;</p>
+      <h2>2026.04.08 (水)</h2>
+    </div>
+    <span class="day-count" data-default-count="1">1&#20214;</span>
+  </div>
+  <div class="review-list">
+    <a class="review-card" href="./tenfour_20260408_0209_Gxl6TY.html" data-search="hj 9♥9♣ の squeeze pot river lead レビュー hj 9♥9♣ btn j♠j♦ hj raise 2bb, co call 2bb, btn raise 7.5bb, hj call, co fold 7♣ 6♠ 2♣ / a♣ / 8♠ hero bluff 成功, villain j♠j♦ fold tenfour_20260408_0209_gxl6ty">
+  <div class="time-rail">
+    <span class="time-value">02:09</span>
+    <span class="time-date">4/8</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>HJ 9♥9♣ の squeeze pot river lead レビュー</h3>
+      <div class="tag-row"></div>
+    </div>
+    <p class="overview">Hero: HJ 9♥9♣ / Board: 7♣ 6♠ 2♣ / A♣ / 8♠ / Result: Hero bluff 成功, Villain J♠J♦ fold</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>HJ 9♥9♣</span></span>
+<span class="meta-item"><strong>Board</strong><span>7♣ 6♠ 2♣ / A♣ / 8♠</span></span>
+<span class="meta-item"><strong>Result</strong><span>Hero bluff 成功, Villain J♠J♦ fold</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>tenfour_20260408_0209_Gxl6TY</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+  </div>
+</section>
+<section class="day-section panel" id="day-20260409">
+  <div class="day-header">
+    <div>
+      <p class="day-kicker">&#12524;&#12499;&#12517;&#12540;&#26085;</p>
+      <h2>2026.04.09 (木)</h2>
+    </div>
+    <span class="day-count" data-default-count="3">3&#20214;</span>
+  </div>
+  <div class="review-list">
+    <a class="review-card" href="./tenfour_20260409_1942_qzDN1X.html" data-search="utg k♦q♦ の 3bet pot delayed line 対応レビュー utg k♦q♦ hj a♦q♣ utg raise 2bb, hj raise 6.6bb, utg call a♠ 6♥ 2♣ / q♥ / 7♦ hero fold, villain a♦q♣ tenfour_20260409_1942_qzdn1x">
+  <div class="time-rail">
+    <span class="time-value">19:42</span>
+    <span class="time-date">4/9</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>UTG K♦Q♦ の 3bet pot delayed line 対応レビュー</h3>
+      <div class="tag-row"></div>
+    </div>
+    <p class="overview">Hero: UTG K♦Q♦ / Board: A♠ 6♥ 2♣ / Q♥ / 7♦ / Result: Hero fold, Villain A♦Q♣</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>UTG K♦Q♦</span></span>
+<span class="meta-item"><strong>Board</strong><span>A♠ 6♥ 2♣ / Q♥ / 7♦</span></span>
+<span class="meta-item"><strong>Result</strong><span>Hero fold, Villain A♦Q♣</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>tenfour_20260409_1942_qzDN1X</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card" href="./tenfour_20260409_0443_nYqAmT.html" data-search="co j♠t♠ の sb donk line 対応レビュー co j♠t♠ sb k♥t♥ co raise 2.3bb, sb call t♦ 9♦ 2♠ / 5♣ / t♣ hero showdown trips t with j kicker, villain trips t with k kicker tenfour_20260409_0443_nyqamt">
+  <div class="time-rail">
+    <span class="time-value">04:43</span>
+    <span class="time-date">4/9</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>CO J♠T♠ の SB donk line 対応レビュー</h3>
+      <div class="tag-row"></div>
+    </div>
+    <p class="overview">Hero: CO J♠T♠ / Board: T♦ 9♦ 2♠ / 5♣ / T♣ / Result: Hero showdown trips T with J kicker, Villain trips T with K kicker</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>CO J♠T♠</span></span>
+<span class="meta-item"><strong>Board</strong><span>T♦ 9♦ 2♠ / 5♣ / T♣</span></span>
+<span class="meta-item"><strong>Result</strong><span>Hero showdown trips T with J kicker, Villain trips T with K kicker</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>tenfour_20260409_0443_nYqAmT</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card" href="./tenfour_20260409_0333_SSnuns.html" data-search="hj a♥j♥ の 3bet pot turn raise レビュー hj a♥j♥ sb a♠a♣ hj raise 2bb, sb raise 10bb, hj call j♣ 6♠ 5♥ / 2♥ / 5♣ hero showdown a♥j♥ two pair, villain a♠a♣ wins tenfour_20260409_0333_ssnuns">
+  <div class="time-rail">
+    <span class="time-value">03:33</span>
+    <span class="time-date">4/9</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>HJ A♥J♥ の 3bet pot turn raise レビュー</h3>
+      <div class="tag-row"></div>
+    </div>
+    <p class="overview">Hero: HJ A♥J♥ / Board: J♣ 6♠ 5♥ / 2♥ / 5♣ / Result: Hero showdown A♥J♥ two pair, Villain A♠A♣ wins</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>HJ A♥J♥</span></span>
+<span class="meta-item"><strong>Board</strong><span>J♣ 6♠ 5♥ / 2♥ / 5♣</span></span>
+<span class="meta-item"><strong>Result</strong><span>Hero showdown A♥J♥ two pair, Villain A♠A♣ wins</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>tenfour_20260409_0333_SSnuns</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+  </div>
+</section>
+<section class="day-section panel" id="day-20260410">
+  <div class="day-header">
+    <div>
+      <p class="day-kicker">&#12524;&#12499;&#12517;&#12540;&#26085;</p>
+      <h2>2026.04.10 (金)</h2>
+    </div>
+    <span class="day-count" data-default-count="1">1&#20214;</span>
+  </div>
+  <div class="review-list">
+    <a class="review-card" href="./tenfour_20260410_1102_BHX51u.html" data-search="co j♠j♥ の srp turn check-back レビュー co j♠j♥ sb 9♦9♣ co raise 2.3bb, sb call 2.3bb j♦ j♣ 2♣ / 4♣ / t♣ hero quads j, villain flush tenfour_20260410_1102_bhx51u">
+  <div class="time-rail">
+    <span class="time-value">11:02</span>
+    <span class="time-date">4/10</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>CO J♠J♥ の SRP turn check-back レビュー</h3>
+      <div class="tag-row"></div>
+    </div>
+    <p class="overview">Hero: CO J♠J♥ / Board: J♦ J♣ 2♣ / 4♣ / T♣ / Result: Hero quads J, Villain flush</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>CO J♠J♥</span></span>
+<span class="meta-item"><strong>Board</strong><span>J♦ J♣ 2♣ / 4♣ / T♣</span></span>
+<span class="meta-item"><strong>Result</strong><span>Hero quads J, Villain flush</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>tenfour_20260410_1102_BHX51u</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+  </div>
+</section>
+<section class="day-section panel" id="day-20260411">
+  <div class="day-header">
+    <div>
+      <p class="day-kicker">&#12524;&#12499;&#12517;&#12540;&#26085;</p>
+      <h2>2026.04.11 (土)</h2>
+    </div>
+    <span class="day-count" data-default-count="1">1&#20214;</span>
+  </div>
+  <div class="review-list">
+    <a class="review-card" href="./tenfour_20260411_0137_ZDCWtf.html" data-search="sb k♠k♦ の 3bet pot turn check-raise レビュー sb k♠k♦ co j♠t♠ co raise 2.3bb, sb raise 11bb, co call a♥ q♦ 6♠ / k♣ / 9♠ hero showdown set k, villain straight tenfour_20260411_0137_zdcwtf">
+  <div class="time-rail">
+    <span class="time-value">01:37</span>
+    <span class="time-date">4/11</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>SB K♠K♦ の 3bet pot turn check-raise レビュー</h3>
+      <div class="tag-row"></div>
+    </div>
+    <p class="overview">Hero: SB K♠K♦ / Board: A♥ Q♦ 6♠ / K♣ / 9♠ / Result: Hero showdown set K, Villain straight</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>SB K♠K♦</span></span>
+<span class="meta-item"><strong>Board</strong><span>A♥ Q♦ 6♠ / K♣ / 9♠</span></span>
+<span class="meta-item"><strong>Result</strong><span>Hero showdown set K, Villain straight</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>tenfour_20260411_0137_ZDCWtf</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+  </div>
+</section>
+<section class="day-section panel" id="day-20260412">
+  <div class="day-header">
+    <div>
+      <p class="day-kicker">&#12524;&#12499;&#12517;&#12540;&#26085;</p>
+      <h2>2026.04.12 (日)</h2>
+    </div>
+    <span class="day-count" data-default-count="1">1&#20214;</span>
+  </div>
+  <div class="review-list">
+    <a class="review-card" href="./tenfour_20260412_1543_OSVq8X.html" data-search="bb k♥j♠ の monotone flop / a-turn overbet 対応レビュー bb k♥j♠ btn 9♦8♦ btn raise 2.5bb, bb call k♦ q♦ 2♦ / a♠ hero fold, villain flush 9♦8♦ tenfour_20260412_1543_osvq8x">
+  <div class="time-rail">
+    <span class="time-value">15:43</span>
+    <span class="time-date">4/12</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>BB K♥J♠ の monotone flop / A-turn overbet 対応レビュー</h3>
+      <div class="tag-row"></div>
+    </div>
+    <p class="overview">Hero: BB K♥J♠ / Board: K♦ Q♦ 2♦ / A♠ / Result: Hero fold, Villain flush 9♦8♦</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>BB K♥J♠</span></span>
+<span class="meta-item"><strong>Board</strong><span>K♦ Q♦ 2♦ / A♠</span></span>
+<span class="meta-item"><strong>Result</strong><span>Hero fold, Villain flush 9♦8♦</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>tenfour_20260412_1543_OSVq8X</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+  </div>
+</section>
+    </div>
+
+    <section id="noResults" class="no-results" hidden>
+      <strong>&#35442;&#24403;&#12377;&#12427;&#12524;&#12499;&#12517;&#12540;&#12364;&#12354;&#12426;&#12414;&#12379;&#12435;&#12290;</strong>
+      <p>&#12479;&#12452;&#12488;&#12523;&#12289;&#12498;&#12540;&#12525;&#12540;&#12289;&#12508;&#12540;&#12489;&#12289;&#32080;&#26524;&#12398;&#19968;&#37096;&#12391;&#30701;&#12417;&#12395;&#26908;&#32034;&#12375;&#12390;&#12415;&#12390;&#12367;&#12384;&#12373;&#12356;&#12290;</p>
+    </section>
+  </main>
+
+  <script>
+    const searchInput = document.getElementById("searchInput");
+    const cards = Array.from(document.querySelectorAll(".review-card"));
+    const sections = Array.from(document.querySelectorAll(".day-section"));
+    const visibleCounter = document.getElementById("visibleCounter");
+    const noResults = document.getElementById("noResults");
+
+    const updateFilter = () => {
+      const query = searchInput.value.trim().toLowerCase();
+      let visibleCount = 0;
+
+      cards.forEach((card) => {
+        const haystack = card.dataset.search || "";
+        const match = !query || haystack.includes(query);
+        card.hidden = !match;
+        if (match) {
+          visibleCount += 1;
+        }
+      });
+
+      sections.forEach((section) => {
+        const dayCards = Array.from(section.querySelectorAll(".review-card"));
+        const dayVisible = dayCards.filter((card) => !card.hidden).length;
+        section.hidden = dayVisible === 0;
+
+        const badge = section.querySelector(".day-count");
+        if (badge) {
+          badge.textContent = dayVisible + "\u4ef6";
+        }
+      });
+
+      visibleCounter.textContent = visibleCount + " / " + cards.length + "\u4ef6";
+      noResults.hidden = visibleCount !== 0 || cards.length === 0;
+    };
+
+    searchInput.addEventListener("input", updateFilter);
+    updateFilter();
+  </script>
+</body>
+</html>
+

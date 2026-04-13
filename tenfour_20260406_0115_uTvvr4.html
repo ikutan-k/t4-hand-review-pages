@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BB cold 4bet KK vs CO open / BTN 3bet レビュー</title>
+  <style>
+    :root {
+      --bg: #f4efe6;
+      --panel: rgba(255, 251, 245, 0.94);
+      --panel-strong: #fffdfa;
+      --ink: #1f1a17;
+      --muted: #6f655d;
+      --line: rgba(66, 51, 38, 0.12);
+      --accent: #8e4a2a;
+      --accent-soft: #eed7cb;
+      --good: #1d6b4d;
+      --shadow: 0 18px 50px rgba(61, 43, 32, 0.12);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "BIZ UDPGothic", "Hiragino Sans", "Yu Gothic", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(142, 74, 42, 0.12), transparent 34%),
+        radial-gradient(circle at top right, rgba(29, 107, 77, 0.12), transparent 28%),
+        linear-gradient(180deg, #f8f2ea 0%, var(--bg) 100%);
+    }
+    body.alt-hero {
+      --bg: #edf4f8;
+      --panel: rgba(248, 252, 255, 0.94);
+      --panel-strong: #fdfefe;
+      --line: rgba(38, 86, 117, 0.14);
+      --accent: #1f6f97;
+      --accent-soft: #d7ebf6;
+      --good: #1f6f97;
+      --shadow: 0 18px 50px rgba(35, 72, 96, 0.14);
+      background:
+        radial-gradient(circle at top left, rgba(31, 111, 151, 0.16), transparent 34%),
+        radial-gradient(circle at top right, rgba(34, 82, 116, 0.12), transparent 28%),
+        linear-gradient(180deg, #f5fafc 0%, var(--bg) 100%);
+    }
+    code {
+      font-family: inherit;
+      font-size: 0.95em;
+      font-weight: 600;
+      padding: 0.08em 0.32em;
+      border-radius: 0.45em;
+      background: rgba(142, 74, 42, 0.08);
+      border: 1px solid rgba(142, 74, 42, 0.14);
+    }
+    body.alt-hero code {
+      background: rgba(31, 111, 151, 0.08);
+      border-color: rgba(31, 111, 151, 0.16);
+    }
+    .page { max-width: 1180px; margin: 0 auto; padding: 40px 24px 56px; }
+    .hero { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 24px; align-items: start; margin-bottom: 24px; }
+    .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 24px; box-shadow: var(--shadow); backdrop-filter: blur(8px); }
+    .hero-copy { padding: 28px; }
+    .eyebrow { display: inline-block; margin-bottom: 10px; padding: 6px 10px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); font-size: 13px; font-weight: 700; letter-spacing: 0.04em; }
+    h1, h2, h3 { margin: 0; line-height: 1.2; }
+    h1 { font-size: 34px; margin-bottom: 10px; }
+    .sub { margin: 0 0 18px; color: var(--muted); line-height: 1.7; font-size: 15px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 18px; }
+    .chip { padding: 8px 12px; border-radius: 999px; background: var(--panel-strong); border: 1px solid var(--line); font-size: 13px; color: var(--muted); }
+    .chip-alt { background: var(--accent-soft); color: var(--accent); font-weight: 700; }
+    .hero-list { margin: 0; padding-left: 18px; line-height: 1.8; }
+    .summary-mini { margin-top: 18px; padding: 16px 18px; border-radius: 18px; background: rgba(255,255,255,0.62); border: 1px solid var(--line); }
+    .summary-mini h2 { font-size: 15px; margin-bottom: 12px; }
+    .summary-grid { display: grid; grid-template-columns: 110px 1fr; gap: 8px 12px; margin: 0; font-size: 13px; line-height: 1.6; }
+    .summary-grid dt { margin: 0; color: var(--muted); font-weight: 700; }
+    .summary-grid dd { margin: 0; }
+    .shot { padding: 18px; }
+    .shot img { width: 100%; display: block; border-radius: 18px; border: 1px solid var(--line); background: #10151d; }
+    .grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-bottom: 24px; }
+    .card { padding: 18px; }
+    .card h3 { font-size: 14px; color: var(--muted); margin-bottom: 10px; }
+    .card p { margin: 0; font-size: 15px; line-height: 1.7; }
+    .tone-good { color: var(--good); font-weight: 700; }
+    .section { padding: 24px 26px; margin-bottom: 20px; }
+    .section h2 { font-size: 22px; margin-bottom: 14px; }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    th, td { border-top: 1px solid var(--line); padding: 12px 10px; text-align: left; vertical-align: top; line-height: 1.65; }
+    th { color: var(--muted); font-weight: 700; background: rgba(255,255,255,0.42); }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    ul { margin: 0; padding-left: 18px; line-height: 1.8; }
+    @media (max-width: 960px) {
+      .hero, .two-col, .grid { grid-template-columns: 1fr; }
+      .page { padding: 24px 16px 40px; }
+      h1 { font-size: 28px; }
+    }
+  </style>
+</head>
+<body class="">
+  <main class="page">
+    <section class="hero">
+      <div class="panel hero-copy">
+        <div class="eyebrow">T4 HAND REVIEW</div>
+        <h1>BB cold 4bet KK vs CO open / BTN 3bet レビュー</h1>
+        <p class="sub">主論点は、4bet pot の overpair を flop で取り、turn で止め、river で bluff-catch に回す設計ができているかです。当時の思考メモはないので、「turn でもう一発打ちたくなる」「river で不安になって fold したくなる」という仮定で見ます。結論は、line 全体がかなりまとまっていて、再レビューでも大きなズレは見えません。</p>
+        <div class="chips">
+          <div class="chip">Hero: BB <code>K♦K♣</code></div> <div class="chip">Villain: CO</div> <div class="chip">Board: <code>9♣ 4♦ 2♣</code> / <code>6♠</code> / <code>3♦</code></div>
+        </div>
+        <ul><li>GTO基準の総評: preflop 4bet、flop c-bet、turn check、river call はかなり良く、line 全体がまとまっています。</li>
+<li>当時の思考メモはないので、<code>turn でもう一発打ちたくなる</code>、または <code>river で pot control line を取ったあとに不安になる</code> という仮定で見ます。</li>
+<li>結論として、preflop 4bet、flop c-bet、turn check、river call はかなりまとまっています。</li></ul>
+        <section class="summary-mini">
+  <h2>ハンド要約</h2>
+  <dl class="summary-grid">
+    <dt>Hero</dt>
+<dd>BB <code>K♦K♣</code></dd>
+<dt>Villain</dt>
+<dd>CO</dd>
+<dt>形式</dt>
+<dd>T4 6MAX Cash NL50, 100BB, Anteなし</dd>
+<dt>Preflop</dt>
+<dd>CO raise <code>2.3BB</code>, BTN 3bet <code>7.5BB</code>, BB 4bet <code>22.5BB</code>, CO call, BTN fold</dd>
+<dt>Board</dt>
+<dd><code>9♣ 4♦ 2♣</code> / <code>6♠</code> / <code>3♦</code></dd>
+<dt>Flop</dt>
+<dd>BB bet <code>26.5BB</code>, CO call</dd>
+<dt>Turn</dt>
+<dd>BB check, CO check</dd>
+<dt>River</dt>
+<dd>BB check, CO bet <code>51BB</code>, BB call</dd>
+<dt>Showdown</dt>
+<dd>Hero one pair, Villain high card</dd>
+  </dl>
+</section>
+      </div>
+      <div class="panel shot">
+        <img src="./assets/hands/tenfour_20260406_0115_uTvvr4.png" alt="tenfour hand screenshot" />
+      </div>
+    </section>
+
+    <section class="grid">
+  <article class="panel card">
+  <h3>Preflop</h3>
+  <p><span class="tone-good">良い</span><br /><code>KK</code> は cold 4bet の主力です。</p>
+</article>
+<article class="panel card">
+  <h3>Flop <code>9♣ 4♦ 2♣</code></h3>
+  <p><span class="tone-good">良い</span><br />Hero は依然かなり前方で、value / protection を取りたい hand です。</p>
+</article>
+<article class="panel card">
+  <h3>Turn <code>6♠</code></h3>
+  <p><span class="tone-good">良い</span><br /><code>KK</code> はまだ多くの hand に勝っていますが、無理に 3発で押し切る node ではありません。</p>
+</article>
+<article class="panel card">
+  <h3>River <code>3♦</code></h3>
+  <p><span class="tone-good">良い</span><br />Hero の <code>KK</code> はその range に対してかなり上位の bluff-catcher です。</p>
+</article>
+</section>
+
+    <section class="panel section">
+      <h2>判断のズレ</h2>
+      <table>
+  <thead>
+    <tr><th>論点</th><th>その場で置きがちな見立て</th><th>どこがズレたか</th><th>次回の基準</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>turn の <code>KK</code></td><td>overpair でまだ前にいそうなので 2barrel したくなる</td><td>flop call 後の CO range は underpair、club draw、A-high の粘りが中心で、<code>K♣</code> を持つ Hero は draw も一部 block しています。</td><td><code>まだ強い</code> と <code>3street 取り切れる</code> は別。blocker も見て turn check を増やす</td></tr>
+<tr><td>river の bluff-catch</td><td>turn check-back のあとに bet されると弱気になって fold したくなる</td><td>CO は turn で cap しやすく、<code>AQ/AK</code>, <code>QQ-JJ</code> のような bluff-catcher / air も十分残ります。<code>KK</code> はかなり上位の call hand です。</td><td>誘ったあとの river では、上位 bluff-catcher を素直に守る</td></tr>
+  </tbody>
+</table>
+    </section>
+
+    <section class="panel section">
+      <h2>ストリート別レビュー</h2>
+      <table>
+  <thead>
+    <tr><th>ストリート</th><th>その時点の見え方</th><th>判断の焦点</th><th>評価</th><th>推奨</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Preflop</td><td>CO が 4bet を call する range は <code>QQ-JJ</code>, <code>AK</code>, <code>AQs</code> 周辺に寄りやすいです。</td><td><code>KK</code> は cold 4bet の主力です。</td><td>良い</td><td><code>22.5BB</code> は素直です。</td></tr>
+<tr><td>Flop <code>9♣ 4♦ 2♣</code></td><td>CO の call range には <code>QQ-JJ</code>, <code>TT</code>, <code>A♣K♣</code> 系、<code>AK/AQ</code> の一部が残ります。</td><td>Hero は依然かなり前方で、value / protection を取りたい hand です。</td><td>良い</td><td>c-bet は自然です。</td></tr>
+<tr><td>Turn <code>6♠</code></td><td>flop call 後の CO range は underpair、club draw、A-high の粘りが中心です。</td><td><code>KK</code> はまだ多くの hand に勝っていますが、無理に 3発で押し切る node ではありません。</td><td>良い</td><td>check で十分です。</td></tr>
+<tr><td>River <code>3♦</code></td><td>turn check-back で CO はかなり cap し、<code>AQ/AK</code>, <code>QQ-JJ</code>, 一部 slowplay に寄ります。</td><td>Hero の <code>KK</code> はその range に対してかなり上位の bluff-catcher です。</td><td>良い</td><td>check-call が自然です。</td></tr>
+  </tbody>
+</table>
+    </section>
+
+    <section class="two-col">
+      <section class="panel section">
+        <h2>持ち帰り</h2>
+        <ul><li>4bet pot では、flop で取りにいき、turn で無理に押し切らず、river で bluff-catch に回る line がかなり大事です。</li>
+<li><code>KK</code> のような overpair でも、blocker と相手の cap を見れば turn check は十分強い選択になります。</li>
+<li>誘ったあとの river で上位 bluff-catcher を fold しすぎないこともかなり重要です。</li></ul>
+      </section>
+      <section class="panel section">
+        <h2>exploit 補足</h2>
+        <ul><li>pool で 4bet pot の river stab が少ない相手には exploit fold の余地もありますが、<code>KK</code> まで降ろすと守りすぎ不足になりやすいです。</li>
+<li><code>AQ/AK</code> を素直に river bluff に回す相手が混じるなら、今回の call はかなり取りこぼしを防げています。</li></ul>
+      </section>
+    </section>
+  </main>
+</body>
+</html>
+
