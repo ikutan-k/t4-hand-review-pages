@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BB A♦9♦ の SRP river small lead レビュー</title>
+  <style>
+    :root {
+      --bg: #f4efe6;
+      --panel: rgba(255, 251, 245, 0.94);
+      --panel-strong: #fffdfa;
+      --ink: #1f1a17;
+      --muted: #6f655d;
+      --line: rgba(66, 51, 38, 0.12);
+      --accent: #8e4a2a;
+      --accent-soft: #eed7cb;
+      --good: #1d6b4d;
+      --shadow: 0 18px 50px rgba(61, 43, 32, 0.12);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "BIZ UDPGothic", "Hiragino Sans", "Yu Gothic", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(142, 74, 42, 0.12), transparent 34%),
+        radial-gradient(circle at top right, rgba(29, 107, 77, 0.12), transparent 28%),
+        linear-gradient(180deg, #f8f2ea 0%, var(--bg) 100%);
+    }
+    body.alt-hero {
+      --bg: #edf4f8;
+      --panel: rgba(248, 252, 255, 0.94);
+      --panel-strong: #fdfefe;
+      --line: rgba(38, 86, 117, 0.14);
+      --accent: #1f6f97;
+      --accent-soft: #d7ebf6;
+      --good: #1f6f97;
+      --shadow: 0 18px 50px rgba(35, 72, 96, 0.14);
+      background:
+        radial-gradient(circle at top left, rgba(31, 111, 151, 0.16), transparent 34%),
+        radial-gradient(circle at top right, rgba(34, 82, 116, 0.12), transparent 28%),
+        linear-gradient(180deg, #f5fafc 0%, var(--bg) 100%);
+    }
+    code {
+      font-family: inherit;
+      font-size: 0.95em;
+      font-weight: 600;
+      padding: 0.08em 0.32em;
+      border-radius: 0.45em;
+      background: rgba(142, 74, 42, 0.08);
+      border: 1px solid rgba(142, 74, 42, 0.14);
+    }
+    body.alt-hero code {
+      background: rgba(31, 111, 151, 0.08);
+      border-color: rgba(31, 111, 151, 0.16);
+    }
+    .page { max-width: 1180px; margin: 0 auto; padding: 40px 24px 56px; }
+    .hero { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 24px; align-items: start; margin-bottom: 24px; }
+    .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 24px; box-shadow: var(--shadow); backdrop-filter: blur(8px); }
+    .hero-copy { padding: 28px; }
+    .eyebrow { display: inline-block; margin-bottom: 10px; padding: 6px 10px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); font-size: 13px; font-weight: 700; letter-spacing: 0.04em; }
+    h1, h2, h3 { margin: 0; line-height: 1.2; }
+    h1 { font-size: 34px; margin-bottom: 10px; }
+    .sub { margin: 0 0 18px; color: var(--muted); line-height: 1.7; font-size: 15px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 18px; }
+    .chip { padding: 8px 12px; border-radius: 999px; background: var(--panel-strong); border: 1px solid var(--line); font-size: 13px; color: var(--muted); }
+    .chip-alt { background: var(--accent-soft); color: var(--accent); font-weight: 700; }
+    .hero-list { margin: 0; padding-left: 18px; line-height: 1.8; }
+    .summary-mini { margin-top: 18px; padding: 16px 18px; border-radius: 18px; background: rgba(255,255,255,0.62); border: 1px solid var(--line); }
+    .summary-mini h2 { font-size: 15px; margin-bottom: 12px; }
+    .summary-grid { display: grid; grid-template-columns: 110px 1fr; gap: 8px 12px; margin: 0; font-size: 13px; line-height: 1.6; }
+    .summary-grid dt { margin: 0; color: var(--muted); font-weight: 700; }
+    .summary-grid dd { margin: 0; }
+    .shot { padding: 18px; }
+    .shot img { width: 100%; display: block; border-radius: 18px; border: 1px solid var(--line); background: #10151d; }
+    .grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-bottom: 24px; }
+    .card { padding: 18px; }
+    .card h3 { font-size: 14px; color: var(--muted); margin-bottom: 10px; }
+    .card p { margin: 0; font-size: 15px; line-height: 1.7; }
+    .tone-good { color: var(--good); font-weight: 700; }
+    .section { padding: 24px 26px; margin-bottom: 20px; }
+    .section h2 { font-size: 22px; margin-bottom: 14px; }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    th, td { border-top: 1px solid var(--line); padding: 12px 10px; text-align: left; vertical-align: top; line-height: 1.65; }
+    th { color: var(--muted); font-weight: 700; background: rgba(255,255,255,0.42); }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    ul { margin: 0; padding-left: 18px; line-height: 1.8; }
+    @media (max-width: 960px) {
+      .hero, .two-col, .grid { grid-template-columns: 1fr; }
+      .page { padding: 24px 16px 40px; }
+      h1 { font-size: 28px; }
+    }
+  </style>
+</head>
+<body class="">
+  <main class="page">
+    <section class="hero">
+      <div class="panel hero-copy">
+        <div class="eyebrow">T4 HAND REVIEW</div>
+        <h1>BB A♦9♦ の SRP river small lead レビュー</h1>
+        <p class="sub">主論点は、BB defend 後の <code>J♠ 9♣ 2♦ / 8♦ / Q♦</code> で、turn の <code>A♦9♦</code> を <code>pair + nut flush draw</code> の強い continue としてどう扱うか、そして river で完成した nut flush を check に回すか小さく lead するかです。結論は、preflop defend、flop call、turn call、river の small lead は全体としてかなり自然です。いちばん大事なのは、turn で hand がかなり強くなっても raise を急がず、river では scare card で相手の check-back が増えるぶん自分から取りにいく発想を持つことです。</p>
+        <div class="chips">
+          <div class="chip">Hero: BB <code>A♦9♦</code></div> <div class="chip">Villain: BTN <code>J♥9♠</code></div> <div class="chip">Board: <code>J♠ 9♣ 2♦</code> / <code>8♦</code> / <code>Q♦</code></div>
+        </div>
+        <ul><li>GTO基準の総評: line 全体はかなり良く、明確に直したい大きなポイントはありません。</li>
+<li>BTN min-open に対する BB の <code>A♦9♦</code> defend は標準的で、<code>J♠ 9♣ 2♦</code> の <code>25%pot</code> c-bet への call も middle pair + nut backdoor を持つ自然な continue です。</li>
+<li>turn <code>8♦</code> の <code>75%pot</code> barrel に対して <code>A♦9♦</code> は pair + nut flush draw のかなり強い defend です。raise で守りにいくより、call で相手の bluff と薄い value を残す方がきれいです。</li>
+<li>river <code>Q♦</code> は BTN の one-pair / two-pair を betting しにくくする scare card なので、BB が nut flush で small lead を持つのはかなり理にかなっています。<code>4.22BB</code> は <code>Qx</code>, <code>Jx</code>, <code>J9</code>, diamond 1枚持ちに広く払ってもらいやすいサイズです。</li></ul>
+        <section class="summary-mini">
+  <h2>ハンド要約</h2>
+  <dl class="summary-grid">
+    <dt>Hero</dt>
+<dd>BB <code>A♦9♦</code></dd>
+<dt>Villain</dt>
+<dd>BTN <code>J♥9♠</code></dd>
+<dt>形式</dt>
+<dd>T4 6MAX Cash NL50, 100BB, Anteなし</dd>
+<dt>Preflop</dt>
+<dd>BTN raise <code>2BB</code>, BB call</dd>
+<dt>Board</dt>
+<dd><code>J♠ 9♣ 2♦</code> / <code>8♦</code> / <code>Q♦</code></dd>
+<dt>Flop</dt>
+<dd>BB check, BTN bet <code>1.13BB</code>, BB call</dd>
+<dt>Turn</dt>
+<dd>BB check, BTN bet <code>5.07BB</code>, BB call</dd>
+<dt>River</dt>
+<dd>BB bet <code>4.22BB</code>, BTN call</dd>
+<dt>Result</dt>
+<dd>Hero nut flush, Villain two pair</dd>
+  </dl>
+</section>
+      </div>
+      <div class="panel shot">
+        <img src="./assets/hands/tenfour_20260416_0212_ARBomP.png" alt="tenfour hand screenshot" />
+      </div>
+    </section>
+
+    <section class="grid">
+  <article class="panel card">
+  <h3>Preflop</h3>
+  <p><span class="tone-good">良い</span><br /><code>A♦9♦</code> は BB の suited Ax defend としてかなり自然です。</p>
+</article>
+<article class="panel card">
+  <h3>Flop <code>J♠ 9♣ 2♦</code></h3>
+  <p><span class="tone-good">良い</span><br />middle pair + nut backdoor で、check-call の中核に入る combo です。</p>
+</article>
+<article class="panel card">
+  <h3>Turn <code>8♦</code></h3>
+  <p><span class="tone-good">良い</span><br /><code>A♦9♦</code> は pair + nut flush draw のかなり強い continue で、raise より call がきれいです。</p>
+</article>
+<article class="panel card">
+  <h3>River <code>Q♦</code></h3>
+  <p><span class="tone-good">良い</span><br />nut flush での small lead は、check-back されやすい value を拾いやすい設計です。</p>
+</article>
+</section>
+
+    <section class="panel section">
+      <h2>判断のズレ</h2>
+      <table>
+  <thead>
+    <tr><th>論点</th><th>その場で起きがちな見え方</th><th>どこがズレたか</th><th>次回の基準</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>turn の <code>A♦9♦</code></td><td>pair に nut flush draw まで付いたので、protection も兼ねて raise したくなる</td><td>この combo はかなり強いですが、すでに showdown value があり、raise にすると BTN の air や薄い barrel を降ろしやすくなります。turn の大サイズに対しては、まず強い call bucket として扱う方が素直です。</td><td><code>強い draw になった</code> と <code>raise が必要</code> を分けて考え、相手の bluff を残せるなら call baseline を優先する</td></tr>
+<tr><td>river の nut flush</td><td>完成役なので check で誘うか、大きく打つかの二択に見えやすい</td><td><code>Q♦</code> は BTN 側の one-pair や two pair にとってかなり betting しにくい scare card です。こちらは nut flush を含めて lead を持てるので、small lead で check-back されやすい value を回収する発想がかなり有力です。</td><td>scare river では <code>相手が自分から打ちにくいか</code> を先に見て、nut 級は small lead も自然に候補へ入れる</td></tr>
+  </tbody>
+</table>
+    </section>
+
+    <section class="panel section">
+      <h2>ストリート別レビュー</h2>
+      <table>
+  <thead>
+    <tr><th>ストリート</th><th>その時点の見え方</th><th>実ハンドの位置づけ</th><th>評価</th><th>その場の一手</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Preflop</td><td>BTN min-open range は広く、BB は suited Ax や broadway、connected hand をかなり広く defend できます。</td><td><code>A♦9♦</code> はその中でも扱いやすい suited Ax で、明確な defend 候補です。</td><td>良い</td><td><code>Call</code> で問題ありません。</td></tr>
+<tr><td>Flop <code>J♠ 9♣ 2♦</code></td><td>BTN の <code>25%pot</code> c-bet には <code>Jx</code>、overcard、A-high、backdoor がかなり広く残ります。</td><td>Hero は middle pair に加えて nut backdoor を持ち、check-call の中核に入る combo です。</td><td>良い</td><td>raise を急がず、まずは check-call で十分です。</td></tr>
+<tr><td>Turn <code>8♦</code></td><td>BTN の <code>75%pot</code> barrel で range はやや極化しますが、diamond semibluff と強めの one-pair もまだ残ります。</td><td><code>A♦9♦</code> は pair + nut flush draw のかなり強い continue で、実現値も高いです。</td><td>良い</td><td>ここは check-call が本線です。raise より相手の bluff を残せます。</td></tr>
+<tr><td>River <code>Q♦</code></td><td>3枚目 diamond と overcard の <code>Q</code> で、BTN は one-pair を自分から thin value しにくくなります。</td><td>Hero は nut flush で clear value です。check でも受けられますが、自分から lead して取りにいく価値が高いです。</td><td>良い</td><td><code>4.22BB</code> の small lead は自然です。sticky 相手なら少しだけ大きくしてもよいです。</td></tr>
+  </tbody>
+</table>
+    </section>
+
+    <section class="two-col">
+      <section class="panel section">
+        <h2>持ち帰り</h2>
+        <ul><li>pair + nut flush draw は「強いから raise」ではなく、まず <code>call でどれだけ bluff を残せるか</code> を見ると turn の判断が安定します。</li>
+<li>scare river では、相手の range が弱くなっただけでなく <code>打ちにくくもなる</code> ので、OOP の value lead がかなり機能します。</li>
+<li>nut 級の完成役で small lead を使えるようになると、check-back されがちな one-pair / two-pair からの取り漏れが減ります。</li></ul>
+      </section>
+      <section class="panel section">
+        <h2>exploit 補足</h2>
+        <ul><li>frontdoor flush が完成した river は、pool が one-pair や two pair をかなり素直に check back しやすいので、今回のような small lead は実戦でも取りやすいです。</li>
+<li>小さい river bet を広く curiosity call してくれる相手が多いなら、<code>A♦9♦</code> のような nut flush はかなり前向きに lead してよいです。逆に calling station 気味なら、もう少し大きい size も候補にできます。</li></ul>
+      </section>
+    </section>
+  </main>
+</body>
+</html>
+
