@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BB Q♠Q♣ の 3bet pot flop raise / river jam レビュー</title>
+  <style>
+    :root {
+      --bg: #f4efe6;
+      --panel: rgba(255, 251, 245, 0.94);
+      --panel-strong: #fffdfa;
+      --ink: #1f1a17;
+      --muted: #6f655d;
+      --line: rgba(66, 51, 38, 0.12);
+      --accent: #8e4a2a;
+      --accent-soft: #eed7cb;
+      --good: #1d6b4d;
+      --shadow: 0 18px 50px rgba(61, 43, 32, 0.12);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "BIZ UDPGothic", "Hiragino Sans", "Yu Gothic", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(142, 74, 42, 0.12), transparent 34%),
+        radial-gradient(circle at top right, rgba(29, 107, 77, 0.12), transparent 28%),
+        linear-gradient(180deg, #f8f2ea 0%, var(--bg) 100%);
+    }
+    body.alt-hero {
+      --bg: #edf4f8;
+      --panel: rgba(248, 252, 255, 0.94);
+      --panel-strong: #fdfefe;
+      --line: rgba(38, 86, 117, 0.14);
+      --accent: #1f6f97;
+      --accent-soft: #d7ebf6;
+      --good: #1f6f97;
+      --shadow: 0 18px 50px rgba(35, 72, 96, 0.14);
+      background:
+        radial-gradient(circle at top left, rgba(31, 111, 151, 0.16), transparent 34%),
+        radial-gradient(circle at top right, rgba(34, 82, 116, 0.12), transparent 28%),
+        linear-gradient(180deg, #f5fafc 0%, var(--bg) 100%);
+    }
+    code {
+      font-family: inherit;
+      font-size: 0.95em;
+      font-weight: 600;
+      padding: 0.08em 0.32em;
+      border-radius: 0.45em;
+      background: rgba(142, 74, 42, 0.08);
+      border: 1px solid rgba(142, 74, 42, 0.14);
+    }
+    body.alt-hero code {
+      background: rgba(31, 111, 151, 0.08);
+      border-color: rgba(31, 111, 151, 0.16);
+    }
+    .page { max-width: 1180px; margin: 0 auto; padding: 40px 24px 56px; }
+    .hero { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 24px; align-items: start; margin-bottom: 24px; }
+    .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 24px; box-shadow: var(--shadow); backdrop-filter: blur(8px); }
+    .hero-copy { padding: 28px; }
+    .eyebrow { display: inline-block; margin-bottom: 10px; padding: 6px 10px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); font-size: 13px; font-weight: 700; letter-spacing: 0.04em; }
+    h1, h2, h3 { margin: 0; line-height: 1.2; }
+    h1 { font-size: 34px; margin-bottom: 10px; }
+    .sub { margin: 0 0 18px; color: var(--muted); line-height: 1.7; font-size: 15px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 18px; }
+    .chip { padding: 8px 12px; border-radius: 999px; background: var(--panel-strong); border: 1px solid var(--line); font-size: 13px; color: var(--muted); }
+    .chip-alt { background: var(--accent-soft); color: var(--accent); font-weight: 700; }
+    .hero-list { margin: 0; padding-left: 18px; line-height: 1.8; }
+    .summary-mini { margin-top: 18px; padding: 16px 18px; border-radius: 18px; background: rgba(255,255,255,0.62); border: 1px solid var(--line); }
+    .summary-mini h2 { font-size: 15px; margin-bottom: 12px; }
+    .summary-grid { display: grid; grid-template-columns: 110px 1fr; gap: 8px 12px; margin: 0; font-size: 13px; line-height: 1.6; }
+    .summary-grid dt { margin: 0; color: var(--muted); font-weight: 700; }
+    .summary-grid dd { margin: 0; }
+    .shot { padding: 18px; }
+    .shot img { width: 100%; display: block; border-radius: 18px; border: 1px solid var(--line); background: #10151d; }
+    .grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-bottom: 24px; }
+    .card { padding: 18px; }
+    .card h3 { font-size: 14px; color: var(--muted); margin-bottom: 10px; }
+    .card p { margin: 0; font-size: 15px; line-height: 1.7; }
+    .tone-good { color: var(--good); font-weight: 700; }
+    .section { padding: 24px 26px; margin-bottom: 20px; }
+    .section h2 { font-size: 22px; margin-bottom: 14px; }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    th, td { border-top: 1px solid var(--line); padding: 12px 10px; text-align: left; vertical-align: top; line-height: 1.65; }
+    th { color: var(--muted); font-weight: 700; background: rgba(255,255,255,0.42); }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    ul { margin: 0; padding-left: 18px; line-height: 1.8; }
+    @media (max-width: 960px) {
+      .hero, .two-col, .grid { grid-template-columns: 1fr; }
+      .page { padding: 24px 16px 40px; }
+      h1 { font-size: 28px; }
+    }
+  </style>
+</head>
+<body class="">
+  <main class="page">
+    <section class="hero">
+      <div class="panel hero-copy">
+        <div class="eyebrow">T4 HAND REVIEW</div>
+        <h1>BB Q♠Q♣ の 3bet pot flop raise / river jam レビュー</h1>
+        <p class="sub">主論点は、HJ open-call からの 3bet pot で <code>9♣ 5♣ 2♥</code> の flop raise を BB の <code>Q♠Q♣</code> がどう受けるかと、turn <code>Q♦</code> で top set になったあとにどこで stack を取り切るかです。結論は、相手の flop raise 自体がかなり非GTO寄りで、それに対する Hero の call と river jam はかなり噛み合っています。理論寄りに一段だけ見直すなら turn <code>Q♦</code> の先打ちで、check は成立しても baseline は bet / jam 寄りです。</p>
+        <div class="chips">
+          <div class="chip">Hero: BB <code>Q♠Q♣</code></div> <div class="chip">Villain: HJ <code>T♠T♦</code></div> <div class="chip">Board: <code>9♣ 5♣ 2♥</code> / <code>Q♦</code> / <code>7♦</code></div>
+        </div>
+        <ul><li>GTO基準の総評: 相手の flop raise はかなり非GTO寄りで、Hero の flop call と river jam はかなり良いです。細かい調整点があるとすれば turn <code>Q♦</code> の打ち方です。</li>
+<li><code>9♣ 5♣ 2♥</code> の 3bet pot で、HJ 側の raise は本来 <code>99/55/22</code> と club semibluff が主軸です。<code>T♠T♦</code> のような no-club one-pair raise はかなりオーバーアグレ寄りなので、BB は <code>QQ</code> を過剰に降ろす必要がありません。</li>
+<li><code>Q♠Q♣</code> は overpair であり、しかも raise に対する上位の call bucket です。ここで 3bet し返すと、bluff や弱い value をかなり落として、set や強い draw に寄せやすくなります。</li>
+<li>turn <code>Q♦</code> で top set になったあとは <code>SPR ≒ 1.1</code> なので、理論寄りには先に bet / jam して club draw や sticky な <code>JJ-TT</code> から回収する方が素直です。ただ、check-back を受けた時点で HJ range はかなり cap するので、river <code>7♦</code> の jam はとても打ちやすくなります。</li></ul>
+        <section class="summary-mini">
+  <h2>ハンド要約</h2>
+  <dl class="summary-grid">
+    <dt>Hero</dt>
+<dd>BB <code>Q♠Q♣</code></dd>
+<dt>Villain</dt>
+<dd>HJ <code>T♠T♦</code></dd>
+<dt>形式</dt>
+<dd>T4 6MAX Cash NL50, 100BB, Anteなし</dd>
+<dt>Preflop</dt>
+<dd>HJ raise <code>2.5BB</code>, BB raise <code>12BB</code>, HJ call</dd>
+<dt>Board</dt>
+<dd><code>9♣ 5♣ 2♥</code> / <code>Q♦</code> / <code>7♦</code></dd>
+<dt>Flop</dt>
+<dd>BB bet <code>6.13BB</code>, HJ raise <code>18.39BB</code>, BB call</dd>
+<dt>Turn</dt>
+<dd>BB check, HJ check</dd>
+<dt>River</dt>
+<dd>BB jam <code>69.61BB</code>, HJ call</dd>
+<dt>Result</dt>
+<dd>Hero set <code>QQ</code>, Villain one pair <code>TT</code></dd>
+  </dl>
+</section>
+      </div>
+      <div class="panel shot">
+        <img src="./assets/hands/tenfour_20260416_0300_EidIGC.png" alt="tenfour hand screenshot" />
+      </div>
+    </section>
+
+    <section class="grid">
+  <article class="panel card">
+  <h3>Preflop</h3>
+  <p><span class="tone-good">良い</span><br /><code>Q♠Q♣</code> は BB の明確な value 3bet 上位です。</p>
+</article>
+<article class="panel card">
+  <h3>Flop <code>9♣ 5♣ 2♥</code></h3>
+  <p><span class="tone-good">かなり良い</span><br /><code>Q♠Q♣</code> は raise に対して強い call bucket で、3bet より call がきれいです。</p>
+</article>
+<article class="panel card">
+  <h3>Turn <code>Q♦</code></h3>
+  <p><span class="tone-good">良いがややトラップ寄り</span><br />top set でほぼ最上位です。default は bet / jam で十分です。</p>
+</article>
+<article class="panel card">
+  <h3>River <code>7♦</code></h3>
+  <p><span class="tone-good">かなり良い</span><br />turn check-back で capped した range に対する jam はとても打ちやすいです。</p>
+</article>
+</section>
+
+    <section class="panel section">
+      <h2>判断のズレ</h2>
+      <table>
+  <thead>
+    <tr><th>論点</th><th>その場で起きがちな見え方</th><th>どこがズレたか</th><th>次回の基準</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>flop の <code>QQ</code> vs raise</td><td>overpair なので 3bet して守りたくなる。逆に raise が強く見えて降りたくもなる</td><td>この board の raise は最上位だけでなく club semibluff や過剰アグレも混ざりえます。<code>Q♠Q♣</code> はその相手 range に対して強い call で、3bet はむしろ worse を落としやすいです。</td><td>3bet pot の raise を受けたら、<code>自分が何に勝っていて、再レイズすると何が降りるか</code> を先に分ける</td></tr>
+<tr><td>turn <code>Q♦</code> 後の設計</td><td>set になったので即 jam 一択か、逆に trap 一択に見えやすい</td><td><code>SPR</code> がかなり低いので bet / jam は本線ですが、check も mix としては成立します。大事なのは、check-back を受けたら相手 range がかなり cap するので、river では受け身に回らず大きく回収することです。</td><td>top set + 低SPR は <code>bet / jam baseline, check mix</code> と整理し、check-back を受けたら river は強く取りにいく</td></tr>
+  </tbody>
+</table>
+    </section>
+
+    <section class="panel section">
+      <h2>ストリート別レビュー</h2>
+      <table>
+  <thead>
+    <tr><th>ストリート</th><th>その時点の見え方</th><th>実ハンドの位置づけ</th><th>評価</th><th>その場の一手</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Preflop</td><td>HJ の open-call range には <code>JJ-TT</code>, <code>AQs/AJs</code>, suited broadway などの強め continue が残ります。</td><td><code>Q♠Q♣</code> は BB の明確な value 3bet 上位です。</td><td>良い</td><td><code>12BB</code> は素直です。ここは問題ありません。</td></tr>
+<tr><td>Flop <code>9♣ 5♣ 2♥</code></td><td>HJ の raise は本来 set と club semibluff が主軸ですが、実戦では <code>TT/JJ</code> のような overplay も混ざりえます。</td><td><code>Q♠Q♣</code> は overpair で、raise に対してかなり強い call bucket です。</td><td>かなり良い</td><td>c-bet は自然です。raise に対しては 3bet より call がきれいです。</td></tr>
+<tr><td>Turn <code>Q♦</code></td><td>flop raise-call 後の HJ range には set、club draw、<code>TT/JJ</code> の過剰バリューが残ります。<code>SPR</code> はかなり低く、stack を入れやすい局面です。</td><td>Hero は top set でほぼ最上位です。</td><td>良いがややトラップ寄り</td><td>default は bet / jam で十分です。check も成立しますが、相手の check-back を見越した mix として使いたいです。</td></tr>
+<tr><td>River <code>7♦</code></td><td>turn check-back で HJ range は <code>TT/JJ</code>, missed club, まれな slowplay にかなり寄ります。<code>86s</code> や diamond 完成は理屈上あるものの、密度は高くありません。</td><td>Hero の set はこの capped range に対して強い pure value です。</td><td>かなり良い</td><td>jam はとても良いです。小さく刻むより、curiosity call と second best から最大を取りにいけます。</td></tr>
+  </tbody>
+</table>
+    </section>
+
+    <section class="two-col">
+      <section class="panel section">
+        <h2>持ち帰り</h2>
+        <ul><li>3bet pot の flop raise を受けたときは、<code>強い hand だから再レイズ</code> ではなく、<code>call で bluff と弱い value を残せるか</code> を先に見るとぶれにくいです。</li>
+<li>top set まで改善して <code>SPR</code> がかなり低いなら、まずは bet / jam が基準です。check を選ぶなら、その先の river 回収までセットで考えると line がぶれません。</li>
+<li>turn check-back 後は相手 range がかなり cap するので、river の最上位 value は受け身にせず大きく取りにいってよいです。</li></ul>
+      </section>
+      <section class="panel section">
+        <h2>exploit 補足</h2>
+        <ul><li>実戦では今回のような no-club one-pair raise や、turn check-back 後の river curiosity call が混ざりやすいので、flop call から river jam までかなり実戦向きです。</li>
+<li>逆に、相手が flop raise を set / strong draw にかなり絞ってくる堅めの相手なら、turn は trap より先打ちで確実に回収する方が安定します。</li></ul>
+      </section>
+    </section>
+  </main>
+</body>
+</html>
+
