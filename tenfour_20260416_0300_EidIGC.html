@@ -98,14 +98,14 @@
       <div class="panel hero-copy">
         <div class="eyebrow">T4 HAND REVIEW</div>
         <h1>BB Q♠Q♣ の 3bet pot flop raise / river jam レビュー</h1>
-        <p class="sub">主論点は、HJ open-call からの 3bet pot で <code>9♣ 5♣ 2♥</code> の flop raise を BB の <code>Q♠Q♣</code> がどう受けるかと、turn <code>Q♦</code> で top set になったあとにどこで stack を取り切るかです。結論は、相手の flop raise 自体がかなり非GTO寄りで、それに対する Hero の call と river jam はかなり噛み合っています。理論寄りに一段だけ見直すなら turn <code>Q♦</code> の先打ちで、check は成立しても baseline は bet / jam 寄りです。</p>
+        <p class="sub">主論点は、HJ open-call からの 3bet pot で <code>9♣ 5♣ 2♥</code> の flop raise を BB の <code>Q♠Q♣</code> がどう受けるかと、turn <code>Q♦</code> で top set になったあとにどこで stack を取り切るかです。結論は、相手の flop raise 自体がかなり非GTO寄りで、それに対する Hero の call と river jam はかなり噛み合っています。理論寄りに一段だけ見直すなら turn <code>Q♦</code> の先打ちで、check は成立しても baseline は bet / jam 寄りです。river jam も、turn check-back 後に残る <code>TT/JJ</code> 付近の bluff-catcher に対して、indifference（無差別）に近い圧をかけながら最大を取りにいくサイズとしてかなり自然です。</p>
         <div class="chips">
           <div class="chip">Hero: BB <code>Q♠Q♣</code></div> <div class="chip">Villain: HJ <code>T♠T♦</code></div> <div class="chip">Board: <code>9♣ 5♣ 2♥</code> / <code>Q♦</code> / <code>7♦</code></div>
         </div>
         <ul><li>GTO基準の総評: 相手の flop raise はかなり非GTO寄りで、Hero の flop call と river jam はかなり良いです。細かい調整点があるとすれば turn <code>Q♦</code> の打ち方です。</li>
 <li><code>9♣ 5♣ 2♥</code> の 3bet pot で、HJ 側の raise は本来 <code>99/55/22</code> と club semibluff が主軸です。<code>T♠T♦</code> のような no-club one-pair raise はかなりオーバーアグレ寄りなので、BB は <code>QQ</code> を過剰に降ろす必要がありません。</li>
 <li><code>Q♠Q♣</code> は overpair であり、しかも raise に対する上位の call bucket です。ここで 3bet し返すと、bluff や弱い value をかなり落として、set や強い draw に寄せやすくなります。</li>
-<li>turn <code>Q♦</code> で top set になったあとは <code>SPR ≒ 1.1</code> なので、理論寄りには先に bet / jam して club draw や sticky な <code>JJ-TT</code> から回収する方が素直です。ただ、check-back を受けた時点で HJ range はかなり cap するので、river <code>7♦</code> の jam はとても打ちやすくなります。</li></ul>
+<li>turn <code>Q♦</code> で top set になったあとは <code>SPR ≒ 1.1</code> なので、理論寄りには先に bet / jam して club draw や sticky な <code>JJ-TT</code> から回収する方が素直です。ただ、check-back を受けた時点で HJ range はかなり cap するので、river <code>7♦</code> の jam はとても打ちやすくなります。小さく広く取るより、<code>TT/JJ</code> 付近の bluff-catcher をちょうど苦しめるサイズとしても筋が通っています。</li></ul>
         <section class="summary-mini">
   <h2>ハンド要約</h2>
   <dl class="summary-grid">
@@ -142,15 +142,15 @@
 </article>
 <article class="panel card">
   <h3>Flop <code>9♣ 5♣ 2♥</code></h3>
-  <p><span class="tone-good">かなり良い</span><br /><code>Q♠Q♣</code> は raise に対して強い call bucket で、3bet より call がきれいです。</p>
+  <p><span class="tone-good">かなり良い</span><br /><code>Q♠Q♣</code> は overpair で、raise に対してかなり強い call bucket です。</p>
 </article>
 <article class="panel card">
   <h3>Turn <code>Q♦</code></h3>
-  <p><span class="tone-good">良いがややトラップ寄り</span><br />top set でほぼ最上位です。default は bet / jam で十分です。</p>
+  <p><span class="tone-good">良いがややトラップ寄り</span><br />Hero は top set でほぼ最上位です。</p>
 </article>
 <article class="panel card">
   <h3>River <code>7♦</code></h3>
-  <p><span class="tone-good">かなり良い</span><br />turn check-back で capped した range に対する jam はとても打ちやすいです。</p>
+  <p><span class="tone-good">かなり良い</span><br />Hero の set はこの capped range に対して強い pure value です。</p>
 </article>
 </section>
 
@@ -177,7 +177,7 @@
     <tr><td>Preflop</td><td>HJ の open-call range には <code>JJ-TT</code>, <code>AQs/AJs</code>, suited broadway などの強め continue が残ります。</td><td><code>Q♠Q♣</code> は BB の明確な value 3bet 上位です。</td><td>良い</td><td><code>12BB</code> は素直です。ここは問題ありません。</td></tr>
 <tr><td>Flop <code>9♣ 5♣ 2♥</code></td><td>HJ の raise は本来 set と club semibluff が主軸ですが、実戦では <code>TT/JJ</code> のような overplay も混ざりえます。</td><td><code>Q♠Q♣</code> は overpair で、raise に対してかなり強い call bucket です。</td><td>かなり良い</td><td>c-bet は自然です。raise に対しては 3bet より call がきれいです。</td></tr>
 <tr><td>Turn <code>Q♦</code></td><td>flop raise-call 後の HJ range には set、club draw、<code>TT/JJ</code> の過剰バリューが残ります。<code>SPR</code> はかなり低く、stack を入れやすい局面です。</td><td>Hero は top set でほぼ最上位です。</td><td>良いがややトラップ寄り</td><td>default は bet / jam で十分です。check も成立しますが、相手の check-back を見越した mix として使いたいです。</td></tr>
-<tr><td>River <code>7♦</code></td><td>turn check-back で HJ range は <code>TT/JJ</code>, missed club, まれな slowplay にかなり寄ります。<code>86s</code> や diamond 完成は理屈上あるものの、密度は高くありません。</td><td>Hero の set はこの capped range に対して強い pure value です。</td><td>かなり良い</td><td>jam はとても良いです。小さく刻むより、curiosity call と second best から最大を取りにいけます。</td></tr>
+<tr><td>River <code>7♦</code></td><td>turn check-back で HJ range は <code>TT/JJ</code>, missed club, まれな slowplay にかなり寄ります。<code>86s</code> や diamond 完成は理屈上あるものの、密度は高くありません。</td><td>Hero の set はこの capped range に対して強い pure value です。</td><td>かなり良い</td><td>jam はとても良いです。<code>TT/JJ</code> 付近の bluff-catcher を indifference（無差別）に近いところまで追い込みつつ、小さく刻むより最大を取りにいけます。</td></tr>
   </tbody>
 </table>
     </section>
@@ -187,7 +187,8 @@
         <h2>持ち帰り</h2>
         <ul><li>3bet pot の flop raise を受けたときは、<code>強い hand だから再レイズ</code> ではなく、<code>call で bluff と弱い value を残せるか</code> を先に見るとぶれにくいです。</li>
 <li>top set まで改善して <code>SPR</code> がかなり低いなら、まずは bet / jam が基準です。check を選ぶなら、その先の river 回収までセットで考えると line がぶれません。</li>
-<li>turn check-back 後は相手 range がかなり cap するので、river の最上位 value は受け身にせず大きく取りにいってよいです。</li></ul>
+<li>turn check-back 後は相手 range がかなり cap するので、river の最上位 value は受け身にせず大きく取りにいってよいです。</li>
+<li>river で value bet が call されて勝った hand は、<code>勝ったから良い</code> ではなく <code>相手の bluff-catcher がどのサイズまで続けるか</code> で見直すと精度が上がります。今回は turn check-back 後の <code>TT/JJ</code> に対して jam まで十分候補です。</li></ul>
       </section>
       <section class="panel section">
         <h2>exploit 補足</h2>
