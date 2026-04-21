@@ -98,15 +98,15 @@
       <div class="panel hero-copy">
         <div class="eyebrow">T4 HAND REVIEW</div>
         <h1>BB Q♥9♥ の flop x/r jam 対応レビュー</h1>
-        <p class="sub">主論点は、UTG open を BB で defend した <code>Q♥9♥</code> を <code>7♦ 6♥ 4♥</code> で check-raise に回したあと、4bet jam にどこまで続けるかです。結論は、preflop defend も flop x/r も自然で、いちばん見直したいのは jam に対する fold です。<code>Q♥9♥</code> は open-ended straight draw + flush draw の強い semibluff で、<code>AA-KK-QQ-JJ</code> の no-heart overpair 群まで入る jam range には十分戦えます。この combo を x/r に使うなら、かなり continue 寄りで扱いたいです。</p>
+        <p class="sub">主論点は、UTG open を BB で defend した <code>Q♥9♥</code> を <code>7♦ 6♥ 4♥</code> で check-raise に回したあと、jam にどう向き合うかです。結論は、preflop defend は自然で、見直すなら flop の x/r の積極度です。<code>Q♥9♥</code> は queen-high flush draw + 2 overcards の semibluff 候補ですが、OESD や nut flush draw までは持っていません。そのため x/r 自体は候補でも、jam に対して強く続ける最上位 combo とまでは言いにくく、実戦では check-call 寄りに置く方が収まりやすいです。</p>
         <div class="chips">
           <div class="chip">Hero: BB <code>Q♥9♥</code></div> <div class="chip">Villain: UTG <code>J♠J♦</code></div> <div class="chip">Board: <code>7♦ 6♥ 4♥</code></div>
         </div>
-        <ul><li>GTO基準の総評: preflop call と flop x/r は自然です。大きいズレは <code>Q♥9♥</code> を x/r したあとに jam へ fold したところです。</li>
+        <ul><li>GTO基準の総評: preflop call は自然です。主に見直したいのは flop x/r の積極度で、jam fold 自体は大きなズレとまでは言い切りにくいです。</li>
 <li><code>7♦ 6♥ 4♥</code> は UTG に overpair、set、<code>A♥K♥/A♥Q♥</code> 系が残る一方、BB に set、two pair、straight、強い draw が多く、BB 側が check-raise を持ちやすい board です。</li>
-<li><code>Q♥9♥</code> は OESD + queen-high flush draw で、BB の semibluff の中でもかなり上側です。showdown value は低い一方、押し返されたときの raw equity は高く、x/r の材料がそろっています。</li>
-<li>flop で jam を受けたとき、必要 equity はおおよそ <code>43%</code> です。<code>AA-KK-QQ-JJ</code> の no-heart overpair に対しては十分届きやすく、set や nut-heart を少し含めても、この combo は x/r range の continue 側に残したい帯です。</li>
-<li>逆に、<code>UTG の jam は set と nut-heart にかなり寄る</code> という強い read で fold を選ぶなら、最初から <code>Q♥9♥</code> を x/r より check-call に寄せる方が line 全体は一貫します。</li></ul>
+<li><code>Q♥9♥</code> は queen-high flush draw + 2 overcards の semibluff 候補です。showdown value は低く、x/r の材料はありますが、<code>8♥5♥</code> や <code>9♥8♥</code> のような straight まで強く絡む上位 draw よりは一段下です。</li>
+<li>flop で jam を受けたとき、必要 equity はおおよそ <code>43%</code> です。実際の <code>J♠J♦</code> のような no-heart overpair には十分戦えますが、UTG の jam range 全体は set や強い heart を含んで濃くなりやすいので、この combo を自動で continue 側に置くのはやりすぎです。</li>
+<li>逆に、<code>UTG の jam にかなり降りる想定</code> なら、最初から <code>Q♥9♥</code> を x/r より check-call に寄せる方が line 全体は一貫します。</li></ul>
         <section class="summary-mini">
   <h2>ハンド要約</h2>
   <dl class="summary-grid">
@@ -143,7 +143,7 @@
 </article>
 <article class="panel card">
   <h3>Flop <code>7♦ 6♥ 4♥</code></h3>
-  <p><span class="tone-good">x/r は良いが jam fold は降りすぎ</span><br /><code>Q♥9♥</code> は OESD + flush draw の強い semibluff で、BB の x/r range の中でも continue 側に寄る combo です。</p>
+  <p><span class="tone-good">やや前のめり</span><br /><code>Q♥9♥</code> は queen-high flush draw + 2 overcards の semibluff 候補です。x/r もありますが、stack-off まで見やすい上位 draw ではありません。</p>
 </article>
 <article class="panel card">
   <h3>Turn</h3>
@@ -162,7 +162,7 @@
     <tr><th>論点</th><th>その場で起きがちな見え方</th><th>どこがズレたか</th><th>次回の基準</th></tr>
   </thead>
   <tbody>
-    <tr><td>strong draw で x/r した後の jam 対応</td><td>UTG open からの all-in はかなり強く見え、draw では足りないと感じやすい</td><td><code>Q♥9♥</code> はただの flush draw ではなく、OESD まで付いた強い combo draw です。必要 equity は高すぎず、no-heart overpair が残るだけで continue しやすい帯に入ります。ここを fold しすぎると、x/r range が value 寄りに傾きます。</td><td>strong draw を x/r に使うときは、先に <code>jam が来ても続ける combo か</code> を確認する。<code>Q♥9♥</code> 級は fold 側ではなく continue 側に置きたい</td></tr>
+    <tr><td>draw 強度の見積もり</td><td>flush draw が見えると、かなり強い semibluff に感じて stack-off まで視野に入れたくなる</td><td><code>Q♥9♥</code> はただの flush draw ではなく 2 overcards 付きで raw equity はあります。ただし OESD も nut FD もないので、jam へ強く続ける最上位 combo とまでは言いにくいです。ここを全部 continue に置くより、x/r に回す combo 自体を少し強めに選ぶ方が整います。</td><td>strong draw を x/r に使うときは、先に <code>jam が来たときも残る combo か</code> を確認する。stack-off しにくい draw は call bucket に残す</td></tr>
 <tr><td>raise bucket の作り方</td><td>強い draw を引いたので、とりあえず前向きに raise したくなる</td><td>raise 自体は良いですが、<code>raise する理由</code> と <code>返されたときの処理</code> を切り離すと line がぶれます。stack-off まで見ないなら、同じ強い draw でも check-call で十分 equity を実現できる spot があります。</td><td>x/r を選ぶ前に、<code>fold equity を取りたいから raise</code> なのか、<code>stack-off まで受け入れる強さだから raise</code> なのかをセットで決める</td></tr>
   </tbody>
 </table>
@@ -176,7 +176,7 @@
   </thead>
   <tbody>
     <tr><td>Preflop</td><td>UTG open range は <code>88+</code>, <code>AQ+</code>, suited broadway を中心に比較的強めです。BB 側は suited connector、suited broadway、低い pair を広く defend できます。</td><td><code>Q♥9♥</code> は BB defend の自然な suited hand で、fold するには少しもったいない帯です。</td><td>自然</td><td>call で問題ありません。特に suited で playability が高いので defend しやすいです。</td></tr>
-<tr><td>Flop <code>7♦ 6♥ 4♥</code></td><td>UTG の c-bet range には overpair、set、一部 <code>A♥K♥/A♥Q♥</code>、<code>8♥8x</code> のような strong continue が残ります。一方で BB には set、two pair、<code>85s</code>、heart combo draw があり、x/r の根拠を持ちやすい board です。</td><td><code>Q♥9♥</code> は OESD + flush draw の強い semibluff で、BB の x/r range の中でも continue 側に寄る combo です。</td><td>x/r は良いが jam fold は降りすぎ</td><td>x/r 自体はかなり自然です。この combo なら、jam に対しても call 寄りで整理したいです。</td></tr>
+<tr><td>Flop <code>7♦ 6♥ 4♥</code></td><td>UTG の c-bet range には overpair、set、一部 <code>A♥K♥/A♥Q♥</code>、<code>8♥8x</code> のような strong continue が残ります。一方で BB には set、two pair、<code>85s</code>、heart combo draw があり、x/r の根拠を持ちやすい board です。</td><td><code>Q♥9♥</code> は queen-high flush draw + 2 overcards の semibluff 候補です。x/r もありますが、stack-off まで見やすい上位 draw ではありません。</td><td>やや前のめり</td><td>default は check-call 寄りです。x/r を増やすなら、より強い straight / heart combo に譲りたいです。</td></tr>
 <tr><td>Turn</td><td></td><td></td><td></td><td></td></tr>
 <tr><td>River</td><td></td><td></td><td></td><td></td></tr>
   </tbody>
@@ -186,14 +186,14 @@
     <section class="two-col">
       <section class="panel section">
         <h2>持ち帰り</h2>
-        <ul><li>強い combo draw を raise bucket に入れるなら、<code>raise が通らなかった後も続ける前提か</code> を先に決めると line がぶれにくいです。</li>
+        <ul><li>強い draw に見える hand でも、<code>nut 性</code> と <code>押し返されたときにどこまで残れるか</code> を分けて見ると x/r bucket が整いやすいです。</li>
 <li><code>draw だから怖い</code> ではなく、<code>必要 equity に対してどこまで raw equity があるか</code> を見ると、jam 対応の精度が上がります。</li>
-<li>low connected two-tone board の BB x/r では、自分の value だけでなく強い draw も continue 側に残しておかないと、レンジ全体が読みやすくなります。</li></ul>
+<li>low connected two-tone board の BB x/r では、強い draw を全部同じ強さで扱わず、stack-off しやすい combo を優先して raise 側に回す方がレンジ全体が整いやすいです。</li></ul>
       </section>
       <section class="panel section">
         <h2>exploit 補足</h2>
-        <ul><li>実戦では、この種の board で UTG が <code>AA-KK-QQ-JJ</code> を守るつもりで jam まで進めることがあり、その分だけ <code>Q♥9♥</code> の continue は後押しされます。</li>
-<li>逆に、かなり nit で <code>set + nut-heart</code> 以外をほぼ積まない相手なら exploit 的に fold も出ますが、その場合は最初の x/r 頻度自体を下げた方が整います。</li></ul>
+        <ul><li>実戦では、この種の board で UTG が no-heart overpair を守るつもりで jam まで進めることもあるので、x/r 後の fold が即ミスとは限りません。</li>
+<li>ただし、UTG vs BB の大きい返しはかなり強くなりやすいので、<code>Q♥9♥</code> を基準の stack-off combo にするより、x/r する combo 自体をもう少し強めに寄せる方が無難です。</li></ul>
       </section>
     </section>
   </main>
