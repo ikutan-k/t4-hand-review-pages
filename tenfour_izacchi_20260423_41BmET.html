@@ -152,18 +152,18 @@
       <div class="panel hero-copy">
         <div class="eyebrow">PLAYER REVIEW</div>
         <h1>Izacchi SB A♠K♥ の 3way preflop all-in レビュー</h1>
-        <p class="sub">主論点は、BTN open に対する SB 3bet、BB cold 4bet、BTN 5bet jam、SB call、BB fold という 3way preflop all-in を、参加した 3 人それぞれの立場でどう評価するかです。結論は、<code>SB A♠K♥</code> の 3bet 自体は自然ですが、<code>BTN J♦J♣</code> の jam は前のめり、<code>SB AKo</code> の call も offsuit ではかなり際どく、いちばん見直したいのは <code>BB Q♥Q♣</code> の small cold 4bet とその後の fold です。showdown で SB が勝っていても、preflop の良し悪しは別で切り分けたい hand です。</p>
+        <p class="sub">主論点は、BTN open に対する SB 3bet、BB cold 4bet、BTN 5bet jam、SB call、BB fold という 3way preflop all-in を、参加した 3 人それぞれの立場でどう評価するかです。提示された <code>GTO Wizard</code> の近似 node（<code>BTN 2.5BB open -&gt; SB 11BB 3bet -&gt; BB 24BB cold 4bet -&gt; BTN jam</code>）を基準線に置くと、結論は前回と逆で、<code>BTN J♦J♣</code> の jam は自然、<code>SB AKo</code> の call はやりすぎ、<code>BB Q♥Q♣</code> の最終 fold も自然です。showdown で SB が勝っていても、preflop 判断は runout と切り分けて扱います。</p>
         <div class="chips">
           <div class="chip chip-player">Player: Izacchi</div>
 <div class="chip">Hero: <code>Izacchi</code> SB <code>A♠K♥</code></div>
 <div class="chip">Villain: BTN <code>Riku0125</code> <code>J♦J♣</code> / BB <code>nu0un</code> <code>Q♥Q♣</code></div>
 <div class="chip">Board: <code>A♥ K♠ 9♥</code> / <code>7♠</code> / <code>3♠</code></div>
         </div>
-        <ul><li><code>BTN Riku0125</code> の <code>J♦J♣</code> open は自然ですが、<code>SB 3bet + BB cold 4bet</code> に挟まれた状態での <code>100BB</code> jam は強く進めすぎです。SB の continue と BB の cold 4bet call にぶつかりやすく、default は fold 寄りで見たいです。</li>
-<li><code>SB Izacchi</code> の <code>A♠K♥</code> 3bet は素直です。ただし <code>BB 20BB cold 4bet -&gt; BTN jam</code> を見てからの <code>AKo</code> call はかなり薄く、しかも BB が後ろに残るので、理論寄りには <code>AKs</code> や <code>QQ+</code> より厳しく扱いたい帯です。</li>
-<li><code>BB nu0un</code> の <code>Q♥Q♣</code> cold 4bet 自体は value です。ただ <code>20BB</code> はやや小さく、結果として BTN に jam しやすい価格を与え、SB にも continue を残しやすくしています。</li>
-<li>その一方で、BB は jam + call を見たあと closing action で <code>80BB</code> を足して <code>300BB</code> pot を取りにいけるので、必要 equity はおよそ <code>26.7%</code> です。<code>QQ</code> は default で call が十分あり、fold は read 強めの exploit 寄りです。</li>
-<li>この hand は「勝った line が正しい」と見ない方が学びやすい例で、3人それぞれの node で必要な基準がかなり違います。</li></ul>
+        <ul><li>GTO基準の総評: 提示された <code>GTO Wizard</code> の近似 node では、<code>BTN J♦J♣</code> jam は自然で、<code>SB AKo</code> call はやりすぎ、<code>BB Q♥Q♣</code> fold も自然です。</li>
+<li><code>BTN Riku0125</code> の <code>J♦J♣</code> jam が成立する主因は、<code>BB cold 4bet</code> が入ったあとに flat で残る line の実現率が悪いからです。SB を残した低 <code>SPR</code> の 3way pot を避けつつ、BB の 4bet range に含まれる fold 成分へ圧をかけられるので、<code>JJ</code> は「挟まれているから弱い」より「flat しにくいから jam が立つ」と見る方が GTO に近いです。</li>
+<li><code>SB Izacchi</code> の <code>A♠K♥</code> 3bet 自体は自然です。ただし <code>BB 20BB cold 4bet -&gt; BTN jam</code> を見てからの <code>AKo</code> call は、<code>AKs</code> より一段弱く、しかも BB がまだ uncapped で残ります。blocker と dead money だけで押し切るより、multiway での実現率低下を重く見る node です。</li>
+<li><code>BB nu0un</code> の <code>Q♥Q♣</code> cold 4bet は value ですが、最終判断は <code>価格</code> より <code>条件付きレンジの強さ</code> が先です。<code>BTN jam</code> は open range よりかなり強く、そこに <code>SB</code> が call した時点で <code>SB</code> 側もさらに凝縮します。<code>QQ</code> は一見 price が良くても、その 2つの continue range に同時に当たると fold が自然になります。</li>
+<li>今回のズレは、<code>pot odds</code> を pre-node の大まかな range に当ててしまったことと、<code>flat の質</code> や <code>uncapped player が後ろに残る不利</code> を軽く見たことから起きています。</li></ul>
         <section class="summary-mini">
   <h2>ハンド要約</h2>
   <dl class="summary-grid">
@@ -196,15 +196,15 @@
     <section class="grid">
   <article class="panel card">
   <h3>Preflop BTN <code>Riku0125</code> <code>J♦J♣</code></h3>
-  <p><span class="tone-good">jam しすぎ</span><br /><code>JJ</code> は open 自体は上側ですが、この node では jam で押し切るより fold 寄りに置きたい hand です。</p>
+  <p><span class="tone-good">自然</span><br /><code>JJ</code> はこの node で「強いが flat しにくい」hand で、jam にかなり回りやすい帯です。</p>
 </article>
 <article class="panel card">
   <h3>Preflop SB <code>Izacchi</code> <code>A♠K♥</code></h3>
-  <p><span class="tone-good">かなり際どい</span><br /><code>AKo</code> は 3bet の主力ですが、この all-in tree では <code>AKs</code> より一段下で、かなり境界の call です。</p>
+  <p><span class="tone-good">やりすぎ</span><br /><code>AKo</code> は 3bet の主力でも、この all-in tree では <code>AKs</code> より落ち、fold 側に寄りやすい combo です。</p>
 </article>
 <article class="panel card">
   <h3>Preflop BB <code>nu0un</code> <code>Q♥Q♣</code></h3>
-  <p><span class="tone-good">4bet は良いが size と fold がもったいない</span><br /><code>QQ</code> は value 4bet の中心です。その後の closing spot では price がかなり良く、fold より call が基準線に近いです。</p>
+  <p><span class="tone-good">自然</span><br /><code>QQ</code> は 4bet value でも、closing spot では 2 本の強い continue range に挟まれるため fold が自然です。</p>
 </article>
 <article class="panel card">
   <h3>Board / Showdown</h3>
@@ -219,9 +219,9 @@
     <tr><th>論点</th><th>その場で起きがちな見え方</th><th>どこがズレたか</th><th>次回の基準</th></tr>
   </thead>
   <tbody>
-    <tr><td>BTN <code>Riku0125</code> の <code>J♦J♣</code> jam</td><td>SB の 3bet に対しては continue したく、BB の <code>20BB</code> も small なので押し返せそうに見える</td><td>cold 4bet node では BB がかなり強く、さらに SB にも <code>QQ+/AK</code> が残りやすいです。<code>JJ</code> jam は BB の call と SB の trap / call の両方を受けやすく、fold equity に寄せすぎです。</td><td><code>cold 4bet</code> で後ろに未行動がいるときの <code>JJ-TT</code> は、通常の open / 3bet pot より一段 tight に扱う</td></tr>
-<tr><td>SB <code>Izacchi</code> の <code>A♠K♥</code> call</td><td>open に対する 3bet は自然で、BTN jam を見れば blocker もあり受けたくなる</td><td>ただし <code>AKo</code> は <code>AKs</code> より continue 基準が下がり、しかも BB が closing で call しうる配置です。<code>90.8BB</code> を入れて約 <code>220BB</code> を取りに行く call は、BB の存在まで含めるとかなり境界です。</td><td>3bet 後に <code>cold 4bet + jam</code> まで伸びたら、<code>AKo</code> は auto stack-off にしない</td></tr>
-<tr><td>BB <code>nu0un</code> の <code>Q♥Q♣</code> 4bet / fold</td><td><code>QQ</code> なので cold 4bet して pot を取りたくなり、jam + call を見て 2人とも強そうで降りたくなる</td><td>4bet 自体は良いですが <code>20BB</code> は small です。その後は closing で <code>26.7%</code> あれば call できる spot で、<code>QQ</code> は dead money を十分回収できる帯です。</td><td><code>multiway になりそうで怖い</code> より先に、closing で <code>何%必要か</code> を置いてから fold / call を決める</td></tr>
+    <tr><td>BTN <code>Riku0125</code> の <code>J♦J♣</code> jam</td><td>cold 4bet に挟まれているので、<code>JJ</code> は jam より降ろされる側に見えやすい</td><td>ここでは <code>raw hand strength</code> より <code>flat の質</code> が重要です。BB 4bet に call して SB を残す line は <code>JJ</code> の実現率が悪く、jam の方が tree を単純化しつつ BB の fold 成分を取れます。</td><td><code>3bet pot で挟まれた = jam 減少</code> と決め打ちせず、<code>flat が良い line か</code> を先に見る</td></tr>
+<tr><td>SB <code>Izacchi</code> の <code>A♠K♥</code> call</td><td>blocker と dead money が大きいので、<code>AK</code> は受けてよさそうに見える</td><td>問題は <code>AK</code> 一般ではなく <code>AKo</code> であることと、BB がまだ残っていることです。<code>BTN jam</code> を受けた時点で BTN 側は強くなり、そこへ BB の overcall も残るので、offsuit の実現率低下が効きやすいです。</td><td><code>3bet -&gt; cold 4bet -&gt; jam</code> で未行動が残るなら、<code>AKo</code> は <code>AKs</code> よりかなり慎重に扱う</td></tr>
+<tr><td>BB <code>nu0un</code> の <code>Q♥Q♣</code> 4bet / fold</td><td>closing で price が良いので、<code>QQ</code> は call が得に見える</td><td>price は大事ですが、当てる相手 range を間違えると逆方向へズレます。<code>BTN jam range</code> は open range ではなく jam に進んだ強い部分で、さらに <code>SB call range</code> も 3bet range より凝縮しています。<code>QQ</code> はその 2本に同時に晒されるので、fold が自然になります。</td><td>closing では <code>何%必要か</code> の前に、<code>その価格をくれる時の continue range はどれだけ強いか</code> を確認する</td></tr>
   </tbody>
 </table>
     </section>
@@ -233,9 +233,9 @@
     <tr><th>ストリート</th><th>その時点の見え方</th><th>実ハンドの位置づけ</th><th>評価</th><th>その場の一手</th></tr>
   </thead>
   <tbody>
-    <tr><td>Preflop BTN <code>Riku0125</code> <code>J♦J♣</code></td><td>BTN open に対する SB 3bet は広めでも、BB cold 4bet が入ると 2 人の強い continue range に挟まれます。</td><td><code>JJ</code> は open 自体は上側ですが、この node では jam で押し切るより fold 寄りに置きたい hand です。</td><td>jam しすぎ</td><td>default は fold です。continue するなら BB の 4bet が明確に広く、SB がかなり overfold する read が欲しいです。</td></tr>
-<tr><td>Preflop SB <code>Izacchi</code> <code>A♠K♥</code></td><td>BTN open に対する SB 3bet は自然です。ただし BB cold 4bet のあとに BTN jam まで入ると、continue 条件は一気に厳しくなります。</td><td><code>AKo</code> は 3bet の主力ですが、この all-in tree では <code>AKs</code> より一段下で、かなり境界の call です。</td><td>かなり際どい</td><td>3bet までは良いです。jam に対しては <code>AKo</code> を auto-call せず、BB の残り range を含めて fold も十分持ちます。</td></tr>
-<tr><td>Preflop BB <code>nu0un</code> <code>Q♥Q♣</code></td><td><code>QQ</code> の cold 4bet 自体はかなり自然ですが、size が小さいと BTN に jam の余地を与え、SB も安く続けやすくなります。</td><td><code>QQ</code> は value 4bet の中心です。その後の closing spot では price がかなり良く、fold より call が基準線に近いです。</td><td>4bet は良いが size と fold がもったいない</td><td><code>22-25BB</code> 前後まで上げて tree を締めたいです。jam + call を見たあとも、default は call 寄りで考えます。</td></tr>
+    <tr><td>Preflop BTN <code>Riku0125</code> <code>J♦J♣</code></td><td>BTN open に対する SB 3bet と BB cold 4bet でかなり強い tree に入りますが、call line は SB を残した低 <code>SPR</code> multiway になりやすいです。</td><td><code>JJ</code> はこの node で「強いが flat しにくい」hand で、jam にかなり回りやすい帯です。</td><td>自然</td><td>jam は GTO基準で十分自然です。<code>挟まれているから fold</code> ではなく、<code>flat の質が悪いから jam</code> で整理します。</td></tr>
+<tr><td>Preflop SB <code>Izacchi</code> <code>A♠K♥</code></td><td>BTN open に対する SB 3bet は自然です。ただし BB cold 4bet のあとに BTN jam まで入ると、continue 条件はかなり厳しくなります。</td><td><code>AKo</code> は 3bet の主力でも、この all-in tree では <code>AKs</code> より落ち、fold 側に寄りやすい combo です。</td><td>やりすぎ</td><td>3bet までは良いです。jam に対しては <code>AKo</code> を基準線の continue に置かず、まず fold を起点に見ます。</td></tr>
+<tr><td>Preflop BB <code>nu0un</code> <code>Q♥Q♣</code></td><td><code>QQ</code> の cold 4bet 自体はかなり自然です。size は小さめですが、最終判断では <code>BTN jam</code> と <code>SB call</code> で両者の range が大きく締まります。</td><td><code>QQ</code> は 4bet value でも、closing spot では 2 本の強い continue range に挟まれるため fold が自然です。</td><td>自然</td><td>4bet はそのままでよく、最終は fold 寄りで問題ありません。価格だけで call に寄せない方がよいです。</td></tr>
 <tr><td>Board / Showdown</td><td>走った board は <code>A♥ K♠ 9♥ / 7♠ / 3♠</code> で、SB の <code>AK</code> が two pair になりました。</td><td>ただしこれは preflop 判断の答えではなく、あくまで結果です。</td><td>結果と判断は切り分け</td><td>runout はメモに留め、review は preflop node だけで評価します。</td></tr>
   </tbody>
 </table>
@@ -244,15 +244,16 @@
     <section class="two-col">
       <section class="panel section">
         <h2>持ち帰り</h2>
-        <ul><li>3way preflop all-in は、<code>誰が closing か</code> と <code>何%必要か</code> を席ごとに分けて見ると整理しやすいです。</li>
-<li><code>JJ</code>、<code>AKo</code>、<code>QQ</code> はどれも強い hand ですが、<code>cold 4bet -&gt; jam -&gt; call</code> まで伸びると続ける基準はかなり変わります。</li>
-<li>small cold 4bet は一見安く見えても、後続に jam と overcall の余地を残しやすいので、強い value ほど size で tree を締めた方が安定します。</li></ul>
+        <ul><li>solver の exact / 近似 node があるときは、まずそのアクションを基準線として受け入れ、<code>なぜそうなるか</code> を line の質から説明した方がぶれにくいです。</li>
+<li>multiway preflop all-in では、<code>pot odds</code> を見る前に <code>action が進んだ後の条件付きレンジ</code> を見る必要があります。pre-node の大まかな range をそのまま当てるとズレやすいです。</li>
+<li><code>JJ</code> のような middle-high pair は、<code>今どれだけ強いか</code> だけでなく <code>flat した後の line がどれだけ悪いか</code> で jam が増えることがあります。</li>
+<li><code>AKo</code> と <code>AKs</code> の差は、単に数％の EQ 差ではなく、multiway all-in での実現率差として効くことがあります。</li></ul>
       </section>
       <section class="panel section">
         <h2>exploit 補足</h2>
-        <ul><li>BB の cold 4bet が small で、その後に overfold まで多い pool なら、BTN / SB が exploit で押し返す余地はあります。</li>
-<li>逆に匿名 pool の <code>cold 4bet -&gt; jam call</code> が <code>AA/KK</code> 寄りにかなり締まるなら、SB の <code>AKo</code> fold はかなり実戦的です。</li>
-<li>BB は実戦で multiway all-in を嫌って fold しすぎる人もいますが、基準線としては <code>26.7%</code> という price を忘れない方がぶれにくいです。</li></ul>
+        <ul><li>BB の cold 4bet が solver よりさらに wide で、しかも jam に対して overfold する pool なら、BTN <code>JJ</code> jam は exploit でもさらに押しやすくなります。</li>
+<li>逆に <code>cold 4bet -&gt; call off</code> が極端に tight な相手ばかりなら、BTN jam の利益は落ちやすく、SB <code>AKo</code> fold はなおさら実戦的です。</li>
+<li>BB 側も、相手 2 人の all-in / call が solver より loose なら <code>QQ</code> はさらに降りやすく、逆に両者が underjam / undercall なら call が戻る余地があります。</li></ul>
       </section>
     </section>
   </main>
