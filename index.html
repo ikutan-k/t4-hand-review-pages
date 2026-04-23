@@ -264,17 +264,72 @@
       outline: none;
     }
 
-    .review-card-alt {
+    .review-card-player {
+      --player-accent: var(--alt-accent);
+      --player-tag-bg: var(--alt-soft);
+      --player-card-bg: rgba(238, 247, 252, 0.78);
+      --player-card-bg-dim: rgba(247, 252, 255, 0.8);
       border-color: rgba(31, 111, 151, 0.18);
       background:
         linear-gradient(135deg, rgba(233, 245, 251, 0.9), rgba(255, 255, 255, 0.86)),
         rgba(255, 255, 255, 0.82);
     }
 
-    .review-card-alt:hover,
-    .review-card-alt:focus-visible {
+    .review-card-player:hover,
+    .review-card-player:focus-visible {
       border-color: rgba(31, 111, 151, 0.34);
       box-shadow: 0 16px 36px rgba(35, 72, 96, 0.12);
+    }
+
+    .review-card-player-izacchi {
+      --player-accent: #2d8a5b;
+      --player-tag-bg: rgba(45, 138, 91, 0.12);
+      --player-card-bg: rgba(236, 249, 242, 0.82);
+      --player-card-bg-dim: rgba(246, 252, 248, 0.84);
+      border-color: rgba(45, 138, 91, 0.2);
+      background:
+        linear-gradient(135deg, rgba(232, 247, 238, 0.92), rgba(255, 255, 255, 0.86)),
+        rgba(255, 255, 255, 0.82);
+    }
+
+    .review-card-player-izacchi:hover,
+    .review-card-player-izacchi:focus-visible {
+      border-color: rgba(45, 138, 91, 0.36);
+      box-shadow: 0 16px 36px rgba(37, 95, 66, 0.12);
+    }
+
+    .review-card-player-riku0125 {
+      --player-accent: #c76841;
+      --player-tag-bg: rgba(199, 104, 65, 0.12);
+      --player-card-bg: rgba(252, 241, 235, 0.82);
+      --player-card-bg-dim: rgba(253, 248, 245, 0.84);
+      border-color: rgba(199, 104, 65, 0.2);
+      background:
+        linear-gradient(135deg, rgba(249, 235, 228, 0.92), rgba(255, 255, 255, 0.86)),
+        rgba(255, 255, 255, 0.82);
+    }
+
+    .review-card-player-riku0125:hover,
+    .review-card-player-riku0125:focus-visible {
+      border-color: rgba(199, 104, 65, 0.36);
+      box-shadow: 0 16px 36px rgba(124, 69, 47, 0.12);
+    }
+
+    .review-card-player-nu0un {
+      --player-accent: #4d7896;
+      --player-tag-bg: rgba(77, 120, 150, 0.12);
+      --player-card-bg: rgba(239, 245, 250, 0.82);
+      --player-card-bg-dim: rgba(247, 250, 253, 0.84);
+      border-color: rgba(77, 120, 150, 0.2);
+      background:
+        linear-gradient(135deg, rgba(234, 242, 248, 0.92), rgba(255, 255, 255, 0.86)),
+        rgba(255, 255, 255, 0.82);
+    }
+
+    .review-card-player-nu0un:hover,
+    .review-card-player-nu0un:focus-visible {
+      border-color: rgba(77, 120, 150, 0.36);
+      box-shadow: 0 16px 36px rgba(48, 75, 94, 0.12);
     }
 
     .time-rail {
@@ -283,10 +338,6 @@
       padding: 10px 10px 0 0;
       border-right: 1px solid var(--line);
       text-align: left;
-    }
-
-    .review-card-alt .time-rail {
-      border-color: rgba(31, 111, 151, 0.18);
     }
 
     .time-value {
@@ -342,9 +393,9 @@
       color: var(--accent);
     }
 
-    .tag-alt {
-      background: var(--alt-soft);
-      color: var(--alt-accent);
+    .tag-player {
+      background: var(--player-tag-bg, var(--alt-soft));
+      color: var(--player-accent, var(--alt-accent));
     }
 
     .overview {
@@ -387,12 +438,8 @@
       background: rgba(255, 255, 255, 0.52);
     }
 
-    .review-card-alt .meta-item {
-      background: rgba(238, 247, 252, 0.78);
-    }
-
-    .review-card-alt .meta-item.is-dim {
-      background: rgba(247, 252, 255, 0.8);
+    .review-card-player .meta-item {
+      background: var(--player-card-bg);
     }
 
     .open-label {
@@ -405,9 +452,13 @@
       text-transform: uppercase;
     }
 
-    .review-card-alt .time-value,
-    .review-card-alt .open-label {
-      color: var(--alt-accent);
+    .review-card-player .meta-item.is-dim {
+      background: var(--player-card-bg-dim);
+    }
+
+    .review-card-player .time-value,
+    .review-card-player .open-label {
+      color: var(--player-accent);
     }
 
     .no-results {
@@ -480,15 +531,15 @@
       <div class="hero-meta">
         <div class="hero-stat">
           <strong>&#21454;&#37682;&#25968;</strong>
-          <span>35&#20214; / 13&#26085; / &#12510;&#12473;&#12463; 4&#20214;</span>
+          <span>36&#20214; / 14&#26085; / &#12510;&#12473;&#12463; 4&#20214;</span>
         </div>
         <div class="hero-stat">
           <strong>&#26368;&#26032;&#12524;&#12499;&#12517;&#12540;</strong>
-          <span>2026.04.21 23:18</span>
+          <span>2026.04.23 17:10</span>
         </div>
         <div class="hero-stat">
           <strong>&#29983;&#25104;&#26178;&#21051;</strong>
-          <span>2026.04.21 23:31:50</span>
+          <span>2026.04.23 17:10:27</span>
         </div>
       </div>
     </section>
@@ -500,10 +551,14 @@
       </div>
       <div class="toolbar-row">
         <div class="filter-meta">
-          <span id="visibleCounter">35 / 35&#20214;</span>
+          <span id="visibleCounter">36 / 36&#20214;</span>
         </div>
         <nav class="date-nav" aria-label="&#26085;&#20184;&#12472;&#12515;&#12531;&#12503;">
-  <a class="date-chip" href="#day-20260421">
+  <a class="date-chip" href="#day-20260423">
+  <span>4/23</span>
+  <strong>1</strong>
+</a>
+<a class="date-chip" href="#day-20260421">
   <span>4/21</span>
   <strong>3</strong>
 </a>
@@ -560,7 +615,38 @@
     </section>
 
     <div id="reviewContainer">
-      <section class="day-section panel" id="day-20260421">
+      <section class="day-section panel" id="day-20260423">
+  <div class="day-header">
+    <div>
+      <p class="day-kicker">&#12524;&#12499;&#12517;&#12540;&#26085;</p>
+      <h2>2026.04.23 (木)</h2>
+    </div>
+    <span class="day-count" data-default-count="1">1&#20214;</span>
+  </div>
+  <div class="review-list">
+    <a class="review-card review-card-player review-card-player-izacchi" href="./tenfour_izacchi_20260423_41BmET.html" data-search="izacchi sb a♠k♥ の 3way preflop all-in レビュー izacchi sb a♠k♥ btn riku0125 j♦j♣ / bb nu0un q♥q♣ btn raise 2.3bb, sb 3bet 9.2bb, bb cold 4bet 20bb, btn jam 100bb, sb call 100bb, bb fold a♥ k♠ 9♥ / 7♠ / 3♠ hero two pair a/k で勝ち, btn one pair j, bb q♥q♣ fold tenfour_izacchi_20260423_41bmet">
+  <div class="time-rail">
+    <span class="time-value">17:10</span>
+    <span class="time-date">4/23</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>Izacchi SB A♠K♥ の 3way preflop all-in レビュー</h3>
+      <div class="tag-row"><span class="tag tag-accent">&#26368;&#26032;</span><span class="tag tag-player">Izacchi</span></div>
+    </div>
+    <p class="overview">Hero: Izacchi SB A♠K♥ / Board: A♥ K♠ 9♥ / 7♠ / 3♠ / Result: Hero two pair A/K で勝ち, BTN one pair J, BB Q♥Q♣ fold</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>Izacchi SB A♠K♥</span></span>
+<span class="meta-item"><strong>Board</strong><span>A♥ K♠ 9♥ / 7♠ / 3♠</span></span>
+<span class="meta-item"><strong>Result</strong><span>Hero two pair A/K で勝ち, BTN one pair J, BB Q♥Q♣ fold</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>tenfour_izacchi_20260423_41BmET</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+  </div>
+</section>
+<section class="day-section panel" id="day-20260421">
   <div class="day-header">
     <div>
       <p class="day-kicker">&#12524;&#12499;&#12517;&#12540;&#26085;</p>
@@ -577,7 +663,7 @@
   <div class="review-main">
     <div class="review-head">
       <h3>BB Q♥9♥ の flop x/r jam 対応レビュー</h3>
-      <div class="tag-row"><span class="tag tag-accent">&#26368;&#26032;</span></div>
+      <div class="tag-row"></div>
     </div>
     <p class="overview">Hero: BB Q♥9♥ / Board: 7♦ 6♥ 4♥ / Result: Hero fold, Villain J♠J♦ wins</p>
     <div class="meta-row">

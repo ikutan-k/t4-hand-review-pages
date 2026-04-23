@@ -27,7 +27,7 @@
         radial-gradient(circle at top right, rgba(29, 107, 77, 0.12), transparent 28%),
         linear-gradient(180deg, #f8f2ea 0%, var(--bg) 100%);
     }
-    body.alt-hero {
+    body.hero-theme-player {
       --bg: #edf4f8;
       --panel: rgba(248, 252, 255, 0.94);
       --panel-strong: #fdfefe;
@@ -41,6 +41,48 @@
         radial-gradient(circle at top right, rgba(34, 82, 116, 0.12), transparent 28%),
         linear-gradient(180deg, #f5fafc 0%, var(--bg) 100%);
     }
+    body.hero-theme-izacchi {
+      --bg: #eef7f1;
+      --panel: rgba(249, 254, 251, 0.94);
+      --panel-strong: #fdfefd;
+      --line: rgba(45, 138, 91, 0.16);
+      --accent: #2d8a5b;
+      --accent-soft: #d9efe3;
+      --good: #2d8a5b;
+      --shadow: 0 18px 50px rgba(37, 95, 66, 0.14);
+      background:
+        radial-gradient(circle at top left, rgba(45, 138, 91, 0.18), transparent 34%),
+        radial-gradient(circle at top right, rgba(72, 123, 88, 0.12), transparent 28%),
+        linear-gradient(180deg, #f5fbf7 0%, var(--bg) 100%);
+    }
+    body.hero-theme-riku0125 {
+      --bg: #fbf1ec;
+      --panel: rgba(255, 250, 247, 0.94);
+      --panel-strong: #fffdfb;
+      --line: rgba(199, 104, 65, 0.16);
+      --accent: #c76841;
+      --accent-soft: #f5ddd4;
+      --good: #b65935;
+      --shadow: 0 18px 50px rgba(124, 69, 47, 0.14);
+      background:
+        radial-gradient(circle at top left, rgba(199, 104, 65, 0.16), transparent 34%),
+        radial-gradient(circle at top right, rgba(156, 93, 61, 0.12), transparent 28%),
+        linear-gradient(180deg, #fdf7f3 0%, var(--bg) 100%);
+    }
+    body.hero-theme-nu0un {
+      --bg: #eef4f8;
+      --panel: rgba(249, 252, 255, 0.94);
+      --panel-strong: #fdfefe;
+      --line: rgba(77, 120, 150, 0.16);
+      --accent: #4d7896;
+      --accent-soft: #dce8f1;
+      --good: #4d7896;
+      --shadow: 0 18px 50px rgba(48, 75, 94, 0.14);
+      background:
+        radial-gradient(circle at top left, rgba(77, 120, 150, 0.16), transparent 34%),
+        radial-gradient(circle at top right, rgba(67, 104, 130, 0.12), transparent 28%),
+        linear-gradient(180deg, #f6fafc 0%, var(--bg) 100%);
+    }
     code {
       font-family: inherit;
       font-size: 0.95em;
@@ -50,9 +92,21 @@
       background: rgba(142, 74, 42, 0.08);
       border: 1px solid rgba(142, 74, 42, 0.14);
     }
-    body.alt-hero code {
+    body.hero-theme-player code {
       background: rgba(31, 111, 151, 0.08);
       border-color: rgba(31, 111, 151, 0.16);
+    }
+    body.hero-theme-izacchi code {
+      background: rgba(45, 138, 91, 0.08);
+      border-color: rgba(45, 138, 91, 0.16);
+    }
+    body.hero-theme-riku0125 code {
+      background: rgba(199, 104, 65, 0.08);
+      border-color: rgba(199, 104, 65, 0.16);
+    }
+    body.hero-theme-nu0un code {
+      background: rgba(77, 120, 150, 0.08);
+      border-color: rgba(77, 120, 150, 0.16);
     }
     .page { max-width: 1180px; margin: 0 auto; padding: 40px 24px 56px; }
     .hero { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 24px; align-items: start; margin-bottom: 24px; }
@@ -64,7 +118,7 @@
     .sub { margin: 0 0 18px; color: var(--muted); line-height: 1.7; font-size: 15px; }
     .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 18px; }
     .chip { padding: 8px 12px; border-radius: 999px; background: var(--panel-strong); border: 1px solid var(--line); font-size: 13px; color: var(--muted); }
-    .chip-alt { background: var(--accent-soft); color: var(--accent); font-weight: 700; }
+    .chip-player { background: var(--accent-soft); color: var(--accent); font-weight: 700; }
     .hero-list { margin: 0; padding-left: 18px; line-height: 1.8; }
     .summary-mini { margin-top: 18px; padding: 16px 18px; border-radius: 18px; background: rgba(255,255,255,0.62); border: 1px solid var(--line); }
     .summary-mini h2 { font-size: 15px; margin-bottom: 12px; }
@@ -100,7 +154,9 @@
         <h1>BB defend KQo vs CO open レビュー</h1>
         <p class="sub">主論点は、top two まで育った <code>KQ</code> を river の overbet value に置くべきかどうかです。当時の思考メモはないので、「強い hand は全部大きく打ちたい」という仮定で見ます。結論は、preflop defend から turn call まではかなり良く、再レビューの焦点は river size です。</p>
         <div class="chips">
-          <div class="chip">Hero: BB <code>K♣Q♠</code></div> <div class="chip">Villain: CO</div> <div class="chip">Board: <code>Q♥ 6♣ 4♦</code> / <code>K♥</code> / <code>4♣</code></div>
+          <div class="chip">Hero: BB <code>K♣Q♠</code></div>
+<div class="chip">Villain: CO</div>
+<div class="chip">Board: <code>Q♥ 6♣ 4♦</code> / <code>K♥</code> / <code>4♣</code></div>
         </div>
         <ul><li>GTO基準の総評: preflop defend、flop call、turn call はかなり自然で、見直しどころは river <code>125%pot</code> の size です。</li>
 <li>当時の思考メモはないので、<code>top two まで行ったので strong hand は全部 overbet したくなる</code> という仮定でレビューします。</li>
