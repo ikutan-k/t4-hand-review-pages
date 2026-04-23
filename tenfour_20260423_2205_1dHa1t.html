@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CO K♣J♠ の squeeze 対応レビュー</title>
+  <style>
+    :root {
+      --bg: #f4efe6;
+      --panel: rgba(255, 251, 245, 0.94);
+      --panel-strong: #fffdfa;
+      --ink: #1f1a17;
+      --muted: #6f655d;
+      --line: rgba(66, 51, 38, 0.12);
+      --accent: #8e4a2a;
+      --accent-soft: #eed7cb;
+      --good: #1d6b4d;
+      --shadow: 0 18px 50px rgba(61, 43, 32, 0.12);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "BIZ UDPGothic", "Hiragino Sans", "Yu Gothic", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(142, 74, 42, 0.12), transparent 34%),
+        radial-gradient(circle at top right, rgba(29, 107, 77, 0.12), transparent 28%),
+        linear-gradient(180deg, #f8f2ea 0%, var(--bg) 100%);
+    }
+    body.hero-theme-player {
+      --bg: #edf4f8;
+      --panel: rgba(248, 252, 255, 0.94);
+      --panel-strong: #fdfefe;
+      --line: rgba(38, 86, 117, 0.14);
+      --accent: #1f6f97;
+      --accent-soft: #d7ebf6;
+      --good: #1f6f97;
+      --shadow: 0 18px 50px rgba(35, 72, 96, 0.14);
+      background:
+        radial-gradient(circle at top left, rgba(31, 111, 151, 0.16), transparent 34%),
+        radial-gradient(circle at top right, rgba(34, 82, 116, 0.12), transparent 28%),
+        linear-gradient(180deg, #f5fafc 0%, var(--bg) 100%);
+    }
+    body.hero-theme-izacchi {
+      --bg: #eef7f1;
+      --panel: rgba(249, 254, 251, 0.94);
+      --panel-strong: #fdfefd;
+      --line: rgba(45, 138, 91, 0.16);
+      --accent: #2d8a5b;
+      --accent-soft: #d9efe3;
+      --good: #2d8a5b;
+      --shadow: 0 18px 50px rgba(37, 95, 66, 0.14);
+      background:
+        radial-gradient(circle at top left, rgba(45, 138, 91, 0.18), transparent 34%),
+        radial-gradient(circle at top right, rgba(72, 123, 88, 0.12), transparent 28%),
+        linear-gradient(180deg, #f5fbf7 0%, var(--bg) 100%);
+    }
+    body.hero-theme-riku0125 {
+      --bg: #fbf1ec;
+      --panel: rgba(255, 250, 247, 0.94);
+      --panel-strong: #fffdfb;
+      --line: rgba(199, 104, 65, 0.16);
+      --accent: #c76841;
+      --accent-soft: #f5ddd4;
+      --good: #b65935;
+      --shadow: 0 18px 50px rgba(124, 69, 47, 0.14);
+      background:
+        radial-gradient(circle at top left, rgba(199, 104, 65, 0.16), transparent 34%),
+        radial-gradient(circle at top right, rgba(156, 93, 61, 0.12), transparent 28%),
+        linear-gradient(180deg, #fdf7f3 0%, var(--bg) 100%);
+    }
+    body.hero-theme-nu0un {
+      --bg: #eef4f8;
+      --panel: rgba(249, 252, 255, 0.94);
+      --panel-strong: #fdfefe;
+      --line: rgba(77, 120, 150, 0.16);
+      --accent: #4d7896;
+      --accent-soft: #dce8f1;
+      --good: #4d7896;
+      --shadow: 0 18px 50px rgba(48, 75, 94, 0.14);
+      background:
+        radial-gradient(circle at top left, rgba(77, 120, 150, 0.16), transparent 34%),
+        radial-gradient(circle at top right, rgba(67, 104, 130, 0.12), transparent 28%),
+        linear-gradient(180deg, #f6fafc 0%, var(--bg) 100%);
+    }
+    code {
+      font-family: inherit;
+      font-size: 0.95em;
+      font-weight: 600;
+      padding: 0.08em 0.32em;
+      border-radius: 0.45em;
+      background: rgba(142, 74, 42, 0.08);
+      border: 1px solid rgba(142, 74, 42, 0.14);
+    }
+    body.hero-theme-player code {
+      background: rgba(31, 111, 151, 0.08);
+      border-color: rgba(31, 111, 151, 0.16);
+    }
+    body.hero-theme-izacchi code {
+      background: rgba(45, 138, 91, 0.08);
+      border-color: rgba(45, 138, 91, 0.16);
+    }
+    body.hero-theme-riku0125 code {
+      background: rgba(199, 104, 65, 0.08);
+      border-color: rgba(199, 104, 65, 0.16);
+    }
+    body.hero-theme-nu0un code {
+      background: rgba(77, 120, 150, 0.08);
+      border-color: rgba(77, 120, 150, 0.16);
+    }
+    .page { max-width: 1180px; margin: 0 auto; padding: 40px 24px 56px; }
+    .hero { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 24px; align-items: start; margin-bottom: 24px; }
+    .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 24px; box-shadow: var(--shadow); backdrop-filter: blur(8px); }
+    .hero-copy { padding: 28px; }
+    .eyebrow { display: inline-block; margin-bottom: 10px; padding: 6px 10px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); font-size: 13px; font-weight: 700; letter-spacing: 0.04em; }
+    h1, h2, h3 { margin: 0; line-height: 1.2; }
+    h1 { font-size: 34px; margin-bottom: 10px; }
+    .sub { margin: 0 0 18px; color: var(--muted); line-height: 1.7; font-size: 15px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 18px; }
+    .chip { padding: 8px 12px; border-radius: 999px; background: var(--panel-strong); border: 1px solid var(--line); font-size: 13px; color: var(--muted); }
+    .chip-player { background: var(--accent-soft); color: var(--accent); font-weight: 700; }
+    .hero-list { margin: 0; padding-left: 18px; line-height: 1.8; }
+    .summary-mini { margin-top: 18px; padding: 16px 18px; border-radius: 18px; background: rgba(255,255,255,0.62); border: 1px solid var(--line); }
+    .summary-mini h2 { font-size: 15px; margin-bottom: 12px; }
+    .summary-grid { display: grid; grid-template-columns: 110px 1fr; gap: 8px 12px; margin: 0; font-size: 13px; line-height: 1.6; }
+    .summary-grid dt { margin: 0; color: var(--muted); font-weight: 700; }
+    .summary-grid dd { margin: 0; }
+    .shot { padding: 18px; }
+    .shot img { width: 100%; display: block; border-radius: 18px; border: 1px solid var(--line); background: #10151d; }
+    .grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-bottom: 24px; }
+    .card { padding: 18px; }
+    .card h3 { font-size: 14px; color: var(--muted); margin-bottom: 10px; }
+    .card p { margin: 0; font-size: 15px; line-height: 1.7; }
+    .tone-good { color: var(--good); font-weight: 700; }
+    .section { padding: 24px 26px; margin-bottom: 20px; }
+    .section h2 { font-size: 22px; margin-bottom: 14px; }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    th, td { border-top: 1px solid var(--line); padding: 12px 10px; text-align: left; vertical-align: top; line-height: 1.65; }
+    th { color: var(--muted); font-weight: 700; background: rgba(255,255,255,0.42); }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    ul { margin: 0; padding-left: 18px; line-height: 1.8; }
+    @media (max-width: 960px) {
+      .hero, .two-col, .grid { grid-template-columns: 1fr; }
+      .page { padding: 24px 16px 40px; }
+      h1 { font-size: 28px; }
+    }
+  </style>
+</head>
+<body class="">
+  <main class="page">
+    <section class="hero">
+      <div class="panel hero-copy">
+        <div class="eyebrow">T4 HAND REVIEW</div>
+        <h1>CO K♣J♠ の squeeze 対応レビュー</h1>
+        <p class="sub">主論点は、CO <code>K♣J♠</code> の <code>2.3BB</code> open 自体は妥当か、その後 <code>SB</code> cold call と <code>BB</code> squeeze <code>12BB</code> を受けて <code>30BB</code> へ 4bet bluff する判断が成立するかです。結論は、<code>CO 2.3BB open</code> の <code>KJo</code> は open としては自然ですが、<code>SB</code> を残したまま <code>BB</code> の squeeze に <code>KJo</code> を 4bet で返すのはやりすぎです。<code>BB</code> の squeeze range には <code>KQo</code> のような non-premium も混ざりえますが、それでもこの node は <code>BB vs CO</code> の単純な 3bet より強く、<code>A5s/A4s</code> のような blocker bluff か、素直な fold を先に見る方が収まりやすいです。</p>
+        <div class="chips">
+          <div class="chip">Hero: CO <code>K♣J♠</code></div>
+<div class="chip">Villain: SB <code>A♣T♠</code> / BB <code>K♥Q♣</code></div>
+<div class="chip">Board: </div>
+        </div>
+        <ul><li>GTO基準の総評: <code>CO 2.3BB open</code> の <code>KJo</code> は自然です。いちばん見直したいのは、その後の <code>BB squeeze 12BB</code> に対する <code>30BB</code> の 4bet で、ここは攻めすぎです。</li>
+<li><code>CO 2.3BB</code> は repo 内の近似基準でも <code>2.5BB</code> baseline より少し広い open を置く前提なので、<code>KJo</code> は open range に十分入ります。今回のズレは open ではなく、continue の作り方です。</li>
+<li><code>SB</code> cold call が入ったあとに <code>BB</code> が squeeze しているので、<code>BB</code> の range は <code>BB vs CO</code> の単純な 3bet より凝縮しやすく、しかも <code>SB</code> がまだ uncapped で残ります。<code>KJo</code> は見た目の強さより実現率を落としやすい位置です。</li>
+<li><code>KJo</code> は offsuit broadway で open には使えても、4bet bluff としては <code>A blocker</code> がなく、5bet を受けたときにかなり苦しくなります。<code>open できる broadway</code> と <code>4bet に向く bluff</code> は分けて考えた方が安定します。</li>
+<li><code>30BB</code> という size 自体は 4bet range を持つなら自然です。問題は size より combo 選択で、ここは <code>KJo</code> を押し上げるより fold 寄りに置きたいです。</li></ul>
+        <section class="summary-mini">
+  <h2>ハンド要約</h2>
+  <dl class="summary-grid">
+    <dt>Hero</dt>
+<dd>CO <code>K♣J♠</code></dd>
+<dt>Villain</dt>
+<dd>SB <code>A♣T♠</code> / BB <code>K♥Q♣</code></dd>
+<dt>形式</dt>
+<dd>T4 6MAX Cash NL50, 100BB, Anteなし</dd>
+<dt>Preflop</dt>
+<dd>UTG fold, HJ fold, CO raise <code>2.3BB</code>, BTN fold, SB call <code>2.3BB</code>, BB raise <code>12BB</code>, CO raise <code>30BB</code>, SB fold, BB fold</dd>
+<dt>Board</dt>
+<dd></dd>
+<dt>Flop</dt>
+<dd></dd>
+<dt>Turn</dt>
+<dd></dd>
+<dt>River</dt>
+<dd></dd>
+<dt>Result</dt>
+<dd>Hero が preflop で pot <code>26.3BB</code> を獲得</dd>
+  </dl>
+</section>
+      </div>
+      <div class="panel shot">
+        <img src="./assets/hands/tenfour_20260423_2205_1dHa1t.png" alt="tenfour hand screenshot" />
+      </div>
+    </section>
+
+    <section class="grid">
+  <article class="panel card">
+  <h3>Preflop open</h3>
+  <p><span class="tone-good">自然</span><br /><code>K♣J♠</code> は CO open range に十分入る offsuit broadway で、ここを降ろす必要はありません。</p>
+</article>
+<article class="panel card">
+  <h3>Preflop vs squeeze</h3>
+  <p><span class="tone-good">やりすぎ</span><br /><code>K♣J♠</code> は open には十分でも、4bet bluff に向く最上位ではありません。<code>A blocker</code> がなく、offsuit のぶん 5bet に当たるとさらに苦しく、call でも domination を受けやすいので、continue 上位からは外れやすいです。</p>
+</article>
+<article class="panel card">
+  <h3>Flop</h3>
+  <p><span class="tone-good"></span><br /></p>
+</article>
+<article class="panel card">
+  <h3>Turn</h3>
+  <p><span class="tone-good"></span><br /></p>
+</article>
+<article class="panel card">
+  <h3>River</h3>
+  <p><span class="tone-good"></span><br /></p>
+</article>
+</section>
+
+    <section class="panel section">
+      <h2>判断のズレ</h2>
+      <table>
+  <thead>
+    <tr><th>論点</th><th>その場で起きがちな見え方</th><th>どこがズレたか</th><th>次回の基準</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>squeeze に対する 4bet bluff の選び方</td><td><code>KJo</code> は broadway で強く見え、<code>K</code> blocker もあるので前向きに返したくなる</td><td>この node では <code>K</code> blocker より <code>A</code> blocker の価値が高く、しかも <code>SB</code> がまだ残っています。<code>KJo</code> は見た目ほど 4bet 向きではなく、offsuit のぶん 5bet や multiway を受けたときの実現率もさらに落ちやすいです。</td><td><code>見た目の強さ</code> ではなく、<code>A blocker があるか</code> と <code>未行動プレイヤーが残るか</code> を先に見て 4bet bluff を選ぶ</td></tr>
+<tr><td>squeeze 後の continue の組み方</td><td>IP の broadway なので、call か raise でとりあえず続けたくなる</td><td><code>IP で open できる</code> と <code>強い条件付き range に前向きに続けられる</code> は別です。<code>SB</code> cold call -&gt; <code>BB</code> squeeze という流れでは、BB の continue range がかなり強くなり、<code>KJo</code> は call しても 4bet しても苦しくなりやすい帯に落ちます。</td><td>cold call が入った squeeze では、<code>heads-up の BB 3bet 対応</code> より一段厳しく見て、offsuit broadway の境界 hand はまず fold から入る</td></tr>
+  </tbody>
+</table>
+    </section>
+
+    <section class="panel section">
+      <h2>ストリート別レビュー</h2>
+      <table>
+  <thead>
+    <tr><th>ストリート</th><th>その時点の見え方</th><th>実ハンドの位置づけ</th><th>評価</th><th>その場の一手</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Preflop open</td><td><code>CO 2.3BB</code> は baseline <code>2.5BB</code> より少し広く open しやすい前提で、<code>BTN / blind</code> の defend も少し広がりやすい spot です。</td><td><code>K♣J♠</code> は CO open range に十分入る offsuit broadway で、ここを降ろす必要はありません。</td><td>自然</td><td>open はこのままで問題ありません。</td></tr>
+<tr><td>Preflop vs squeeze</td><td><code>SB</code> cold call のあとに <code>BB</code> が squeeze しているので、<code>BB</code> は premium だけでなく blocker 系や一部 merged hand を持てますが、なお通常の <code>BB vs CO 3bet</code> よりは強い条件付き range です。しかも <code>SB</code> がまだ残るため、CO 側の continue は一段厳しくなります。</td><td><code>K♣J♠</code> は open には十分でも、4bet bluff に向く最上位ではありません。<code>A blocker</code> がなく、offsuit のぶん 5bet に当たるとさらに苦しく、call でも domination を受けやすいので、continue 上位からは外れやすいです。</td><td>やりすぎ</td><td>default は fold 寄りです。4bet range を使うなら <code>A5s/A4s</code> 系へ譲りたいです。</td></tr>
+<tr><td>Flop</td><td></td><td></td><td></td><td></td></tr>
+<tr><td>Turn</td><td></td><td></td><td></td><td></td></tr>
+<tr><td>River</td><td></td><td></td><td></td><td></td></tr>
+  </tbody>
+</table>
+    </section>
+
+    <section class="two-col">
+      <section class="panel section">
+        <h2>持ち帰り</h2>
+        <ul><li><code>open が自然か</code> と <code>その後の 4bet/continue が自然か</code> は分けて見ると判断がぶれにくいです。今回の <code>KJo</code> は open までは良く、ズレは squeeze 対応側です。</li>
+<li><code>broadway で見た目が強い</code> ことと、<code>4bet bluff に向く</code> ことは同じではありません。特に <code>A blocker</code> の有無と offsuit / suited の差は preflop の押し返しでかなり効きます。</li>
+<li>cold call が入った squeeze spot では、<code>BB が広く squeeze しうる</code> 事実だけで戦いすぎない方がよいです。range が少し wide でも、未行動プレイヤーが残るぶん Hero 側の continue 条件も厳しくなります。</li></ul>
+      </section>
+      <section class="panel section">
+        <h2>exploit 補足</h2>
+        <ul><li><code>BB</code> が dead money を狙って <code>KQo</code> のような hand まで広く squeeze し、なおかつ 4bet に過剰に降りる pool なら、4bet bluff 自体は exploit で利益を持つことがあります。</li>
+<li>ただしその exploit を取るとしても、default の順番は <code>まず A blocker 系を使う</code> です。<code>KJo</code> まで広げるのは、相手がかなり over-squeeze / overfold と読めるときに限った方が安全です。</li></ul>
+      </section>
+    </section>
+  </main>
+</body>
+</html>
+
