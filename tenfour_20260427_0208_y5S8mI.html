@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HJ A♦K♥ の squeeze 返し all-in レビュー</title>
+  <style>
+    :root {
+      --bg: #f4efe6;
+      --panel: rgba(255, 251, 245, 0.94);
+      --panel-strong: #fffdfa;
+      --ink: #1f1a17;
+      --muted: #6f655d;
+      --line: rgba(66, 51, 38, 0.12);
+      --accent: #8e4a2a;
+      --accent-soft: #eed7cb;
+      --good: #1d6b4d;
+      --shadow: 0 18px 50px rgba(61, 43, 32, 0.12);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "BIZ UDPGothic", "Hiragino Sans", "Yu Gothic", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(142, 74, 42, 0.12), transparent 34%),
+        radial-gradient(circle at top right, rgba(29, 107, 77, 0.12), transparent 28%),
+        linear-gradient(180deg, #f8f2ea 0%, var(--bg) 100%);
+    }
+    body.hero-theme-player {
+      --bg: #edf4f8;
+      --panel: rgba(248, 252, 255, 0.94);
+      --panel-strong: #fdfefe;
+      --line: rgba(38, 86, 117, 0.14);
+      --accent: #1f6f97;
+      --accent-soft: #d7ebf6;
+      --good: #1f6f97;
+      --shadow: 0 18px 50px rgba(35, 72, 96, 0.14);
+      background:
+        radial-gradient(circle at top left, rgba(31, 111, 151, 0.16), transparent 34%),
+        radial-gradient(circle at top right, rgba(34, 82, 116, 0.12), transparent 28%),
+        linear-gradient(180deg, #f5fafc 0%, var(--bg) 100%);
+    }
+    body.hero-theme-izacchi {
+      --bg: #eef7f1;
+      --panel: rgba(249, 254, 251, 0.94);
+      --panel-strong: #fdfefd;
+      --line: rgba(45, 138, 91, 0.16);
+      --accent: #2d8a5b;
+      --accent-soft: #d9efe3;
+      --good: #2d8a5b;
+      --shadow: 0 18px 50px rgba(37, 95, 66, 0.14);
+      background:
+        radial-gradient(circle at top left, rgba(45, 138, 91, 0.18), transparent 34%),
+        radial-gradient(circle at top right, rgba(72, 123, 88, 0.12), transparent 28%),
+        linear-gradient(180deg, #f5fbf7 0%, var(--bg) 100%);
+    }
+    body.hero-theme-riku0125 {
+      --bg: #fbf1ec;
+      --panel: rgba(255, 250, 247, 0.94);
+      --panel-strong: #fffdfb;
+      --line: rgba(199, 104, 65, 0.16);
+      --accent: #c76841;
+      --accent-soft: #f5ddd4;
+      --good: #b65935;
+      --shadow: 0 18px 50px rgba(124, 69, 47, 0.14);
+      background:
+        radial-gradient(circle at top left, rgba(199, 104, 65, 0.16), transparent 34%),
+        radial-gradient(circle at top right, rgba(156, 93, 61, 0.12), transparent 28%),
+        linear-gradient(180deg, #fdf7f3 0%, var(--bg) 100%);
+    }
+    body.hero-theme-nu0un {
+      --bg: #eef4f8;
+      --panel: rgba(249, 252, 255, 0.94);
+      --panel-strong: #fdfefe;
+      --line: rgba(77, 120, 150, 0.16);
+      --accent: #4d7896;
+      --accent-soft: #dce8f1;
+      --good: #4d7896;
+      --shadow: 0 18px 50px rgba(48, 75, 94, 0.14);
+      background:
+        radial-gradient(circle at top left, rgba(77, 120, 150, 0.16), transparent 34%),
+        radial-gradient(circle at top right, rgba(67, 104, 130, 0.12), transparent 28%),
+        linear-gradient(180deg, #f6fafc 0%, var(--bg) 100%);
+    }
+    code {
+      font-family: inherit;
+      font-size: 0.95em;
+      font-weight: 600;
+      padding: 0.08em 0.32em;
+      border-radius: 0.45em;
+      background: rgba(142, 74, 42, 0.08);
+      border: 1px solid rgba(142, 74, 42, 0.14);
+    }
+    body.hero-theme-player code {
+      background: rgba(31, 111, 151, 0.08);
+      border-color: rgba(31, 111, 151, 0.16);
+    }
+    body.hero-theme-izacchi code {
+      background: rgba(45, 138, 91, 0.08);
+      border-color: rgba(45, 138, 91, 0.16);
+    }
+    body.hero-theme-riku0125 code {
+      background: rgba(199, 104, 65, 0.08);
+      border-color: rgba(199, 104, 65, 0.16);
+    }
+    body.hero-theme-nu0un code {
+      background: rgba(77, 120, 150, 0.08);
+      border-color: rgba(77, 120, 150, 0.16);
+    }
+    .page { max-width: 1180px; margin: 0 auto; padding: 40px 24px 56px; }
+    .hero { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 24px; align-items: start; margin-bottom: 24px; }
+    .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 24px; box-shadow: var(--shadow); backdrop-filter: blur(8px); }
+    .hero-copy { padding: 28px; }
+    .eyebrow { display: inline-block; margin-bottom: 10px; padding: 6px 10px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); font-size: 13px; font-weight: 700; letter-spacing: 0.04em; }
+    h1, h2, h3 { margin: 0; line-height: 1.2; }
+    h1 { font-size: 34px; margin-bottom: 10px; }
+    .sub { margin: 0 0 18px; color: var(--muted); line-height: 1.7; font-size: 15px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 18px; }
+    .chip { padding: 8px 12px; border-radius: 999px; background: var(--panel-strong); border: 1px solid var(--line); font-size: 13px; color: var(--muted); }
+    .chip-player { background: var(--accent-soft); color: var(--accent); font-weight: 700; }
+    .hero-list { margin: 0; padding-left: 18px; line-height: 1.8; }
+    .summary-mini { margin-top: 18px; padding: 16px 18px; border-radius: 18px; background: rgba(255,255,255,0.62); border: 1px solid var(--line); }
+    .summary-mini h2 { font-size: 15px; margin-bottom: 12px; }
+    .summary-grid { display: grid; grid-template-columns: 110px 1fr; gap: 8px 12px; margin: 0; font-size: 13px; line-height: 1.6; }
+    .summary-grid dt { margin: 0; color: var(--muted); font-weight: 700; }
+    .summary-grid dd { margin: 0; }
+    .shot { padding: 18px; }
+    .shot img { width: 100%; display: block; border-radius: 18px; border: 1px solid var(--line); background: #10151d; }
+    .grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-bottom: 24px; }
+    .card { padding: 18px; }
+    .card h3 { font-size: 14px; color: var(--muted); margin-bottom: 10px; }
+    .card p { margin: 0; font-size: 15px; line-height: 1.7; }
+    .tone-good { color: var(--good); font-weight: 700; }
+    .section { padding: 24px 26px; margin-bottom: 20px; }
+    .section h2 { font-size: 22px; margin-bottom: 14px; }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    th, td { border-top: 1px solid var(--line); padding: 12px 10px; text-align: left; vertical-align: top; line-height: 1.65; }
+    th { color: var(--muted); font-weight: 700; background: rgba(255,255,255,0.42); }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    ul { margin: 0; padding-left: 18px; line-height: 1.8; }
+    @media (max-width: 960px) {
+      .hero, .two-col, .grid { grid-template-columns: 1fr; }
+      .page { padding: 24px 16px 40px; }
+      h1 { font-size: 28px; }
+    }
+  </style>
+</head>
+<body class="">
+  <main class="page">
+    <section class="hero">
+      <div class="panel hero-copy">
+        <div class="eyebrow">T4 HAND REVIEW</div>
+        <h1>HJ A♦K♥ の squeeze 返し all-in レビュー</h1>
+        <p class="sub">主論点は、HJ <code>A♦K♥</code> で <code>2BB</code> open したあと、CO call、BTN squeeze <code>8BB</code>、BB cold call まで入った spot で、<code>100BB</code> all-in に返す判断が自然かどうかです。結論は、<code>AKo</code> はここで fold する hand ではなく、4bet で返すこと自体はかなり自然です。ただし <code>8BB</code> squeeze に対して <code>100BB</code> jam は大きいので、GTO基準では小さめの 4bet を本線にしつつ、実戦で相手が広く squeeze / cold call して降りすぎるなら all-in もかなり利益的、という整理がよいです。</p>
+        <div class="chips">
+          <div class="chip">Hero: HJ <code>A♦K♥</code></div>
+<div class="chip">Villain: CO / BTN / BB</div>
+<div class="chip">Board: </div>
+        </div>
+        <ul><li>GTO基準の総評: <code>A♦K♥</code> の open と squeeze への 4bet は良いです。見直すなら action ではなく size で、<code>100BB</code> jam は攻撃的です。標準線は <code>22-26BB</code> 前後の 4bet/call も強く候補になります。</li>
+<li>CO cold call と BB cold call で dead money は大きく、Hero が flat call すると multiway かつ OOP 寄りで <code>AKo</code> の実現率が落ちます。ここは call より raise で pot を取りにいく発想が自然です。</li>
+<li>一方で、BTN の squeeze と BB の cold call は条件付きでそれなりに強い range です。<code>AKo</code> は <code>AA/KK</code> を強く block しますが、jam に call されると <code>QQ+ / AK</code> 寄りに当たりやすく、単に「強いから全部入れる」だけでは少し粗いです。</li>
+<li>実戦では、相手側に <code>AJo</code> や <code>KQo</code> のような広い続行が見えており、この pool には all-in の fold equity と domination value がかなり働きます。exploit としては良い寄せ方です。</li></ul>
+        <section class="summary-mini">
+  <h2>ハンド要約</h2>
+  <dl class="summary-grid">
+    <dt>Hero</dt>
+<dd>HJ <code>A♦K♥</code></dd>
+<dt>Villain</dt>
+<dd>CO / BTN / BB</dd>
+<dt>形式</dt>
+<dd>T4 6MAX Cash NL50, 100BB, Anteなし</dd>
+<dt>Preflop</dt>
+<dd>UTG fold, HJ raise <code>2BB</code>, CO call <code>2BB</code>, BTN raise <code>8BB</code>, SB fold, BB call <code>8BB</code>, HJ raise <code>100BB</code>, CO fold, BTN fold, BB fold</dd>
+<dt>Board</dt>
+<dd></dd>
+<dt>Flop</dt>
+<dd></dd>
+<dt>Turn</dt>
+<dd></dd>
+<dt>River</dt>
+<dd></dd>
+<dt>Result</dt>
+<dd>Hero won <code>26.5BB</code></dd>
+  </dl>
+</section>
+      </div>
+      <div class="panel shot">
+        <img src="./assets/hands/tenfour_20260427_0208_y5S8mI.png" alt="tenfour hand screenshot" />
+      </div>
+    </section>
+
+    <section class="grid">
+  <article class="panel card">
+  <h3>Preflop open</h3>
+  <p><span class="tone-good">良い</span><br /><code>A♦K♥</code> は HJ open の最上位付近です。</p>
+</article>
+<article class="panel card">
+  <h3>Preflop vs squeeze</h3>
+  <p><span class="tone-good">良いが size は攻撃的</span><br /><code>AKo</code> は <code>AA/KK</code> blocker を持つ clear 4bet hand です。flat より raise が自然ですが、100BB jam はかなり大きく、call される range は濃くなります。</p>
+</article>
+<article class="panel card">
+  <h3>Flop</h3>
+  <p><span class="tone-good"></span><br /></p>
+</article>
+<article class="panel card">
+  <h3>Turn</h3>
+  <p><span class="tone-good"></span><br /></p>
+</article>
+<article class="panel card">
+  <h3>River</h3>
+  <p><span class="tone-good"></span><br /></p>
+</article>
+</section>
+
+    <section class="panel section">
+      <h2>判断のズレ</h2>
+      <table>
+  <thead>
+    <tr><th>論点</th><th>その場で起きがちな見え方</th><th>どこがズレやすいか</th><th>次回の基準</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>AKo</code> の 100BB jam</td><td>blocker もあり、dead money も大きいので即 all-in でよさそうに見える</td><td><code>AKo</code> は強い 4bet hand ですが、jam に call される range は一気に強くなります。小さめ 4bet なら <code>AQ/AJ/KQ</code> などの dominated hand を残せる余地もあります。</td><td>default は <code>22-26BB</code> 前後の 4bet/call を持ち、相手が広く squeeze して過剰に降りるなら jam に寄せる</td></tr>
+<tr><td>dead money の見積もり</td><td>CO と BB の分まで pot が膨らんでいるので、かなり広く取りにいきたくなる</td><td>dead money は jam の価値を上げますが、BTN squeeze と BB cold call の時点で相手 range も条件付きに強くなっています。pot の大きさだけでなく、call されたときの相手 range も同時に見る必要があります。</td><td>squeeze 返しでは <code>今落ちている額</code> と <code>call されたときの range</code> をセットで見て、size を決める</td></tr>
+  </tbody>
+</table>
+    </section>
+
+    <section class="panel section">
+      <h2>ストリート別レビュー</h2>
+      <table>
+  <thead>
+    <tr><th>ストリート</th><th>その時点の見え方</th><th>実ハンドの位置づけ</th><th>評価</th><th>その場の一手</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Preflop open</td><td>HJ の <code>2BB</code> open はこの環境では自然です。後ろに broadway や pocket が残るものの、HJ range はまだ上側を多く持てます。</td><td><code>A♦K♥</code> は HJ open の最上位付近です。</td><td>良い</td><td>open は問題ありません。</td></tr>
+<tr><td>Preflop vs squeeze</td><td>CO call 後に BTN が <code>8BB</code> squeeze、さらに BB が cold call しています。pot は大きい一方、BTN は強い value と blocker bluff、BB は pocket / suited broadway / trap を持ちえます。Hero が call すると CO も参加しやすく、<code>AKo</code> の実現率は落ちます。</td><td><code>AKo</code> は <code>AA/KK</code> blocker を持つ clear 4bet hand です。flat より raise が自然ですが、100BB jam はかなり大きく、call される range は濃くなります。</td><td>良いが size は攻撃的</td><td>標準は小さめ 4bet/call も有力です。相手が広く squeeze して overfold するなら、今回の jam はかなり実戦的です。</td></tr>
+<tr><td>Flop</td><td></td><td></td><td></td><td></td></tr>
+<tr><td>Turn</td><td></td><td></td><td></td><td></td></tr>
+<tr><td>River</td><td></td><td></td><td></td><td></td></tr>
+  </tbody>
+</table>
+    </section>
+
+    <section class="two-col">
+      <section class="panel section">
+        <h2>持ち帰り</h2>
+        <ul><li><code>AKo</code> は CO call + BTN squeeze + BB cold call でも fold に回す hand ではありません。call より 4bet で返す発想はかなり自然です。</li>
+<li>ただし、<code>4bet する</code> と <code>100BB jam する</code> は別です。default では小さめ 4bet/call を持ち、相手の squeeze が広い、または 4bet に降りすぎると見えるときに jam へ寄せると整理しやすいです。</li>
+<li>squeeze spot では dead money だけを見ず、call されたときにどの range と戦うかを先に置くと、size の選び方が安定します。</li></ul>
+      </section>
+      <section class="panel section">
+        <h2>exploit 補足</h2>
+        <ul><li>実戦の相手側には、BTN squeeze の <code>A♥J♣</code>、BB cold call の <code>K♣Q♠</code>、CO cold call の <code>6♥6♦</code> が含まれていました。この広さなら、<code>AKo</code> all-in はかなり利益が出やすいです。</li>
+<li>逆に、BTN の squeeze がかなり強く、BB cold call も trap 多めの相手なら、同じ <code>AKo</code> でも小さめ 4bet/call の方がレンジ全体を守りやすいです。</li></ul>
+      </section>
+    </section>
+  </main>
+</body>
+</html>
+
