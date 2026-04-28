@@ -127,6 +127,23 @@
     .summary-grid dd { margin: 0; }
     .shot { padding: 18px; }
     .shot img { width: 100%; display: block; border-radius: 18px; border: 1px solid var(--line); background: #10151d; }
+    .text-shot { min-height: 100%; display: flex; }
+    .ps-hand { width: 100%; min-height: 420px; display: flex; flex-direction: column; justify-content: space-between; gap: 18px; padding: 18px; border-radius: 18px; border: 1px solid var(--line); background: var(--panel-strong); }
+    .ps-topline { display: flex; justify-content: space-between; gap: 14px; color: var(--muted); font-size: 12px; font-weight: 700; letter-spacing: 0.04em; }
+    .ps-topline strong { color: var(--accent); }
+    .ps-players { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+    .ps-player-card { min-height: 92px; display: flex; flex-direction: column; justify-content: space-between; gap: 10px; padding: 14px; border-radius: 14px; border: 1px solid var(--line); }
+    .ps-player-card-hero { background: var(--accent-soft); color: var(--accent); border-color: rgba(142, 74, 42, 0.22); }
+    .ps-player-card-villain { background: rgba(29, 107, 77, 0.10); color: #1d6b4d; border-color: rgba(29, 107, 77, 0.24); }
+    .ps-player-label { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+    .ps-role { font-size: 11px; font-weight: 800; letter-spacing: 0; text-transform: uppercase; }
+    .ps-seat { font-size: 12px; font-weight: 800; opacity: 0.78; }
+    .ps-hole { font-size: 26px; font-weight: 800; letter-spacing: 0; line-height: 1.1; }
+    .ps-meta { display: grid; grid-template-columns: 70px 1fr; gap: 8px 12px; margin: 0; font-size: 13px; line-height: 1.55; }
+    .ps-meta dt { margin: 0; color: var(--muted); font-weight: 700; }
+    .ps-meta dd { margin: 0; }
+    .ps-actions { margin: 0; padding: 14px 14px 14px 34px; border-radius: 16px; border: 1px solid var(--line); background: rgba(255,255,255,0.54); line-height: 1.65; font-size: 14px; }
+    .ps-actions li::marker { color: var(--accent); font-weight: 700; }
     .grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-bottom: 24px; }
     .card { padding: 18px; }
     .card h3 { font-size: 14px; color: var(--muted); margin-bottom: 10px; }
@@ -186,8 +203,8 @@
 </section>
       </div>
       <div class="panel shot">
-        <img src="./assets/hands/tenfour_20260406_0131_DJD8YK.png" alt="tenfour hand screenshot" />
-      </div>
+  <img src="./assets/hands/tenfour_20260406_0131_DJD8YK.png" alt="tenfour hand screenshot" />
+</div>
     </section>
 
     <section class="grid">

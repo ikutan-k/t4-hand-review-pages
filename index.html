@@ -332,6 +332,26 @@
       box-shadow: 0 16px 36px rgba(48, 75, 94, 0.12);
     }
 
+    .review-card-preflop {
+      --street-accent: #8a5a12;
+      --street-soft: rgba(190, 140, 47, 0.14);
+      border-color: rgba(190, 140, 47, 0.28);
+      background:
+        linear-gradient(135deg, rgba(255, 246, 224, 0.9), rgba(255, 255, 255, 0.88)),
+        rgba(255, 255, 255, 0.82);
+    }
+
+    .review-card-preflop:hover,
+    .review-card-preflop:focus-visible {
+      border-color: rgba(190, 140, 47, 0.46);
+      box-shadow: 0 16px 36px rgba(117, 78, 20, 0.13);
+    }
+
+    .review-card-postflop {
+      --street-accent: #1f6b5c;
+      --street-soft: rgba(31, 107, 92, 0.12);
+    }
+
     .time-rail {
       display: grid;
       gap: 6px;
@@ -396,6 +416,12 @@
     .tag-player {
       background: var(--player-tag-bg, var(--alt-soft));
       color: var(--player-accent, var(--alt-accent));
+    }
+
+    .tag-preflop,
+    .tag-postflop {
+      background: var(--street-soft);
+      color: var(--street-accent);
     }
 
     .overview {
@@ -531,15 +557,15 @@
       <div class="hero-meta">
         <div class="hero-stat">
           <strong>&#21454;&#37682;&#25968;</strong>
-          <span>48&#20214; / 18&#26085; / &#12510;&#12473;&#12463; 4&#20214;</span>
+          <span>118&#20214; / 19&#26085; / &#12510;&#12473;&#12463; 4&#20214;</span>
         </div>
         <div class="hero-stat">
           <strong>&#26368;&#26032;&#12524;&#12499;&#12517;&#12540;</strong>
-          <span>2026.04.28 19:49</span>
+          <span>2026.04.29 02:06</span>
         </div>
         <div class="hero-stat">
           <strong>&#29983;&#25104;&#26178;&#21051;</strong>
-          <span>2026.04.28 20:01:51</span>
+          <span>2026.04.29 03:39:38</span>
         </div>
       </div>
     </section>
@@ -551,12 +577,16 @@
       </div>
       <div class="toolbar-row">
         <div class="filter-meta">
-          <span id="visibleCounter">48 / 48&#20214;</span>
+          <span id="visibleCounter">118 / 118&#20214;</span>
         </div>
         <nav class="date-nav" aria-label="&#26085;&#20184;&#12472;&#12515;&#12531;&#12503;">
-  <a class="date-chip" href="#day-20260428">
+  <a class="date-chip" href="#day-20260429">
+  <span>4/29</span>
+  <strong>42</strong>
+</a>
+<a class="date-chip" href="#day-20260428">
   <span>4/28</span>
-  <strong>7</strong>
+  <strong>35</strong>
 </a>
 <a class="date-chip" href="#day-20260427">
   <span>4/27</span>
@@ -631,13 +661,845 @@
     </section>
 
     <div id="reviewContainer">
-      <section class="day-section panel" id="day-20260428">
+      <section class="day-section panel" id="day-20260429">
+  <div class="day-header">
+    <div>
+      <p class="day-kicker">&#12524;&#12499;&#12517;&#12540;&#26085;</p>
+      <h2>2026.04.29 (水)</h2>
+    </div>
+    <span class="day-count" data-default-count="42">42&#20214;</span>
+  </div>
+  <div class="review-list">
+    <a class="review-card review-card-preflop" href="./202604290206_LQVag3_UTG_AcQc.html" data-search="utg aqs オープンレビュー ikutan utg a♣ q♣ behind players / blinds utg hero raise 2bb / hj fold / co fold / btn fold / sb fold / bb fold utg hero won 2.5bb 202604290206_lqvag3_utg_acqc">
+  <div class="time-rail">
+    <span class="time-value">02:06</span>
+    <span class="time-date">4/29</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>UTG AQs オープンレビュー</h3>
+      <div class="tag-row"><span class="tag tag-accent">&#26368;&#26032;</span><span class="tag tag-preflop">PREFLOP</span></div>
+    </div>
+    <p class="overview">Hero: ikutaN UTG A♣ Q♣ / Result: UTG Hero won 2.5bb</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>ikutaN UTG A♣ Q♣</span></span>
+<span class="meta-item"><strong>Result</strong><span>UTG Hero won 2.5bb</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>202604290206_LQVag3_UTG_AcQc</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card review-card-postflop" href="./202604290205_hscIWo_BB_Kh6s.html" data-search="bb k6o a-high flop fold レビュー ikutan bb k♥ 6♠ btn utg fold / hj fold / co fold / btn raise 2bb / sb fold / bb hero call 2bb a♣ 7♠ 2♠ btn won 4.27bb 202604290205_hsciwo_bb_kh6s">
+  <div class="time-rail">
+    <span class="time-value">02:05</span>
+    <span class="time-date">4/29</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>BB K6o A-high flop fold レビュー</h3>
+      <div class="tag-row"><span class="tag tag-postflop">POSTFLOP</span></div>
+    </div>
+    <p class="overview">Hero: ikutaN BB K♥ 6♠ / Board: A♣ 7♠ 2♠ / Result: BTN won 4.27bb</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>ikutaN BB K♥ 6♠</span></span>
+<span class="meta-item"><strong>Board</strong><span>A♣ 7♠ 2♠</span></span>
+<span class="meta-item"><strong>Result</strong><span>BTN won 4.27bb</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>202604290205_hscIWo_BB_Kh6s</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card review-card-preflop" href="./202604290202_l0S5fR_UTG_AcJh.html" data-search="utg ajo 3bet-fold レビュー ikutan utg a♣ j♥ btn 3bettor utg hero raise 2bb / hj fold / co fold / btn raise 9bb / sb fold / bb fold / utg hero fold btn won 5.5bb 202604290202_l0s5fr_utg_acjh">
+  <div class="time-rail">
+    <span class="time-value">02:02</span>
+    <span class="time-date">4/29</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>UTG AJo 3bet-fold レビュー</h3>
+      <div class="tag-row"><span class="tag tag-preflop">PREFLOP</span></div>
+    </div>
+    <p class="overview">Hero: ikutaN UTG A♣ J♥ / Result: BTN won 5.5bb</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>ikutaN UTG A♣ J♥</span></span>
+<span class="meta-item"><strong>Result</strong><span>BTN won 5.5bb</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>202604290202_l0S5fR_UTG_AcJh</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card review-card-postflop" href="./202604290201_XeZLwS_BTN_6d5d.html" data-search="btn 65s k-high c-bet レビュー ikutan btn 6♦ 5♦ bb utg fold / hj fold / co fold / btn hero raise 2.5bb / sb fold / bb call 2.5bb k♥ 8♠ 3♣ btn hero won 5.22bb 202604290201_xezlws_btn_6d5d">
+  <div class="time-rail">
+    <span class="time-value">02:01</span>
+    <span class="time-date">4/29</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>BTN 65s K-high c-bet レビュー</h3>
+      <div class="tag-row"><span class="tag tag-postflop">POSTFLOP</span></div>
+    </div>
+    <p class="overview">Hero: ikutaN BTN 6♦ 5♦ / Board: K♥ 8♠ 3♣ / Result: BTN Hero won 5.22bb</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>ikutaN BTN 6♦ 5♦</span></span>
+<span class="meta-item"><strong>Board</strong><span>K♥ 8♠ 3♣</span></span>
+<span class="meta-item"><strong>Result</strong><span>BTN Hero won 5.22bb</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>202604290201_XeZLwS_BTN_6d5d</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card review-card-preflop" href="./202604290200_CQbBJ6_BTN_KdTh.html" data-search="btn kto オープンレビュー ikutan btn k♦ t♥ blinds utg fold / hj fold / co fold / btn hero raise 2.5bb / sb fold / bb fold btn hero won 2.5bb 202604290200_cqbbj6_btn_kdth">
+  <div class="time-rail">
+    <span class="time-value">02:00</span>
+    <span class="time-date">4/29</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>BTN KTo オープンレビュー</h3>
+      <div class="tag-row"><span class="tag tag-preflop">PREFLOP</span></div>
+    </div>
+    <p class="overview">Hero: ikutaN BTN K♦ T♥ / Result: BTN Hero won 2.5bb</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>ikutaN BTN K♦ T♥</span></span>
+<span class="meta-item"><strong>Result</strong><span>BTN Hero won 2.5bb</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>202604290200_CQbBJ6_BTN_KdTh</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card review-card-preflop" href="./202604290159_8LW3bb_SB_3h3c.html" data-search="sb 33 オープンレビュー ikutan sb 3♥ 3♣ bb utg fold / hj fold / co fold / btn fold / sb hero raise 3bb / bb fold sb hero won 2bb 202604290159_8lw3bb_sb_3h3c">
+  <div class="time-rail">
+    <span class="time-value">01:59</span>
+    <span class="time-date">4/29</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>SB 33 オープンレビュー</h3>
+      <div class="tag-row"><span class="tag tag-preflop">PREFLOP</span></div>
+    </div>
+    <p class="overview">Hero: ikutaN SB 3♥ 3♣ / Result: SB Hero won 2bb</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>ikutaN SB 3♥ 3♣</span></span>
+<span class="meta-item"><strong>Result</strong><span>SB Hero won 2bb</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>202604290159_8LW3bb_SB_3h3c</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card review-card-postflop" href="./202604290158_DvdOzO_CO_Kc6c.html" data-search="co k6s multiway top pair レビュー ikutan co k♣ 6♣ bb / btn utg fold / hj fold / co hero raise 2.3bb / btn call 2.3bb / sb fold / bb call 2.3bb k♠ t♥ 5♥ 5♦ 3♦ co hero won 31.2bb 202604290158_dvdozo_co_kc6c">
+  <div class="time-rail">
+    <span class="time-value">01:58</span>
+    <span class="time-date">4/29</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>CO K6s multiway top pair レビュー</h3>
+      <div class="tag-row"><span class="tag tag-postflop">POSTFLOP</span></div>
+    </div>
+    <p class="overview">Hero: ikutaN CO K♣ 6♣ / Board: K♠ T♥ 5♥ 5♦ 3♦ / Result: CO Hero won 31.2bb</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>ikutaN CO K♣ 6♣</span></span>
+<span class="meta-item"><strong>Board</strong><span>K♠ T♥ 5♥ 5♦ 3♦</span></span>
+<span class="meta-item"><strong>Result</strong><span>CO Hero won 31.2bb</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>202604290158_DvdOzO_CO_Kc6c</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card review-card-preflop" href="./202604290158_8C85mW_BTN_Ks9s.html" data-search="btn k9s オープンレビュー ikutan btn k♠ 9♠ blinds utg fold / hj fold / co fold / btn hero raise 2.5bb / sb fold / bb fold btn hero won 2.5bb 202604290158_8c85mw_btn_ks9s">
+  <div class="time-rail">
+    <span class="time-value">01:58</span>
+    <span class="time-date">4/29</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>BTN K9s オープンレビュー</h3>
+      <div class="tag-row"><span class="tag tag-preflop">PREFLOP</span></div>
+    </div>
+    <p class="overview">Hero: ikutaN BTN K♠ 9♠ / Result: BTN Hero won 2.5bb</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>ikutaN BTN K♠ 9♠</span></span>
+<span class="meta-item"><strong>Result</strong><span>BTN Hero won 2.5bb</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>202604290158_8C85mW_BTN_Ks9s</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card review-card-preflop" href="./202604290156_e7HWUX_BTN_Ah3h.html" data-search="btn a3s 3bet-fold レビュー ikutan btn a♥ 3♥ bb 3bettor utg fold / hj fold / co fold / btn hero raise 2.5bb / sb fold / bb raise 10bb / btn hero fold bb won 5.5bb 202604290156_e7hwux_btn_ah3h">
+  <div class="time-rail">
+    <span class="time-value">01:56</span>
+    <span class="time-date">4/29</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>BTN A3s 3bet-fold レビュー</h3>
+      <div class="tag-row"><span class="tag tag-preflop">PREFLOP</span></div>
+    </div>
+    <p class="overview">Hero: ikutaN BTN A♥ 3♥ / Result: BB won 5.5bb</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>ikutaN BTN A♥ 3♥</span></span>
+<span class="meta-item"><strong>Result</strong><span>BB won 5.5bb</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>202604290156_e7HWUX_BTN_Ah3h</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card review-card-postflop" href="./202604290155_GXkLIp_BB_As5s.html" data-search="bb a5s river full house call レビュー ikutan bb a♠ 5♠ btn utg fold / hj fold / co fold / btn raise 3bb / sb fold / bb hero call 3bb a♥ 3♥ 3♣ a♦ 2♠ btn won 18.02bb / bb hero won 18.02bb 202604290155_gxklip_bb_as5s">
+  <div class="time-rail">
+    <span class="time-value">01:55</span>
+    <span class="time-date">4/29</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>BB A5s river full house call レビュー</h3>
+      <div class="tag-row"><span class="tag tag-postflop">POSTFLOP</span></div>
+    </div>
+    <p class="overview">Hero: ikutaN BB A♠ 5♠ / Board: A♥ 3♥ 3♣ A♦ 2♠ / Result: BTN won 18.02bb / BB Hero won 18.02bb</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>ikutaN BB A♠ 5♠</span></span>
+<span class="meta-item"><strong>Board</strong><span>A♥ 3♥ 3♣ A♦ 2♠</span></span>
+<span class="meta-item"><strong>Result</strong><span>BTN won 18.02bb / BB Hero won 18.02bb</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>202604290155_GXkLIp_BB_As5s</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card review-card-postflop" href="./202604290153_tQ5bc2_HJ_6s6c.html" data-search="hj 66 squeeze fold レビュー ikutan hj 6♠ 6♣ bb utg fold / hj hero raise 2bb / co fold / btn call 2bb / sb fold / bb raise 12bb / hj hero fold / btn call 12bb q♦ t♣ 9♣ 3♥ bb won 25.17bb 202604290153_tq5bc2_hj_6s6c">
+  <div class="time-rail">
+    <span class="time-value">01:53</span>
+    <span class="time-date">4/29</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>HJ 66 squeeze fold レビュー</h3>
+      <div class="tag-row"><span class="tag tag-postflop">POSTFLOP</span></div>
+    </div>
+    <p class="overview">Hero: ikutaN HJ 6♠ 6♣ / Board: Q♦ T♣ 9♣ 3♥ / Result: BB won 25.17bb</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>ikutaN HJ 6♠ 6♣</span></span>
+<span class="meta-item"><strong>Board</strong><span>Q♦ T♣ 9♣ 3♥</span></span>
+<span class="meta-item"><strong>Result</strong><span>BB won 25.17bb</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>202604290153_tQ5bc2_HJ_6s6c</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card review-card-postflop" href="./202604290152_p43b8v_UTG_AcQc.html" data-search="utg aqs broadway flop c-bet レビュー ikutan utg a♣ q♣ bb utg hero raise 2bb / hj fold / co fold / btn fold / sb fold / bb call 2bb a♥ j♦ t♥ utg hero won 4.27bb 202604290152_p43b8v_utg_acqc">
+  <div class="time-rail">
+    <span class="time-value">01:52</span>
+    <span class="time-date">4/29</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>UTG AQs broadway flop c-bet レビュー</h3>
+      <div class="tag-row"><span class="tag tag-postflop">POSTFLOP</span></div>
+    </div>
+    <p class="overview">Hero: ikutaN UTG A♣ Q♣ / Board: A♥ J♦ T♥ / Result: UTG Hero won 4.27bb</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>ikutaN UTG A♣ Q♣</span></span>
+<span class="meta-item"><strong>Board</strong><span>A♥ J♦ T♥</span></span>
+<span class="meta-item"><strong>Result</strong><span>UTG Hero won 4.27bb</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>202604290152_p43b8v_UTG_AcQc</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card review-card-preflop" href="./202604290146_yTIunb_SB_KhKc.html" data-search="sb kk オープンレビュー ikutan sb k♥ k♣ bb utg fold / hj fold / co fold / btn fold / sb hero raise 2bb / bb fold sb hero won 2bb 202604290146_ytiunb_sb_khkc">
+  <div class="time-rail">
+    <span class="time-value">01:46</span>
+    <span class="time-date">4/29</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>SB KK オープンレビュー</h3>
+      <div class="tag-row"><span class="tag tag-preflop">PREFLOP</span></div>
+    </div>
+    <p class="overview">Hero: ikutaN SB K♥ K♣ / Result: SB Hero won 2bb</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>ikutaN SB K♥ K♣</span></span>
+<span class="meta-item"><strong>Result</strong><span>SB Hero won 2bb</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>202604290146_yTIunb_SB_KhKc</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card review-card-postflop" href="./202604290145_vCff9I_BTN_AdJd.html" data-search="btn ajs river nut flush 3bet レビュー ikutan btn a♦ j♦ bb utg fold / hj fold / co fold / btn hero raise 2.5bb / sb fold / bb call 2.5bb t♦ 9♣ 2♦ 6♣ 7♦ btn hero won 196.5bb 202604290145_vcff9i_btn_adjd">
+  <div class="time-rail">
+    <span class="time-value">01:45</span>
+    <span class="time-date">4/29</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>BTN AJs river nut flush 3bet レビュー</h3>
+      <div class="tag-row"><span class="tag tag-postflop">POSTFLOP</span></div>
+    </div>
+    <p class="overview">Hero: ikutaN BTN A♦ J♦ / Board: T♦ 9♣ 2♦ 6♣ 7♦ / Result: BTN Hero won 196.5bb</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>ikutaN BTN A♦ J♦</span></span>
+<span class="meta-item"><strong>Board</strong><span>T♦ 9♣ 2♦ 6♣ 7♦</span></span>
+<span class="meta-item"><strong>Result</strong><span>BTN Hero won 196.5bb</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>202604290145_vCff9I_BTN_AdJd</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card review-card-postflop" href="./202604290139_iD7z5b_HJ_Ks9s.html" data-search="hj k9s river flush raise レビュー ikutan hj k♠ 9♠ bb utg fold / hj hero raise 2bb / co fold / btn fold / sb fold / bb call 2bb 8♥ 6♦ 3♠ 8♠ a♠ hj hero won 14.25bb 202604290139_id7z5b_hj_ks9s">
+  <div class="time-rail">
+    <span class="time-value">01:39</span>
+    <span class="time-date">4/29</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>HJ K9s river flush raise レビュー</h3>
+      <div class="tag-row"><span class="tag tag-postflop">POSTFLOP</span></div>
+    </div>
+    <p class="overview">Hero: ikutaN HJ K♠ 9♠ / Board: 8♥ 6♦ 3♠ 8♠ A♠ / Result: HJ Hero won 14.25bb</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>ikutaN HJ K♠ 9♠</span></span>
+<span class="meta-item"><strong>Board</strong><span>8♥ 6♦ 3♠ 8♠ A♠</span></span>
+<span class="meta-item"><strong>Result</strong><span>HJ Hero won 14.25bb</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>202604290139_iD7z5b_HJ_Ks9s</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card review-card-postflop" href="./202604290133_ER23xW_SB_AdJc.html" data-search="sb ajo nut diamond draw 3bet pot レビュー ikutan sb a♦ j♣ btn utg fold / hj fold / co fold / btn raise 3bb / sb hero raise 11bb / bb fold / btn call 11bb q♦ 9♦ 7♦ a♣ 8♦ sb hero won 51bb 202604290133_er23xw_sb_adjc">
+  <div class="time-rail">
+    <span class="time-value">01:33</span>
+    <span class="time-date">4/29</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>SB AJo nut diamond draw 3bet pot レビュー</h3>
+      <div class="tag-row"><span class="tag tag-postflop">POSTFLOP</span></div>
+    </div>
+    <p class="overview">Hero: ikutaN SB A♦ J♣ / Board: Q♦ 9♦ 7♦ A♣ 8♦ / Result: SB Hero won 51bb</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>ikutaN SB A♦ J♣</span></span>
+<span class="meta-item"><strong>Board</strong><span>Q♦ 9♦ 7♦ A♣ 8♦</span></span>
+<span class="meta-item"><strong>Result</strong><span>SB Hero won 51bb</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>202604290133_ER23xW_SB_AdJc</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card review-card-preflop" href="./202604290130_sZ7Kox_BTN_QcJs.html" data-search="btn qjo オープンレビュー ikutan btn q♣ j♠ blinds utg fold / hj fold / co fold / btn hero raise 2.5bb / sb fold / bb fold btn hero won 2.5bb 202604290130_sz7kox_btn_qcjs">
+  <div class="time-rail">
+    <span class="time-value">01:30</span>
+    <span class="time-date">4/29</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>BTN QJo オープンレビュー</h3>
+      <div class="tag-row"><span class="tag tag-preflop">PREFLOP</span></div>
+    </div>
+    <p class="overview">Hero: ikutaN BTN Q♣ J♠ / Result: BTN Hero won 2.5bb</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>ikutaN BTN Q♣ J♠</span></span>
+<span class="meta-item"><strong>Result</strong><span>BTN Hero won 2.5bb</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>202604290130_sZ7Kox_BTN_QcJs</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card review-card-postflop" href="./202604290130_Nadd5X_SB_ThTc.html" data-search="sb tt vs utg flop fold レビュー ikutan sb t♥ t♣ utg utg raise 3bb / hj fold / co fold / btn fold / sb hero call 3bb / bb fold k♠ 7♣ 5♣ utg won 6.65bb 202604290130_nadd5x_sb_thtc">
+  <div class="time-rail">
+    <span class="time-value">01:30</span>
+    <span class="time-date">4/29</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>SB TT vs UTG flop fold レビュー</h3>
+      <div class="tag-row"><span class="tag tag-postflop">POSTFLOP</span></div>
+    </div>
+    <p class="overview">Hero: ikutaN SB T♥ T♣ / Board: K♠ 7♣ 5♣ / Result: UTG won 6.65bb</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>ikutaN SB T♥ T♣</span></span>
+<span class="meta-item"><strong>Board</strong><span>K♠ 7♣ 5♣</span></span>
+<span class="meta-item"><strong>Result</strong><span>UTG won 6.65bb</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>202604290130_Nadd5X_SB_ThTc</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card review-card-postflop" href="./202604290113_arWovQ_SB_QdQc.html" data-search="sb qq monotone 3bet pot レビュー ikutan sb q♦ q♣ btn utg fold / hj raise 2bb / co fold / btn call 2bb / sb hero raise 13bb / bb fold / hj fold / btn call 13bb 9♥ 4♥ 2♥ 2♣ 9♣ sb hero won 199bb 202604290113_arwovq_sb_qdqc">
+  <div class="time-rail">
+    <span class="time-value">01:13</span>
+    <span class="time-date">4/29</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>SB QQ monotone 3bet pot レビュー</h3>
+      <div class="tag-row"><span class="tag tag-postflop">POSTFLOP</span></div>
+    </div>
+    <p class="overview">Hero: ikutaN SB Q♦ Q♣ / Board: 9♥ 4♥ 2♥ 2♣ 9♣ / Result: SB Hero won 199bb</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>ikutaN SB Q♦ Q♣</span></span>
+<span class="meta-item"><strong>Board</strong><span>9♥ 4♥ 2♥ 2♣ 9♣</span></span>
+<span class="meta-item"><strong>Result</strong><span>SB Hero won 199bb</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>202604290113_arWovQ_SB_QdQc</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card review-card-postflop" href="./202604290112_VeN0NP_CO_QdQc.html" data-search="co qq paired low board overplay レビュー ikutan co q♦ q♣ btn utg fold / hj fold / co hero raise 2.3bb / btn call 2.3bb / sb fold / bb fold 4♠ 4♣ 2♠ 3♣ 7♠ co hero won 197.5bb 202604290112_ven0np_co_qdqc">
+  <div class="time-rail">
+    <span class="time-value">01:12</span>
+    <span class="time-date">4/29</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>CO QQ paired low board overplay レビュー</h3>
+      <div class="tag-row"><span class="tag tag-postflop">POSTFLOP</span></div>
+    </div>
+    <p class="overview">Hero: ikutaN CO Q♦ Q♣ / Board: 4♠ 4♣ 2♠ 3♣ 7♠ / Result: CO Hero won 197.5bb</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>ikutaN CO Q♦ Q♣</span></span>
+<span class="meta-item"><strong>Board</strong><span>4♠ 4♣ 2♠ 3♣ 7♠</span></span>
+<span class="meta-item"><strong>Result</strong><span>CO Hero won 197.5bb</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>202604290112_VeN0NP_CO_QdQc</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card review-card-preflop" href="./202604290040_7S7GcX_SB_4s2s.html" data-search="sb 42s オープンレビュー ikutan sb 4♠ 2♠ bb utg fold / hj fold / co fold / btn fold / sb hero raise 3bb / bb fold sb hero won 2bb 202604290040_7s7gcx_sb_4s2s">
+  <div class="time-rail">
+    <span class="time-value">00:40</span>
+    <span class="time-date">4/29</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>SB 42s オープンレビュー</h3>
+      <div class="tag-row"><span class="tag tag-preflop">PREFLOP</span></div>
+    </div>
+    <p class="overview">Hero: ikutaN SB 4♠ 2♠ / Result: SB Hero won 2bb</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>ikutaN SB 4♠ 2♠</span></span>
+<span class="meta-item"><strong>Result</strong><span>SB Hero won 2bb</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>202604290040_7S7GcX_SB_4s2s</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card review-card-postflop" href="./202604290039_Jji2fi_SB_Ks3s.html" data-search="sb k3s a-high small c-bet レビュー ikutan sb k♠ 3♠ bb utg fold / hj fold / co fold / btn fold / sb hero raise 3bb / bb call 3bb a♥ 4♣ 3♥ sb hero won 5.7bb 202604290039_jji2fi_sb_ks3s">
+  <div class="time-rail">
+    <span class="time-value">00:39</span>
+    <span class="time-date">4/29</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>SB K3s A-high small c-bet レビュー</h3>
+      <div class="tag-row"><span class="tag tag-postflop">POSTFLOP</span></div>
+    </div>
+    <p class="overview">Hero: ikutaN SB K♠ 3♠ / Board: A♥ 4♣ 3♥ / Result: SB Hero won 5.7bb</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>ikutaN SB K♠ 3♠</span></span>
+<span class="meta-item"><strong>Board</strong><span>A♥ 4♣ 3♥</span></span>
+<span class="meta-item"><strong>Result</strong><span>SB Hero won 5.7bb</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>202604290039_Jji2fi_SB_Ks3s</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card review-card-postflop" href="./202604290038_kdCPMA_BB_4s4h.html" data-search="bb 44 set river sizing レビュー ikutan bb 4♠ 4♥ co utg fold / hj fold / co raise 2.2bb / btn fold / sb fold / bb hero call 2.2bb j♥ 9♦ 4♣ a♠ 8♥ bb hero won 11.63bb 202604290038_kdcpma_bb_4s4h">
+  <div class="time-rail">
+    <span class="time-value">00:38</span>
+    <span class="time-date">4/29</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>BB 44 set river sizing レビュー</h3>
+      <div class="tag-row"><span class="tag tag-postflop">POSTFLOP</span></div>
+    </div>
+    <p class="overview">Hero: ikutaN BB 4♠ 4♥ / Board: J♥ 9♦ 4♣ A♠ 8♥ / Result: BB Hero won 11.63bb</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>ikutaN BB 4♠ 4♥</span></span>
+<span class="meta-item"><strong>Board</strong><span>J♥ 9♦ 4♣ A♠ 8♥</span></span>
+<span class="meta-item"><strong>Result</strong><span>BB Hero won 11.63bb</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>202604290038_kdCPMA_BB_4s4h</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card review-card-preflop" href="./202604290037_uvR9lJ_SB_AcQh.html" data-search="sb aqo 3betレビュー ikutan sb a♣ q♥ hj opener utg fold / hj raise 2bb / co fold / btn fold / sb hero raise 11bb / bb fold / hj fold sb hero won 5bb 202604290037_uvr9lj_sb_acqh">
+  <div class="time-rail">
+    <span class="time-value">00:37</span>
+    <span class="time-date">4/29</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>SB AQo 3betレビュー</h3>
+      <div class="tag-row"><span class="tag tag-preflop">PREFLOP</span></div>
+    </div>
+    <p class="overview">Hero: ikutaN SB A♣ Q♥ / Result: SB Hero won 5bb</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>ikutaN SB A♣ Q♥</span></span>
+<span class="meta-item"><strong>Result</strong><span>SB Hero won 5bb</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>202604290037_uvR9lJ_SB_AcQh</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card review-card-preflop" href="./202604290036_gxtEYF_BTN_Jh5h.html" data-search="btn j5s オープンレビュー ikutan btn j♥ 5♥ blinds utg fold / hj fold / co fold / btn hero raise 2.5bb / sb fold / bb fold btn hero won 2.5bb 202604290036_gxteyf_btn_jh5h">
+  <div class="time-rail">
+    <span class="time-value">00:36</span>
+    <span class="time-date">4/29</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>BTN J5s オープンレビュー</h3>
+      <div class="tag-row"><span class="tag tag-preflop">PREFLOP</span></div>
+    </div>
+    <p class="overview">Hero: ikutaN BTN J♥ 5♥ / Result: BTN Hero won 2.5bb</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>ikutaN BTN J♥ 5♥</span></span>
+<span class="meta-item"><strong>Result</strong><span>BTN Hero won 2.5bb</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>202604290036_gxtEYF_BTN_Jh5h</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card review-card-postflop" href="./202604290035_VQi7yF_BB_Ks6c.html" data-search="bb k6o monotone flop delayed bet レビュー ikutan bb k♠ 6♣ sb utg fold / hj fold / co fold / btn fold / sb raise 2.5bb / bb hero call 2.5bb k♣ j♣ 8♣ 3♦ bb hero won 4.75bb 202604290035_vqi7yf_bb_ks6c">
+  <div class="time-rail">
+    <span class="time-value">00:35</span>
+    <span class="time-date">4/29</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>BB K6o monotone flop delayed bet レビュー</h3>
+      <div class="tag-row"><span class="tag tag-postflop">POSTFLOP</span></div>
+    </div>
+    <p class="overview">Hero: ikutaN BB K♠ 6♣ / Board: K♣ J♣ 8♣ 3♦ / Result: BB Hero won 4.75bb</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>ikutaN BB K♠ 6♣</span></span>
+<span class="meta-item"><strong>Board</strong><span>K♣ J♣ 8♣ 3♦</span></span>
+<span class="meta-item"><strong>Result</strong><span>BB Hero won 4.75bb</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>202604290035_VQi7yF_BB_Ks6c</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card review-card-preflop" href="./202604290034_tUnhQ4_SB_As9c.html" data-search="sb a9o オープンレビュー ikutan sb a♠ 9♣ bb utg fold / hj fold / co fold / btn fold / sb hero raise 3bb / bb fold sb hero won 2bb 202604290034_tunhq4_sb_as9c">
+  <div class="time-rail">
+    <span class="time-value">00:34</span>
+    <span class="time-date">4/29</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>SB A9o オープンレビュー</h3>
+      <div class="tag-row"><span class="tag tag-preflop">PREFLOP</span></div>
+    </div>
+    <p class="overview">Hero: ikutaN SB A♠ 9♣ / Result: SB Hero won 2bb</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>ikutaN SB A♠ 9♣</span></span>
+<span class="meta-item"><strong>Result</strong><span>SB Hero won 2bb</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>202604290034_tUnhQ4_SB_As9c</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card review-card-preflop" href="./202604290034_dOZqyb_BTN_JcTh.html" data-search="btn jto オープンレビュー ikutan btn j♣ t♥ blinds utg fold / hj fold / co fold / btn hero raise 2.5bb / sb fold / bb fold btn hero won 2.5bb 202604290034_dozqyb_btn_jcth">
+  <div class="time-rail">
+    <span class="time-value">00:34</span>
+    <span class="time-date">4/29</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>BTN JTo オープンレビュー</h3>
+      <div class="tag-row"><span class="tag tag-preflop">PREFLOP</span></div>
+    </div>
+    <p class="overview">Hero: ikutaN BTN J♣ T♥ / Result: BTN Hero won 2.5bb</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>ikutaN BTN J♣ T♥</span></span>
+<span class="meta-item"><strong>Result</strong><span>BTN Hero won 2.5bb</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>202604290034_dOZqyb_BTN_JcTh</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card review-card-preflop" href="./202604290033_zOZ5NA_HJ_Ac7c.html" data-search="hj a7s squeeze-fold レビュー ikutan hj a♣ 7♣ btn squeezer utg fold / hj hero raise 2bb / co call 2bb / btn raise 10bb / sb fold / bb fold / hj hero fold / co fold btn won 7.5bb 202604290033_zoz5na_hj_ac7c">
+  <div class="time-rail">
+    <span class="time-value">00:33</span>
+    <span class="time-date">4/29</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>HJ A7s squeeze-fold レビュー</h3>
+      <div class="tag-row"><span class="tag tag-preflop">PREFLOP</span></div>
+    </div>
+    <p class="overview">Hero: ikutaN HJ A♣ 7♣ / Result: BTN won 7.5bb</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>ikutaN HJ A♣ 7♣</span></span>
+<span class="meta-item"><strong>Result</strong><span>BTN won 7.5bb</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>202604290033_zOZ5NA_HJ_Ac7c</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card review-card-postflop" href="./202604290033_Augkdt_SB_AdKd.html" data-search="sb aks turn raise fold レビュー ikutan sb a♦ k♦ bb utg fold / hj fold / co fold / btn fold / sb hero raise 3bb / bb call 3bb k♣ 6♠ 5♥ 6♦ bb won 15.83bb 202604290033_augkdt_sb_adkd">
+  <div class="time-rail">
+    <span class="time-value">00:33</span>
+    <span class="time-date">4/29</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>SB AKs turn raise fold レビュー</h3>
+      <div class="tag-row"><span class="tag tag-postflop">POSTFLOP</span></div>
+    </div>
+    <p class="overview">Hero: ikutaN SB A♦ K♦ / Board: K♣ 6♠ 5♥ 6♦ / Result: BB won 15.83bb</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>ikutaN SB A♦ K♦</span></span>
+<span class="meta-item"><strong>Board</strong><span>K♣ 6♠ 5♥ 6♦</span></span>
+<span class="meta-item"><strong>Result</strong><span>BB won 15.83bb</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>202604290033_Augkdt_SB_AdKd</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card review-card-postflop" href="./202604290032_1DSZii_BB_6s6d.html" data-search="bb 66 j98 flop fold レビュー ikutan bb 6♠ 6♦ btn utg fold / hj fold / co fold / btn raise 2.5bb / sb fold / bb hero call 2.5bb j♥ 9♠ 8♠ btn won 5.22bb 202604290032_1dszii_bb_6s6d">
+  <div class="time-rail">
+    <span class="time-value">00:32</span>
+    <span class="time-date">4/29</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>BB 66 J98 flop fold レビュー</h3>
+      <div class="tag-row"><span class="tag tag-postflop">POSTFLOP</span></div>
+    </div>
+    <p class="overview">Hero: ikutaN BB 6♠ 6♦ / Board: J♥ 9♠ 8♠ / Result: BTN won 5.22bb</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>ikutaN BB 6♠ 6♦</span></span>
+<span class="meta-item"><strong>Board</strong><span>J♥ 9♠ 8♠</span></span>
+<span class="meta-item"><strong>Result</strong><span>BTN won 5.22bb</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>202604290032_1DSZii_BB_6s6d</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card review-card-postflop" href="./202604290031_MzKtFt_BB_Td9d.html" data-search="bb t9s turn straight value レビュー ikutan bb t♦ 9♦ co utg fold / hj fold / co raise 2.3bb / btn fold / sb fold / bb hero call 2.3bb a♦ 8♠ 7♣ j♠ t♣ bb hero won 8.07bb 202604290031_mzktft_bb_td9d">
+  <div class="time-rail">
+    <span class="time-value">00:31</span>
+    <span class="time-date">4/29</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>BB T9s turn straight value レビュー</h3>
+      <div class="tag-row"><span class="tag tag-postflop">POSTFLOP</span></div>
+    </div>
+    <p class="overview">Hero: ikutaN BB T♦ 9♦ / Board: A♦ 8♠ 7♣ J♠ T♣ / Result: BB Hero won 8.07bb</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>ikutaN BB T♦ 9♦</span></span>
+<span class="meta-item"><strong>Board</strong><span>A♦ 8♠ 7♣ J♠ T♣</span></span>
+<span class="meta-item"><strong>Result</strong><span>BB Hero won 8.07bb</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>202604290031_MzKtFt_BB_Td9d</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card review-card-postflop" href="./202604290030_NmDacr_BB_Tc4c.html" data-search="bb t4s flop float レビュー ikutan bb t♣ 4♣ hj utg fold / hj raise 2.3bb / co fold / btn fold / sb fold / bb hero call 2.3bb q♦ 8♥ 5♣ 7♠ hj won 8.07bb 202604290030_nmdacr_bb_tc4c">
+  <div class="time-rail">
+    <span class="time-value">00:30</span>
+    <span class="time-date">4/29</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>BB T4s flop float レビュー</h3>
+      <div class="tag-row"><span class="tag tag-postflop">POSTFLOP</span></div>
+    </div>
+    <p class="overview">Hero: ikutaN BB T♣ 4♣ / Board: Q♦ 8♥ 5♣ 7♠ / Result: HJ won 8.07bb</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>ikutaN BB T♣ 4♣</span></span>
+<span class="meta-item"><strong>Board</strong><span>Q♦ 8♥ 5♣ 7♠</span></span>
+<span class="meta-item"><strong>Result</strong><span>HJ won 8.07bb</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>202604290030_NmDacr_BB_Tc4c</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card review-card-postflop" href="./202604290023_fqoLso_BB_8h4h.html" data-search="bb 84s nutless flush draw fold レビュー ikutan bb 8♥ 4♥ sb utg fold / hj fold / co fold / btn fold / sb raise 3bb / bb hero call 3bb a♦ q♥ 6♥ sb won 5.7bb 202604290023_fqolso_bb_8h4h">
+  <div class="time-rail">
+    <span class="time-value">00:23</span>
+    <span class="time-date">4/29</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>BB 84s nutless flush draw fold レビュー</h3>
+      <div class="tag-row"><span class="tag tag-postflop">POSTFLOP</span></div>
+    </div>
+    <p class="overview">Hero: ikutaN BB 8♥ 4♥ / Board: A♦ Q♥ 6♥ / Result: SB won 5.7bb</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>ikutaN BB 8♥ 4♥</span></span>
+<span class="meta-item"><strong>Board</strong><span>A♦ Q♥ 6♥</span></span>
+<span class="meta-item"><strong>Result</strong><span>SB won 5.7bb</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>202604290023_fqoLso_BB_8h4h</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card review-card-preflop" href="./202604290020_aAXWLJ_HJ_Ac8c.html" data-search="hj a8s オープンレビュー ikutan hj a♣ 8♣ behind players / blinds utg fold / hj hero raise 2bb / co fold / btn fold / sb fold / bb fold hj hero won 2.5bb 202604290020_aaxwlj_hj_ac8c">
+  <div class="time-rail">
+    <span class="time-value">00:20</span>
+    <span class="time-date">4/29</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>HJ A8s オープンレビュー</h3>
+      <div class="tag-row"><span class="tag tag-preflop">PREFLOP</span></div>
+    </div>
+    <p class="overview">Hero: ikutaN HJ A♣ 8♣ / Result: HJ Hero won 2.5bb</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>ikutaN HJ A♣ 8♣</span></span>
+<span class="meta-item"><strong>Result</strong><span>HJ Hero won 2.5bb</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>202604290020_aAXWLJ_HJ_Ac8c</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card review-card-preflop" href="./202604290019_ca44TG_HJ_AcKc.html" data-search="hj aks 4betレビュー ikutan hj a♣ k♣ co 3bettor utg fold / hj hero raise 2bb / co raise 7.5bb / btn fold / sb fold / bb fold / hj hero raise 22.5bb / co fold hj hero won 16.5bb 202604290019_ca44tg_hj_ackc">
+  <div class="time-rail">
+    <span class="time-value">00:19</span>
+    <span class="time-date">4/29</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>HJ AKs 4betレビュー</h3>
+      <div class="tag-row"><span class="tag tag-preflop">PREFLOP</span></div>
+    </div>
+    <p class="overview">Hero: ikutaN HJ A♣ K♣ / Result: HJ Hero won 16.5bb</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>ikutaN HJ A♣ K♣</span></span>
+<span class="meta-item"><strong>Result</strong><span>HJ Hero won 16.5bb</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>202604290019_ca44TG_HJ_AcKc</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card review-card-postflop" href="./202604290018_PyUrYA_SB_QsQc.html" data-search="sb qq cold 4bet call レビュー ikutan sb q♠ q♣ bb utg raise 2bb / hj fold / co fold / btn fold / sb hero raise 11bb / bb raise 24.2bb / utg fold / sb hero call 24.2bb t♠ 7♣ 4♦ a♥ bb won 80bb 202604290018_pyurya_sb_qsqc">
+  <div class="time-rail">
+    <span class="time-value">00:18</span>
+    <span class="time-date">4/29</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>SB QQ cold 4bet call レビュー</h3>
+      <div class="tag-row"><span class="tag tag-postflop">POSTFLOP</span></div>
+    </div>
+    <p class="overview">Hero: ikutaN SB Q♠ Q♣ / Board: T♠ 7♣ 4♦ A♥ / Result: BB won 80bb</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>ikutaN SB Q♠ Q♣</span></span>
+<span class="meta-item"><strong>Board</strong><span>T♠ 7♣ 4♦ A♥</span></span>
+<span class="meta-item"><strong>Result</strong><span>BB won 80bb</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>202604290018_PyUrYA_SB_QsQc</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card review-card-preflop" href="./202604290016_As63ux_BTN_KdQs.html" data-search="btn kqo オープンレビュー ikutan btn k♦ q♠ blinds utg fold / hj fold / co fold / btn hero raise 2.5bb / sb fold / bb fold btn hero won 2.5bb 202604290016_as63ux_btn_kdqs">
+  <div class="time-rail">
+    <span class="time-value">00:16</span>
+    <span class="time-date">4/29</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>BTN KQo オープンレビュー</h3>
+      <div class="tag-row"><span class="tag tag-preflop">PREFLOP</span></div>
+    </div>
+    <p class="overview">Hero: ikutaN BTN K♦ Q♠ / Result: BTN Hero won 2.5bb</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>ikutaN BTN K♦ Q♠</span></span>
+<span class="meta-item"><strong>Result</strong><span>BTN Hero won 2.5bb</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>202604290016_As63ux_BTN_KdQs</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card review-card-preflop" href="./202604290015_pAUPFg_UTG_QsJs.html" data-search="utg qjs squeeze-fold レビュー ikutan utg q♠ j♠ sb squeezer utg hero raise 2bb / hj fold / co call 2bb / btn fold / sb raise 15bb / bb fold / utg hero fold / co fold sb won 7bb 202604290015_paupfg_utg_qsjs">
+  <div class="time-rail">
+    <span class="time-value">00:15</span>
+    <span class="time-date">4/29</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>UTG QJs squeeze-fold レビュー</h3>
+      <div class="tag-row"><span class="tag tag-preflop">PREFLOP</span></div>
+    </div>
+    <p class="overview">Hero: ikutaN UTG Q♠ J♠ / Result: SB won 7bb</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>ikutaN UTG Q♠ J♠</span></span>
+<span class="meta-item"><strong>Result</strong><span>SB won 7bb</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>202604290015_pAUPFg_UTG_QsJs</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card review-card-preflop" href="./202604290014_CkZX3A_CO_AhJs.html" data-search="co ajo open-fold レビュー ikutan co a♥ j♠ btn 3bettor utg fold / hj fold / co hero raise 2.3bb / btn raise 7.59bb / sb fold / bb fold / co hero fold btn won 6.1bb 202604290014_ckzx3a_co_ahjs">
+  <div class="time-rail">
+    <span class="time-value">00:14</span>
+    <span class="time-date">4/29</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>CO AJo open-fold レビュー</h3>
+      <div class="tag-row"><span class="tag tag-preflop">PREFLOP</span></div>
+    </div>
+    <p class="overview">Hero: ikutaN CO A♥ J♠ / Result: BTN won 6.1bb</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>ikutaN CO A♥ J♠</span></span>
+<span class="meta-item"><strong>Result</strong><span>BTN won 6.1bb</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>202604290014_CkZX3A_CO_AhJs</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card review-card-postflop" href="./202604290014_3g0IzB_SB_QhTh.html" data-search="sb qts paired board check-down レビュー ikutan sb q♥ t♥ bb utg fold / hj fold / co fold / btn fold / sb hero raise 3bb / bb call 3bb 8♠ 8♥ 7♦ 5♣ 9♠ bb won 5.7bb 202604290014_3g0izb_sb_qhth">
+  <div class="time-rail">
+    <span class="time-value">00:14</span>
+    <span class="time-date">4/29</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>SB QTs paired board check-down レビュー</h3>
+      <div class="tag-row"><span class="tag tag-postflop">POSTFLOP</span></div>
+    </div>
+    <p class="overview">Hero: ikutaN SB Q♥ T♥ / Board: 8♠ 8♥ 7♦ 5♣ 9♠ / Result: BB won 5.7bb</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>ikutaN SB Q♥ T♥</span></span>
+<span class="meta-item"><strong>Board</strong><span>8♠ 8♥ 7♦ 5♣ 9♠</span></span>
+<span class="meta-item"><strong>Result</strong><span>BB won 5.7bb</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>202604290014_3g0IzB_SB_QhTh</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card review-card-postflop" href="./202604290013_NuIKzS_BB_Kh8c.html" data-search="bb k8o bvb flop check-back レビュー ikutan bb k♥ 8♣ sb utg fold / hj fold / co fold / btn fold / sb raise 3bb / bb hero call 3bb 8♥ 7♣ 2♥ a♠ sb won 5.7bb 202604290013_nuikzs_bb_kh8c">
+  <div class="time-rail">
+    <span class="time-value">00:13</span>
+    <span class="time-date">4/29</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>BB K8o BvB flop check-back レビュー</h3>
+      <div class="tag-row"><span class="tag tag-postflop">POSTFLOP</span></div>
+    </div>
+    <p class="overview">Hero: ikutaN BB K♥ 8♣ / Board: 8♥ 7♣ 2♥ A♠ / Result: SB won 5.7bb</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>ikutaN BB K♥ 8♣</span></span>
+<span class="meta-item"><strong>Board</strong><span>8♥ 7♣ 2♥ A♠</span></span>
+<span class="meta-item"><strong>Result</strong><span>SB won 5.7bb</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>202604290013_NuIKzS_BB_Kh8c</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+  </div>
+</section>
+<section class="day-section panel" id="day-20260428">
   <div class="day-header">
     <div>
       <p class="day-kicker">&#12524;&#12499;&#12517;&#12540;&#26085;</p>
       <h2>2026.04.28 (火)</h2>
     </div>
-    <span class="day-count" data-default-count="7">7&#20214;</span>
+    <span class="day-count" data-default-count="35">35&#20214;</span>
   </div>
   <div class="review-list">
     <a class="review-card" href="./tenfour_20260428_1949_XOvvEl.html" data-search="co k♥q♠ の 3bet pot river thin value / min raise call レビュー co k♥q♠ hj 6♠6♥ utg fold, hj raise 2bb, co raise 6.5bb, btn fold, sb fold, bb fold, hj call 9♦ 8♦ 4♥ / 4♦ / q♥ co won 32.13bb tenfour_20260428_1949_xovvel">
@@ -648,7 +1510,7 @@
   <div class="review-main">
     <div class="review-head">
       <h3>CO K♥Q♠ の 3bet pot river thin value / min raise call レビュー</h3>
-      <div class="tag-row"><span class="tag tag-accent">&#26368;&#26032;</span></div>
+      <div class="tag-row"></div>
     </div>
     <p class="overview">Hero: CO K♥Q♠ / Board: 9♦ 8♦ 4♥ / 4♦ / Q♥ / Result: CO won 32.13BB</p>
     <div class="meta-row">
@@ -656,6 +1518,65 @@
 <span class="meta-item"><strong>Board</strong><span>9♦ 8♦ 4♥ / 4♦ / Q♥</span></span>
 <span class="meta-item"><strong>Result</strong><span>CO won 32.13BB</span></span>
 <span class="meta-item is-dim"><strong>ID</strong><span>tenfour_20260428_1949_XOvvEl</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card review-card-preflop" href="./202604281949_zAd32u_BTN_Tc3d.html" data-search="hj 65s オープンレビュー ikutan hj 6♠ 5♠ behind players / blinds utg fold / hj hero raise 2bb / co fold / btn fold / sb fold / bb fold hj hero won 2.5bb 202604281949_zad32u_btn_tc3d">
+  <div class="time-rail">
+    <span class="time-value">19:49</span>
+    <span class="time-date">4/28</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>HJ 65s オープンレビュー</h3>
+      <div class="tag-row"><span class="tag tag-preflop">PREFLOP</span></div>
+    </div>
+    <p class="overview">Hero: ikutaN HJ 6♠ 5♠ / Result: HJ Hero won 2.5bb</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>ikutaN HJ 6♠ 5♠</span></span>
+<span class="meta-item"><strong>Result</strong><span>HJ Hero won 2.5bb</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>202604281949_zAd32u_BTN_Tc3d</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card review-card-postflop" href="./202604281949_XOvvEl_HJ_6s6h.html" data-search="co kqo 3bet pot river minraise call レビュー ikutan co k♥ q♠ hj utg fold / hj raise 2bb / co hero raise 6.5bb / btn fold / sb fold / bb fold / hj call 6.5bb 9♦ 8♦ 4♥ 4♦ q♥ co hero won 32.13bb 202604281949_xovvel_hj_6s6h">
+  <div class="time-rail">
+    <span class="time-value">19:49</span>
+    <span class="time-date">4/28</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>CO KQo 3bet pot river minraise call レビュー</h3>
+      <div class="tag-row"><span class="tag tag-postflop">POSTFLOP</span></div>
+    </div>
+    <p class="overview">Hero: ikutaN CO K♥ Q♠ / Board: 9♦ 8♦ 4♥ 4♦ Q♥ / Result: CO Hero won 32.13bb</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>ikutaN CO K♥ Q♠</span></span>
+<span class="meta-item"><strong>Board</strong><span>9♦ 8♦ 4♥ 4♦ Q♥</span></span>
+<span class="meta-item"><strong>Result</strong><span>CO Hero won 32.13bb</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>202604281949_XOvvEl_HJ_6s6h</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card review-card-postflop" href="./202604281949_82FLJw_UTG_9d9c.html" data-search="utg 99 cold 4bet fold レビュー ikutan utg 9♦ 9♣ hj / btn / sb utg hero raise 2bb / hj raise 6bb / co fold / btn call 6bb / sb raise 24bb / bb fold / utg hero fold / hj raise 100bb / btn fold / sb call 100bb 8♠ 6♠ 4♦ 4♠ 4♥ sb won 205bb 202604281949_82fljw_utg_9d9c">
+  <div class="time-rail">
+    <span class="time-value">19:49</span>
+    <span class="time-date">4/28</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>UTG 99 cold 4bet fold レビュー</h3>
+      <div class="tag-row"><span class="tag tag-postflop">POSTFLOP</span></div>
+    </div>
+    <p class="overview">Hero: ikutaN UTG 9♦ 9♣ / Board: 8♠ 6♠ 4♦ 4♠ 4♥ / Result: SB won 205bb</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>ikutaN UTG 9♦ 9♣</span></span>
+<span class="meta-item"><strong>Board</strong><span>8♠ 6♠ 4♦ 4♠ 4♥</span></span>
+<span class="meta-item"><strong>Result</strong><span>SB won 205bb</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>202604281949_82FLJw_UTG_9d9c</span></span>
     </div>
   </div>
   <span class="open-label">&#35211;&#12427;</span>
@@ -676,6 +1597,502 @@
 <span class="meta-item"><strong>Board</strong><span>T♦ 3♥ 2♥ / 6♠ / 5♠</span></span>
 <span class="meta-item"><strong>Result</strong><span>CO won 20.2BB</span></span>
 <span class="meta-item is-dim"><strong>ID</strong><span>tenfour_20260428_1948_Pkz19z</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card review-card-postflop" href="./202604281948_Pkz19z_HJ_Qs7s.html" data-search="bb ato river lead-fold レビュー ikutan bb a♦ t♣ co utg fold / hj fold / co raise 2.3bb / btn fold / sb fold / bb hero call 2.3bb t♦ 3♥ 2♥ 6♠ 5♠ co won 20.2bb 202604281948_pkz19z_hj_qs7s">
+  <div class="time-rail">
+    <span class="time-value">19:48</span>
+    <span class="time-date">4/28</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>BB ATo river lead-fold レビュー</h3>
+      <div class="tag-row"><span class="tag tag-postflop">POSTFLOP</span></div>
+    </div>
+    <p class="overview">Hero: ikutaN BB A♦ T♣ / Board: T♦ 3♥ 2♥ 6♠ 5♠ / Result: CO won 20.2bb</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>ikutaN BB A♦ T♣</span></span>
+<span class="meta-item"><strong>Board</strong><span>T♦ 3♥ 2♥ 6♠ 5♠</span></span>
+<span class="meta-item"><strong>Result</strong><span>CO won 20.2bb</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>202604281948_Pkz19z_HJ_Qs7s</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card review-card-postflop" href="./202604281948_79hckU_UTG_Kc4h.html" data-search="bb k3s check-down レビュー ikutan bb k♥ 3♥ btn utg fold / hj fold / co fold / btn raise 2.5bb / sb fold / bb hero call 2.5bb q♦ 8♥ 5♣ 4♦ 3♦ bb hero won 5.22bb 202604281948_79hcku_utg_kc4h">
+  <div class="time-rail">
+    <span class="time-value">19:48</span>
+    <span class="time-date">4/28</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>BB K3s check-down レビュー</h3>
+      <div class="tag-row"><span class="tag tag-postflop">POSTFLOP</span></div>
+    </div>
+    <p class="overview">Hero: ikutaN BB K♥ 3♥ / Board: Q♦ 8♥ 5♣ 4♦ 3♦ / Result: BB Hero won 5.22bb</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>ikutaN BB K♥ 3♥</span></span>
+<span class="meta-item"><strong>Board</strong><span>Q♦ 8♥ 5♣ 4♦ 3♦</span></span>
+<span class="meta-item"><strong>Result</strong><span>BB Hero won 5.22bb</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>202604281948_79hckU_UTG_Kc4h</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card review-card-postflop" href="./202604281947_lodBiq_SB_2h2c.html" data-search="btn ajo paired board delayed call レビュー ikutan btn a♦ j♥ bb utg fold / hj fold / co fold / btn hero raise 2.5bb / sb fold / bb call 2.5bb 9♥ 9♦ 8♦ 2♠ 3♦ bb won 8.7bb 202604281947_lodbiq_sb_2h2c">
+  <div class="time-rail">
+    <span class="time-value">19:47</span>
+    <span class="time-date">4/28</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>BTN AJo paired board delayed call レビュー</h3>
+      <div class="tag-row"><span class="tag tag-postflop">POSTFLOP</span></div>
+    </div>
+    <p class="overview">Hero: ikutaN BTN A♦ J♥ / Board: 9♥ 9♦ 8♦ 2♠ 3♦ / Result: BB won 8.7bb</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>ikutaN BTN A♦ J♥</span></span>
+<span class="meta-item"><strong>Board</strong><span>9♥ 9♦ 8♦ 2♠ 3♦</span></span>
+<span class="meta-item"><strong>Result</strong><span>BB won 8.7bb</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>202604281947_lodBiq_SB_2h2c</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card review-card-postflop" href="./202604281947_aVCYTX_BB_9c6d.html" data-search="sb kqo 3bet pot turn fold レビュー ikutan sb k♥ q♣ btn utg fold / hj fold / co fold / btn raise 2.5bb / sb hero raise 11bb / bb fold / btn call 11bb 6♠ 3♦ 2♥ t♥ btn won 21.85bb 202604281947_avcytx_bb_9c6d">
+  <div class="time-rail">
+    <span class="time-value">19:47</span>
+    <span class="time-date">4/28</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>SB KQo 3bet pot turn fold レビュー</h3>
+      <div class="tag-row"><span class="tag tag-postflop">POSTFLOP</span></div>
+    </div>
+    <p class="overview">Hero: ikutaN SB K♥ Q♣ / Board: 6♠ 3♦ 2♥ T♥ / Result: BTN won 21.85bb</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>ikutaN SB K♥ Q♣</span></span>
+<span class="meta-item"><strong>Board</strong><span>6♠ 3♦ 2♥ T♥</span></span>
+<span class="meta-item"><strong>Result</strong><span>BTN won 21.85bb</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>202604281947_aVCYTX_BB_9c6d</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card review-card-preflop" href="./202604281945_GH6IyD_BB_Qs3h.html" data-search="co 77 オープンレビュー ikutan co 7♦ 7♣ behind players / blinds utg fold / hj fold / co hero raise 2.3bb / btn fold / sb fold / bb fold co hero won 2.5bb 202604281945_gh6iyd_bb_qs3h">
+  <div class="time-rail">
+    <span class="time-value">19:45</span>
+    <span class="time-date">4/28</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>CO 77 オープンレビュー</h3>
+      <div class="tag-row"><span class="tag tag-preflop">PREFLOP</span></div>
+    </div>
+    <p class="overview">Hero: ikutaN CO 7♦ 7♣ / Result: CO Hero won 2.5bb</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>ikutaN CO 7♦ 7♣</span></span>
+<span class="meta-item"><strong>Result</strong><span>CO Hero won 2.5bb</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>202604281945_GH6IyD_BB_Qs3h</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card review-card-postflop" href="./202604281945_FUVul5_SB_9d4c.html" data-search="bb k9o float / river overbet bluff レビュー ikutan bb k♦ 9♥ co utg fold / hj fold / co raise 2.3bb / btn fold / sb fold / bb hero call 2.3bb t♦ 3♣ 2♣ 3♥ 7♠ bb hero won 9.69bb 202604281945_fuvul5_sb_9d4c">
+  <div class="time-rail">
+    <span class="time-value">19:45</span>
+    <span class="time-date">4/28</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>BB K9o float / river overbet bluff レビュー</h3>
+      <div class="tag-row"><span class="tag tag-postflop">POSTFLOP</span></div>
+    </div>
+    <p class="overview">Hero: ikutaN BB K♦ 9♥ / Board: T♦ 3♣ 2♣ 3♥ 7♠ / Result: BB Hero won 9.69bb</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>ikutaN BB K♦ 9♥</span></span>
+<span class="meta-item"><strong>Board</strong><span>T♦ 3♣ 2♣ 3♥ 7♠</span></span>
+<span class="meta-item"><strong>Result</strong><span>BB Hero won 9.69bb</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>202604281945_FUVul5_SB_9d4c</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card review-card-postflop" href="./202604281945_7qKVv9_SB_7h5s.html" data-search="bb qto river bluff-catch レビュー ikutan bb q♦ t♥ utg utg raise 2.5bb / hj fold / co fold / btn fold / sb fold / bb hero call 2.5bb 9♦ 8♣ 3♣ q♥ 9♠ utg won 43.51bb 202604281945_7qkvv9_sb_7h5s">
+  <div class="time-rail">
+    <span class="time-value">19:45</span>
+    <span class="time-date">4/28</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>BB QTo river bluff-catch レビュー</h3>
+      <div class="tag-row"><span class="tag tag-postflop">POSTFLOP</span></div>
+    </div>
+    <p class="overview">Hero: ikutaN BB Q♦ T♥ / Board: 9♦ 8♣ 3♣ Q♥ 9♠ / Result: UTG won 43.51bb</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>ikutaN BB Q♦ T♥</span></span>
+<span class="meta-item"><strong>Board</strong><span>9♦ 8♣ 3♣ Q♥ 9♠</span></span>
+<span class="meta-item"><strong>Result</strong><span>UTG won 43.51bb</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>202604281945_7qKVv9_SB_7h5s</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card review-card-preflop" href="./202604281944_AFAI0l_SB_KsKc.html" data-search="sb kk 3betレビュー ikutan sb k♠ k♣ co opener utg fold / hj fold / co raise 2.3bb / btn fold / sb hero raise 11bb / bb fold / co fold sb hero won 5.6bb 202604281944_afai0l_sb_kskc">
+  <div class="time-rail">
+    <span class="time-value">19:44</span>
+    <span class="time-date">4/28</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>SB KK 3betレビュー</h3>
+      <div class="tag-row"><span class="tag tag-preflop">PREFLOP</span></div>
+    </div>
+    <p class="overview">Hero: ikutaN SB K♠ K♣ / Result: SB Hero won 5.6bb</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>ikutaN SB K♠ K♣</span></span>
+<span class="meta-item"><strong>Result</strong><span>SB Hero won 5.6bb</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>202604281944_AFAI0l_SB_KsKc</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card review-card-postflop" href="./202604281943_86hSn4_BB_9h7h.html" data-search="bb 97s turn flush check-raise レビュー ikutan bb 9♥ 7♥ co utg fold / hj fold / co raise 2.3bb / btn fold / sb fold / bb hero call 2.3bb j♥ 8♦ 6♥ 2♥ 2♦ bb hero won 50.5bb 202604281943_86hsn4_bb_9h7h">
+  <div class="time-rail">
+    <span class="time-value">19:43</span>
+    <span class="time-date">4/28</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>BB 97s turn flush check-raise レビュー</h3>
+      <div class="tag-row"><span class="tag tag-postflop">POSTFLOP</span></div>
+    </div>
+    <p class="overview">Hero: ikutaN BB 9♥ 7♥ / Board: J♥ 8♦ 6♥ 2♥ 2♦ / Result: BB Hero won 50.5bb</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>ikutaN BB 9♥ 7♥</span></span>
+<span class="meta-item"><strong>Board</strong><span>J♥ 8♦ 6♥ 2♥ 2♦</span></span>
+<span class="meta-item"><strong>Result</strong><span>BB Hero won 50.5bb</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>202604281943_86hSn4_BB_9h7h</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card review-card-postflop" href="./202604281942_uffkEG_BTN_Jd3h.html" data-search="hj 99 paired board pot control レビュー ikutan hj 9♦ 9♣ bb utg fold / hj hero raise 2bb / co fold / btn fold / sb fold / bb call 2bb 6♥ 2♠ 2♥ t♥ 4♦ hj hero won 7.12bb 202604281942_uffkeg_btn_jd3h">
+  <div class="time-rail">
+    <span class="time-value">19:42</span>
+    <span class="time-date">4/28</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>HJ 99 paired board pot control レビュー</h3>
+      <div class="tag-row"><span class="tag tag-postflop">POSTFLOP</span></div>
+    </div>
+    <p class="overview">Hero: ikutaN HJ 9♦ 9♣ / Board: 6♥ 2♠ 2♥ T♥ 4♦ / Result: HJ Hero won 7.12bb</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>ikutaN HJ 9♦ 9♣</span></span>
+<span class="meta-item"><strong>Board</strong><span>6♥ 2♠ 2♥ T♥ 4♦</span></span>
+<span class="meta-item"><strong>Result</strong><span>HJ Hero won 7.12bb</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>202604281942_uffkEG_BTN_Jd3h</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card review-card-postflop" href="./202604281941_oLXBZy_BTN_4c3h.html" data-search="bb 55 low board check-raise レビュー ikutan bb 5♠ 5♦ utg utg raise 2.5bb / hj fold / co fold / btn fold / sb fold / bb hero call 2.5bb 6♥ 3♠ 2♦ bb hero won 10.45bb 202604281941_olxbzy_btn_4c3h">
+  <div class="time-rail">
+    <span class="time-value">19:41</span>
+    <span class="time-date">4/28</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>BB 55 low board check-raise レビュー</h3>
+      <div class="tag-row"><span class="tag tag-postflop">POSTFLOP</span></div>
+    </div>
+    <p class="overview">Hero: ikutaN BB 5♠ 5♦ / Board: 6♥ 3♠ 2♦ / Result: BB Hero won 10.45bb</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>ikutaN BB 5♠ 5♦</span></span>
+<span class="meta-item"><strong>Board</strong><span>6♥ 3♠ 2♦</span></span>
+<span class="meta-item"><strong>Result</strong><span>BB Hero won 10.45bb</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>202604281941_oLXBZy_BTN_4c3h</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card review-card-postflop" href="./202604281941_7xCDvu_SB_6d4c.html" data-search="bb 77 qjt flop fold レビュー ikutan bb 7♠ 7♣ utg utg raise 2bb / hj fold / co fold / btn fold / sb fold / bb hero call 2bb q♣ j♦ t♠ utg won 4.27bb 202604281941_7xcdvu_sb_6d4c">
+  <div class="time-rail">
+    <span class="time-value">19:41</span>
+    <span class="time-date">4/28</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>BB 77 QJT flop fold レビュー</h3>
+      <div class="tag-row"><span class="tag tag-postflop">POSTFLOP</span></div>
+    </div>
+    <p class="overview">Hero: ikutaN BB 7♠ 7♣ / Board: Q♣ J♦ T♠ / Result: UTG won 4.27bb</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>ikutaN BB 7♠ 7♣</span></span>
+<span class="meta-item"><strong>Board</strong><span>Q♣ J♦ T♠</span></span>
+<span class="meta-item"><strong>Result</strong><span>UTG won 4.27bb</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>202604281941_7xCDvu_SB_6d4c</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card review-card-preflop" href="./202604281940_zmKHn3_BB_Jc4s.html" data-search="hj ato オープンレビュー ikutan hj a♠ t♥ behind players / blinds utg fold / hj hero raise 2bb / co fold / btn fold / sb fold / bb fold hj hero won 2.5bb 202604281940_zmkhn3_bb_jc4s">
+  <div class="time-rail">
+    <span class="time-value">19:40</span>
+    <span class="time-date">4/28</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>HJ ATo オープンレビュー</h3>
+      <div class="tag-row"><span class="tag tag-preflop">PREFLOP</span></div>
+    </div>
+    <p class="overview">Hero: ikutaN HJ A♠ T♥ / Result: HJ Hero won 2.5bb</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>ikutaN HJ A♠ T♥</span></span>
+<span class="meta-item"><strong>Result</strong><span>HJ Hero won 2.5bb</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>202604281940_zmKHn3_BB_Jc4s</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card review-card-postflop" href="./202604281940_t4GP5E_BB_KsQs.html" data-search="hj 55 quads slowplay レビュー ikutan hj 5♠ 5♣ bb utg fold / hj hero raise 2bb / co fold / btn fold / sb fold / bb raise 8bb / hj hero call 8bb 5♥ 5♦ 3♠ q♦ 2♣ hj hero won 106bb 202604281940_t4gp5e_bb_ksqs">
+  <div class="time-rail">
+    <span class="time-value">19:40</span>
+    <span class="time-date">4/28</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>HJ 55 quads slowplay レビュー</h3>
+      <div class="tag-row"><span class="tag tag-postflop">POSTFLOP</span></div>
+    </div>
+    <p class="overview">Hero: ikutaN HJ 5♠ 5♣ / Board: 5♥ 5♦ 3♠ Q♦ 2♣ / Result: HJ Hero won 106bb</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>ikutaN HJ 5♠ 5♣</span></span>
+<span class="meta-item"><strong>Board</strong><span>5♥ 5♦ 3♠ Q♦ 2♣</span></span>
+<span class="meta-item"><strong>Result</strong><span>HJ Hero won 106bb</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>202604281940_t4GP5E_BB_KsQs</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card review-card-postflop" href="./202604281940_pBFQOf_HJ_7s6h.html" data-search="bb a9s bvb flop fold レビュー ikutan bb a♠ 9♠ sb utg fold / hj fold / co fold / btn fold / sb raise 3bb / bb hero call 3bb k♥ q♣ 3♥ sb won 5.7bb 202604281940_pbfqof_hj_7s6h">
+  <div class="time-rail">
+    <span class="time-value">19:40</span>
+    <span class="time-date">4/28</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>BB A9s BvB flop fold レビュー</h3>
+      <div class="tag-row"><span class="tag tag-postflop">POSTFLOP</span></div>
+    </div>
+    <p class="overview">Hero: ikutaN BB A♠ 9♠ / Board: K♥ Q♣ 3♥ / Result: SB won 5.7bb</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>ikutaN BB A♠ 9♠</span></span>
+<span class="meta-item"><strong>Board</strong><span>K♥ Q♣ 3♥</span></span>
+<span class="meta-item"><strong>Result</strong><span>SB won 5.7bb</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>202604281940_pBFQOf_HJ_7s6h</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card review-card-postflop" href="./202604281939_RNxV6n_HJ_As7d.html" data-search="co 99 monotone set bet レビュー ikutan co 9♦ 9♣ sb utg fold / hj fold / co hero raise 2.3bb / btn fold / sb raise 10bb / bb fold / co hero call 10bb q♠ 9♠ 2♠ co hero won 19.95bb 202604281939_rnxv6n_hj_as7d">
+  <div class="time-rail">
+    <span class="time-value">19:39</span>
+    <span class="time-date">4/28</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>CO 99 monotone set bet レビュー</h3>
+      <div class="tag-row"><span class="tag tag-postflop">POSTFLOP</span></div>
+    </div>
+    <p class="overview">Hero: ikutaN CO 9♦ 9♣ / Board: Q♠ 9♠ 2♠ / Result: CO Hero won 19.95bb</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>ikutaN CO 9♦ 9♣</span></span>
+<span class="meta-item"><strong>Board</strong><span>Q♠ 9♠ 2♠</span></span>
+<span class="meta-item"><strong>Result</strong><span>CO Hero won 19.95bb</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>202604281939_RNxV6n_HJ_As7d</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card review-card-postflop" href="./202604281938_uaSSq8_HJ_9h7h.html" data-search="co qts top pair c-bet レビュー ikutan co q♥ t♥ btn utg fold / hj fold / co hero raise 2.3bb / btn call 2.3bb / sb fold / bb fold q♠ 9♣ 3♦ co hero won 5.79bb 202604281938_uassq8_hj_9h7h">
+  <div class="time-rail">
+    <span class="time-value">19:38</span>
+    <span class="time-date">4/28</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>CO QTs top pair c-bet レビュー</h3>
+      <div class="tag-row"><span class="tag tag-postflop">POSTFLOP</span></div>
+    </div>
+    <p class="overview">Hero: ikutaN CO Q♥ T♥ / Board: Q♠ 9♣ 3♦ / Result: CO Hero won 5.79bb</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>ikutaN CO Q♥ T♥</span></span>
+<span class="meta-item"><strong>Board</strong><span>Q♠ 9♣ 3♦</span></span>
+<span class="meta-item"><strong>Result</strong><span>CO Hero won 5.79bb</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>202604281938_uaSSq8_HJ_9h7h</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card review-card-postflop" href="./202604281938_bwkekC_BTN_Qs9c.html" data-search="bb t4s river bet レビュー ikutan bb t♦ 4♦ utg utg raise 2bb / hj fold / co fold / btn fold / sb fold / bb hero call 2bb j♦ 9♦ 3♠ 9♥ 4♠ utg won 21.37bb 202604281938_bwkekc_btn_qs9c">
+  <div class="time-rail">
+    <span class="time-value">19:38</span>
+    <span class="time-date">4/28</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>BB T4s river bet レビュー</h3>
+      <div class="tag-row"><span class="tag tag-postflop">POSTFLOP</span></div>
+    </div>
+    <p class="overview">Hero: ikutaN BB T♦ 4♦ / Board: J♦ 9♦ 3♠ 9♥ 4♠ / Result: UTG won 21.37bb</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>ikutaN BB T♦ 4♦</span></span>
+<span class="meta-item"><strong>Board</strong><span>J♦ 9♦ 3♠ 9♥ 4♠</span></span>
+<span class="meta-item"><strong>Result</strong><span>UTG won 21.37bb</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>202604281938_bwkekC_BTN_Qs9c</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card review-card-preflop" href="./202604281937_fTzowo_BTN_Ah6d.html" data-search="btn a6o オープンレビュー ikutan btn a♥ 6♦ blinds utg fold / hj fold / co fold / btn hero raise 2.5bb / sb fold / bb fold btn hero won 2.5bb 202604281937_ftzowo_btn_ah6d">
+  <div class="time-rail">
+    <span class="time-value">19:37</span>
+    <span class="time-date">4/28</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>BTN A6o オープンレビュー</h3>
+      <div class="tag-row"><span class="tag tag-preflop">PREFLOP</span></div>
+    </div>
+    <p class="overview">Hero: ikutaN BTN A♥ 6♦ / Result: BTN Hero won 2.5bb</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>ikutaN BTN A♥ 6♦</span></span>
+<span class="meta-item"><strong>Result</strong><span>BTN Hero won 2.5bb</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>202604281937_fTzowo_BTN_Ah6d</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card review-card-postflop" href="./202604281935_JZUko7_BTN_7d4h.html" data-search="hj aks 4bet pot c-bet レビュー ikutan hj a♣ k♠ co utg fold / hj hero raise 2bb / co raise 6.5bb / btn fold / sb fold / bb fold / hj hero raise 16.25bb / co call 16.25bb a♦ j♠ 4♠ hj hero won 32.3bb 202604281935_jzuko7_btn_7d4h">
+  <div class="time-rail">
+    <span class="time-value">19:35</span>
+    <span class="time-date">4/28</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>HJ AKs 4bet pot c-bet レビュー</h3>
+      <div class="tag-row"><span class="tag tag-postflop">POSTFLOP</span></div>
+    </div>
+    <p class="overview">Hero: ikutaN HJ A♣ K♠ / Board: A♦ J♠ 4♠ / Result: HJ Hero won 32.3bb</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>ikutaN HJ A♣ K♠</span></span>
+<span class="meta-item"><strong>Board</strong><span>A♦ J♠ 4♠</span></span>
+<span class="meta-item"><strong>Result</strong><span>HJ Hero won 32.3bb</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>202604281935_JZUko7_BTN_7d4h</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card review-card-postflop" href="./202604281935_fB1VsR_BTN_6c3h.html" data-search="sb jts multiway turn fold レビュー ikutan sb j♥ t♥ co / bb utg fold / hj fold / co raise 2.3bb / btn fold / sb hero call 2.3bb / bb call 2.3bb k♠ 8♦ 3♦ 4♠ 5♣ bb won 13.11bb 202604281935_fb1vsr_btn_6c3h">
+  <div class="time-rail">
+    <span class="time-value">19:35</span>
+    <span class="time-date">4/28</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>SB JTs multiway turn fold レビュー</h3>
+      <div class="tag-row"><span class="tag tag-postflop">POSTFLOP</span></div>
+    </div>
+    <p class="overview">Hero: ikutaN SB J♥ T♥ / Board: K♠ 8♦ 3♦ 4♠ 5♣ / Result: BB won 13.11bb</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>ikutaN SB J♥ T♥</span></span>
+<span class="meta-item"><strong>Board</strong><span>K♠ 8♦ 3♦ 4♠ 5♣</span></span>
+<span class="meta-item"><strong>Result</strong><span>BB won 13.11bb</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>202604281935_fB1VsR_BTN_6c3h</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card review-card-postflop" href="./202604281935_b84YYm_HJ_AdKd.html" data-search="bb 74s defend / flop fold レビュー ikutan bb 7♣ 4♣ hj utg fold / hj raise 3bb / co fold / btn fold / sb fold / bb hero call 3bb q♦ 5♥ 4♥ hj won 6.17bb 202604281935_b84yym_hj_adkd">
+  <div class="time-rail">
+    <span class="time-value">19:35</span>
+    <span class="time-date">4/28</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>BB 74s defend / flop fold レビュー</h3>
+      <div class="tag-row"><span class="tag tag-postflop">POSTFLOP</span></div>
+    </div>
+    <p class="overview">Hero: ikutaN BB 7♣ 4♣ / Board: Q♦ 5♥ 4♥ / Result: HJ won 6.17bb</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>ikutaN BB 7♣ 4♣</span></span>
+<span class="meta-item"><strong>Board</strong><span>Q♦ 5♥ 4♥</span></span>
+<span class="meta-item"><strong>Result</strong><span>HJ won 6.17bb</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>202604281935_b84YYm_HJ_AdKd</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card review-card-postflop" href="./202604281934_OPZL0B_HJ_8h4c.html" data-search="co kqo 3bet pot river value レビュー ikutan co k♠ q♦ btn utg fold / hj fold / co hero raise 2.3bb / btn raise 7.5bb / sb fold / bb fold / co hero call 7.5bb j♦ 9♣ 6♥ q♥ 3♠ co hero won 52.25bb 202604281934_opzl0b_hj_8h4c">
+  <div class="time-rail">
+    <span class="time-value">19:34</span>
+    <span class="time-date">4/28</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>CO KQo 3bet pot river value レビュー</h3>
+      <div class="tag-row"><span class="tag tag-postflop">POSTFLOP</span></div>
+    </div>
+    <p class="overview">Hero: ikutaN CO K♠ Q♦ / Board: J♦ 9♣ 6♥ Q♥ 3♠ / Result: CO Hero won 52.25bb</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>ikutaN CO K♠ Q♦</span></span>
+<span class="meta-item"><strong>Board</strong><span>J♦ 9♣ 6♥ Q♥ 3♠</span></span>
+<span class="meta-item"><strong>Result</strong><span>CO Hero won 52.25bb</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>202604281934_OPZL0B_HJ_8h4c</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card review-card-postflop" href="./202604281933_tRFw1k_BB_Kh4h.html" data-search="bb k4s flop float レビュー ikutan bb k♥ 4♥ utg utg raise 2.5bb / hj fold / co fold / btn fold / sb fold / bb hero call 2.5bb t♠ t♦ 8♥ j♠ utg won 8.7bb 202604281933_trfw1k_bb_kh4h">
+  <div class="time-rail">
+    <span class="time-value">19:33</span>
+    <span class="time-date">4/28</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>BB K4s flop float レビュー</h3>
+      <div class="tag-row"><span class="tag tag-postflop">POSTFLOP</span></div>
+    </div>
+    <p class="overview">Hero: ikutaN BB K♥ 4♥ / Board: T♠ T♦ 8♥ J♠ / Result: UTG won 8.7bb</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>ikutaN BB K♥ 4♥</span></span>
+<span class="meta-item"><strong>Board</strong><span>T♠ T♦ 8♥ J♠</span></span>
+<span class="meta-item"><strong>Result</strong><span>UTG won 8.7bb</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>202604281933_tRFw1k_BB_Kh4h</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+<a class="review-card review-card-postflop" href="./202604281933_7044jT_UTG_Jc4s.html" data-search="bb k5s river pot bet レビュー ikutan bb k♦ 5♦ btn utg fold / hj fold / co fold / btn raise 2bb / sb fold / bb hero call 2bb t♣ 5♠ 4♣ 9♠ 2♥ btn won 21.37bb 202604281933_7044jt_utg_jc4s">
+  <div class="time-rail">
+    <span class="time-value">19:33</span>
+    <span class="time-date">4/28</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>BB K5s river pot bet レビュー</h3>
+      <div class="tag-row"><span class="tag tag-postflop">POSTFLOP</span></div>
+    </div>
+    <p class="overview">Hero: ikutaN BB K♦ 5♦ / Board: T♣ 5♠ 4♣ 9♠ 2♥ / Result: BTN won 21.37bb</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>ikutaN BB K♦ 5♦</span></span>
+<span class="meta-item"><strong>Board</strong><span>T♣ 5♠ 4♣ 9♠ 2♥</span></span>
+<span class="meta-item"><strong>Result</strong><span>BTN won 21.37bb</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>202604281933_7044jT_UTG_Jc4s</span></span>
     </div>
   </div>
   <span class="open-label">&#35211;&#12427;</span>
