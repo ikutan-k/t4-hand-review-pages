@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BB A♦T♣ の turn probe / river value bet-fold レビュー</title>
+  <style>
+    :root {
+      --bg: #f4efe6;
+      --panel: rgba(255, 251, 245, 0.94);
+      --panel-strong: #fffdfa;
+      --ink: #1f1a17;
+      --muted: #6f655d;
+      --line: rgba(66, 51, 38, 0.12);
+      --accent: #8e4a2a;
+      --accent-soft: #eed7cb;
+      --good: #1d6b4d;
+      --shadow: 0 18px 50px rgba(61, 43, 32, 0.12);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "BIZ UDPGothic", "Hiragino Sans", "Yu Gothic", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(142, 74, 42, 0.12), transparent 34%),
+        radial-gradient(circle at top right, rgba(29, 107, 77, 0.12), transparent 28%),
+        linear-gradient(180deg, #f8f2ea 0%, var(--bg) 100%);
+    }
+    body.hero-theme-player {
+      --bg: #edf4f8;
+      --panel: rgba(248, 252, 255, 0.94);
+      --panel-strong: #fdfefe;
+      --line: rgba(38, 86, 117, 0.14);
+      --accent: #1f6f97;
+      --accent-soft: #d7ebf6;
+      --good: #1f6f97;
+      --shadow: 0 18px 50px rgba(35, 72, 96, 0.14);
+      background:
+        radial-gradient(circle at top left, rgba(31, 111, 151, 0.16), transparent 34%),
+        radial-gradient(circle at top right, rgba(34, 82, 116, 0.12), transparent 28%),
+        linear-gradient(180deg, #f5fafc 0%, var(--bg) 100%);
+    }
+    body.hero-theme-izacchi {
+      --bg: #eef7f1;
+      --panel: rgba(249, 254, 251, 0.94);
+      --panel-strong: #fdfefd;
+      --line: rgba(45, 138, 91, 0.16);
+      --accent: #2d8a5b;
+      --accent-soft: #d9efe3;
+      --good: #2d8a5b;
+      --shadow: 0 18px 50px rgba(37, 95, 66, 0.14);
+      background:
+        radial-gradient(circle at top left, rgba(45, 138, 91, 0.18), transparent 34%),
+        radial-gradient(circle at top right, rgba(72, 123, 88, 0.12), transparent 28%),
+        linear-gradient(180deg, #f5fbf7 0%, var(--bg) 100%);
+    }
+    body.hero-theme-riku0125 {
+      --bg: #fbf1ec;
+      --panel: rgba(255, 250, 247, 0.94);
+      --panel-strong: #fffdfb;
+      --line: rgba(199, 104, 65, 0.16);
+      --accent: #c76841;
+      --accent-soft: #f5ddd4;
+      --good: #b65935;
+      --shadow: 0 18px 50px rgba(124, 69, 47, 0.14);
+      background:
+        radial-gradient(circle at top left, rgba(199, 104, 65, 0.16), transparent 34%),
+        radial-gradient(circle at top right, rgba(156, 93, 61, 0.12), transparent 28%),
+        linear-gradient(180deg, #fdf7f3 0%, var(--bg) 100%);
+    }
+    body.hero-theme-nu0un {
+      --bg: #eef4f8;
+      --panel: rgba(249, 252, 255, 0.94);
+      --panel-strong: #fdfefe;
+      --line: rgba(77, 120, 150, 0.16);
+      --accent: #4d7896;
+      --accent-soft: #dce8f1;
+      --good: #4d7896;
+      --shadow: 0 18px 50px rgba(48, 75, 94, 0.14);
+      background:
+        radial-gradient(circle at top left, rgba(77, 120, 150, 0.16), transparent 34%),
+        radial-gradient(circle at top right, rgba(67, 104, 130, 0.12), transparent 28%),
+        linear-gradient(180deg, #f6fafc 0%, var(--bg) 100%);
+    }
+    code {
+      font-family: inherit;
+      font-size: 0.95em;
+      font-weight: 600;
+      padding: 0.08em 0.32em;
+      border-radius: 0.45em;
+      background: rgba(142, 74, 42, 0.08);
+      border: 1px solid rgba(142, 74, 42, 0.14);
+    }
+    body.hero-theme-player code {
+      background: rgba(31, 111, 151, 0.08);
+      border-color: rgba(31, 111, 151, 0.16);
+    }
+    body.hero-theme-izacchi code {
+      background: rgba(45, 138, 91, 0.08);
+      border-color: rgba(45, 138, 91, 0.16);
+    }
+    body.hero-theme-riku0125 code {
+      background: rgba(199, 104, 65, 0.08);
+      border-color: rgba(199, 104, 65, 0.16);
+    }
+    body.hero-theme-nu0un code {
+      background: rgba(77, 120, 150, 0.08);
+      border-color: rgba(77, 120, 150, 0.16);
+    }
+    .page { max-width: 1180px; margin: 0 auto; padding: 40px 24px 56px; }
+    .hero { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 24px; align-items: start; margin-bottom: 24px; }
+    .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 24px; box-shadow: var(--shadow); backdrop-filter: blur(8px); }
+    .hero-copy { padding: 28px; }
+    .eyebrow { display: inline-block; margin-bottom: 10px; padding: 6px 10px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); font-size: 13px; font-weight: 700; letter-spacing: 0.04em; }
+    h1, h2, h3 { margin: 0; line-height: 1.2; }
+    h1 { font-size: 34px; margin-bottom: 10px; }
+    .sub { margin: 0 0 18px; color: var(--muted); line-height: 1.7; font-size: 15px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 18px; }
+    .chip { padding: 8px 12px; border-radius: 999px; background: var(--panel-strong); border: 1px solid var(--line); font-size: 13px; color: var(--muted); }
+    .chip-player { background: var(--accent-soft); color: var(--accent); font-weight: 700; }
+    .hero-list { margin: 0; padding-left: 18px; line-height: 1.8; }
+    .summary-mini { margin-top: 18px; padding: 16px 18px; border-radius: 18px; background: rgba(255,255,255,0.62); border: 1px solid var(--line); }
+    .summary-mini h2 { font-size: 15px; margin-bottom: 12px; }
+    .summary-grid { display: grid; grid-template-columns: 110px 1fr; gap: 8px 12px; margin: 0; font-size: 13px; line-height: 1.6; }
+    .summary-grid dt { margin: 0; color: var(--muted); font-weight: 700; }
+    .summary-grid dd { margin: 0; }
+    .shot { padding: 18px; }
+    .shot img { width: 100%; display: block; border-radius: 18px; border: 1px solid var(--line); background: #10151d; }
+    .grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-bottom: 24px; }
+    .card { padding: 18px; }
+    .card h3 { font-size: 14px; color: var(--muted); margin-bottom: 10px; }
+    .card p { margin: 0; font-size: 15px; line-height: 1.7; }
+    .tone-good { color: var(--good); font-weight: 700; }
+    .section { padding: 24px 26px; margin-bottom: 20px; }
+    .section h2 { font-size: 22px; margin-bottom: 14px; }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    th, td { border-top: 1px solid var(--line); padding: 12px 10px; text-align: left; vertical-align: top; line-height: 1.65; }
+    th { color: var(--muted); font-weight: 700; background: rgba(255,255,255,0.42); }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    ul { margin: 0; padding-left: 18px; line-height: 1.8; }
+    @media (max-width: 960px) {
+      .hero, .two-col, .grid { grid-template-columns: 1fr; }
+      .page { padding: 24px 16px 40px; }
+      h1 { font-size: 28px; }
+    }
+  </style>
+</head>
+<body class="">
+  <main class="page">
+    <section class="hero">
+      <div class="panel hero-copy">
+        <div class="eyebrow">T4 HAND REVIEW</div>
+        <h1>BB A♦T♣ の turn probe / river value bet-fold レビュー</h1>
+        <p class="sub">GTO基準で大きく悪いのは river raise への fold ではなく、river <code>5♠</code> で <code>A♦T♣</code> を <code>6.38BB</code> into <code>8.5BB</code> まで大きく value bet した点です。BB defend、flop check、turn small probe は自然です。ただし turn call を「T hit か flush draw」に寄せすぎると、<code>4x</code> の gutshot、<code>5x/6x</code>、slowplay した強い hand が抜けます。river の raise に対する fold は、相手の bluff がかなり必要になる一方で実戦の raise range が <code>4x</code> に寄りやすいため、かなり良い判断です。</p>
+        <div class="chips">
+          <div class="chip">Hero: BB <code>A♦T♣</code></div>
+<div class="chip">Villain: CO <code>K♠4♠</code></div>
+<div class="chip">Board: <code>T♦ 3♥ 2♥</code> / <code>6♠</code> / <code>5♠</code></div>
+        </div>
+        <ul><li>BB <code>A♦T♣</code> は CO <code>2.3BB</code> open に対して call で問題ありません。CO open が小さめなので、BB defend はやや広く見てよいです。</li>
+<li>flop <code>T♦ 3♥ 2♥</code> は Hero が top pair top kicker を持っていますが、CO の flop check back には air だけでなく、<code>Tx</code>、pocket pair、gutshot、heart draw、slowplay が残ります。</li>
+<li>turn <code>6♠</code> の <code>1.7BB</code> probe は良いです。CO が flop check したあと、Hero は <code>Tx</code> で value/protection を取りにいけます。</li>
+<li>river <code>5♠</code> は flush は外れていますが、<code>4x</code> が一枚で straight になります。<code>A♦T♣</code> の大きめ value bet は thin で、raise された後は bluff-catch に回せるほど強くありません。</li></ul>
+        <section class="summary-mini">
+  <h2>ハンド要約</h2>
+  <dl class="summary-grid">
+    <dt>Hero</dt>
+<dd>BB <code>A♦T♣</code></dd>
+<dt>Villain</dt>
+<dd>CO <code>K♠4♠</code></dd>
+<dt>形式</dt>
+<dd>T4 6MAX Cash NL50, 100BB, Anteなし</dd>
+<dt>Preflop</dt>
+<dd>UTG fold, HJ fold, CO raise <code>2.3BB</code>, BTN fold, SB fold, BB call</dd>
+<dt>Board</dt>
+<dd><code>T♦ 3♥ 2♥</code> / <code>6♠</code> / <code>5♠</code></dd>
+<dt>Flop</dt>
+<dd>BB check, CO check</dd>
+<dt>Turn</dt>
+<dd>BB bet <code>1.7BB</code>, CO call</dd>
+<dt>River</dt>
+<dd>BB bet <code>6.38BB</code>, CO raise <code>25.52BB</code>, BB fold</dd>
+<dt>Result</dt>
+<dd>CO won <code>20.2BB</code></dd>
+  </dl>
+</section>
+      </div>
+      <div class="panel shot">
+        <img src="./assets/hands/tenfour_20260428_1948_Pkz19z.png" alt="tenfour hand screenshot" />
+      </div>
+    </section>
+
+    <section class="grid">
+  <article class="panel card">
+  <h3>Preflop</h3>
+  <p><span class="tone-good">良い</span><br /><code>A♦T♣</code> は call で扱いやすい上側の defend hand です。</p>
+</article>
+<article class="panel card">
+  <h3>Flop <code>T♦ 3♥ 2♥</code></h3>
+  <p><span class="tone-good">良い</span><br />Hero は top pair top kicker でかなり良い bluff-catcher / thin value hand です。</p>
+</article>
+<article class="panel card">
+  <h3>Turn <code>6♠</code></h3>
+  <p><span class="tone-good">良い</span><br /><code>A♦T♣</code> は多くの <code>Tx</code>、pair、draw に勝っており、value/protection があります。</p>
+</article>
+<article class="panel card">
+  <h3>River <code>5♠</code></h3>
+  <p><span class="tone-good">bet は薄い、fold は良い</span><br /><code>A♦T♣</code> は showdown value のある top pair ですが、大きい bet に raise された後は bluff-catcher の下側です。</p>
+</article>
+</section>
+
+    <section class="panel section">
+      <h2>判断のズレ</h2>
+      <table>
+  <thead>
+    <tr><th>論点</th><th>その場で置いた見立て</th><th>どこがズレたか</th><th>次回の基準</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>turn call range</td><td>安い bet に call してきたので、<code>Tx</code> か draw が中心に見える</td><td>それ自体は近いですが、<code>4x</code> の gutshot、<code>5x/6x</code>、pocket pair、slowplay も残ります。特に <code>4x</code> は river <code>5</code> で一気に強くなります。</td><td>small probe に call されたら、pair/draw だけでなく「次の river で nut 化する gutshot」を必ず残す</td></tr>
+<tr><td>river large value</td><td>worse <code>Tx</code> なら 75% でも call してくれそうに見える</td><td><code>5♠</code> は one-card straight card なので、worse <code>Tx</code> は call しにくくなり、相手の raise range はかなり強くなります。</td><td>scare river の top pair value は、小さめで worse を広く呼ぶか、check-call 寄りにして raise を受けない形を優先する</td></tr>
+  </tbody>
+</table>
+    </section>
+
+    <section class="panel section">
+      <h2>ストリート別レビュー</h2>
+      <table>
+  <thead>
+    <tr><th>ストリート</th><th>その時点の見え方</th><th>実ハンドの位置づけ</th><th>評価</th><th>その場の一手</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Preflop</td><td>CO open に対して BB は広く defend できます。CO <code>2.3BB</code> はやや小さめなので、offsuit broadway / <code>ATo</code> 付近は十分 defend 圏内です。</td><td><code>A♦T♣</code> は call で扱いやすい上側の defend hand です。</td><td>良い</td><td>call で問題ありません。3bet も混ぜ得ますが、call が自然です。</td></tr>
+<tr><td>Flop <code>T♦ 3♥ 2♥</code></td><td>CO は range advantage を持ちますが、check back により強い overpair だけでなく弱い showdown hand や draw も残ります。BB は <code>Tx</code>、low pair、straight draw、heart draw を持てます。</td><td>Hero は top pair top kicker でかなり良い bluff-catcher / thin value hand です。</td><td>良い</td><td>check は自然です。CO が check したことで、turn 以降は value/protection を取りにいけます。</td></tr>
+<tr><td>Turn <code>6♠</code></td><td><code>45</code> は straight になり、<code>4x</code> は river <code>5</code> で強くなる gutshot です。CO の check back range はまだ広く、small probe に対して多くの hand が続けます。</td><td><code>A♦T♣</code> は多くの <code>Tx</code>、pair、draw に勝っており、value/protection があります。</td><td>良い</td><td><code>1.7BB</code> は問題ありません。もう少し大きく打ってもよいですが、small で広く call させる方針も成立します。</td></tr>
+<tr><td>River <code>5♠</code></td><td>flush は外れた一方、<code>4x</code> が一枚で straight です。CO の turn call には <code>A4s/K4s/Q4s/44</code> など薄くても十分残ります。</td><td><code>A♦T♣</code> は showdown value のある top pair ですが、大きい bet に raise された後は bluff-catcher の下側です。</td><td>bet は薄い、fold は良い</td><td>value を取るなら小さめが扱いやすいです。実戦の大きめ bet に raise が返った後は fold で問題ありません。</td></tr>
+  </tbody>
+</table>
+    </section>
+
+    <section class="two-col">
+      <section class="panel section">
+        <h2>持ち帰り</h2>
+        <ul><li>「flush draw が外れた」は正しい見方ですが、それだけで river raise を bluff 寄りに見るのは危険です。<code>4x</code> が一枚で straight になる river では、missed draw より made hand の raise 密度を先に見ます。</li>
+<li>turn の安い bet に call されたときは、pair / flush draw だけでなく、river で nut 化する gutshot を残しておきます。</li>
+<li>top pair top kicker は value hand ですが、one-card straight river で大きく打って raise された後は、かなり普通に降りられる hand です。</li></ul>
+      </section>
+      <section class="panel section">
+        <h2>exploit 補足</h2>
+        <ul><li>T4 の実戦では、river raise が理論より value 過多になりやすいです。特に今回のように <code>4x</code> が自然に完成する runout では、<code>A♦T♣</code> の fold はかなり堅実です。</li>
+<li>相手が missed heart を高頻度で bluff raise する明確な read がある場合だけ call を検討します。その場合でも、Hero は <code>4x</code> blocker を持っていないため、call の優先度は高くありません。</li></ul>
+      </section>
+    </section>
+  </main>
+</body>
+</html>
