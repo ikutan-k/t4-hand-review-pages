@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SB 76s gutshot fold レビュー</title>
+  <style>
+    :root {
+      --bg: #f4efe6;
+      --panel: rgba(255, 251, 245, 0.94);
+      --panel-strong: #fffdfa;
+      --ink: #1f1a17;
+      --muted: #6f655d;
+      --line: rgba(66, 51, 38, 0.12);
+      --accent: #8e4a2a;
+      --accent-soft: #eed7cb;
+      --good: #1d6b4d;
+      --shadow: 0 18px 50px rgba(61, 43, 32, 0.12);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "BIZ UDPGothic", "Hiragino Sans", "Yu Gothic", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(142, 74, 42, 0.12), transparent 34%),
+        radial-gradient(circle at top right, rgba(29, 107, 77, 0.12), transparent 28%),
+        linear-gradient(180deg, #f8f2ea 0%, var(--bg) 100%);
+    }
+    body.hero-theme-player {
+      --bg: #edf4f8;
+      --panel: rgba(248, 252, 255, 0.94);
+      --panel-strong: #fdfefe;
+      --line: rgba(38, 86, 117, 0.14);
+      --accent: #1f6f97;
+      --accent-soft: #d7ebf6;
+      --good: #1f6f97;
+      --shadow: 0 18px 50px rgba(35, 72, 96, 0.14);
+      background:
+        radial-gradient(circle at top left, rgba(31, 111, 151, 0.16), transparent 34%),
+        radial-gradient(circle at top right, rgba(34, 82, 116, 0.12), transparent 28%),
+        linear-gradient(180deg, #f5fafc 0%, var(--bg) 100%);
+    }
+    body.hero-theme-izacchi {
+      --bg: #eef7f1;
+      --panel: rgba(249, 254, 251, 0.94);
+      --panel-strong: #fdfefd;
+      --line: rgba(45, 138, 91, 0.16);
+      --accent: #2d8a5b;
+      --accent-soft: #d9efe3;
+      --good: #2d8a5b;
+      --shadow: 0 18px 50px rgba(37, 95, 66, 0.14);
+      background:
+        radial-gradient(circle at top left, rgba(45, 138, 91, 0.18), transparent 34%),
+        radial-gradient(circle at top right, rgba(72, 123, 88, 0.12), transparent 28%),
+        linear-gradient(180deg, #f5fbf7 0%, var(--bg) 100%);
+    }
+    body.hero-theme-riku0125 {
+      --bg: #fbf1ec;
+      --panel: rgba(255, 250, 247, 0.94);
+      --panel-strong: #fffdfb;
+      --line: rgba(199, 104, 65, 0.16);
+      --accent: #c76841;
+      --accent-soft: #f5ddd4;
+      --good: #b65935;
+      --shadow: 0 18px 50px rgba(124, 69, 47, 0.14);
+      background:
+        radial-gradient(circle at top left, rgba(199, 104, 65, 0.16), transparent 34%),
+        radial-gradient(circle at top right, rgba(156, 93, 61, 0.12), transparent 28%),
+        linear-gradient(180deg, #fdf7f3 0%, var(--bg) 100%);
+    }
+    body.hero-theme-nu0un {
+      --bg: #eef4f8;
+      --panel: rgba(249, 252, 255, 0.94);
+      --panel-strong: #fdfefe;
+      --line: rgba(77, 120, 150, 0.16);
+      --accent: #4d7896;
+      --accent-soft: #dce8f1;
+      --good: #4d7896;
+      --shadow: 0 18px 50px rgba(48, 75, 94, 0.14);
+      background:
+        radial-gradient(circle at top left, rgba(77, 120, 150, 0.16), transparent 34%),
+        radial-gradient(circle at top right, rgba(67, 104, 130, 0.12), transparent 28%),
+        linear-gradient(180deg, #f6fafc 0%, var(--bg) 100%);
+    }
+    code {
+      font-family: inherit;
+      font-size: 0.95em;
+      font-weight: 600;
+      padding: 0.08em 0.32em;
+      border-radius: 0.45em;
+      background: rgba(142, 74, 42, 0.08);
+      border: 1px solid rgba(142, 74, 42, 0.14);
+    }
+    body.hero-theme-player code {
+      background: rgba(31, 111, 151, 0.08);
+      border-color: rgba(31, 111, 151, 0.16);
+    }
+    body.hero-theme-izacchi code {
+      background: rgba(45, 138, 91, 0.08);
+      border-color: rgba(45, 138, 91, 0.16);
+    }
+    body.hero-theme-riku0125 code {
+      background: rgba(199, 104, 65, 0.08);
+      border-color: rgba(199, 104, 65, 0.16);
+    }
+    body.hero-theme-nu0un code {
+      background: rgba(77, 120, 150, 0.08);
+      border-color: rgba(77, 120, 150, 0.16);
+    }
+    .page { max-width: 1180px; margin: 0 auto; padding: 40px 24px 56px; }
+    .hero { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 24px; align-items: start; margin-bottom: 24px; }
+    .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 24px; box-shadow: var(--shadow); backdrop-filter: blur(8px); }
+    .hero-copy { padding: 28px; }
+    .eyebrow { display: inline-block; margin-bottom: 10px; padding: 6px 10px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); font-size: 13px; font-weight: 700; letter-spacing: 0.04em; }
+    h1, h2, h3 { margin: 0; line-height: 1.2; }
+    h1 { font-size: 34px; margin-bottom: 10px; }
+    .sub { margin: 0 0 18px; color: var(--muted); line-height: 1.7; font-size: 15px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 18px; }
+    .chip { padding: 8px 12px; border-radius: 999px; background: var(--panel-strong); border: 1px solid var(--line); font-size: 13px; color: var(--muted); }
+    .chip-player { background: var(--accent-soft); color: var(--accent); font-weight: 700; }
+    .hero-list { margin: 0; padding-left: 18px; line-height: 1.8; }
+    .summary-mini { margin-top: 18px; padding: 16px 18px; border-radius: 18px; background: rgba(255,255,255,0.62); border: 1px solid var(--line); }
+    .summary-mini h2 { font-size: 15px; margin-bottom: 12px; }
+    .summary-grid { display: grid; grid-template-columns: 110px 1fr; gap: 8px 12px; margin: 0; font-size: 13px; line-height: 1.6; }
+    .summary-grid dt { margin: 0; color: var(--muted); font-weight: 700; }
+    .summary-grid dd { margin: 0; }
+    .shot { padding: 18px; }
+    .shot img { width: 100%; display: block; border-radius: 18px; border: 1px solid var(--line); background: #10151d; }
+    .text-shot { min-height: 100%; display: flex; }
+    .ps-hand { width: 100%; min-height: 420px; display: flex; flex-direction: column; justify-content: space-between; gap: 18px; padding: 18px; border-radius: 18px; border: 1px solid var(--line); background: var(--panel-strong); }
+    .ps-topline { display: flex; justify-content: space-between; gap: 14px; color: var(--muted); font-size: 12px; font-weight: 700; letter-spacing: 0.04em; }
+    .ps-topline strong { color: var(--accent); }
+    .ps-players { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+    .ps-player-card { min-height: 92px; display: flex; flex-direction: column; justify-content: space-between; gap: 10px; padding: 14px; border-radius: 14px; border: 1px solid var(--line); }
+    .ps-player-card-hero { background: var(--accent-soft); color: var(--accent); border-color: rgba(142, 74, 42, 0.22); }
+    .ps-player-card-villain { background: rgba(29, 107, 77, 0.10); color: #1d6b4d; border-color: rgba(29, 107, 77, 0.24); }
+    .ps-player-label { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+    .ps-role { font-size: 11px; font-weight: 800; letter-spacing: 0; text-transform: uppercase; }
+    .ps-seat { font-size: 12px; font-weight: 800; opacity: 0.78; }
+    .ps-hole { font-size: 26px; font-weight: 800; letter-spacing: 0; line-height: 1.1; }
+    .ps-meta { display: grid; grid-template-columns: 70px 1fr; gap: 8px 12px; margin: 0; font-size: 13px; line-height: 1.55; }
+    .ps-meta dt { margin: 0; color: var(--muted); font-weight: 700; }
+    .ps-meta dd { margin: 0; }
+    .ps-actions { margin: 0; padding: 14px 14px 14px 34px; border-radius: 16px; border: 1px solid var(--line); background: rgba(255,255,255,0.54); line-height: 1.65; font-size: 14px; }
+    .ps-actions li::marker { color: var(--accent); font-weight: 700; }
+    .grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-bottom: 24px; }
+    .card { padding: 18px; }
+    .card h3 { font-size: 14px; color: var(--muted); margin-bottom: 10px; }
+    .card p { margin: 0; font-size: 15px; line-height: 1.7; }
+    .tone-good { color: var(--good); font-weight: 700; }
+    .section { padding: 24px 26px; margin-bottom: 20px; }
+    .section h2 { font-size: 22px; margin-bottom: 14px; }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    th, td { border-top: 1px solid var(--line); padding: 12px 10px; text-align: left; vertical-align: top; line-height: 1.65; }
+    th { color: var(--muted); font-weight: 700; background: rgba(255,255,255,0.42); }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    ul { margin: 0; padding-left: 18px; line-height: 1.8; }
+    @media (max-width: 960px) {
+      .hero, .two-col, .grid { grid-template-columns: 1fr; }
+      .page { padding: 24px 16px 40px; }
+      h1 { font-size: 28px; }
+    }
+  </style>
+</head>
+<body class="">
+  <main class="page">
+    <section class="hero">
+      <div class="panel hero-copy">
+        <div class="eyebrow">T4 HAND REVIEW</div>
+        <h1>SB 76s gutshot fold レビュー</h1>
+        <p class="sub">SBで <code>7♣ 6♣</code> を3bb openし、BB call後の <code>J♠ T♥ 9♥</code> でcheck、pot betにfoldしたハンドです。preflop openは良く、flop foldも自然です。Heroはgutshotを持ちますが、flush drawもpairもなく、BBのpot betに対して守るにはequityが足りません。</p>
+        <div class="chips">
+          <div class="chip chip-player">Player: ikutaN</div>
+<div class="chip">Hero: <code>ikutaN</code> SB <code>7♣ 6♣</code></div>
+<div class="chip">Villain: BB</div>
+<div class="chip">Board: J♠ T♥ 9♥</div>
+        </div>
+        <ul><li>GTO基準の総評: preflopは良い。flop check/foldも良い。</li>
+<li>このハンドの主要論点: BvBでもconnected high boardの弱いgutshotを守りすぎない。</li>
+<li>一番大きい改善ポイント: pot betにはdrawの質を厳しく見る。</li></ul>
+        <section class="summary-mini">
+  <h2>ハンド要約</h2>
+  <dl class="summary-grid">
+    <dt>Hero</dt>
+<dd><code>ikutaN</code> SB <code>7♣ 6♣</code></dd>
+<dt>Villain</dt>
+<dd>BB</dd>
+<dt>形式</dt>
+<dd>PS形式 6MAX Cash NL50, 100BB, Anteなし</dd>
+<dt>Preflop</dt>
+<dd>SB Hero Raise 3bb / BB Call 3bb</dd>
+<dt>Board</dt>
+<dd>J♠ T♥ 9♥</dd>
+<dt>Flop</dt>
+<dd>Board J♠ T♥ 9♥ / SB Hero Check / BB Bet 6bb / SB Hero Fold</dd>
+<dt>Showdown</dt>
+<dd>BB won 5.7bb</dd>
+  </dl>
+</section>
+      </div>
+      <div class="panel shot text-shot">
+  <div class="ps-hand">
+    <div class="ps-topline">
+      <span>PS TEXT HAND</span>
+      <strong>#Ry4Z5x</strong>
+    </div>
+    <div class="ps-players">
+      <div class="ps-player-card ps-player-card-hero">
+  <div class="ps-player-label">
+    <span class="ps-role">Hero</span>
+    <span class="ps-seat">SB</span>
+  </div>
+  <div class="ps-hole">7♣ 6♣</div>
+</div>
+<div class="ps-player-card ps-player-card-villain">
+  <div class="ps-player-label">
+    <span class="ps-role">Villain</span>
+    <span class="ps-seat">BB</span>
+  </div>
+  <div class="ps-hole">J♥ 7♠</div>
+</div>
+    </div>
+    <dl class="ps-meta">
+      <dt>Date</dt><dd>2026/05/01 01:33</dd>
+      <dt>Board</dt><dd>J♠ T♥ 9♥</dd>
+      <dt>Result</dt><dd>BB won 5.7bb</dd>
+    </dl>
+    <ol class="ps-actions">
+      <li>UTG Fold</li>
+<li>HJ Fold</li>
+<li>CO Fold</li>
+<li>BTN Fold</li>
+<li>SB Hero Raise 3bb</li>
+<li>BB Call 3bb</li>
+    </ol>
+  </div>
+</div>
+    </section>
+
+    <section class="grid">
+  <article class="panel card">
+  <h3>Preflop</h3>
+  <p><span class="tone-good">良い</span><br /><code>76s</code> はBvBではopen候補です。</p>
+</article>
+<article class="panel card">
+  <h3>Flop</h3>
+  <p><span class="tone-good">良いfold</span><br />Heroは低いgutshotのみで、heartもpairもありません。</p>
+</article>
+</section>
+
+    <section class="panel section">
+      <h2>判断のズレ</h2>
+      <table>
+  <thead>
+    <tr><th>論点</th><th>その場で置きがちな見立て</th><th>どこがズレたか</th><th>次回の基準</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>76s</code> のgutshot</td><td>8でstraightなので続けたくなる</td><td><code>JT9</code> はBBにも強く当たり、pot betに対しては必要equityが高いです。club backdoorもなく、実現率が低い。</td><td>pot betにはpair+draw、flush draw、強いOESDを優先。裸gutshotは降りる</td></tr>
+  </tbody>
+</table>
+    </section>
+
+    <section class="panel section">
+      <h2>ストリート別レビュー</h2>
+      <table>
+  <thead>
+    <tr><th>ストリート</th><th>その時点の見え方</th><th>実ハンドの位置づけ</th><th>評価</th><th>その場の一手</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Preflop</td><td>SB first-inでBBだけが相手です。</td><td><code>76s</code> はBvBではopen候補です。</td><td>良い</td><td>3bb openで問題ありません。</td></tr>
+<tr><td>Flop</td><td><code>JT9</code> two-heartはBBのcall rangeにも強く当たります。</td><td>Heroは低いgutshotのみで、heartもpairもありません。</td><td>良いfold</td><td>pot betにはfoldで十分です。</td></tr>
+  </tbody>
+</table>
+    </section>
+
+    <section class="two-col">
+      <section class="panel section">
+        <h2>持ち帰り</h2>
+        <ul><li>BvBでも、相手のpot betにはdrawの質を厳しく見る。</li>
+<li>裸gutshotは「当たれば強い」だけでは守り切れない。</li></ul>
+      </section>
+      <section class="panel section">
+        <h2>exploit 補足</h2>
+        <ul><li>BBがpot stabを乱発する相手ならcheck-raise bluff候補を作れますが、その場合もheart blockerや強いdrawを優先します。</li></ul>
+      </section>
+    </section>
+  </main>
+</body>
+</html>
