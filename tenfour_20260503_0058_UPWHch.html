@@ -169,7 +169,7 @@
       <div class="panel hero-copy">
         <div class="eyebrow">T4 HAND REVIEW</div>
         <h1>SB A♠8♠ の BvB turn check-raise セミブラフレビュー</h1>
-        <p class="sub">GTO基準で、preflop の SB <code>A♠8♠</code> 3BB open は問題ありません。flop <code>Q♣ J♠ 2♥</code> の check-call は少し境界寄りですが、gutshot と backdoor nut flush draw があり、BB が広く stab する前提なら許容できます。いちばん良い点は turn <code>K♠</code> で <code>A♠8♠</code> を check-raise セミブラフに回したところです。nut flush draw と <code>T</code> への straight draw を同時に持ち、相手の one pair や弱い draw にかなり圧をかけられます。改善するなら、turn raise size はもう少し大きくしてもよいです。</p>
+        <p class="sub">GTO基準で、preflop の SB <code>A♠8♠</code> 3BB open は問題ありません。flop <code>Q♣ J♠ 2♥</code> の check-call は少し境界寄りですが、gutshot と backdoor nut flush draw があり、BB が広く stab する前提なら許容できます。いちばん良い点は turn <code>K♠</code> で <code>A♠8♠</code> を check-raise セミブラフに回したところです。nut flush draw と <code>T</code> への straight draw を同時に持ち、BB の <code>Qx/Jx</code> や弱い draw に厳しい判断を迫れます。改善するなら、turn raise size はもう少し大きくしてもよいです。</p>
         <div class="chips">
           <div class="chip">Hero: SB <code>A♠ 8♠</code></div>
 <div class="chip">Villain: BB <code>8♥ 7♣</code></div>
@@ -177,7 +177,7 @@
         </div>
         <ul><li>GTO基準の総評: turn check-raise セミブラフはかなり良い候補。大きなズレではありません。</li>
 <li>このハンドの主要論点: flop の境界 check-call を、turn の equity 増加で攻撃に変えられているか。</li>
-<li>一番大きい改善ポイント: turn で raise するなら、相手の <code>Kx/Qx/Jx/draw</code> に十分な圧をかけるため、<code>24BB</code> より少し大きい size も検討する。</li>
+<li>一番大きい改善ポイント: turn で raise するなら、相手の <code>Kx/Qx/Jx/draw</code> に安く call されないよう、<code>24BB</code> より少し大きい size も検討する。</li>
 <li>flop 時点では A-high 単体で守っているのではなく、<code>T</code> と spade runout を使える combo として続ける意識が大事です。</li></ul>
         <section class="summary-mini">
   <h2>ハンド要約</h2>
@@ -235,7 +235,7 @@
   </thead>
   <tbody>
     <tr><td>flop check-call の根拠</td><td>gutshot があるので、A-high でも一度 call できそう</td><td><code>A♠8♠</code> は made hand ではなく、BB の half pot stab に対して pure に守る hand ではありません。続けるなら、turn の <code>T/K/spade/A</code> などでどう戦うかまでセットで考える必要があります。</td><td>flop call は「後で攻められる turn が多い combo」だけに絞る。何も増えない turn は無理に粘らない</td></tr>
-<tr><td>turn check-raise の狙い</td><td>draw が強くなったので、raise で降ろせそう</td><td>発想は良いですが、<code>K</code> は BB 側にも hit します。小さめ raise だと <code>Kx/Qx+draw/Tx</code> に安く続けられやすいです。</td><td>nut FD + straight draw の強いセミブラフは、fold equity と被コール時の equity の両方で稼ぐ。size は相手の call price をきつくする</td></tr>
+<tr><td>turn check-raise の狙い</td><td>draw が強くなったので、raise で降ろせそう</td><td>発想は良いですが、<code>K</code> は BB 側にも hit します。小さめ raise だと <code>Kx/Qx+draw/Tx</code> に安く続けられやすいです。</td><td>nut FD + straight draw の強いセミブラフは、fold equity と call された時の equity の両方で稼ぐ。size は相手の call price をきつくする</td></tr>
   </tbody>
 </table>
     </section>
@@ -249,7 +249,7 @@
   <tbody>
     <tr><td>Preflop</td><td>SB first-in は mixed strategy ですが、<code>3BB</code> open では BB の defend は少し締まります。</td><td><code>A♠8♠</code> は SB open に十分入る suited ace です。</td><td>良い</td><td>raise で問題ありません。limp mix に回す余地はありますが、実戦の <code>3BB</code> open は自然です。</td></tr>
 <tr><td>Flop <code>Q♣ J♠ 2♥</code></td><td>SB は broadway と overpair を多く持ちますが、BB も <code>Qx/Jx/Tx/9T/KTx</code> などでよく絡む board です。SB check 後の BB half pot は、value と stab が混ざります。</td><td>Hero は A-high、gutshot、backdoor nut flush draw。showdown value は薄く、将来の equity で続ける hand です。</td><td>境界だが許容</td><td>check-call するなら、turn で equity が増えたときに攻撃する計画が必要です。完全な blank turn では降り寄りでよいです。</td></tr>
-<tr><td>Turn <code>K♠</code></td><td><code>K</code> は双方に当たりますが、Hero は <code>AT/T9/KQ/KJ</code> などの強い range も持てます。BB の 75% bet は <code>Kx/Qx</code>、straight、draw、air が混ざります。</td><td><code>A♠8♠</code> は nut flush draw + <code>T</code> への straight draw を持つ強いセミブラフ候補です。</td><td>良い / size はやや小さい</td><td>check-raise は良いです。実戦の <code>24BB</code> でも機能しますが、call price をきつくするなら <code>28-33BB</code> 付近まで上げる方が扱いやすいです。</td></tr>
+<tr><td>Turn <code>K♠</code></td><td><code>K</code> は双方に当たりますが、Hero は <code>AT/T9/KQ/KJ</code> などの強い range も持てます。BB の 75% bet は <code>Kx/Qx</code>、straight、draw、bluff が混ざります。</td><td><code>A♠8♠</code> は nut flush draw + <code>T</code> への straight draw を持つ強いセミブラフ候補です。</td><td>良い / size はやや小さい</td><td>check-raise は良いです。実戦の <code>24BB</code> でも機能しますが、call price をきつくするなら <code>28-33BB</code> 付近まで上げる方が扱いやすいです。</td></tr>
 <tr><td>River</td><td>turn で BB が fold したため未到達です。</td><td></td><td></td><td></td></tr>
   </tbody>
 </table>
