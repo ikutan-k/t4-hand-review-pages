@@ -158,6 +158,40 @@
       box-shadow: 0 0 0 4px rgba(154, 77, 34, 0.08);
     }
 
+    .kind-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .kind-filter {
+      min-height: 42px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 10px 14px;
+      background: rgba(255, 255, 255, 0.74);
+      color: var(--muted);
+      font: inherit;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
+    .kind-filter:hover,
+    .kind-filter:focus-visible {
+      border-color: rgba(154, 77, 34, 0.28);
+      color: var(--ink);
+      outline: none;
+    }
+
+    .kind-filter.is-active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fffdfa;
+    }
+
     .filter-meta {
       display: flex;
       flex-wrap: wrap;
@@ -177,18 +211,36 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
+      border: 1px solid var(--line);
       padding: 10px 14px;
       border-radius: 999px;
       background: rgba(255, 255, 255, 0.82);
-      border: 1px solid var(--line);
-      text-decoration: none;
       color: var(--muted);
+      font: inherit;
       font-size: 13px;
+      cursor: pointer;
     }
 
     .date-chip strong {
       color: var(--ink);
       font-size: 12px;
+    }
+
+    .date-chip:hover,
+    .date-chip:focus-visible {
+      border-color: rgba(154, 77, 34, 0.28);
+      color: var(--ink);
+      outline: none;
+    }
+
+    .date-chip.is-active {
+      background: var(--alt-accent);
+      border-color: var(--alt-accent);
+      color: #f8fcff;
+    }
+
+    .date-chip.is-active strong {
+      color: #f8fcff;
     }
 
     .empty-state {
@@ -496,6 +548,16 @@
       color: var(--muted);
     }
 
+    .load-more {
+      display: flex;
+      justify-content: center;
+      margin-top: 18px;
+      padding: 14px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
     [hidden] { display: none !important; }
 
     @media (max-width: 900px) {
@@ -557,15 +619,15 @@
       <div class="hero-meta">
         <div class="hero-stat">
           <strong>&#21454;&#37682;&#25968;</strong>
-          <span>157&#20214; / 21&#26085; / &#12510;&#12473;&#12463; 4&#20214;</span>
+          <span>158&#20214; / 22&#26085; / &#12510;&#12473;&#12463; 4&#20214;</span>
         </div>
         <div class="hero-stat">
           <strong>&#26368;&#26032;&#12524;&#12499;&#12517;&#12540;</strong>
-          <span>2026.05.01 01:47</span>
+          <span>2026.05.03 00:58</span>
         </div>
         <div class="hero-stat">
           <strong>&#29983;&#25104;&#26178;&#21051;</strong>
-          <span>2026.05.01 03:17:52</span>
+          <span>2026.05.03 01:01:44</span>
         </div>
       </div>
     </section>
@@ -576,100 +638,146 @@
         <input id="searchInput" class="search" type="search" placeholder="&#26908;&#32034;&#58;&#32;&#12479;&#12452;&#12488;&#12523;&#32;&#47;&#32;&#12498;&#12540;&#12525;&#12540;&#32;&#47;&#32;&#12508;&#12540;&#12489;&#32;&#47;&#32;&#32080;&#26524;" autocomplete="off" />
       </div>
       <div class="toolbar-row">
-        <div class="filter-meta">
-          <span id="visibleCounter">157 / 157&#20214;</span>
+        <div class="kind-filters" aria-label="&#12524;&#12499;&#12517;&#12540;&#31278;&#21029;&#12391;&#32094;&#12426;&#36796;&#12416;">
+          <button class="kind-filter is-active" type="button" data-kind-filter="all" aria-pressed="true">All</button>
+          <button class="kind-filter" type="button" data-kind-filter="preflop" aria-pressed="false">Preflop</button>
+          <button class="kind-filter" type="button" data-kind-filter="postflop" aria-pressed="false">Postflop</button>
         </div>
-        <nav class="date-nav" aria-label="&#26085;&#20184;&#12472;&#12515;&#12531;&#12503;">
-  <a class="date-chip" href="#day-20260501">
+      </div>
+      <div class="toolbar-row">
+        <div class="filter-meta">
+          <span id="visibleCounter">158 / 158&#20214;</span>
+        </div>
+        <nav class="date-nav" aria-label="&#26085;&#20184;&#12391;&#32094;&#12426;&#36796;&#12416;">
+  <button class="date-chip is-active" type="button" data-day-filter="all" aria-pressed="true">
+  <span>All</span>
+  <strong>158</strong>
+</button>
+<button class="date-chip" type="button" data-day-filter="2026-05-03" aria-pressed="false">
+  <span>5/3</span>
+  <strong>1</strong>
+</button>
+<button class="date-chip" type="button" data-day-filter="2026-05-01" aria-pressed="false">
   <span>5/1</span>
   <strong>23</strong>
-</a>
-<a class="date-chip" href="#day-20260430">
+</button>
+<button class="date-chip" type="button" data-day-filter="2026-04-30" aria-pressed="false">
   <span>4/30</span>
   <strong>16</strong>
-</a>
-<a class="date-chip" href="#day-20260429">
+</button>
+<button class="date-chip" type="button" data-day-filter="2026-04-29" aria-pressed="false">
   <span>4/29</span>
   <strong>42</strong>
-</a>
-<a class="date-chip" href="#day-20260428">
+</button>
+<button class="date-chip" type="button" data-day-filter="2026-04-28" aria-pressed="false">
   <span>4/28</span>
   <strong>35</strong>
-</a>
-<a class="date-chip" href="#day-20260427">
+</button>
+<button class="date-chip" type="button" data-day-filter="2026-04-27" aria-pressed="false">
   <span>4/27</span>
   <strong>3</strong>
-</a>
-<a class="date-chip" href="#day-20260425">
+</button>
+<button class="date-chip" type="button" data-day-filter="2026-04-25" aria-pressed="false">
   <span>4/25</span>
   <strong>1</strong>
-</a>
-<a class="date-chip" href="#day-20260424">
+</button>
+<button class="date-chip" type="button" data-day-filter="2026-04-24" aria-pressed="false">
   <span>4/24</span>
   <strong>1</strong>
-</a>
-<a class="date-chip" href="#day-20260423">
+</button>
+<button class="date-chip" type="button" data-day-filter="2026-04-23" aria-pressed="false">
   <span>4/23</span>
   <strong>1</strong>
-</a>
-<a class="date-chip" href="#day-20260421">
+</button>
+<button class="date-chip" type="button" data-day-filter="2026-04-21" aria-pressed="false">
   <span>4/21</span>
   <strong>3</strong>
-</a>
-<a class="date-chip" href="#day-20260419">
+</button>
+<button class="date-chip" type="button" data-day-filter="2026-04-19" aria-pressed="false">
   <span>4/19</span>
   <strong>1</strong>
-</a>
-<a class="date-chip" href="#day-20260416">
+</button>
+<button class="date-chip" type="button" data-day-filter="2026-04-16" aria-pressed="false">
   <span>4/16</span>
   <strong>3</strong>
-</a>
-<a class="date-chip" href="#day-20260414">
+</button>
+<button class="date-chip" type="button" data-day-filter="2026-04-14" aria-pressed="false">
   <span>4/14</span>
   <strong>1</strong>
-</a>
-<a class="date-chip" href="#day-20260412">
+</button>
+<button class="date-chip" type="button" data-day-filter="2026-04-12" aria-pressed="false">
   <span>4/12</span>
   <strong>1</strong>
-</a>
-<a class="date-chip" href="#day-20260411">
+</button>
+<button class="date-chip" type="button" data-day-filter="2026-04-11" aria-pressed="false">
   <span>4/11</span>
   <strong>1</strong>
-</a>
-<a class="date-chip" href="#day-20260410">
+</button>
+<button class="date-chip" type="button" data-day-filter="2026-04-10" aria-pressed="false">
   <span>4/10</span>
   <strong>1</strong>
-</a>
-<a class="date-chip" href="#day-20260409">
+</button>
+<button class="date-chip" type="button" data-day-filter="2026-04-09" aria-pressed="false">
   <span>4/9</span>
   <strong>3</strong>
-</a>
-<a class="date-chip" href="#day-20260408">
+</button>
+<button class="date-chip" type="button" data-day-filter="2026-04-08" aria-pressed="false">
   <span>4/8</span>
   <strong>1</strong>
-</a>
-<a class="date-chip" href="#day-20260407">
+</button>
+<button class="date-chip" type="button" data-day-filter="2026-04-07" aria-pressed="false">
   <span>4/7</span>
   <strong>6</strong>
-</a>
-<a class="date-chip" href="#day-20260406">
+</button>
+<button class="date-chip" type="button" data-day-filter="2026-04-06" aria-pressed="false">
   <span>4/6</span>
   <strong>8</strong>
-</a>
-<a class="date-chip" href="#day-20260405">
+</button>
+<button class="date-chip" type="button" data-day-filter="2026-04-05" aria-pressed="false">
   <span>4/5</span>
   <strong>5</strong>
-</a>
-<a class="date-chip" href="#day-20260402">
+</button>
+<button class="date-chip" type="button" data-day-filter="2026-04-02" aria-pressed="false">
   <span>4/2</span>
   <strong>1</strong>
-</a>
+</button>
 </nav>
       </div>
     </section>
 
     <div id="reviewContainer">
-      <section class="day-section panel" id="day-20260501">
+      <section class="day-section panel" id="day-20260503">
+  <div class="day-header">
+    <div>
+      <p class="day-kicker">&#12524;&#12499;&#12517;&#12540;&#26085;</p>
+      <h2>2026.05.03 (日)</h2>
+    </div>
+    <span class="day-count" data-default-count="1">1&#20214;</span>
+  </div>
+  <div class="review-list">
+    <a class="review-card" href="./tenfour_20260503_0058_UPWHch.html" data-kind="image" data-day="2026-05-03" data-search="sb a♠8♠ の bvb turn check-raise セミブラフレビュー sb a♠ 8♠ bb 8♥ 7♣ utg fold, hj fold, co fold, btn fold, sb hero raise 3bb, bb call q♣ j♠ 2♥ / k♠ sb hero won 28.5bb, rake 1.5bb tenfour_20260503_0058_upwhch">
+  <div class="time-rail">
+    <span class="time-value">00:58</span>
+    <span class="time-date">5/3</span>
+  </div>
+  <div class="review-main">
+    <div class="review-head">
+      <h3>SB A♠8♠ の BvB turn check-raise セミブラフレビュー</h3>
+      <div class="tag-row"><span class="tag tag-accent">&#26368;&#26032;</span></div>
+    </div>
+    <p class="overview">Hero: SB A♠ 8♠ / Board: Q♣ J♠ 2♥ / K♠ / Result: SB Hero won 28.5BB, rake 1.5BB</p>
+    <div class="meta-row">
+      <span class="meta-item"><strong>Hero</strong><span>SB A♠ 8♠</span></span>
+<span class="meta-item"><strong>Board</strong><span>Q♣ J♠ 2♥ / K♠</span></span>
+<span class="meta-item"><strong>Result</strong><span>SB Hero won 28.5BB, rake 1.5BB</span></span>
+<span class="meta-item is-dim"><strong>ID</strong><span>tenfour_20260503_0058_UPWHch</span></span>
+    </div>
+  </div>
+  <span class="open-label">&#35211;&#12427;</span>
+</a>
+  </div>
+</section>
+<section class="day-section panel" id="day-20260501">
   <div class="day-header">
     <div>
       <p class="day-kicker">&#12524;&#12499;&#12517;&#12540;&#26085;</p>
@@ -678,7 +786,7 @@
     <span class="day-count" data-default-count="23">23&#20214;</span>
   </div>
   <div class="review-list">
-    <a class="review-card review-card-postflop" href="./202605010147_y6bY2w_CO_Ad4d.html" data-search="co a4s river nut flush raise レビュー ikutan co a♦ 4♦ bb co hero raise 2.3bb / btn fold / sb fold / bb call 2.3bb a♣ 7♦ 6♣ 8♦ 5♦ co hero won 156.44bb 202605010147_y6by2w_co_ad4d">
+    <a class="review-card review-card-postflop" href="./202605010147_y6bY2w_CO_Ad4d.html" data-kind="postflop" data-day="2026-05-01" data-search="co a4s river nut flush raise レビュー ikutan co a♦ 4♦ bb co hero raise 2.3bb / btn fold / sb fold / bb call 2.3bb a♣ 7♦ 6♣ 8♦ 5♦ co hero won 156.44bb 202605010147_y6by2w_co_ad4d">
   <div class="time-rail">
     <span class="time-value">01:47</span>
     <span class="time-date">5/1</span>
@@ -686,7 +794,7 @@
   <div class="review-main">
     <div class="review-head">
       <h3>CO A4s river nut flush raise レビュー</h3>
-      <div class="tag-row"><span class="tag tag-accent">&#26368;&#26032;</span><span class="tag tag-postflop">POSTFLOP</span></div>
+      <div class="tag-row"><span class="tag tag-postflop">POSTFLOP</span></div>
     </div>
     <p class="overview">Hero: ikutaN CO A♦ 4♦ / Board: A♣ 7♦ 6♣ 8♦ 5♦ / Result: CO Hero won 156.44bb</p>
     <div class="meta-row">
@@ -698,7 +806,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-postflop" href="./202605010146_m9Mmro_CO_Jh9c.html" data-search="bb ajo vs sb open jam レビュー ikutan bb a♣ j♦ sb sb raise 100bb / bb hero call 100bb a♠ 9♠ 4♦ 8♦ 7♣ bb hero won 196bb 202605010146_m9mmro_co_jh9c">
+<a class="review-card review-card-postflop" href="./202605010146_m9Mmro_CO_Jh9c.html" data-kind="postflop" data-day="2026-05-01" data-search="bb ajo vs sb open jam レビュー ikutan bb a♣ j♦ sb sb raise 100bb / bb hero call 100bb a♠ 9♠ 4♦ 8♦ 7♣ bb hero won 196bb 202605010146_m9mmro_co_jh9c">
   <div class="time-rail">
     <span class="time-value">01:46</span>
     <span class="time-date">5/1</span>
@@ -718,7 +826,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-preflop" href="./202605010145_wg7k9s_UTG_Qh4h.html" data-search="co aa open レビュー ikutan co a♠ a♣ なし utg fold / hj fold / co hero raise 2.3bb / btn fold / sb fold / bb fold co hero won 2.5bb 202605010145_wg7k9s_utg_qh4h">
+<a class="review-card review-card-preflop" href="./202605010145_wg7k9s_UTG_Qh4h.html" data-kind="preflop" data-day="2026-05-01" data-search="co aa open レビュー ikutan co a♠ a♣ なし utg fold / hj fold / co hero raise 2.3bb / btn fold / sb fold / bb fold co hero won 2.5bb 202605010145_wg7k9s_utg_qh4h">
   <div class="time-rail">
     <span class="time-value">01:45</span>
     <span class="time-date">5/1</span>
@@ -737,7 +845,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-postflop" href="./202605010145_RQcmYA_CO_AsAc.html" data-search="utg kk vs bb 5bet jam レビュー ikutan utg k♦ k♣ bb utg hero raise 2bb / bb raise 7bb / utg hero raise 21bb / bb raise 100bb / utg hero call 100bb q♣ 8♣ 3♣ j♦ 3♦ utg hero won 196.5bb 202605010145_rqcmya_co_asac">
+<a class="review-card review-card-postflop" href="./202605010145_RQcmYA_CO_AsAc.html" data-kind="postflop" data-day="2026-05-01" data-search="utg kk vs bb 5bet jam レビュー ikutan utg k♦ k♣ bb utg hero raise 2bb / bb raise 7bb / utg hero raise 21bb / bb raise 100bb / utg hero call 100bb q♣ 8♣ 3♣ j♦ 3♦ utg hero won 196.5bb 202605010145_rqcmya_co_asac">
   <div class="time-rail">
     <span class="time-value">01:45</span>
     <span class="time-date">5/1</span>
@@ -757,7 +865,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-postflop" href="./202605010145_AEIAeY_BTN_5h4c.html" data-search="btn kjo small 3bet レビュー ikutan btn k♠ j♣ hj hj raise 3bb / btn hero raise 7.5bb / sb fold / bb fold / hj call 7.5bb a♥ t♠ 4♥ btn hero won 15.67bb 202605010145_aeiaey_btn_5h4c">
+<a class="review-card review-card-postflop" href="./202605010145_AEIAeY_BTN_5h4c.html" data-kind="postflop" data-day="2026-05-01" data-search="btn kjo small 3bet レビュー ikutan btn k♠ j♣ hj hj raise 3bb / btn hero raise 7.5bb / sb fold / bb fold / hj call 7.5bb a♥ t♠ 4♥ btn hero won 15.67bb 202605010145_aeiaey_btn_5h4c">
   <div class="time-rail">
     <span class="time-value">01:45</span>
     <span class="time-date">5/1</span>
@@ -777,7 +885,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-postflop" href="./202605010140_YzQcKW_HJ_2s2d.html" data-search="bb ako 3bet c-bet レビュー ikutan bb a♦ k♠ btn btn raise 3bb / sb fold / bb hero raise 12bb / btn call 12bb q♣ 7♣ 6♥ bb hero won 23.27bb 202605010140_yzqckw_hj_2s2d">
+<a class="review-card review-card-postflop" href="./202605010140_YzQcKW_HJ_2s2d.html" data-kind="postflop" data-day="2026-05-01" data-search="bb ako 3bet c-bet レビュー ikutan bb a♦ k♠ btn btn raise 3bb / sb fold / bb hero raise 12bb / btn call 12bb q♣ 7♣ 6♥ bb hero won 23.27bb 202605010140_yzqckw_hj_2s2d">
   <div class="time-rail">
     <span class="time-value">01:40</span>
     <span class="time-date">5/1</span>
@@ -797,7 +905,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-postflop" href="./202605010140_RAdDLB_UTG_Ac8c.html" data-search="bb 98s check-down レビュー ikutan bb 9♠ 8♠ utg utg raise 2bb / hj fold / co fold / btn fold / sb fold / bb hero call 2bb k♠ q♦ 7♦ q♥ 2♠ utg won 4.27bb 202605010140_raddlb_utg_ac8c">
+<a class="review-card review-card-postflop" href="./202605010140_RAdDLB_UTG_Ac8c.html" data-kind="postflop" data-day="2026-05-01" data-search="bb 98s check-down レビュー ikutan bb 9♠ 8♠ utg utg raise 2bb / hj fold / co fold / btn fold / sb fold / bb hero call 2bb k♠ q♦ 7♦ q♥ 2♠ utg won 4.27bb 202605010140_raddlb_utg_ac8c">
   <div class="time-rail">
     <span class="time-value">01:40</span>
     <span class="time-date">5/1</span>
@@ -817,7 +925,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-postflop" href="./202605010140_0YVsb9_SB_7c3s.html" data-search="bb qq squeeze k-high c-bet レビュー ikutan bb q♥ q♣ btn hj raise 2bb / btn call 2bb / sb fold / bb hero raise 15bb / hj fold / btn call 15bb k♥ 7♦ 5♥ bb hero won 30.87bb 202605010140_0yvsb9_sb_7c3s">
+<a class="review-card review-card-postflop" href="./202605010140_0YVsb9_SB_7c3s.html" data-kind="postflop" data-day="2026-05-01" data-search="bb qq squeeze k-high c-bet レビュー ikutan bb q♥ q♣ btn hj raise 2bb / btn call 2bb / sb fold / bb hero raise 15bb / hj fold / btn call 15bb k♥ 7♦ 5♥ bb hero won 30.87bb 202605010140_0yvsb9_sb_7c3s">
   <div class="time-rail">
     <span class="time-value">01:40</span>
     <span class="time-date">5/1</span>
@@ -837,7 +945,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-preflop" href="./202605010139_rULwpD_BB_QhQc.html" data-search="co kjo open レビュー ikutan co k♥ j♣ なし utg fold / hj fold / co hero raise 2.3bb / btn fold / sb fold / bb fold co hero won 2.5bb 202605010139_rulwpd_bb_qhqc">
+<a class="review-card review-card-preflop" href="./202605010139_rULwpD_BB_QhQc.html" data-kind="preflop" data-day="2026-05-01" data-search="co kjo open レビュー ikutan co k♥ j♣ なし utg fold / hj fold / co hero raise 2.3bb / btn fold / sb fold / bb fold co hero won 2.5bb 202605010139_rulwpd_bb_qhqc">
   <div class="time-rail">
     <span class="time-value">01:39</span>
     <span class="time-date">5/1</span>
@@ -856,7 +964,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-postflop" href="./202605010139_h6ZYYg_UTG_Ac4d.html" data-search="hj qts turn lead-call レビュー ikutan hj q♦ t♦ co hj hero raise 2bb / co raise 9bb / btn fold / sb fold / bb fold / hj hero call 9bb t♥ 4♦ 2♣ a♦ 7♠ co won 49.4bb 202605010139_h6zyyg_utg_ac4d">
+<a class="review-card review-card-postflop" href="./202605010139_h6ZYYg_UTG_Ac4d.html" data-kind="postflop" data-day="2026-05-01" data-search="hj qts turn lead-call レビュー ikutan hj q♦ t♦ co hj hero raise 2bb / co raise 9bb / btn fold / sb fold / bb fold / hj hero call 9bb t♥ 4♦ 2♣ a♦ 7♠ co won 49.4bb 202605010139_h6zyyg_utg_ac4d">
   <div class="time-rail">
     <span class="time-value">01:39</span>
     <span class="time-date">5/1</span>
@@ -876,7 +984,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-postflop" href="./202605010138_LIzVGZ_HJ_QdTd.html" data-search="co ath 3bet pot c-bet レビュー ikutan co a♥ t♥ hj hj raise 2.5bb / co hero raise 6.5bb / btn fold / sb fold / bb fold / hj call 6.5bb t♠ 8♣ 7♠ co hero won 13.77bb 202605010138_lizvgz_hj_qdtd">
+<a class="review-card review-card-postflop" href="./202605010138_LIzVGZ_HJ_QdTd.html" data-kind="postflop" data-day="2026-05-01" data-search="co ath 3bet pot c-bet レビュー ikutan co a♥ t♥ hj hj raise 2.5bb / co hero raise 6.5bb / btn fold / sb fold / bb fold / hj call 6.5bb t♠ 8♣ 7♠ co hero won 13.77bb 202605010138_lizvgz_hj_qdtd">
   <div class="time-rail">
     <span class="time-value">01:38</span>
     <span class="time-date">5/1</span>
@@ -896,7 +1004,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-postflop" href="./202605010137_vCzIE3_CO_Ac3h.html" data-search="btn ats 4-heart river fold レビュー ikutan btn a♣ t♣ co co raise 2.5bb / btn hero raise 7.5bb / sb fold / bb fold / co call 7.5bb 9♥ 9♣ 7♥ j♥ a♥ co won 26.12bb 202605010137_vczie3_co_ac3h">
+<a class="review-card review-card-postflop" href="./202605010137_vCzIE3_CO_Ac3h.html" data-kind="postflop" data-day="2026-05-01" data-search="btn ats 4-heart river fold レビュー ikutan btn a♣ t♣ co co raise 2.5bb / btn hero raise 7.5bb / sb fold / bb fold / co call 7.5bb 9♥ 9♣ 7♥ j♥ a♥ co won 26.12bb 202605010137_vczie3_co_ac3h">
   <div class="time-rail">
     <span class="time-value">01:37</span>
     <span class="time-date">5/1</span>
@@ -916,7 +1024,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-preflop" href="./202605010137_a2YNqR_UTG_6h6d.html" data-search="utg 66 open レビュー ikutan utg 6♥ 6♦ なし utg hero raise 2bb / hj fold / co fold / btn fold / sb fold / bb fold utg hero won 2.5bb 202605010137_a2ynqr_utg_6h6d">
+<a class="review-card review-card-preflop" href="./202605010137_a2YNqR_UTG_6h6d.html" data-kind="preflop" data-day="2026-05-01" data-search="utg 66 open レビュー ikutan utg 6♥ 6♦ なし utg hero raise 2bb / hj fold / co fold / btn fold / sb fold / bb fold utg hero won 2.5bb 202605010137_a2ynqr_utg_6h6d">
   <div class="time-rail">
     <span class="time-value">01:37</span>
     <span class="time-date">5/1</span>
@@ -935,7 +1043,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-preflop" href="./202605010136_QoTZe6_CO_Jc5d.html" data-search="btn j3s steal レビュー ikutan btn j♣ 3♣ sb / bb utg fold / hj fold / co fold / btn hero raise 2.5bb / sb fold / bb fold btn hero won 2.5bb 202605010136_qotze6_co_jc5d">
+<a class="review-card review-card-preflop" href="./202605010136_QoTZe6_CO_Jc5d.html" data-kind="preflop" data-day="2026-05-01" data-search="btn j3s steal レビュー ikutan btn j♣ 3♣ sb / bb utg fold / hj fold / co fold / btn hero raise 2.5bb / sb fold / bb fold btn hero won 2.5bb 202605010136_qotze6_co_jc5d">
   <div class="time-rail">
     <span class="time-value">01:36</span>
     <span class="time-date">5/1</span>
@@ -954,7 +1062,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-preflop" href="./202605010136_OrGtFe_SB_QdJd.html" data-search="sb qjs steal レビュー ikutan sb q♦ j♦ bb utg fold / hj fold / co fold / btn fold / sb hero raise 3bb / bb fold sb hero won 2bb 202605010136_orgtfe_sb_qdjd">
+<a class="review-card review-card-preflop" href="./202605010136_OrGtFe_SB_QdJd.html" data-kind="preflop" data-day="2026-05-01" data-search="sb qjs steal レビュー ikutan sb q♦ j♦ bb utg fold / hj fold / co fold / btn fold / sb hero raise 3bb / bb fold sb hero won 2bb 202605010136_orgtfe_sb_qdjd">
   <div class="time-rail">
     <span class="time-value">01:36</span>
     <span class="time-date">5/1</span>
@@ -973,7 +1081,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-postflop" href="./202605010136_dWxCJQ_SB_Ac5h.html" data-search="co kk overbet overplay レビュー ikutan co k♥ k♣ bb co hero raise 2.3bb / btn fold / sb fold / bb call 2.3bb j♥ 5♦ 3♣ t♦ 3♥ bb won 196.5bb 202605010136_dwxcjq_sb_ac5h">
+<a class="review-card review-card-postflop" href="./202605010136_dWxCJQ_SB_Ac5h.html" data-kind="postflop" data-day="2026-05-01" data-search="co kk overbet overplay レビュー ikutan co k♥ k♣ bb co hero raise 2.3bb / btn fold / sb fold / bb call 2.3bb j♥ 5♦ 3♣ t♦ 3♥ bb won 196.5bb 202605010136_dwxcjq_sb_ac5h">
   <div class="time-rail">
     <span class="time-value">01:36</span>
     <span class="time-date">5/1</span>
@@ -993,7 +1101,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-postflop" href="./202605010135_nTahc4_HJ_Ts7c.html" data-search="btn jj turn top set レビュー ikutan btn j♥ j♦ bb btn hero raise 2.5bb / sb fold / bb call 2.5bb 8♣ 5♦ 3♠ j♣ a♣ btn hero won 196.5bb 202605010135_ntahc4_hj_ts7c">
+<a class="review-card review-card-postflop" href="./202605010135_nTahc4_HJ_Ts7c.html" data-kind="postflop" data-day="2026-05-01" data-search="btn jj turn top set レビュー ikutan btn j♥ j♦ bb btn hero raise 2.5bb / sb fold / bb call 2.5bb 8♣ 5♦ 3♠ j♣ a♣ btn hero won 196.5bb 202605010135_ntahc4_hj_ts7c">
   <div class="time-rail">
     <span class="time-value">01:35</span>
     <span class="time-date">5/1</span>
@@ -1013,7 +1121,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-postflop" href="./202605010133_Ry4Z5x_SB_7c6c.html" data-search="sb 76s gutshot fold レビュー ikutan sb 7♣ 6♣ bb sb hero raise 3bb / bb call 3bb j♠ t♥ 9♥ bb won 5.7bb 202605010133_ry4z5x_sb_7c6c">
+<a class="review-card review-card-postflop" href="./202605010133_Ry4Z5x_SB_7c6c.html" data-kind="postflop" data-day="2026-05-01" data-search="sb 76s gutshot fold レビュー ikutan sb 7♣ 6♣ bb sb hero raise 3bb / bb call 3bb j♠ t♥ 9♥ bb won 5.7bb 202605010133_ry4z5x_sb_7c6c">
   <div class="time-rail">
     <span class="time-value">01:33</span>
     <span class="time-date">5/1</span>
@@ -1033,7 +1141,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-postflop" href="./202605010132_WBXwrP_CO_Ad5s.html" data-search="bb 99 paired board stab レビュー ikutan bb 9♥ 9♦ btn btn raise 2.5bb / sb fold / bb hero call 2.5bb k♦ k♣ t♥ 6♥ bb hero won 5.22bb 202605010132_wbxwrp_co_ad5s">
+<a class="review-card review-card-postflop" href="./202605010132_WBXwrP_CO_Ad5s.html" data-kind="postflop" data-day="2026-05-01" data-search="bb 99 paired board stab レビュー ikutan bb 9♥ 9♦ btn btn raise 2.5bb / sb fold / bb hero call 2.5bb k♦ k♣ t♥ 6♥ bb hero won 5.22bb 202605010132_wbxwrp_co_ad5s">
   <div class="time-rail">
     <span class="time-value">01:32</span>
     <span class="time-date">5/1</span>
@@ -1053,7 +1161,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-postflop" href="./202605010132_qdO7My_CO_Qd4c.html" data-search="utg 77 river bluff レビュー ikutan utg 7♠ 7♣ hj utg hero raise 2bb / hj raise 6.5bb / co fold / btn fold / sb fold / bb fold / utg hero call 6.5bb 6♦ 3♥ 2♦ k♦ 8♠ utg hero won 34.45bb 202605010132_qdo7my_co_qd4c">
+<a class="review-card review-card-postflop" href="./202605010132_qdO7My_CO_Qd4c.html" data-kind="postflop" data-day="2026-05-01" data-search="utg 77 river bluff レビュー ikutan utg 7♠ 7♣ hj utg hero raise 2bb / hj raise 6.5bb / co fold / btn fold / sb fold / bb fold / utg hero call 6.5bb 6♦ 3♥ 2♦ k♦ 8♠ utg hero won 34.45bb 202605010132_qdo7my_co_qd4c">
   <div class="time-rail">
     <span class="time-value">01:32</span>
     <span class="time-date">5/1</span>
@@ -1073,7 +1181,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-preflop" href="./202605010132_FbGmXE_HJ_5c2d.html" data-search="utg kk open レビュー ikutan utg k♥ k♦ なし utg hero raise 2bb / hj fold / co fold / btn fold / sb fold / bb fold utg hero won 2.5bb 202605010132_fbgmxe_hj_5c2d">
+<a class="review-card review-card-preflop" href="./202605010132_FbGmXE_HJ_5c2d.html" data-kind="preflop" data-day="2026-05-01" data-search="utg kk open レビュー ikutan utg k♥ k♦ なし utg hero raise 2bb / hj fold / co fold / btn fold / sb fold / bb fold utg hero won 2.5bb 202605010132_fbgmxe_hj_5c2d">
   <div class="time-rail">
     <span class="time-value">01:32</span>
     <span class="time-date">5/1</span>
@@ -1092,7 +1200,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-postflop" href="./202605010131_v4MsOy_SB_Qs8c.html" data-search="hj a9s k-high c-bet レビュー ikutan hj a♠ 9♠ bb utg fold / hj hero raise 2bb / co fold / btn fold / sb fold / bb call 2bb k♥ 7♣ 4♠ hj hero won 4.27bb 202605010131_v4msoy_sb_qs8c">
+<a class="review-card review-card-postflop" href="./202605010131_v4MsOy_SB_Qs8c.html" data-kind="postflop" data-day="2026-05-01" data-search="hj a9s k-high c-bet レビュー ikutan hj a♠ 9♠ bb utg fold / hj hero raise 2bb / co fold / btn fold / sb fold / bb call 2bb k♥ 7♣ 4♠ hj hero won 4.27bb 202605010131_v4msoy_sb_qs8c">
   <div class="time-rail">
     <span class="time-value">01:31</span>
     <span class="time-date">5/1</span>
@@ -1112,7 +1220,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-preflop" href="./202605010131_6fWNnf_HJ_As9s.html" data-search="co ako open レビュー ikutan co a♥ k♦ なし utg fold / hj fold / co hero raise 2.3bb / btn fold / sb fold / bb fold co hero won 2.5bb 202605010131_6fwnnf_hj_as9s">
+<a class="review-card review-card-preflop" href="./202605010131_6fWNnf_HJ_As9s.html" data-kind="preflop" data-day="2026-05-01" data-search="co ako open レビュー ikutan co a♥ k♦ なし utg fold / hj fold / co hero raise 2.3bb / btn fold / sb fold / bb fold co hero won 2.5bb 202605010131_6fwnnf_hj_as9s">
   <div class="time-rail">
     <span class="time-value">01:31</span>
     <span class="time-date">5/1</span>
@@ -1142,7 +1250,7 @@
     <span class="day-count" data-default-count="16">16&#20214;</span>
   </div>
   <div class="review-list">
-    <a class="review-card" href="./tenfour_20260430_2246_lZM9a9.html" data-search="sb a♥q♣ の 3bet pot paired board stack-off レビュー ikutan sb a♥ q♣ hj q♠ 8♠ utg fold, hj raise 2.5bb, co fold, btn fold, sb hero raise 13bb, bb fold, hj call q♥ q♦ 7♣ / 8♥ / 3♦ hj won 197bb, rake 4bb tenfour_20260430_2246_lzm9a9">
+    <a class="review-card" href="./tenfour_20260430_2246_lZM9a9.html" data-kind="image" data-day="2026-04-30" data-search="sb a♥q♣ の 3bet pot paired board stack-off レビュー ikutan sb a♥ q♣ hj q♠ 8♠ utg fold, hj raise 2.5bb, co fold, btn fold, sb hero raise 13bb, bb fold, hj call q♥ q♦ 7♣ / 8♥ / 3♦ hj won 197bb, rake 4bb tenfour_20260430_2246_lzm9a9">
   <div class="time-rail">
     <span class="time-value">22:46</span>
     <span class="time-date">4/30</span>
@@ -1162,7 +1270,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-postflop" href="./202604301334_377emW_BB_Qc7c.html" data-search="bb q7s river q-high flush 3bet レビュー ikutan bb q♣ 7♣ btn utg fold / hj fold / co fold / btn raise 2.5bb / sb fold / bb hero call 2.5bb a♣ 6♥ 5♥ 8♣ 2♣ bb hero won 74.59bb 202604301334_377emw_bb_qc7c">
+<a class="review-card review-card-postflop" href="./202604301334_377emW_BB_Qc7c.html" data-kind="postflop" data-day="2026-04-30" data-search="bb q7s river q-high flush 3bet レビュー ikutan bb q♣ 7♣ btn utg fold / hj fold / co fold / btn raise 2.5bb / sb fold / bb hero call 2.5bb a♣ 6♥ 5♥ 8♣ 2♣ bb hero won 74.59bb 202604301334_377emw_bb_qc7c">
   <div class="time-rail">
     <span class="time-value">13:34</span>
     <span class="time-date">4/30</span>
@@ -1182,7 +1290,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-postflop" href="./202604301333_qYApAS_HJ_Ad6d.html" data-search="hj a6s paired board delay c-bet レビュー ikutan hj a♦ 6♦ sb utg fold / hj hero raise 2bb / co fold / btn fold / sb call 2bb / bb fold 8♠ 8♥ 4♦ 4♠ hj hero won 4.75bb 202604301333_qyapas_hj_ad6d">
+<a class="review-card review-card-postflop" href="./202604301333_qYApAS_HJ_Ad6d.html" data-kind="postflop" data-day="2026-04-30" data-search="hj a6s paired board delay c-bet レビュー ikutan hj a♦ 6♦ sb utg fold / hj hero raise 2bb / co fold / btn fold / sb call 2bb / bb fold 8♠ 8♥ 4♦ 4♠ hj hero won 4.75bb 202604301333_qyapas_hj_ad6d">
   <div class="time-rail">
     <span class="time-value">13:33</span>
     <span class="time-date">4/30</span>
@@ -1202,7 +1310,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-preflop" href="./202604301333_afC5UN_SB_KcTs.html" data-search="sb kto vs utg open 3bet レビュー ikutan sb k♣ t♠ utg utg raise 2.5bb / hj fold / co fold / btn fold / sb hero raise 11bb / bb fold / utg fold sb hero won 6bb 202604301333_afc5un_sb_kcts">
+<a class="review-card review-card-preflop" href="./202604301333_afC5UN_SB_KcTs.html" data-kind="preflop" data-day="2026-04-30" data-search="sb kto vs utg open 3bet レビュー ikutan sb k♣ t♠ utg utg raise 2.5bb / hj fold / co fold / btn fold / sb hero raise 11bb / bb fold / utg fold sb hero won 6bb 202604301333_afc5un_sb_kcts">
   <div class="time-rail">
     <span class="time-value">13:33</span>
     <span class="time-date">4/30</span>
@@ -1221,7 +1329,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-postflop" href="./202604301332_y6wV0Q_BTN_KdTd.html" data-search="btn kts vs hj 4bet call レビュー ikutan btn k♦ t♦ hj utg fold / hj raise 2bb / co fold / btn hero raise 7.5bb / sb fold / bb fold / hj raise 15bb / btn hero call 15bb j♣ 5♥ 3♥ hj won 29.92bb 202604301332_y6wv0q_btn_kdtd">
+<a class="review-card review-card-postflop" href="./202604301332_y6wV0Q_BTN_KdTd.html" data-kind="postflop" data-day="2026-04-30" data-search="btn kts vs hj 4bet call レビュー ikutan btn k♦ t♦ hj utg fold / hj raise 2bb / co fold / btn hero raise 7.5bb / sb fold / bb fold / hj raise 15bb / btn hero call 15bb j♣ 5♥ 3♥ hj won 29.92bb 202604301332_y6wv0q_btn_kdtd">
   <div class="time-rail">
     <span class="time-value">13:32</span>
     <span class="time-date">4/30</span>
@@ -1241,7 +1349,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-preflop" href="./202604301332_R5jT63_UTG_QsJd.html" data-search="utg qjo オープンレビュー ikutan utg q♠ j♦ behind players / blinds utg hero raise 2bb / hj fold / co fold / btn fold / sb fold / bb fold utg hero won 2.5bb 202604301332_r5jt63_utg_qsjd">
+<a class="review-card review-card-preflop" href="./202604301332_R5jT63_UTG_QsJd.html" data-kind="preflop" data-day="2026-04-30" data-search="utg qjo オープンレビュー ikutan utg q♠ j♦ behind players / blinds utg hero raise 2bb / hj fold / co fold / btn fold / sb fold / bb fold utg hero won 2.5bb 202604301332_r5jt63_utg_qsjd">
   <div class="time-rail">
     <span class="time-value">13:32</span>
     <span class="time-date">4/30</span>
@@ -1260,7 +1368,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-postflop" href="./202604301332_jAxbZv_CO_AcKs.html" data-search="co ako low connected board チェックダウンレビュー ikutan co a♣ k♠ bb utg fold / hj fold / co hero raise 2.3bb / btn fold / sb fold / bb call 2.3bb 9♣ 8♠ 6♣ 7♦ 7♥ bb won 4.84bb 202604301332_jaxbzv_co_acks">
+<a class="review-card review-card-postflop" href="./202604301332_jAxbZv_CO_AcKs.html" data-kind="postflop" data-day="2026-04-30" data-search="co ako low connected board チェックダウンレビュー ikutan co a♣ k♠ bb utg fold / hj fold / co hero raise 2.3bb / btn fold / sb fold / bb call 2.3bb 9♣ 8♠ 6♣ 7♦ 7♥ bb won 4.84bb 202604301332_jaxbzv_co_acks">
   <div class="time-rail">
     <span class="time-value">13:32</span>
     <span class="time-date">4/30</span>
@@ -1280,7 +1388,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-preflop" href="./202604301331_L62IW2_CO_QdJh.html" data-search="co qjo オープンレビュー ikutan co q♦ j♥ btn / blinds utg fold / hj fold / co hero raise 2.3bb / btn fold / sb fold / bb fold co hero won 2.5bb 202604301331_l62iw2_co_qdjh">
+<a class="review-card review-card-preflop" href="./202604301331_L62IW2_CO_QdJh.html" data-kind="preflop" data-day="2026-04-30" data-search="co qjo オープンレビュー ikutan co q♦ j♥ btn / blinds utg fold / hj fold / co hero raise 2.3bb / btn fold / sb fold / bb fold co hero won 2.5bb 202604301331_l62iw2_co_qdjh">
   <div class="time-rail">
     <span class="time-value">13:31</span>
     <span class="time-date">4/30</span>
@@ -1299,7 +1407,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-preflop" href="./202604301331_ENNwRi_SB_QcTc.html" data-search="sb qts vs co open 3bet/fold レビュー ikutan sb q♣ t♣ co / bb utg fold / hj fold / co raise 2.5bb / btn fold / sb hero raise 11bb / bb raise 25bb / co fold / sb hero fold bb won 24.5bb 202604301331_ennwri_sb_qctc">
+<a class="review-card review-card-preflop" href="./202604301331_ENNwRi_SB_QcTc.html" data-kind="preflop" data-day="2026-04-30" data-search="sb qts vs co open 3bet/fold レビュー ikutan sb q♣ t♣ co / bb utg fold / hj fold / co raise 2.5bb / btn fold / sb hero raise 11bb / bb raise 25bb / co fold / sb hero fold bb won 24.5bb 202604301331_ennwri_sb_qctc">
   <div class="time-rail">
     <span class="time-value">13:31</span>
     <span class="time-date">4/30</span>
@@ -1318,7 +1426,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-preflop" href="./202604301330_utmd7A_BTN_Ac2c.html" data-search="btn a2s オープンレビュー ikutan btn a♣ 2♣ blinds utg fold / hj fold / co fold / btn hero raise 2.5bb / sb fold / bb fold btn hero won 2.5bb 202604301330_utmd7a_btn_ac2c">
+<a class="review-card review-card-preflop" href="./202604301330_utmd7A_BTN_Ac2c.html" data-kind="preflop" data-day="2026-04-30" data-search="btn a2s オープンレビュー ikutan btn a♣ 2♣ blinds utg fold / hj fold / co fold / btn hero raise 2.5bb / sb fold / bb fold btn hero won 2.5bb 202604301330_utmd7a_btn_ac2c">
   <div class="time-rail">
     <span class="time-value">13:30</span>
     <span class="time-date">4/30</span>
@@ -1337,7 +1445,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-preflop" href="./202604301330_OmA0Hw_CO_Ks5s.html" data-search="co k5s オープンレビュー ikutan co k♠ 5♠ btn / blinds utg fold / hj fold / co hero raise 2.3bb / btn fold / sb fold / bb fold co hero won 2.5bb 202604301330_oma0hw_co_ks5s">
+<a class="review-card review-card-preflop" href="./202604301330_OmA0Hw_CO_Ks5s.html" data-kind="preflop" data-day="2026-04-30" data-search="co k5s オープンレビュー ikutan co k♠ 5♠ btn / blinds utg fold / hj fold / co hero raise 2.3bb / btn fold / sb fold / bb fold co hero won 2.5bb 202604301330_oma0hw_co_ks5s">
   <div class="time-rail">
     <span class="time-value">13:30</span>
     <span class="time-date">4/30</span>
@@ -1356,7 +1464,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-postflop" href="./202604301330_gAYpIP_BB_Tc8h.html" data-search="bb t8o vs sb open ターンcall レビュー ikutan bb t♣ 8♥ sb utg fold / hj fold / co fold / btn fold / sb raise 2.5bb / bb hero call 2.5bb 9♦ 9♣ 2♠ q♠ 9♠ sb won 9.5bb 202604301330_gaypip_bb_tc8h">
+<a class="review-card review-card-postflop" href="./202604301330_gAYpIP_BB_Tc8h.html" data-kind="postflop" data-day="2026-04-30" data-search="bb t8o vs sb open ターンcall レビュー ikutan bb t♣ 8♥ sb utg fold / hj fold / co fold / btn fold / sb raise 2.5bb / bb hero call 2.5bb 9♦ 9♣ 2♠ q♠ 9♠ sb won 9.5bb 202604301330_gaypip_bb_tc8h">
   <div class="time-rail">
     <span class="time-value">13:30</span>
     <span class="time-date">4/30</span>
@@ -1376,7 +1484,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-postflop" href="./202604301329_72FXHI_BB_6h4s.html" data-search="bb 64o limp pot river fold レビュー ikutan bb 6♥ 4♠ hj utg fold / hj call 1bb / co fold / btn fold / sb fold / bb hero check k♦ q♠ q♦ 3♣ 2♠ hj won 2.37bb 202604301329_72fxhi_bb_6h4s">
+<a class="review-card review-card-postflop" href="./202604301329_72FXHI_BB_6h4s.html" data-kind="postflop" data-day="2026-04-30" data-search="bb 64o limp pot river fold レビュー ikutan bb 6♥ 4♠ hj utg fold / hj call 1bb / co fold / btn fold / sb fold / bb hero check k♦ q♠ q♦ 3♣ 2♠ hj won 2.37bb 202604301329_72fxhi_bb_6h4s">
   <div class="time-rail">
     <span class="time-value">13:29</span>
     <span class="time-date">4/30</span>
@@ -1396,7 +1504,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-preflop" href="./202604301328_fl1A0G_CO_AcKd.html" data-search="co ako vs hj open 3bet レビュー ikutan co a♣ k♦ hj utg fold / hj raise 2.5bb / co hero raise 7.5bb / btn fold / sb fold / bb fold / hj fold co hero won 6.5bb 202604301328_fl1a0g_co_ackd">
+<a class="review-card review-card-preflop" href="./202604301328_fl1A0G_CO_AcKd.html" data-kind="preflop" data-day="2026-04-30" data-search="co ako vs hj open 3bet レビュー ikutan co a♣ k♦ hj utg fold / hj raise 2.5bb / co hero raise 7.5bb / btn fold / sb fold / bb fold / hj fold co hero won 6.5bb 202604301328_fl1a0g_co_ackd">
   <div class="time-rail">
     <span class="time-value">13:28</span>
     <span class="time-date">4/30</span>
@@ -1415,7 +1523,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-preflop" href="./202604301327_OW39t0_SB_7h7d.html" data-search="sb 77 vs utg 4bet jam レビュー ikutan sb 7♥ 7♦ utg utg raise 2.3bb / sb hero raise 11bb / bb fold / utg raise 100bb / sb hero fold utg won 23bb 202604301327_ow39t0_sb_7h7d">
+<a class="review-card review-card-preflop" href="./202604301327_OW39t0_SB_7h7d.html" data-kind="preflop" data-day="2026-04-30" data-search="sb 77 vs utg 4bet jam レビュー ikutan sb 7♥ 7♦ utg utg raise 2.3bb / sb hero raise 11bb / bb fold / utg raise 100bb / sb hero fold utg won 23bb 202604301327_ow39t0_sb_7h7d">
   <div class="time-rail">
     <span class="time-value">13:27</span>
     <span class="time-date">4/30</span>
@@ -1434,7 +1542,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card" href="./tenfour_20260430_1202_qAiG50.html" data-search="bb a♦t♦ の river thin value / raise fold レビュー bb a♦t♦ btn 5♦4♦ utg fold, hj fold, co fold, btn raise 2bb, sb fold, bb call t♣ 8♥ 2♠ / 4♠ / 4♥ btn won 17.82bb tenfour_20260430_1202_qaig50">
+<a class="review-card" href="./tenfour_20260430_1202_qAiG50.html" data-kind="image" data-day="2026-04-30" data-search="bb a♦t♦ の river thin value / raise fold レビュー bb a♦t♦ btn 5♦4♦ utg fold, hj fold, co fold, btn raise 2bb, sb fold, bb call t♣ 8♥ 2♠ / 4♠ / 4♥ btn won 17.82bb tenfour_20260430_1202_qaig50">
   <div class="time-rail">
     <span class="time-value">12:02</span>
     <span class="time-date">4/30</span>
@@ -1465,7 +1573,7 @@
     <span class="day-count" data-default-count="42">42&#20214;</span>
   </div>
   <div class="review-list">
-    <a class="review-card review-card-preflop" href="./202604290206_LQVag3_UTG_AcQc.html" data-search="utg aqs オープンレビュー ikutan utg a♣ q♣ behind players / blinds utg hero raise 2bb / hj fold / co fold / btn fold / sb fold / bb fold utg hero won 2.5bb 202604290206_lqvag3_utg_acqc">
+    <a class="review-card review-card-preflop" href="./202604290206_LQVag3_UTG_AcQc.html" data-kind="preflop" data-day="2026-04-29" data-search="utg aqs オープンレビュー ikutan utg a♣ q♣ behind players / blinds utg hero raise 2bb / hj fold / co fold / btn fold / sb fold / bb fold utg hero won 2.5bb 202604290206_lqvag3_utg_acqc">
   <div class="time-rail">
     <span class="time-value">02:06</span>
     <span class="time-date">4/29</span>
@@ -1484,7 +1592,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-postflop" href="./202604290205_hscIWo_BB_Kh6s.html" data-search="bb k6o a-high flop fold レビュー ikutan bb k♥ 6♠ btn utg fold / hj fold / co fold / btn raise 2bb / sb fold / bb hero call 2bb a♣ 7♠ 2♠ btn won 4.27bb 202604290205_hsciwo_bb_kh6s">
+<a class="review-card review-card-postflop" href="./202604290205_hscIWo_BB_Kh6s.html" data-kind="postflop" data-day="2026-04-29" data-search="bb k6o a-high flop fold レビュー ikutan bb k♥ 6♠ btn utg fold / hj fold / co fold / btn raise 2bb / sb fold / bb hero call 2bb a♣ 7♠ 2♠ btn won 4.27bb 202604290205_hsciwo_bb_kh6s">
   <div class="time-rail">
     <span class="time-value">02:05</span>
     <span class="time-date">4/29</span>
@@ -1504,7 +1612,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-preflop" href="./202604290202_l0S5fR_UTG_AcJh.html" data-search="utg ajo 3bet-fold レビュー ikutan utg a♣ j♥ btn 3bettor utg hero raise 2bb / hj fold / co fold / btn raise 9bb / sb fold / bb fold / utg hero fold btn won 5.5bb 202604290202_l0s5fr_utg_acjh">
+<a class="review-card review-card-preflop" href="./202604290202_l0S5fR_UTG_AcJh.html" data-kind="preflop" data-day="2026-04-29" data-search="utg ajo 3bet-fold レビュー ikutan utg a♣ j♥ btn 3bettor utg hero raise 2bb / hj fold / co fold / btn raise 9bb / sb fold / bb fold / utg hero fold btn won 5.5bb 202604290202_l0s5fr_utg_acjh">
   <div class="time-rail">
     <span class="time-value">02:02</span>
     <span class="time-date">4/29</span>
@@ -1523,7 +1631,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-postflop" href="./202604290201_XeZLwS_BTN_6d5d.html" data-search="btn 65s k-high c-bet レビュー ikutan btn 6♦ 5♦ bb utg fold / hj fold / co fold / btn hero raise 2.5bb / sb fold / bb call 2.5bb k♥ 8♠ 3♣ btn hero won 5.22bb 202604290201_xezlws_btn_6d5d">
+<a class="review-card review-card-postflop" href="./202604290201_XeZLwS_BTN_6d5d.html" data-kind="postflop" data-day="2026-04-29" data-search="btn 65s k-high c-bet レビュー ikutan btn 6♦ 5♦ bb utg fold / hj fold / co fold / btn hero raise 2.5bb / sb fold / bb call 2.5bb k♥ 8♠ 3♣ btn hero won 5.22bb 202604290201_xezlws_btn_6d5d">
   <div class="time-rail">
     <span class="time-value">02:01</span>
     <span class="time-date">4/29</span>
@@ -1543,7 +1651,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-preflop" href="./202604290200_CQbBJ6_BTN_KdTh.html" data-search="btn kto オープンレビュー ikutan btn k♦ t♥ blinds utg fold / hj fold / co fold / btn hero raise 2.5bb / sb fold / bb fold btn hero won 2.5bb 202604290200_cqbbj6_btn_kdth">
+<a class="review-card review-card-preflop" href="./202604290200_CQbBJ6_BTN_KdTh.html" data-kind="preflop" data-day="2026-04-29" data-search="btn kto オープンレビュー ikutan btn k♦ t♥ blinds utg fold / hj fold / co fold / btn hero raise 2.5bb / sb fold / bb fold btn hero won 2.5bb 202604290200_cqbbj6_btn_kdth">
   <div class="time-rail">
     <span class="time-value">02:00</span>
     <span class="time-date">4/29</span>
@@ -1562,7 +1670,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-preflop" href="./202604290159_8LW3bb_SB_3h3c.html" data-search="sb 33 オープンレビュー ikutan sb 3♥ 3♣ bb utg fold / hj fold / co fold / btn fold / sb hero raise 3bb / bb fold sb hero won 2bb 202604290159_8lw3bb_sb_3h3c">
+<a class="review-card review-card-preflop" href="./202604290159_8LW3bb_SB_3h3c.html" data-kind="preflop" data-day="2026-04-29" data-search="sb 33 オープンレビュー ikutan sb 3♥ 3♣ bb utg fold / hj fold / co fold / btn fold / sb hero raise 3bb / bb fold sb hero won 2bb 202604290159_8lw3bb_sb_3h3c">
   <div class="time-rail">
     <span class="time-value">01:59</span>
     <span class="time-date">4/29</span>
@@ -1581,7 +1689,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-postflop" href="./202604290158_DvdOzO_CO_Kc6c.html" data-search="co k6s multiway top pair レビュー ikutan co k♣ 6♣ bb / btn utg fold / hj fold / co hero raise 2.3bb / btn call 2.3bb / sb fold / bb call 2.3bb k♠ t♥ 5♥ 5♦ 3♦ co hero won 31.2bb 202604290158_dvdozo_co_kc6c">
+<a class="review-card review-card-postflop" href="./202604290158_DvdOzO_CO_Kc6c.html" data-kind="postflop" data-day="2026-04-29" data-search="co k6s multiway top pair レビュー ikutan co k♣ 6♣ bb / btn utg fold / hj fold / co hero raise 2.3bb / btn call 2.3bb / sb fold / bb call 2.3bb k♠ t♥ 5♥ 5♦ 3♦ co hero won 31.2bb 202604290158_dvdozo_co_kc6c">
   <div class="time-rail">
     <span class="time-value">01:58</span>
     <span class="time-date">4/29</span>
@@ -1601,7 +1709,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-preflop" href="./202604290158_8C85mW_BTN_Ks9s.html" data-search="btn k9s オープンレビュー ikutan btn k♠ 9♠ blinds utg fold / hj fold / co fold / btn hero raise 2.5bb / sb fold / bb fold btn hero won 2.5bb 202604290158_8c85mw_btn_ks9s">
+<a class="review-card review-card-preflop" href="./202604290158_8C85mW_BTN_Ks9s.html" data-kind="preflop" data-day="2026-04-29" data-search="btn k9s オープンレビュー ikutan btn k♠ 9♠ blinds utg fold / hj fold / co fold / btn hero raise 2.5bb / sb fold / bb fold btn hero won 2.5bb 202604290158_8c85mw_btn_ks9s">
   <div class="time-rail">
     <span class="time-value">01:58</span>
     <span class="time-date">4/29</span>
@@ -1620,7 +1728,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-preflop" href="./202604290156_e7HWUX_BTN_Ah3h.html" data-search="btn a3s 3bet-fold レビュー ikutan btn a♥ 3♥ bb 3bettor utg fold / hj fold / co fold / btn hero raise 2.5bb / sb fold / bb raise 10bb / btn hero fold bb won 5.5bb 202604290156_e7hwux_btn_ah3h">
+<a class="review-card review-card-preflop" href="./202604290156_e7HWUX_BTN_Ah3h.html" data-kind="preflop" data-day="2026-04-29" data-search="btn a3s 3bet-fold レビュー ikutan btn a♥ 3♥ bb 3bettor utg fold / hj fold / co fold / btn hero raise 2.5bb / sb fold / bb raise 10bb / btn hero fold bb won 5.5bb 202604290156_e7hwux_btn_ah3h">
   <div class="time-rail">
     <span class="time-value">01:56</span>
     <span class="time-date">4/29</span>
@@ -1639,7 +1747,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-postflop" href="./202604290155_GXkLIp_BB_As5s.html" data-search="bb a5s river full house call レビュー ikutan bb a♠ 5♠ btn utg fold / hj fold / co fold / btn raise 3bb / sb fold / bb hero call 3bb a♥ 3♥ 3♣ a♦ 2♠ btn won 18.02bb / bb hero won 18.02bb 202604290155_gxklip_bb_as5s">
+<a class="review-card review-card-postflop" href="./202604290155_GXkLIp_BB_As5s.html" data-kind="postflop" data-day="2026-04-29" data-search="bb a5s river full house call レビュー ikutan bb a♠ 5♠ btn utg fold / hj fold / co fold / btn raise 3bb / sb fold / bb hero call 3bb a♥ 3♥ 3♣ a♦ 2♠ btn won 18.02bb / bb hero won 18.02bb 202604290155_gxklip_bb_as5s">
   <div class="time-rail">
     <span class="time-value">01:55</span>
     <span class="time-date">4/29</span>
@@ -1659,7 +1767,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-postflop" href="./202604290153_tQ5bc2_HJ_6s6c.html" data-search="hj 66 squeeze fold レビュー ikutan hj 6♠ 6♣ bb utg fold / hj hero raise 2bb / co fold / btn call 2bb / sb fold / bb raise 12bb / hj hero fold / btn call 12bb q♦ t♣ 9♣ 3♥ bb won 25.17bb 202604290153_tq5bc2_hj_6s6c">
+<a class="review-card review-card-postflop" href="./202604290153_tQ5bc2_HJ_6s6c.html" data-kind="postflop" data-day="2026-04-29" data-search="hj 66 squeeze fold レビュー ikutan hj 6♠ 6♣ bb utg fold / hj hero raise 2bb / co fold / btn call 2bb / sb fold / bb raise 12bb / hj hero fold / btn call 12bb q♦ t♣ 9♣ 3♥ bb won 25.17bb 202604290153_tq5bc2_hj_6s6c">
   <div class="time-rail">
     <span class="time-value">01:53</span>
     <span class="time-date">4/29</span>
@@ -1679,7 +1787,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-postflop" href="./202604290152_p43b8v_UTG_AcQc.html" data-search="utg aqs broadway flop c-bet レビュー ikutan utg a♣ q♣ bb utg hero raise 2bb / hj fold / co fold / btn fold / sb fold / bb call 2bb a♥ j♦ t♥ utg hero won 4.27bb 202604290152_p43b8v_utg_acqc">
+<a class="review-card review-card-postflop" href="./202604290152_p43b8v_UTG_AcQc.html" data-kind="postflop" data-day="2026-04-29" data-search="utg aqs broadway flop c-bet レビュー ikutan utg a♣ q♣ bb utg hero raise 2bb / hj fold / co fold / btn fold / sb fold / bb call 2bb a♥ j♦ t♥ utg hero won 4.27bb 202604290152_p43b8v_utg_acqc">
   <div class="time-rail">
     <span class="time-value">01:52</span>
     <span class="time-date">4/29</span>
@@ -1699,7 +1807,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-preflop" href="./202604290146_yTIunb_SB_KhKc.html" data-search="sb kk オープンレビュー ikutan sb k♥ k♣ bb utg fold / hj fold / co fold / btn fold / sb hero raise 2bb / bb fold sb hero won 2bb 202604290146_ytiunb_sb_khkc">
+<a class="review-card review-card-preflop" href="./202604290146_yTIunb_SB_KhKc.html" data-kind="preflop" data-day="2026-04-29" data-search="sb kk オープンレビュー ikutan sb k♥ k♣ bb utg fold / hj fold / co fold / btn fold / sb hero raise 2bb / bb fold sb hero won 2bb 202604290146_ytiunb_sb_khkc">
   <div class="time-rail">
     <span class="time-value">01:46</span>
     <span class="time-date">4/29</span>
@@ -1718,7 +1826,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-postflop" href="./202604290145_vCff9I_BTN_AdJd.html" data-search="btn ajs river nut flush 3bet レビュー ikutan btn a♦ j♦ bb utg fold / hj fold / co fold / btn hero raise 2.5bb / sb fold / bb call 2.5bb t♦ 9♣ 2♦ 6♣ 7♦ btn hero won 196.5bb 202604290145_vcff9i_btn_adjd">
+<a class="review-card review-card-postflop" href="./202604290145_vCff9I_BTN_AdJd.html" data-kind="postflop" data-day="2026-04-29" data-search="btn ajs river nut flush 3bet レビュー ikutan btn a♦ j♦ bb utg fold / hj fold / co fold / btn hero raise 2.5bb / sb fold / bb call 2.5bb t♦ 9♣ 2♦ 6♣ 7♦ btn hero won 196.5bb 202604290145_vcff9i_btn_adjd">
   <div class="time-rail">
     <span class="time-value">01:45</span>
     <span class="time-date">4/29</span>
@@ -1738,7 +1846,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-postflop" href="./202604290139_iD7z5b_HJ_Ks9s.html" data-search="hj k9s river flush raise レビュー ikutan hj k♠ 9♠ bb utg fold / hj hero raise 2bb / co fold / btn fold / sb fold / bb call 2bb 8♥ 6♦ 3♠ 8♠ a♠ hj hero won 14.25bb 202604290139_id7z5b_hj_ks9s">
+<a class="review-card review-card-postflop" href="./202604290139_iD7z5b_HJ_Ks9s.html" data-kind="postflop" data-day="2026-04-29" data-search="hj k9s river flush raise レビュー ikutan hj k♠ 9♠ bb utg fold / hj hero raise 2bb / co fold / btn fold / sb fold / bb call 2bb 8♥ 6♦ 3♠ 8♠ a♠ hj hero won 14.25bb 202604290139_id7z5b_hj_ks9s">
   <div class="time-rail">
     <span class="time-value">01:39</span>
     <span class="time-date">4/29</span>
@@ -1758,7 +1866,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-postflop" href="./202604290133_ER23xW_SB_AdJc.html" data-search="sb ajo nut diamond draw 3bet pot レビュー ikutan sb a♦ j♣ btn utg fold / hj fold / co fold / btn raise 3bb / sb hero raise 11bb / bb fold / btn call 11bb q♦ 9♦ 7♦ a♣ 8♦ sb hero won 51bb 202604290133_er23xw_sb_adjc">
+<a class="review-card review-card-postflop" href="./202604290133_ER23xW_SB_AdJc.html" data-kind="postflop" data-day="2026-04-29" data-search="sb ajo nut diamond draw 3bet pot レビュー ikutan sb a♦ j♣ btn utg fold / hj fold / co fold / btn raise 3bb / sb hero raise 11bb / bb fold / btn call 11bb q♦ 9♦ 7♦ a♣ 8♦ sb hero won 51bb 202604290133_er23xw_sb_adjc">
   <div class="time-rail">
     <span class="time-value">01:33</span>
     <span class="time-date">4/29</span>
@@ -1778,7 +1886,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-preflop" href="./202604290130_sZ7Kox_BTN_QcJs.html" data-search="btn qjo オープンレビュー ikutan btn q♣ j♠ blinds utg fold / hj fold / co fold / btn hero raise 2.5bb / sb fold / bb fold btn hero won 2.5bb 202604290130_sz7kox_btn_qcjs">
+<a class="review-card review-card-preflop" href="./202604290130_sZ7Kox_BTN_QcJs.html" data-kind="preflop" data-day="2026-04-29" data-search="btn qjo オープンレビュー ikutan btn q♣ j♠ blinds utg fold / hj fold / co fold / btn hero raise 2.5bb / sb fold / bb fold btn hero won 2.5bb 202604290130_sz7kox_btn_qcjs">
   <div class="time-rail">
     <span class="time-value">01:30</span>
     <span class="time-date">4/29</span>
@@ -1797,7 +1905,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-postflop" href="./202604290130_Nadd5X_SB_ThTc.html" data-search="sb tt vs utg flop fold レビュー ikutan sb t♥ t♣ utg utg raise 3bb / hj fold / co fold / btn fold / sb hero call 3bb / bb fold k♠ 7♣ 5♣ utg won 6.65bb 202604290130_nadd5x_sb_thtc">
+<a class="review-card review-card-postflop" href="./202604290130_Nadd5X_SB_ThTc.html" data-kind="postflop" data-day="2026-04-29" data-search="sb tt vs utg flop fold レビュー ikutan sb t♥ t♣ utg utg raise 3bb / hj fold / co fold / btn fold / sb hero call 3bb / bb fold k♠ 7♣ 5♣ utg won 6.65bb 202604290130_nadd5x_sb_thtc">
   <div class="time-rail">
     <span class="time-value">01:30</span>
     <span class="time-date">4/29</span>
@@ -1817,7 +1925,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-postflop" href="./202604290113_arWovQ_SB_QdQc.html" data-search="sb qq monotone 3bet pot レビュー ikutan sb q♦ q♣ btn utg fold / hj raise 2bb / co fold / btn call 2bb / sb hero raise 13bb / bb fold / hj fold / btn call 13bb 9♥ 4♥ 2♥ 2♣ 9♣ sb hero won 199bb 202604290113_arwovq_sb_qdqc">
+<a class="review-card review-card-postflop" href="./202604290113_arWovQ_SB_QdQc.html" data-kind="postflop" data-day="2026-04-29" data-search="sb qq monotone 3bet pot レビュー ikutan sb q♦ q♣ btn utg fold / hj raise 2bb / co fold / btn call 2bb / sb hero raise 13bb / bb fold / hj fold / btn call 13bb 9♥ 4♥ 2♥ 2♣ 9♣ sb hero won 199bb 202604290113_arwovq_sb_qdqc">
   <div class="time-rail">
     <span class="time-value">01:13</span>
     <span class="time-date">4/29</span>
@@ -1837,7 +1945,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-postflop" href="./202604290112_VeN0NP_CO_QdQc.html" data-search="co qq paired low board overplay レビュー ikutan co q♦ q♣ btn utg fold / hj fold / co hero raise 2.3bb / btn call 2.3bb / sb fold / bb fold 4♠ 4♣ 2♠ 3♣ 7♠ co hero won 197.5bb 202604290112_ven0np_co_qdqc">
+<a class="review-card review-card-postflop" href="./202604290112_VeN0NP_CO_QdQc.html" data-kind="postflop" data-day="2026-04-29" data-search="co qq paired low board overplay レビュー ikutan co q♦ q♣ btn utg fold / hj fold / co hero raise 2.3bb / btn call 2.3bb / sb fold / bb fold 4♠ 4♣ 2♠ 3♣ 7♠ co hero won 197.5bb 202604290112_ven0np_co_qdqc">
   <div class="time-rail">
     <span class="time-value">01:12</span>
     <span class="time-date">4/29</span>
@@ -1857,7 +1965,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-preflop" href="./202604290040_7S7GcX_SB_4s2s.html" data-search="sb 42s オープンレビュー ikutan sb 4♠ 2♠ bb utg fold / hj fold / co fold / btn fold / sb hero raise 3bb / bb fold sb hero won 2bb 202604290040_7s7gcx_sb_4s2s">
+<a class="review-card review-card-preflop" href="./202604290040_7S7GcX_SB_4s2s.html" data-kind="preflop" data-day="2026-04-29" data-search="sb 42s オープンレビュー ikutan sb 4♠ 2♠ bb utg fold / hj fold / co fold / btn fold / sb hero raise 3bb / bb fold sb hero won 2bb 202604290040_7s7gcx_sb_4s2s">
   <div class="time-rail">
     <span class="time-value">00:40</span>
     <span class="time-date">4/29</span>
@@ -1876,7 +1984,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-postflop" href="./202604290039_Jji2fi_SB_Ks3s.html" data-search="sb k3s a-high small c-bet レビュー ikutan sb k♠ 3♠ bb utg fold / hj fold / co fold / btn fold / sb hero raise 3bb / bb call 3bb a♥ 4♣ 3♥ sb hero won 5.7bb 202604290039_jji2fi_sb_ks3s">
+<a class="review-card review-card-postflop" href="./202604290039_Jji2fi_SB_Ks3s.html" data-kind="postflop" data-day="2026-04-29" data-search="sb k3s a-high small c-bet レビュー ikutan sb k♠ 3♠ bb utg fold / hj fold / co fold / btn fold / sb hero raise 3bb / bb call 3bb a♥ 4♣ 3♥ sb hero won 5.7bb 202604290039_jji2fi_sb_ks3s">
   <div class="time-rail">
     <span class="time-value">00:39</span>
     <span class="time-date">4/29</span>
@@ -1896,7 +2004,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-postflop" href="./202604290038_kdCPMA_BB_4s4h.html" data-search="bb 44 set river sizing レビュー ikutan bb 4♠ 4♥ co utg fold / hj fold / co raise 2.2bb / btn fold / sb fold / bb hero call 2.2bb j♥ 9♦ 4♣ a♠ 8♥ bb hero won 11.63bb 202604290038_kdcpma_bb_4s4h">
+<a class="review-card review-card-postflop" href="./202604290038_kdCPMA_BB_4s4h.html" data-kind="postflop" data-day="2026-04-29" data-search="bb 44 set river sizing レビュー ikutan bb 4♠ 4♥ co utg fold / hj fold / co raise 2.2bb / btn fold / sb fold / bb hero call 2.2bb j♥ 9♦ 4♣ a♠ 8♥ bb hero won 11.63bb 202604290038_kdcpma_bb_4s4h">
   <div class="time-rail">
     <span class="time-value">00:38</span>
     <span class="time-date">4/29</span>
@@ -1916,7 +2024,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-preflop" href="./202604290037_uvR9lJ_SB_AcQh.html" data-search="sb aqo 3betレビュー ikutan sb a♣ q♥ hj opener utg fold / hj raise 2bb / co fold / btn fold / sb hero raise 11bb / bb fold / hj fold sb hero won 5bb 202604290037_uvr9lj_sb_acqh">
+<a class="review-card review-card-preflop" href="./202604290037_uvR9lJ_SB_AcQh.html" data-kind="preflop" data-day="2026-04-29" data-search="sb aqo 3betレビュー ikutan sb a♣ q♥ hj opener utg fold / hj raise 2bb / co fold / btn fold / sb hero raise 11bb / bb fold / hj fold sb hero won 5bb 202604290037_uvr9lj_sb_acqh">
   <div class="time-rail">
     <span class="time-value">00:37</span>
     <span class="time-date">4/29</span>
@@ -1935,7 +2043,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-preflop" href="./202604290036_gxtEYF_BTN_Jh5h.html" data-search="btn j5s オープンレビュー ikutan btn j♥ 5♥ blinds utg fold / hj fold / co fold / btn hero raise 2.5bb / sb fold / bb fold btn hero won 2.5bb 202604290036_gxteyf_btn_jh5h">
+<a class="review-card review-card-preflop" href="./202604290036_gxtEYF_BTN_Jh5h.html" data-kind="preflop" data-day="2026-04-29" data-search="btn j5s オープンレビュー ikutan btn j♥ 5♥ blinds utg fold / hj fold / co fold / btn hero raise 2.5bb / sb fold / bb fold btn hero won 2.5bb 202604290036_gxteyf_btn_jh5h">
   <div class="time-rail">
     <span class="time-value">00:36</span>
     <span class="time-date">4/29</span>
@@ -1954,7 +2062,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-postflop" href="./202604290035_VQi7yF_BB_Ks6c.html" data-search="bb k6o monotone flop delayed bet レビュー ikutan bb k♠ 6♣ sb utg fold / hj fold / co fold / btn fold / sb raise 2.5bb / bb hero call 2.5bb k♣ j♣ 8♣ 3♦ bb hero won 4.75bb 202604290035_vqi7yf_bb_ks6c">
+<a class="review-card review-card-postflop" href="./202604290035_VQi7yF_BB_Ks6c.html" data-kind="postflop" data-day="2026-04-29" data-search="bb k6o monotone flop delayed bet レビュー ikutan bb k♠ 6♣ sb utg fold / hj fold / co fold / btn fold / sb raise 2.5bb / bb hero call 2.5bb k♣ j♣ 8♣ 3♦ bb hero won 4.75bb 202604290035_vqi7yf_bb_ks6c">
   <div class="time-rail">
     <span class="time-value">00:35</span>
     <span class="time-date">4/29</span>
@@ -1974,7 +2082,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-preflop" href="./202604290034_tUnhQ4_SB_As9c.html" data-search="sb a9o オープンレビュー ikutan sb a♠ 9♣ bb utg fold / hj fold / co fold / btn fold / sb hero raise 3bb / bb fold sb hero won 2bb 202604290034_tunhq4_sb_as9c">
+<a class="review-card review-card-preflop" href="./202604290034_tUnhQ4_SB_As9c.html" data-kind="preflop" data-day="2026-04-29" data-search="sb a9o オープンレビュー ikutan sb a♠ 9♣ bb utg fold / hj fold / co fold / btn fold / sb hero raise 3bb / bb fold sb hero won 2bb 202604290034_tunhq4_sb_as9c">
   <div class="time-rail">
     <span class="time-value">00:34</span>
     <span class="time-date">4/29</span>
@@ -1993,7 +2101,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-preflop" href="./202604290034_dOZqyb_BTN_JcTh.html" data-search="btn jto オープンレビュー ikutan btn j♣ t♥ blinds utg fold / hj fold / co fold / btn hero raise 2.5bb / sb fold / bb fold btn hero won 2.5bb 202604290034_dozqyb_btn_jcth">
+<a class="review-card review-card-preflop" href="./202604290034_dOZqyb_BTN_JcTh.html" data-kind="preflop" data-day="2026-04-29" data-search="btn jto オープンレビュー ikutan btn j♣ t♥ blinds utg fold / hj fold / co fold / btn hero raise 2.5bb / sb fold / bb fold btn hero won 2.5bb 202604290034_dozqyb_btn_jcth">
   <div class="time-rail">
     <span class="time-value">00:34</span>
     <span class="time-date">4/29</span>
@@ -2012,7 +2120,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-preflop" href="./202604290033_zOZ5NA_HJ_Ac7c.html" data-search="hj a7s squeeze-fold レビュー ikutan hj a♣ 7♣ btn squeezer utg fold / hj hero raise 2bb / co call 2bb / btn raise 10bb / sb fold / bb fold / hj hero fold / co fold btn won 7.5bb 202604290033_zoz5na_hj_ac7c">
+<a class="review-card review-card-preflop" href="./202604290033_zOZ5NA_HJ_Ac7c.html" data-kind="preflop" data-day="2026-04-29" data-search="hj a7s squeeze-fold レビュー ikutan hj a♣ 7♣ btn squeezer utg fold / hj hero raise 2bb / co call 2bb / btn raise 10bb / sb fold / bb fold / hj hero fold / co fold btn won 7.5bb 202604290033_zoz5na_hj_ac7c">
   <div class="time-rail">
     <span class="time-value">00:33</span>
     <span class="time-date">4/29</span>
@@ -2031,7 +2139,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-postflop" href="./202604290033_Augkdt_SB_AdKd.html" data-search="sb aks turn raise fold レビュー ikutan sb a♦ k♦ bb utg fold / hj fold / co fold / btn fold / sb hero raise 3bb / bb call 3bb k♣ 6♠ 5♥ 6♦ bb won 15.83bb 202604290033_augkdt_sb_adkd">
+<a class="review-card review-card-postflop" href="./202604290033_Augkdt_SB_AdKd.html" data-kind="postflop" data-day="2026-04-29" data-search="sb aks turn raise fold レビュー ikutan sb a♦ k♦ bb utg fold / hj fold / co fold / btn fold / sb hero raise 3bb / bb call 3bb k♣ 6♠ 5♥ 6♦ bb won 15.83bb 202604290033_augkdt_sb_adkd">
   <div class="time-rail">
     <span class="time-value">00:33</span>
     <span class="time-date">4/29</span>
@@ -2051,7 +2159,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-postflop" href="./202604290032_1DSZii_BB_6s6d.html" data-search="bb 66 j98 flop fold レビュー ikutan bb 6♠ 6♦ btn utg fold / hj fold / co fold / btn raise 2.5bb / sb fold / bb hero call 2.5bb j♥ 9♠ 8♠ btn won 5.22bb 202604290032_1dszii_bb_6s6d">
+<a class="review-card review-card-postflop" href="./202604290032_1DSZii_BB_6s6d.html" data-kind="postflop" data-day="2026-04-29" data-search="bb 66 j98 flop fold レビュー ikutan bb 6♠ 6♦ btn utg fold / hj fold / co fold / btn raise 2.5bb / sb fold / bb hero call 2.5bb j♥ 9♠ 8♠ btn won 5.22bb 202604290032_1dszii_bb_6s6d">
   <div class="time-rail">
     <span class="time-value">00:32</span>
     <span class="time-date">4/29</span>
@@ -2071,7 +2179,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-postflop" href="./202604290031_MzKtFt_BB_Td9d.html" data-search="bb t9s turn straight value レビュー ikutan bb t♦ 9♦ co utg fold / hj fold / co raise 2.3bb / btn fold / sb fold / bb hero call 2.3bb a♦ 8♠ 7♣ j♠ t♣ bb hero won 8.07bb 202604290031_mzktft_bb_td9d">
+<a class="review-card review-card-postflop" href="./202604290031_MzKtFt_BB_Td9d.html" data-kind="postflop" data-day="2026-04-29" data-search="bb t9s turn straight value レビュー ikutan bb t♦ 9♦ co utg fold / hj fold / co raise 2.3bb / btn fold / sb fold / bb hero call 2.3bb a♦ 8♠ 7♣ j♠ t♣ bb hero won 8.07bb 202604290031_mzktft_bb_td9d">
   <div class="time-rail">
     <span class="time-value">00:31</span>
     <span class="time-date">4/29</span>
@@ -2091,7 +2199,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-postflop" href="./202604290030_NmDacr_BB_Tc4c.html" data-search="bb t4s flop float レビュー ikutan bb t♣ 4♣ hj utg fold / hj raise 2.3bb / co fold / btn fold / sb fold / bb hero call 2.3bb q♦ 8♥ 5♣ 7♠ hj won 8.07bb 202604290030_nmdacr_bb_tc4c">
+<a class="review-card review-card-postflop" href="./202604290030_NmDacr_BB_Tc4c.html" data-kind="postflop" data-day="2026-04-29" data-search="bb t4s flop float レビュー ikutan bb t♣ 4♣ hj utg fold / hj raise 2.3bb / co fold / btn fold / sb fold / bb hero call 2.3bb q♦ 8♥ 5♣ 7♠ hj won 8.07bb 202604290030_nmdacr_bb_tc4c">
   <div class="time-rail">
     <span class="time-value">00:30</span>
     <span class="time-date">4/29</span>
@@ -2111,7 +2219,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-postflop" href="./202604290023_fqoLso_BB_8h4h.html" data-search="bb 84s nutless flush draw fold レビュー ikutan bb 8♥ 4♥ sb utg fold / hj fold / co fold / btn fold / sb raise 3bb / bb hero call 3bb a♦ q♥ 6♥ sb won 5.7bb 202604290023_fqolso_bb_8h4h">
+<a class="review-card review-card-postflop" href="./202604290023_fqoLso_BB_8h4h.html" data-kind="postflop" data-day="2026-04-29" data-search="bb 84s nutless flush draw fold レビュー ikutan bb 8♥ 4♥ sb utg fold / hj fold / co fold / btn fold / sb raise 3bb / bb hero call 3bb a♦ q♥ 6♥ sb won 5.7bb 202604290023_fqolso_bb_8h4h">
   <div class="time-rail">
     <span class="time-value">00:23</span>
     <span class="time-date">4/29</span>
@@ -2131,7 +2239,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-preflop" href="./202604290020_aAXWLJ_HJ_Ac8c.html" data-search="hj a8s オープンレビュー ikutan hj a♣ 8♣ behind players / blinds utg fold / hj hero raise 2bb / co fold / btn fold / sb fold / bb fold hj hero won 2.5bb 202604290020_aaxwlj_hj_ac8c">
+<a class="review-card review-card-preflop" href="./202604290020_aAXWLJ_HJ_Ac8c.html" data-kind="preflop" data-day="2026-04-29" data-search="hj a8s オープンレビュー ikutan hj a♣ 8♣ behind players / blinds utg fold / hj hero raise 2bb / co fold / btn fold / sb fold / bb fold hj hero won 2.5bb 202604290020_aaxwlj_hj_ac8c">
   <div class="time-rail">
     <span class="time-value">00:20</span>
     <span class="time-date">4/29</span>
@@ -2150,7 +2258,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-preflop" href="./202604290019_ca44TG_HJ_AcKc.html" data-search="hj aks 4betレビュー ikutan hj a♣ k♣ co 3bettor utg fold / hj hero raise 2bb / co raise 7.5bb / btn fold / sb fold / bb fold / hj hero raise 22.5bb / co fold hj hero won 16.5bb 202604290019_ca44tg_hj_ackc">
+<a class="review-card review-card-preflop" href="./202604290019_ca44TG_HJ_AcKc.html" data-kind="preflop" data-day="2026-04-29" data-search="hj aks 4betレビュー ikutan hj a♣ k♣ co 3bettor utg fold / hj hero raise 2bb / co raise 7.5bb / btn fold / sb fold / bb fold / hj hero raise 22.5bb / co fold hj hero won 16.5bb 202604290019_ca44tg_hj_ackc">
   <div class="time-rail">
     <span class="time-value">00:19</span>
     <span class="time-date">4/29</span>
@@ -2169,7 +2277,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-postflop" href="./202604290018_PyUrYA_SB_QsQc.html" data-search="sb qq cold 4bet call レビュー ikutan sb q♠ q♣ bb utg raise 2bb / hj fold / co fold / btn fold / sb hero raise 11bb / bb raise 24.2bb / utg fold / sb hero call 24.2bb t♠ 7♣ 4♦ a♥ bb won 80bb 202604290018_pyurya_sb_qsqc">
+<a class="review-card review-card-postflop" href="./202604290018_PyUrYA_SB_QsQc.html" data-kind="postflop" data-day="2026-04-29" data-search="sb qq cold 4bet call レビュー ikutan sb q♠ q♣ bb utg raise 2bb / hj fold / co fold / btn fold / sb hero raise 11bb / bb raise 24.2bb / utg fold / sb hero call 24.2bb t♠ 7♣ 4♦ a♥ bb won 80bb 202604290018_pyurya_sb_qsqc">
   <div class="time-rail">
     <span class="time-value">00:18</span>
     <span class="time-date">4/29</span>
@@ -2189,7 +2297,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-preflop" href="./202604290016_As63ux_BTN_KdQs.html" data-search="btn kqo オープンレビュー ikutan btn k♦ q♠ blinds utg fold / hj fold / co fold / btn hero raise 2.5bb / sb fold / bb fold btn hero won 2.5bb 202604290016_as63ux_btn_kdqs">
+<a class="review-card review-card-preflop" href="./202604290016_As63ux_BTN_KdQs.html" data-kind="preflop" data-day="2026-04-29" data-search="btn kqo オープンレビュー ikutan btn k♦ q♠ blinds utg fold / hj fold / co fold / btn hero raise 2.5bb / sb fold / bb fold btn hero won 2.5bb 202604290016_as63ux_btn_kdqs">
   <div class="time-rail">
     <span class="time-value">00:16</span>
     <span class="time-date">4/29</span>
@@ -2208,7 +2316,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-preflop" href="./202604290015_pAUPFg_UTG_QsJs.html" data-search="utg qjs squeeze-fold レビュー ikutan utg q♠ j♠ sb squeezer utg hero raise 2bb / hj fold / co call 2bb / btn fold / sb raise 15bb / bb fold / utg hero fold / co fold sb won 7bb 202604290015_paupfg_utg_qsjs">
+<a class="review-card review-card-preflop" href="./202604290015_pAUPFg_UTG_QsJs.html" data-kind="preflop" data-day="2026-04-29" data-search="utg qjs squeeze-fold レビュー ikutan utg q♠ j♠ sb squeezer utg hero raise 2bb / hj fold / co call 2bb / btn fold / sb raise 15bb / bb fold / utg hero fold / co fold sb won 7bb 202604290015_paupfg_utg_qsjs">
   <div class="time-rail">
     <span class="time-value">00:15</span>
     <span class="time-date">4/29</span>
@@ -2227,7 +2335,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-preflop" href="./202604290014_CkZX3A_CO_AhJs.html" data-search="co ajo open-fold レビュー ikutan co a♥ j♠ btn 3bettor utg fold / hj fold / co hero raise 2.3bb / btn raise 7.59bb / sb fold / bb fold / co hero fold btn won 6.1bb 202604290014_ckzx3a_co_ahjs">
+<a class="review-card review-card-preflop" href="./202604290014_CkZX3A_CO_AhJs.html" data-kind="preflop" data-day="2026-04-29" data-search="co ajo open-fold レビュー ikutan co a♥ j♠ btn 3bettor utg fold / hj fold / co hero raise 2.3bb / btn raise 7.59bb / sb fold / bb fold / co hero fold btn won 6.1bb 202604290014_ckzx3a_co_ahjs">
   <div class="time-rail">
     <span class="time-value">00:14</span>
     <span class="time-date">4/29</span>
@@ -2246,7 +2354,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-postflop" href="./202604290014_3g0IzB_SB_QhTh.html" data-search="sb qts paired board check-down レビュー ikutan sb q♥ t♥ bb utg fold / hj fold / co fold / btn fold / sb hero raise 3bb / bb call 3bb 8♠ 8♥ 7♦ 5♣ 9♠ bb won 5.7bb 202604290014_3g0izb_sb_qhth">
+<a class="review-card review-card-postflop" href="./202604290014_3g0IzB_SB_QhTh.html" data-kind="postflop" data-day="2026-04-29" data-search="sb qts paired board check-down レビュー ikutan sb q♥ t♥ bb utg fold / hj fold / co fold / btn fold / sb hero raise 3bb / bb call 3bb 8♠ 8♥ 7♦ 5♣ 9♠ bb won 5.7bb 202604290014_3g0izb_sb_qhth">
   <div class="time-rail">
     <span class="time-value">00:14</span>
     <span class="time-date">4/29</span>
@@ -2266,7 +2374,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-postflop" href="./202604290013_NuIKzS_BB_Kh8c.html" data-search="bb k8o bvb flop check-back レビュー ikutan bb k♥ 8♣ sb utg fold / hj fold / co fold / btn fold / sb raise 3bb / bb hero call 3bb 8♥ 7♣ 2♥ a♠ sb won 5.7bb 202604290013_nuikzs_bb_kh8c">
+<a class="review-card review-card-postflop" href="./202604290013_NuIKzS_BB_Kh8c.html" data-kind="postflop" data-day="2026-04-29" data-search="bb k8o bvb flop check-back レビュー ikutan bb k♥ 8♣ sb utg fold / hj fold / co fold / btn fold / sb raise 3bb / bb hero call 3bb 8♥ 7♣ 2♥ a♠ sb won 5.7bb 202604290013_nuikzs_bb_kh8c">
   <div class="time-rail">
     <span class="time-value">00:13</span>
     <span class="time-date">4/29</span>
@@ -2297,7 +2405,7 @@
     <span class="day-count" data-default-count="35">35&#20214;</span>
   </div>
   <div class="review-list">
-    <a class="review-card" href="./tenfour_20260428_1949_XOvvEl.html" data-search="co k♥q♠ の 3bet pot river thin value / min raise call レビュー co k♥q♠ hj 6♠6♥ utg fold, hj raise 2bb, co raise 6.5bb, btn fold, sb fold, bb fold, hj call 9♦ 8♦ 4♥ / 4♦ / q♥ co won 32.13bb tenfour_20260428_1949_xovvel">
+    <a class="review-card" href="./tenfour_20260428_1949_XOvvEl.html" data-kind="image" data-day="2026-04-28" data-search="co k♥q♠ の 3bet pot river thin value / min raise call レビュー co k♥q♠ hj 6♠6♥ utg fold, hj raise 2bb, co raise 6.5bb, btn fold, sb fold, bb fold, hj call 9♦ 8♦ 4♥ / 4♦ / q♥ co won 32.13bb tenfour_20260428_1949_xovvel">
   <div class="time-rail">
     <span class="time-value">19:49</span>
     <span class="time-date">4/28</span>
@@ -2317,7 +2425,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-preflop" href="./202604281949_zAd32u_BTN_Tc3d.html" data-search="hj 65s オープンレビュー ikutan hj 6♠ 5♠ behind players / blinds utg fold / hj hero raise 2bb / co fold / btn fold / sb fold / bb fold hj hero won 2.5bb 202604281949_zad32u_btn_tc3d">
+<a class="review-card review-card-preflop" href="./202604281949_zAd32u_BTN_Tc3d.html" data-kind="preflop" data-day="2026-04-28" data-search="hj 65s オープンレビュー ikutan hj 6♠ 5♠ behind players / blinds utg fold / hj hero raise 2bb / co fold / btn fold / sb fold / bb fold hj hero won 2.5bb 202604281949_zad32u_btn_tc3d">
   <div class="time-rail">
     <span class="time-value">19:49</span>
     <span class="time-date">4/28</span>
@@ -2336,7 +2444,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-postflop" href="./202604281949_XOvvEl_HJ_6s6h.html" data-search="co kqo 3bet pot river minraise call レビュー ikutan co k♥ q♠ hj utg fold / hj raise 2bb / co hero raise 6.5bb / btn fold / sb fold / bb fold / hj call 6.5bb 9♦ 8♦ 4♥ 4♦ q♥ co hero won 32.13bb 202604281949_xovvel_hj_6s6h">
+<a class="review-card review-card-postflop" href="./202604281949_XOvvEl_HJ_6s6h.html" data-kind="postflop" data-day="2026-04-28" data-search="co kqo 3bet pot river minraise call レビュー ikutan co k♥ q♠ hj utg fold / hj raise 2bb / co hero raise 6.5bb / btn fold / sb fold / bb fold / hj call 6.5bb 9♦ 8♦ 4♥ 4♦ q♥ co hero won 32.13bb 202604281949_xovvel_hj_6s6h">
   <div class="time-rail">
     <span class="time-value">19:49</span>
     <span class="time-date">4/28</span>
@@ -2356,7 +2464,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-postflop" href="./202604281949_82FLJw_UTG_9d9c.html" data-search="utg 99 cold 4bet fold レビュー ikutan utg 9♦ 9♣ hj / btn / sb utg hero raise 2bb / hj raise 6bb / co fold / btn call 6bb / sb raise 24bb / bb fold / utg hero fold / hj raise 100bb / btn fold / sb call 100bb 8♠ 6♠ 4♦ 4♠ 4♥ sb won 205bb 202604281949_82fljw_utg_9d9c">
+<a class="review-card review-card-postflop" href="./202604281949_82FLJw_UTG_9d9c.html" data-kind="postflop" data-day="2026-04-28" data-search="utg 99 cold 4bet fold レビュー ikutan utg 9♦ 9♣ hj / btn / sb utg hero raise 2bb / hj raise 6bb / co fold / btn call 6bb / sb raise 24bb / bb fold / utg hero fold / hj raise 100bb / btn fold / sb call 100bb 8♠ 6♠ 4♦ 4♠ 4♥ sb won 205bb 202604281949_82fljw_utg_9d9c">
   <div class="time-rail">
     <span class="time-value">19:49</span>
     <span class="time-date">4/28</span>
@@ -2376,7 +2484,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card" href="./tenfour_20260428_1948_Pkz19z.html" data-search="bb a♦t♣ の turn probe / river value bet-fold レビュー bb a♦t♣ co k♠4♠ utg fold, hj fold, co raise 2.3bb, btn fold, sb fold, bb call t♦ 3♥ 2♥ / 6♠ / 5♠ co won 20.2bb tenfour_20260428_1948_pkz19z">
+<a class="review-card" href="./tenfour_20260428_1948_Pkz19z.html" data-kind="image" data-day="2026-04-28" data-search="bb a♦t♣ の turn probe / river value bet-fold レビュー bb a♦t♣ co k♠4♠ utg fold, hj fold, co raise 2.3bb, btn fold, sb fold, bb call t♦ 3♥ 2♥ / 6♠ / 5♠ co won 20.2bb tenfour_20260428_1948_pkz19z">
   <div class="time-rail">
     <span class="time-value">19:48</span>
     <span class="time-date">4/28</span>
@@ -2396,7 +2504,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-postflop" href="./202604281948_Pkz19z_HJ_Qs7s.html" data-search="bb ato river lead-fold レビュー ikutan bb a♦ t♣ co utg fold / hj fold / co raise 2.3bb / btn fold / sb fold / bb hero call 2.3bb t♦ 3♥ 2♥ 6♠ 5♠ co won 20.2bb 202604281948_pkz19z_hj_qs7s">
+<a class="review-card review-card-postflop" href="./202604281948_Pkz19z_HJ_Qs7s.html" data-kind="postflop" data-day="2026-04-28" data-search="bb ato river lead-fold レビュー ikutan bb a♦ t♣ co utg fold / hj fold / co raise 2.3bb / btn fold / sb fold / bb hero call 2.3bb t♦ 3♥ 2♥ 6♠ 5♠ co won 20.2bb 202604281948_pkz19z_hj_qs7s">
   <div class="time-rail">
     <span class="time-value">19:48</span>
     <span class="time-date">4/28</span>
@@ -2416,7 +2524,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-postflop" href="./202604281948_79hckU_UTG_Kc4h.html" data-search="bb k3s check-down レビュー ikutan bb k♥ 3♥ btn utg fold / hj fold / co fold / btn raise 2.5bb / sb fold / bb hero call 2.5bb q♦ 8♥ 5♣ 4♦ 3♦ bb hero won 5.22bb 202604281948_79hcku_utg_kc4h">
+<a class="review-card review-card-postflop" href="./202604281948_79hckU_UTG_Kc4h.html" data-kind="postflop" data-day="2026-04-28" data-search="bb k3s check-down レビュー ikutan bb k♥ 3♥ btn utg fold / hj fold / co fold / btn raise 2.5bb / sb fold / bb hero call 2.5bb q♦ 8♥ 5♣ 4♦ 3♦ bb hero won 5.22bb 202604281948_79hcku_utg_kc4h">
   <div class="time-rail">
     <span class="time-value">19:48</span>
     <span class="time-date">4/28</span>
@@ -2436,7 +2544,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-postflop" href="./202604281947_lodBiq_SB_2h2c.html" data-search="btn ajo paired board delayed call レビュー ikutan btn a♦ j♥ bb utg fold / hj fold / co fold / btn hero raise 2.5bb / sb fold / bb call 2.5bb 9♥ 9♦ 8♦ 2♠ 3♦ bb won 8.7bb 202604281947_lodbiq_sb_2h2c">
+<a class="review-card review-card-postflop" href="./202604281947_lodBiq_SB_2h2c.html" data-kind="postflop" data-day="2026-04-28" data-search="btn ajo paired board delayed call レビュー ikutan btn a♦ j♥ bb utg fold / hj fold / co fold / btn hero raise 2.5bb / sb fold / bb call 2.5bb 9♥ 9♦ 8♦ 2♠ 3♦ bb won 8.7bb 202604281947_lodbiq_sb_2h2c">
   <div class="time-rail">
     <span class="time-value">19:47</span>
     <span class="time-date">4/28</span>
@@ -2456,7 +2564,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-postflop" href="./202604281947_aVCYTX_BB_9c6d.html" data-search="sb kqo 3bet pot turn fold レビュー ikutan sb k♥ q♣ btn utg fold / hj fold / co fold / btn raise 2.5bb / sb hero raise 11bb / bb fold / btn call 11bb 6♠ 3♦ 2♥ t♥ btn won 21.85bb 202604281947_avcytx_bb_9c6d">
+<a class="review-card review-card-postflop" href="./202604281947_aVCYTX_BB_9c6d.html" data-kind="postflop" data-day="2026-04-28" data-search="sb kqo 3bet pot turn fold レビュー ikutan sb k♥ q♣ btn utg fold / hj fold / co fold / btn raise 2.5bb / sb hero raise 11bb / bb fold / btn call 11bb 6♠ 3♦ 2♥ t♥ btn won 21.85bb 202604281947_avcytx_bb_9c6d">
   <div class="time-rail">
     <span class="time-value">19:47</span>
     <span class="time-date">4/28</span>
@@ -2476,7 +2584,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-preflop" href="./202604281945_GH6IyD_BB_Qs3h.html" data-search="co 77 オープンレビュー ikutan co 7♦ 7♣ behind players / blinds utg fold / hj fold / co hero raise 2.3bb / btn fold / sb fold / bb fold co hero won 2.5bb 202604281945_gh6iyd_bb_qs3h">
+<a class="review-card review-card-preflop" href="./202604281945_GH6IyD_BB_Qs3h.html" data-kind="preflop" data-day="2026-04-28" data-search="co 77 オープンレビュー ikutan co 7♦ 7♣ behind players / blinds utg fold / hj fold / co hero raise 2.3bb / btn fold / sb fold / bb fold co hero won 2.5bb 202604281945_gh6iyd_bb_qs3h">
   <div class="time-rail">
     <span class="time-value">19:45</span>
     <span class="time-date">4/28</span>
@@ -2495,7 +2603,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-postflop" href="./202604281945_FUVul5_SB_9d4c.html" data-search="bb k9o float / river overbet bluff レビュー ikutan bb k♦ 9♥ co utg fold / hj fold / co raise 2.3bb / btn fold / sb fold / bb hero call 2.3bb t♦ 3♣ 2♣ 3♥ 7♠ bb hero won 9.69bb 202604281945_fuvul5_sb_9d4c">
+<a class="review-card review-card-postflop" href="./202604281945_FUVul5_SB_9d4c.html" data-kind="postflop" data-day="2026-04-28" data-search="bb k9o float / river overbet bluff レビュー ikutan bb k♦ 9♥ co utg fold / hj fold / co raise 2.3bb / btn fold / sb fold / bb hero call 2.3bb t♦ 3♣ 2♣ 3♥ 7♠ bb hero won 9.69bb 202604281945_fuvul5_sb_9d4c">
   <div class="time-rail">
     <span class="time-value">19:45</span>
     <span class="time-date">4/28</span>
@@ -2515,7 +2623,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-postflop" href="./202604281945_7qKVv9_SB_7h5s.html" data-search="bb qto river bluff-catch レビュー ikutan bb q♦ t♥ utg utg raise 2.5bb / hj fold / co fold / btn fold / sb fold / bb hero call 2.5bb 9♦ 8♣ 3♣ q♥ 9♠ utg won 43.51bb 202604281945_7qkvv9_sb_7h5s">
+<a class="review-card review-card-postflop" href="./202604281945_7qKVv9_SB_7h5s.html" data-kind="postflop" data-day="2026-04-28" data-search="bb qto river bluff-catch レビュー ikutan bb q♦ t♥ utg utg raise 2.5bb / hj fold / co fold / btn fold / sb fold / bb hero call 2.5bb 9♦ 8♣ 3♣ q♥ 9♠ utg won 43.51bb 202604281945_7qkvv9_sb_7h5s">
   <div class="time-rail">
     <span class="time-value">19:45</span>
     <span class="time-date">4/28</span>
@@ -2535,7 +2643,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-preflop" href="./202604281944_AFAI0l_SB_KsKc.html" data-search="sb kk 3betレビュー ikutan sb k♠ k♣ co opener utg fold / hj fold / co raise 2.3bb / btn fold / sb hero raise 11bb / bb fold / co fold sb hero won 5.6bb 202604281944_afai0l_sb_kskc">
+<a class="review-card review-card-preflop" href="./202604281944_AFAI0l_SB_KsKc.html" data-kind="preflop" data-day="2026-04-28" data-search="sb kk 3betレビュー ikutan sb k♠ k♣ co opener utg fold / hj fold / co raise 2.3bb / btn fold / sb hero raise 11bb / bb fold / co fold sb hero won 5.6bb 202604281944_afai0l_sb_kskc">
   <div class="time-rail">
     <span class="time-value">19:44</span>
     <span class="time-date">4/28</span>
@@ -2554,7 +2662,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-postflop" href="./202604281943_86hSn4_BB_9h7h.html" data-search="bb 97s turn flush check-raise レビュー ikutan bb 9♥ 7♥ co utg fold / hj fold / co raise 2.3bb / btn fold / sb fold / bb hero call 2.3bb j♥ 8♦ 6♥ 2♥ 2♦ bb hero won 50.5bb 202604281943_86hsn4_bb_9h7h">
+<a class="review-card review-card-postflop" href="./202604281943_86hSn4_BB_9h7h.html" data-kind="postflop" data-day="2026-04-28" data-search="bb 97s turn flush check-raise レビュー ikutan bb 9♥ 7♥ co utg fold / hj fold / co raise 2.3bb / btn fold / sb fold / bb hero call 2.3bb j♥ 8♦ 6♥ 2♥ 2♦ bb hero won 50.5bb 202604281943_86hsn4_bb_9h7h">
   <div class="time-rail">
     <span class="time-value">19:43</span>
     <span class="time-date">4/28</span>
@@ -2574,7 +2682,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-postflop" href="./202604281942_uffkEG_BTN_Jd3h.html" data-search="hj 99 paired board pot control レビュー ikutan hj 9♦ 9♣ bb utg fold / hj hero raise 2bb / co fold / btn fold / sb fold / bb call 2bb 6♥ 2♠ 2♥ t♥ 4♦ hj hero won 7.12bb 202604281942_uffkeg_btn_jd3h">
+<a class="review-card review-card-postflop" href="./202604281942_uffkEG_BTN_Jd3h.html" data-kind="postflop" data-day="2026-04-28" data-search="hj 99 paired board pot control レビュー ikutan hj 9♦ 9♣ bb utg fold / hj hero raise 2bb / co fold / btn fold / sb fold / bb call 2bb 6♥ 2♠ 2♥ t♥ 4♦ hj hero won 7.12bb 202604281942_uffkeg_btn_jd3h">
   <div class="time-rail">
     <span class="time-value">19:42</span>
     <span class="time-date">4/28</span>
@@ -2594,7 +2702,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-postflop" href="./202604281941_oLXBZy_BTN_4c3h.html" data-search="bb 55 low board check-raise レビュー ikutan bb 5♠ 5♦ utg utg raise 2.5bb / hj fold / co fold / btn fold / sb fold / bb hero call 2.5bb 6♥ 3♠ 2♦ bb hero won 10.45bb 202604281941_olxbzy_btn_4c3h">
+<a class="review-card review-card-postflop" href="./202604281941_oLXBZy_BTN_4c3h.html" data-kind="postflop" data-day="2026-04-28" data-search="bb 55 low board check-raise レビュー ikutan bb 5♠ 5♦ utg utg raise 2.5bb / hj fold / co fold / btn fold / sb fold / bb hero call 2.5bb 6♥ 3♠ 2♦ bb hero won 10.45bb 202604281941_olxbzy_btn_4c3h">
   <div class="time-rail">
     <span class="time-value">19:41</span>
     <span class="time-date">4/28</span>
@@ -2614,7 +2722,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-postflop" href="./202604281941_7xCDvu_SB_6d4c.html" data-search="bb 77 qjt flop fold レビュー ikutan bb 7♠ 7♣ utg utg raise 2bb / hj fold / co fold / btn fold / sb fold / bb hero call 2bb q♣ j♦ t♠ utg won 4.27bb 202604281941_7xcdvu_sb_6d4c">
+<a class="review-card review-card-postflop" href="./202604281941_7xCDvu_SB_6d4c.html" data-kind="postflop" data-day="2026-04-28" data-search="bb 77 qjt flop fold レビュー ikutan bb 7♠ 7♣ utg utg raise 2bb / hj fold / co fold / btn fold / sb fold / bb hero call 2bb q♣ j♦ t♠ utg won 4.27bb 202604281941_7xcdvu_sb_6d4c">
   <div class="time-rail">
     <span class="time-value">19:41</span>
     <span class="time-date">4/28</span>
@@ -2634,7 +2742,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-preflop" href="./202604281940_zmKHn3_BB_Jc4s.html" data-search="hj ato オープンレビュー ikutan hj a♠ t♥ behind players / blinds utg fold / hj hero raise 2bb / co fold / btn fold / sb fold / bb fold hj hero won 2.5bb 202604281940_zmkhn3_bb_jc4s">
+<a class="review-card review-card-preflop" href="./202604281940_zmKHn3_BB_Jc4s.html" data-kind="preflop" data-day="2026-04-28" data-search="hj ato オープンレビュー ikutan hj a♠ t♥ behind players / blinds utg fold / hj hero raise 2bb / co fold / btn fold / sb fold / bb fold hj hero won 2.5bb 202604281940_zmkhn3_bb_jc4s">
   <div class="time-rail">
     <span class="time-value">19:40</span>
     <span class="time-date">4/28</span>
@@ -2653,7 +2761,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-postflop" href="./202604281940_t4GP5E_BB_KsQs.html" data-search="hj 55 quads slowplay レビュー ikutan hj 5♠ 5♣ bb utg fold / hj hero raise 2bb / co fold / btn fold / sb fold / bb raise 8bb / hj hero call 8bb 5♥ 5♦ 3♠ q♦ 2♣ hj hero won 106bb 202604281940_t4gp5e_bb_ksqs">
+<a class="review-card review-card-postflop" href="./202604281940_t4GP5E_BB_KsQs.html" data-kind="postflop" data-day="2026-04-28" data-search="hj 55 quads slowplay レビュー ikutan hj 5♠ 5♣ bb utg fold / hj hero raise 2bb / co fold / btn fold / sb fold / bb raise 8bb / hj hero call 8bb 5♥ 5♦ 3♠ q♦ 2♣ hj hero won 106bb 202604281940_t4gp5e_bb_ksqs">
   <div class="time-rail">
     <span class="time-value">19:40</span>
     <span class="time-date">4/28</span>
@@ -2673,7 +2781,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-postflop" href="./202604281940_pBFQOf_HJ_7s6h.html" data-search="bb a9s bvb flop fold レビュー ikutan bb a♠ 9♠ sb utg fold / hj fold / co fold / btn fold / sb raise 3bb / bb hero call 3bb k♥ q♣ 3♥ sb won 5.7bb 202604281940_pbfqof_hj_7s6h">
+<a class="review-card review-card-postflop" href="./202604281940_pBFQOf_HJ_7s6h.html" data-kind="postflop" data-day="2026-04-28" data-search="bb a9s bvb flop fold レビュー ikutan bb a♠ 9♠ sb utg fold / hj fold / co fold / btn fold / sb raise 3bb / bb hero call 3bb k♥ q♣ 3♥ sb won 5.7bb 202604281940_pbfqof_hj_7s6h">
   <div class="time-rail">
     <span class="time-value">19:40</span>
     <span class="time-date">4/28</span>
@@ -2693,7 +2801,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-postflop" href="./202604281939_RNxV6n_HJ_As7d.html" data-search="co 99 monotone set bet レビュー ikutan co 9♦ 9♣ sb utg fold / hj fold / co hero raise 2.3bb / btn fold / sb raise 10bb / bb fold / co hero call 10bb q♠ 9♠ 2♠ co hero won 19.95bb 202604281939_rnxv6n_hj_as7d">
+<a class="review-card review-card-postflop" href="./202604281939_RNxV6n_HJ_As7d.html" data-kind="postflop" data-day="2026-04-28" data-search="co 99 monotone set bet レビュー ikutan co 9♦ 9♣ sb utg fold / hj fold / co hero raise 2.3bb / btn fold / sb raise 10bb / bb fold / co hero call 10bb q♠ 9♠ 2♠ co hero won 19.95bb 202604281939_rnxv6n_hj_as7d">
   <div class="time-rail">
     <span class="time-value">19:39</span>
     <span class="time-date">4/28</span>
@@ -2713,7 +2821,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-postflop" href="./202604281938_uaSSq8_HJ_9h7h.html" data-search="co qts top pair c-bet レビュー ikutan co q♥ t♥ btn utg fold / hj fold / co hero raise 2.3bb / btn call 2.3bb / sb fold / bb fold q♠ 9♣ 3♦ co hero won 5.79bb 202604281938_uassq8_hj_9h7h">
+<a class="review-card review-card-postflop" href="./202604281938_uaSSq8_HJ_9h7h.html" data-kind="postflop" data-day="2026-04-28" data-search="co qts top pair c-bet レビュー ikutan co q♥ t♥ btn utg fold / hj fold / co hero raise 2.3bb / btn call 2.3bb / sb fold / bb fold q♠ 9♣ 3♦ co hero won 5.79bb 202604281938_uassq8_hj_9h7h">
   <div class="time-rail">
     <span class="time-value">19:38</span>
     <span class="time-date">4/28</span>
@@ -2733,7 +2841,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-postflop" href="./202604281938_bwkekC_BTN_Qs9c.html" data-search="bb t4s river bet レビュー ikutan bb t♦ 4♦ utg utg raise 2bb / hj fold / co fold / btn fold / sb fold / bb hero call 2bb j♦ 9♦ 3♠ 9♥ 4♠ utg won 21.37bb 202604281938_bwkekc_btn_qs9c">
+<a class="review-card review-card-postflop" href="./202604281938_bwkekC_BTN_Qs9c.html" data-kind="postflop" data-day="2026-04-28" data-search="bb t4s river bet レビュー ikutan bb t♦ 4♦ utg utg raise 2bb / hj fold / co fold / btn fold / sb fold / bb hero call 2bb j♦ 9♦ 3♠ 9♥ 4♠ utg won 21.37bb 202604281938_bwkekc_btn_qs9c">
   <div class="time-rail">
     <span class="time-value">19:38</span>
     <span class="time-date">4/28</span>
@@ -2753,7 +2861,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-preflop" href="./202604281937_fTzowo_BTN_Ah6d.html" data-search="btn a6o オープンレビュー ikutan btn a♥ 6♦ blinds utg fold / hj fold / co fold / btn hero raise 2.5bb / sb fold / bb fold btn hero won 2.5bb 202604281937_ftzowo_btn_ah6d">
+<a class="review-card review-card-preflop" href="./202604281937_fTzowo_BTN_Ah6d.html" data-kind="preflop" data-day="2026-04-28" data-search="btn a6o オープンレビュー ikutan btn a♥ 6♦ blinds utg fold / hj fold / co fold / btn hero raise 2.5bb / sb fold / bb fold btn hero won 2.5bb 202604281937_ftzowo_btn_ah6d">
   <div class="time-rail">
     <span class="time-value">19:37</span>
     <span class="time-date">4/28</span>
@@ -2772,7 +2880,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-postflop" href="./202604281935_JZUko7_BTN_7d4h.html" data-search="hj aks 4bet pot c-bet レビュー ikutan hj a♣ k♠ co utg fold / hj hero raise 2bb / co raise 6.5bb / btn fold / sb fold / bb fold / hj hero raise 16.25bb / co call 16.25bb a♦ j♠ 4♠ hj hero won 32.3bb 202604281935_jzuko7_btn_7d4h">
+<a class="review-card review-card-postflop" href="./202604281935_JZUko7_BTN_7d4h.html" data-kind="postflop" data-day="2026-04-28" data-search="hj aks 4bet pot c-bet レビュー ikutan hj a♣ k♠ co utg fold / hj hero raise 2bb / co raise 6.5bb / btn fold / sb fold / bb fold / hj hero raise 16.25bb / co call 16.25bb a♦ j♠ 4♠ hj hero won 32.3bb 202604281935_jzuko7_btn_7d4h">
   <div class="time-rail">
     <span class="time-value">19:35</span>
     <span class="time-date">4/28</span>
@@ -2792,7 +2900,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-postflop" href="./202604281935_fB1VsR_BTN_6c3h.html" data-search="sb jts multiway turn fold レビュー ikutan sb j♥ t♥ co / bb utg fold / hj fold / co raise 2.3bb / btn fold / sb hero call 2.3bb / bb call 2.3bb k♠ 8♦ 3♦ 4♠ 5♣ bb won 13.11bb 202604281935_fb1vsr_btn_6c3h">
+<a class="review-card review-card-postflop" href="./202604281935_fB1VsR_BTN_6c3h.html" data-kind="postflop" data-day="2026-04-28" data-search="sb jts multiway turn fold レビュー ikutan sb j♥ t♥ co / bb utg fold / hj fold / co raise 2.3bb / btn fold / sb hero call 2.3bb / bb call 2.3bb k♠ 8♦ 3♦ 4♠ 5♣ bb won 13.11bb 202604281935_fb1vsr_btn_6c3h">
   <div class="time-rail">
     <span class="time-value">19:35</span>
     <span class="time-date">4/28</span>
@@ -2812,7 +2920,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-postflop" href="./202604281935_b84YYm_HJ_AdKd.html" data-search="bb 74s defend / flop fold レビュー ikutan bb 7♣ 4♣ hj utg fold / hj raise 3bb / co fold / btn fold / sb fold / bb hero call 3bb q♦ 5♥ 4♥ hj won 6.17bb 202604281935_b84yym_hj_adkd">
+<a class="review-card review-card-postflop" href="./202604281935_b84YYm_HJ_AdKd.html" data-kind="postflop" data-day="2026-04-28" data-search="bb 74s defend / flop fold レビュー ikutan bb 7♣ 4♣ hj utg fold / hj raise 3bb / co fold / btn fold / sb fold / bb hero call 3bb q♦ 5♥ 4♥ hj won 6.17bb 202604281935_b84yym_hj_adkd">
   <div class="time-rail">
     <span class="time-value">19:35</span>
     <span class="time-date">4/28</span>
@@ -2832,7 +2940,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-postflop" href="./202604281934_OPZL0B_HJ_8h4c.html" data-search="co kqo 3bet pot river value レビュー ikutan co k♠ q♦ btn utg fold / hj fold / co hero raise 2.3bb / btn raise 7.5bb / sb fold / bb fold / co hero call 7.5bb j♦ 9♣ 6♥ q♥ 3♠ co hero won 52.25bb 202604281934_opzl0b_hj_8h4c">
+<a class="review-card review-card-postflop" href="./202604281934_OPZL0B_HJ_8h4c.html" data-kind="postflop" data-day="2026-04-28" data-search="co kqo 3bet pot river value レビュー ikutan co k♠ q♦ btn utg fold / hj fold / co hero raise 2.3bb / btn raise 7.5bb / sb fold / bb fold / co hero call 7.5bb j♦ 9♣ 6♥ q♥ 3♠ co hero won 52.25bb 202604281934_opzl0b_hj_8h4c">
   <div class="time-rail">
     <span class="time-value">19:34</span>
     <span class="time-date">4/28</span>
@@ -2852,7 +2960,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-postflop" href="./202604281933_tRFw1k_BB_Kh4h.html" data-search="bb k4s flop float レビュー ikutan bb k♥ 4♥ utg utg raise 2.5bb / hj fold / co fold / btn fold / sb fold / bb hero call 2.5bb t♠ t♦ 8♥ j♠ utg won 8.7bb 202604281933_trfw1k_bb_kh4h">
+<a class="review-card review-card-postflop" href="./202604281933_tRFw1k_BB_Kh4h.html" data-kind="postflop" data-day="2026-04-28" data-search="bb k4s flop float レビュー ikutan bb k♥ 4♥ utg utg raise 2.5bb / hj fold / co fold / btn fold / sb fold / bb hero call 2.5bb t♠ t♦ 8♥ j♠ utg won 8.7bb 202604281933_trfw1k_bb_kh4h">
   <div class="time-rail">
     <span class="time-value">19:33</span>
     <span class="time-date">4/28</span>
@@ -2872,7 +2980,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card review-card-postflop" href="./202604281933_7044jT_UTG_Jc4s.html" data-search="bb k5s river pot bet レビュー ikutan bb k♦ 5♦ btn utg fold / hj fold / co fold / btn raise 2bb / sb fold / bb hero call 2bb t♣ 5♠ 4♣ 9♠ 2♥ btn won 21.37bb 202604281933_7044jt_utg_jc4s">
+<a class="review-card review-card-postflop" href="./202604281933_7044jT_UTG_Jc4s.html" data-kind="postflop" data-day="2026-04-28" data-search="bb k5s river pot bet レビュー ikutan bb k♦ 5♦ btn utg fold / hj fold / co fold / btn raise 2bb / sb fold / bb hero call 2bb t♣ 5♠ 4♣ 9♠ 2♥ btn won 21.37bb 202604281933_7044jt_utg_jc4s">
   <div class="time-rail">
     <span class="time-value">19:33</span>
     <span class="time-date">4/28</span>
@@ -2892,7 +3000,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card" href="./tenfour_20260428_1545_gO4loA.html" data-search="bb j♥8♥ の flop float / turn no-diamond check-raise bluff レビュー bb j♥8♥ btn a♣9♥ utg fold, hj fold, co fold, btn raise 2.5bb, sb fold, bb call q♥ 7♦ 2♦ / a♦ hero won 15.69bb tenfour_20260428_1545_go4loa">
+<a class="review-card" href="./tenfour_20260428_1545_gO4loA.html" data-kind="image" data-day="2026-04-28" data-search="bb j♥8♥ の flop float / turn no-diamond check-raise bluff レビュー bb j♥8♥ btn a♣9♥ utg fold, hj fold, co fold, btn raise 2.5bb, sb fold, bb call q♥ 7♦ 2♦ / a♦ hero won 15.69bb tenfour_20260428_1545_go4loa">
   <div class="time-rail">
     <span class="time-value">15:45</span>
     <span class="time-date">4/28</span>
@@ -2912,7 +3020,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card" href="./tenfour_20260428_0350_gJr58E.html" data-search="utg 5♦5♣ の multiway set value / river overbet レビュー utg 5♦5♣ co a♥9♥ utg raise 2bb, hj call, co call, btn fold, sb call, bb call a♠ 5♥ 4♦ / 7♦ / j♣ hero three of a kind, villain one pair tenfour_20260428_0350_gjr58e">
+<a class="review-card" href="./tenfour_20260428_0350_gJr58E.html" data-kind="image" data-day="2026-04-28" data-search="utg 5♦5♣ の multiway set value / river overbet レビュー utg 5♦5♣ co a♥9♥ utg raise 2bb, hj call, co call, btn fold, sb call, bb call a♠ 5♥ 4♦ / 7♦ / j♣ hero three of a kind, villain one pair tenfour_20260428_0350_gjr58e">
   <div class="time-rail">
     <span class="time-value">03:50</span>
     <span class="time-date">4/28</span>
@@ -2932,7 +3040,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card" href="./tenfour_20260428_0252_6jdU3D.html" data-search="btn k♣j♣ の co 3bet pot river thin value レビュー btn k♣j♣ co a♦t♦ utg fold, hj fold, co raise 2.5bb, btn raise 7.5bb, sb fold, bb fold, co call k♠ 6♦ 5♥ / t♥ / 4♦ hero one pair k, villain one pair t tenfour_20260428_0252_6jdu3d">
+<a class="review-card" href="./tenfour_20260428_0252_6jdU3D.html" data-kind="image" data-day="2026-04-28" data-search="btn k♣j♣ の co 3bet pot river thin value レビュー btn k♣j♣ co a♦t♦ utg fold, hj fold, co raise 2.5bb, btn raise 7.5bb, sb fold, bb fold, co call k♠ 6♦ 5♥ / t♥ / 4♦ hero one pair k, villain one pair t tenfour_20260428_0252_6jdu3d">
   <div class="time-rail">
     <span class="time-value">02:52</span>
     <span class="time-date">4/28</span>
@@ -2952,7 +3060,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card" href="./tenfour_20260428_0219_yTC5F0.html" data-search="bb j♠9♦ の blind-vs-blind river full house レビュー bb j♠9♦ sb k♥q♠ utg fold, hj fold, co fold, btn fold, sb raise 4bb, bb call j♦ 9♥ 6♣ / a♦ / j♥ hero full house, villain one pair tenfour_20260428_0219_ytc5f0">
+<a class="review-card" href="./tenfour_20260428_0219_yTC5F0.html" data-kind="image" data-day="2026-04-28" data-search="bb j♠9♦ の blind-vs-blind river full house レビュー bb j♠9♦ sb k♥q♠ utg fold, hj fold, co fold, btn fold, sb raise 4bb, bb call j♦ 9♥ 6♣ / a♦ / j♥ hero full house, villain one pair tenfour_20260428_0219_ytc5f0">
   <div class="time-rail">
     <span class="time-value">02:19</span>
     <span class="time-date">4/28</span>
@@ -2972,7 +3080,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card" href="./tenfour_20260428_0148_JKI79V.html" data-search="utg k♥q♣ の bb check-raise pot turn fold レビュー utg k♥q♣ bb q♦j♥ utg raise 2bb, hj fold, co fold, btn fold, sb fold, bb call q♥ j♦ 8♦ / 5♦ bb won 15.01bb tenfour_20260428_0148_jki79v">
+<a class="review-card" href="./tenfour_20260428_0148_JKI79V.html" data-kind="image" data-day="2026-04-28" data-search="utg k♥q♣ の bb check-raise pot turn fold レビュー utg k♥q♣ bb q♦j♥ utg raise 2bb, hj fold, co fold, btn fold, sb fold, bb call q♥ j♦ 8♦ / 5♦ bb won 15.01bb tenfour_20260428_0148_jki79v">
   <div class="time-rail">
     <span class="time-value">01:48</span>
     <span class="time-date">4/28</span>
@@ -3003,7 +3111,7 @@
     <span class="day-count" data-default-count="3">3&#20214;</span>
   </div>
   <div class="review-list">
-    <a class="review-card" href="./tenfour_20260427_0348_URehP3.html" data-search="hj q♠q♥ の btn cold 4bet pot レビュー hj q♠q♥ btn a♦a♣ utg raise 2.3bb, hj raise 6.5bb, co fold, btn raise 26bb, sb fold, bb fold, utg fold, hj call k♠ 6♣ 4♣ btn won 53.01bb tenfour_20260427_0348_urehp3">
+    <a class="review-card" href="./tenfour_20260427_0348_URehP3.html" data-kind="image" data-day="2026-04-27" data-search="hj q♠q♥ の btn cold 4bet pot レビュー hj q♠q♥ btn a♦a♣ utg raise 2.3bb, hj raise 6.5bb, co fold, btn raise 26bb, sb fold, bb fold, utg fold, hj call k♠ 6♣ 4♣ btn won 53.01bb tenfour_20260427_0348_urehp3">
   <div class="time-rail">
     <span class="time-value">03:48</span>
     <span class="time-date">4/27</span>
@@ -3023,7 +3131,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card" href="./tenfour_20260427_0313_ARZIl3.html" data-search="utg a♥k♥ の 4bet pot flop c-bet / call レビュー utg a♥k♥ btn utg raise 2bb, hj fold, co fold, btn raise 9bb, sb fold, bb fold, utg raise 22.5bb, btn call a♦ 4♠ 4♥ / 4♦ / 3♣ hero full house, villain three of a kind tenfour_20260427_0313_arzil3">
+<a class="review-card" href="./tenfour_20260427_0313_ARZIl3.html" data-kind="image" data-day="2026-04-27" data-search="utg a♥k♥ の 4bet pot flop c-bet / call レビュー utg a♥k♥ btn utg raise 2bb, hj fold, co fold, btn raise 9bb, sb fold, bb fold, utg raise 22.5bb, btn call a♦ 4♠ 4♥ / 4♦ / 3♣ hero full house, villain three of a kind tenfour_20260427_0313_arzil3">
   <div class="time-rail">
     <span class="time-value">03:13</span>
     <span class="time-date">4/27</span>
@@ -3043,7 +3151,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card" href="./tenfour_20260427_0208_y5S8mI.html" data-search="hj a♦k♥ の squeeze 返し all-in レビュー hj a♦k♥ co / btn / bb utg fold, hj raise 2bb, co call 2bb, btn raise 8bb, sb fold, bb call 8bb, hj raise 100bb, co fold, btn fold, bb fold hero won 26.5bb tenfour_20260427_0208_y5s8mi">
+<a class="review-card" href="./tenfour_20260427_0208_y5S8mI.html" data-kind="image" data-day="2026-04-27" data-search="hj a♦k♥ の squeeze 返し all-in レビュー hj a♦k♥ co / btn / bb utg fold, hj raise 2bb, co call 2bb, btn raise 8bb, sb fold, bb call 8bb, hj raise 100bb, co fold, btn fold, bb fold hero won 26.5bb tenfour_20260427_0208_y5s8mi">
   <div class="time-rail">
     <span class="time-value">02:08</span>
     <span class="time-date">4/27</span>
@@ -3073,7 +3181,7 @@
     <span class="day-count" data-default-count="1">1&#20214;</span>
   </div>
   <div class="review-list">
-    <a class="review-card" href="./tenfour_20260425_0305_aAuErj.html" data-search="bb a♠9♠ の squeeze pot turn shove レビュー bb a♠9♠ co 8♠8♣ utg raise 2.3bb, hj fold, co call 2.3bb, btn fold, sb fold, bb raise 14bb, utg fold, co call a♣ 6♠ 3♠ / 2♠ / 3♦ hero flush, villain two pair 8 and 3 tenfour_20260425_0305_aauerj">
+    <a class="review-card" href="./tenfour_20260425_0305_aAuErj.html" data-kind="image" data-day="2026-04-25" data-search="bb a♠9♠ の squeeze pot turn shove レビュー bb a♠9♠ co 8♠8♣ utg raise 2.3bb, hj fold, co call 2.3bb, btn fold, sb fold, bb raise 14bb, utg fold, co call a♣ 6♠ 3♠ / 2♠ / 3♦ hero flush, villain two pair 8 and 3 tenfour_20260425_0305_aauerj">
   <div class="time-rail">
     <span class="time-value">03:05</span>
     <span class="time-date">4/25</span>
@@ -3104,7 +3212,7 @@
     <span class="day-count" data-default-count="1">1&#20214;</span>
   </div>
   <div class="review-list">
-    <a class="review-card" href="./tenfour_20260424_0102_mg7Ys4.html" data-search="hj 9♥9♣ の 3bet pot river 3bet レビュー hj 9♥9♣ btn a♣k♦ utg fold, hj raise 2bb, co fold, btn raise 8bb, sb fold, bb fold, hj call j♣ 7♦ 5♠ / 9♦ / a♥ hero three of a kind 9, villain one pair a tenfour_20260424_0102_mg7ys4">
+    <a class="review-card" href="./tenfour_20260424_0102_mg7Ys4.html" data-kind="image" data-day="2026-04-24" data-search="hj 9♥9♣ の 3bet pot river 3bet レビュー hj 9♥9♣ btn a♣k♦ utg fold, hj raise 2bb, co fold, btn raise 8bb, sb fold, bb fold, hj call j♣ 7♦ 5♠ / 9♦ / a♥ hero three of a kind 9, villain one pair a tenfour_20260424_0102_mg7ys4">
   <div class="time-rail">
     <span class="time-value">01:02</span>
     <span class="time-date">4/24</span>
@@ -3135,7 +3243,7 @@
     <span class="day-count" data-default-count="1">1&#20214;</span>
   </div>
   <div class="review-list">
-    <a class="review-card" href="./tenfour_20260423_2205_1dHa1t.html" data-search="co k♣j♠ の squeeze 対応レビュー co k♣j♠ sb a♣t♠ / bb k♥q♣ utg fold, hj fold, co raise 2.3bb, btn fold, sb call 2.3bb, bb raise 12bb, co raise 30bb, sb fold, bb fold hero が preflop で pot 26.3bb を獲得 tenfour_20260423_2205_1dha1t">
+    <a class="review-card" href="./tenfour_20260423_2205_1dHa1t.html" data-kind="image" data-day="2026-04-23" data-search="co k♣j♠ の squeeze 対応レビュー co k♣j♠ sb a♣t♠ / bb k♥q♣ utg fold, hj fold, co raise 2.3bb, btn fold, sb call 2.3bb, bb raise 12bb, co raise 30bb, sb fold, bb fold hero が preflop で pot 26.3bb を獲得 tenfour_20260423_2205_1dha1t">
   <div class="time-rail">
     <span class="time-value">22:05</span>
     <span class="time-date">4/23</span>
@@ -3165,7 +3273,7 @@
     <span class="day-count" data-default-count="3">3&#20214;</span>
   </div>
   <div class="review-list">
-    <a class="review-card" href="./tenfour_20260421_2318_q9yEzd.html" data-search="bb q♥9♥ の flop x/r jam 対応レビュー bb q♥9♥ utg j♠j♦ utg raise 2.3bb, bb call 7♦ 6♥ 4♥ hero fold, villain j♠j♦ wins tenfour_20260421_2318_q9yezd">
+    <a class="review-card" href="./tenfour_20260421_2318_q9yEzd.html" data-kind="image" data-day="2026-04-21" data-search="bb q♥9♥ の flop x/r jam 対応レビュー bb q♥9♥ utg j♠j♦ utg raise 2.3bb, bb call 7♦ 6♥ 4♥ hero fold, villain j♠j♦ wins tenfour_20260421_2318_q9yezd">
   <div class="time-rail">
     <span class="time-value">23:18</span>
     <span class="time-date">4/21</span>
@@ -3185,7 +3293,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card" href="./tenfour_20260421_1450_dPlGYC.html" data-search="btn a♣9♣ の bb x/r 対応レビュー btn a♣9♣ bb j♣6♣ btn raise 2.5bb, bb call a♦ j♥ 6♠ / j♠ hero fold, villain j♣6♣ wins tenfour_20260421_1450_dplgyc">
+<a class="review-card" href="./tenfour_20260421_1450_dPlGYC.html" data-kind="image" data-day="2026-04-21" data-search="btn a♣9♣ の bb x/r 対応レビュー btn a♣9♣ bb j♣6♣ btn raise 2.5bb, bb call a♦ j♥ 6♠ / j♠ hero fold, villain j♣6♣ wins tenfour_20260421_1450_dplgyc">
   <div class="time-rail">
     <span class="time-value">14:50</span>
     <span class="time-date">4/21</span>
@@ -3205,7 +3313,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card" href="./tenfour_20260421_0257_KRl2x2.html" data-search="hj 7♠7♥ の co 3bet pot flop check-raise レビュー hj 7♠7♥ co k♠k♥ hj raise 2bb, co 3bet 6.5bb, hj call a♠ 3♦ 2♦ hero が flop check-raise で pot 獲得, villain k♠k♥ fold tenfour_20260421_0257_krl2x2">
+<a class="review-card" href="./tenfour_20260421_0257_KRl2x2.html" data-kind="image" data-day="2026-04-21" data-search="hj 7♠7♥ の co 3bet pot flop check-raise レビュー hj 7♠7♥ co k♠k♥ hj raise 2bb, co 3bet 6.5bb, hj call a♠ 3♦ 2♦ hero が flop check-raise で pot 獲得, villain k♠k♥ fold tenfour_20260421_0257_krl2x2">
   <div class="time-rail">
     <span class="time-value">02:57</span>
     <span class="time-date">4/21</span>
@@ -3236,7 +3344,7 @@
     <span class="day-count" data-default-count="1">1&#20214;</span>
   </div>
   <div class="review-list">
-    <a class="review-card" href="./tenfour_20260419_0147_5mgl6N.html" data-search="bb a♣t♦ の squeeze pot flop overbet レビュー bb a♣t♦ btn a♠6♠ hj raise 2.3bb, btn call 2.3bb, bb raise 12bb, hj fold, btn call j♦ t♥ 3♦ hero c-bet で pot 獲得, villain a♠6♠ fold tenfour_20260419_0147_5mgl6n">
+    <a class="review-card" href="./tenfour_20260419_0147_5mgl6N.html" data-kind="image" data-day="2026-04-19" data-search="bb a♣t♦ の squeeze pot flop overbet レビュー bb a♣t♦ btn a♠6♠ hj raise 2.3bb, btn call 2.3bb, bb raise 12bb, hj fold, btn call j♦ t♥ 3♦ hero c-bet で pot 獲得, villain a♠6♠ fold tenfour_20260419_0147_5mgl6n">
   <div class="time-rail">
     <span class="time-value">01:47</span>
     <span class="time-date">4/19</span>
@@ -3267,7 +3375,7 @@
     <span class="day-count" data-default-count="3">3&#20214;</span>
   </div>
   <div class="review-list">
-    <a class="review-card" href="./tenfour_20260416_1827_QVYR5d.html" data-search="btn a♥k♥ の squeeze pot river bluff-catch レビュー btn a♥k♥ co k♣q♠ hj raise 3bb, co call 3bb, btn raise 9bb, hj fold, co call 8♦ 5♠ 2♠ / 4♦ / a♠ hero showdown one pair a, villain high card k tenfour_20260416_1827_qvyr5d">
+    <a class="review-card" href="./tenfour_20260416_1827_QVYR5d.html" data-kind="image" data-day="2026-04-16" data-search="btn a♥k♥ の squeeze pot river bluff-catch レビュー btn a♥k♥ co k♣q♠ hj raise 3bb, co call 3bb, btn raise 9bb, hj fold, co call 8♦ 5♠ 2♠ / 4♦ / a♠ hero showdown one pair a, villain high card k tenfour_20260416_1827_qvyr5d">
   <div class="time-rail">
     <span class="time-value">18:27</span>
     <span class="time-date">4/16</span>
@@ -3287,7 +3395,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card" href="./tenfour_20260416_0300_EidIGC.html" data-search="bb q♠q♣ の 3bet pot flop raise / river jam レビュー bb q♠q♣ hj t♠t♦ hj raise 2.5bb, bb raise 12bb, hj call 9♣ 5♣ 2♥ / q♦ / 7♦ hero set qq, villain one pair tt tenfour_20260416_0300_eidigc">
+<a class="review-card" href="./tenfour_20260416_0300_EidIGC.html" data-kind="image" data-day="2026-04-16" data-search="bb q♠q♣ の 3bet pot flop raise / river jam レビュー bb q♠q♣ hj t♠t♦ hj raise 2.5bb, bb raise 12bb, hj call 9♣ 5♣ 2♥ / q♦ / 7♦ hero set qq, villain one pair tt tenfour_20260416_0300_eidigc">
   <div class="time-rail">
     <span class="time-value">03:00</span>
     <span class="time-date">4/16</span>
@@ -3307,7 +3415,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card" href="./tenfour_20260416_0212_ARBomP.html" data-search="bb a♦9♦ の srp river small lead レビュー bb a♦9♦ btn j♥9♠ btn raise 2bb, bb call j♠ 9♣ 2♦ / 8♦ / q♦ hero nut flush, villain two pair tenfour_20260416_0212_arbomp">
+<a class="review-card" href="./tenfour_20260416_0212_ARBomP.html" data-kind="image" data-day="2026-04-16" data-search="bb a♦9♦ の srp river small lead レビュー bb a♦9♦ btn j♥9♠ btn raise 2bb, bb call j♠ 9♣ 2♦ / 8♦ / q♦ hero nut flush, villain two pair tenfour_20260416_0212_arbomp">
   <div class="time-rail">
     <span class="time-value">02:12</span>
     <span class="time-date">4/16</span>
@@ -3338,7 +3446,7 @@
     <span class="day-count" data-default-count="1">1&#20214;</span>
   </div>
   <div class="review-list">
-    <a class="review-card" href="./tenfour_20260414_0211_VIuzBP.html" data-search="hj t♠t♥ の 3bet pot turn check-raise jam レビュー hj t♠t♥ btn j♥j♦ hj raise 2bb, btn 3bet 6.5bb, hj call 8♠ 6♣ 2♠ / 4♦ / 2♥ turn all-in、hero tt &lt; villain jj tenfour_20260414_0211_viuzbp">
+    <a class="review-card" href="./tenfour_20260414_0211_VIuzBP.html" data-kind="image" data-day="2026-04-14" data-search="hj t♠t♥ の 3bet pot turn check-raise jam レビュー hj t♠t♥ btn j♥j♦ hj raise 2bb, btn 3bet 6.5bb, hj call 8♠ 6♣ 2♠ / 4♦ / 2♥ turn all-in、hero tt &lt; villain jj tenfour_20260414_0211_viuzbp">
   <div class="time-rail">
     <span class="time-value">02:11</span>
     <span class="time-date">4/14</span>
@@ -3369,7 +3477,7 @@
     <span class="day-count" data-default-count="1">1&#20214;</span>
   </div>
   <div class="review-list">
-    <a class="review-card" href="./tenfour_20260412_1543_OSVq8X.html" data-search="bb k♥j♠ の monotone flop / a-turn overbet 対応レビュー bb k♥j♠ btn 9♦8♦ btn raise 2.5bb, bb call k♦ q♦ 2♦ / a♠ hero fold, villain flush 9♦8♦ tenfour_20260412_1543_osvq8x">
+    <a class="review-card" href="./tenfour_20260412_1543_OSVq8X.html" data-kind="image" data-day="2026-04-12" data-search="bb k♥j♠ の monotone flop / a-turn overbet 対応レビュー bb k♥j♠ btn 9♦8♦ btn raise 2.5bb, bb call k♦ q♦ 2♦ / a♠ hero fold, villain flush 9♦8♦ tenfour_20260412_1543_osvq8x">
   <div class="time-rail">
     <span class="time-value">15:43</span>
     <span class="time-date">4/12</span>
@@ -3400,7 +3508,7 @@
     <span class="day-count" data-default-count="1">1&#20214;</span>
   </div>
   <div class="review-list">
-    <a class="review-card" href="./tenfour_20260411_0137_ZDCWtf.html" data-search="sb k♠k♦ の 3bet pot turn check-raise レビュー sb k♠k♦ co j♠t♠ co raise 2.3bb, sb raise 11bb, co call a♥ q♦ 6♠ / k♣ / 9♠ hero showdown set k, villain straight tenfour_20260411_0137_zdcwtf">
+    <a class="review-card" href="./tenfour_20260411_0137_ZDCWtf.html" data-kind="image" data-day="2026-04-11" data-search="sb k♠k♦ の 3bet pot turn check-raise レビュー sb k♠k♦ co j♠t♠ co raise 2.3bb, sb raise 11bb, co call a♥ q♦ 6♠ / k♣ / 9♠ hero showdown set k, villain straight tenfour_20260411_0137_zdcwtf">
   <div class="time-rail">
     <span class="time-value">01:37</span>
     <span class="time-date">4/11</span>
@@ -3431,7 +3539,7 @@
     <span class="day-count" data-default-count="1">1&#20214;</span>
   </div>
   <div class="review-list">
-    <a class="review-card" href="./tenfour_20260410_1102_BHX51u.html" data-search="co j♠j♥ の srp turn check-back レビュー co j♠j♥ sb 9♦9♣ co raise 2.3bb, sb call 2.3bb j♦ j♣ 2♣ / 4♣ / t♣ hero quads j, villain flush tenfour_20260410_1102_bhx51u">
+    <a class="review-card" href="./tenfour_20260410_1102_BHX51u.html" data-kind="image" data-day="2026-04-10" data-search="co j♠j♥ の srp turn check-back レビュー co j♠j♥ sb 9♦9♣ co raise 2.3bb, sb call 2.3bb j♦ j♣ 2♣ / 4♣ / t♣ hero quads j, villain flush tenfour_20260410_1102_bhx51u">
   <div class="time-rail">
     <span class="time-value">11:02</span>
     <span class="time-date">4/10</span>
@@ -3462,7 +3570,7 @@
     <span class="day-count" data-default-count="3">3&#20214;</span>
   </div>
   <div class="review-list">
-    <a class="review-card" href="./tenfour_20260409_1942_qzDN1X.html" data-search="utg k♦q♦ の 3bet pot delayed line 対応レビュー utg k♦q♦ hj a♦q♣ utg raise 2bb, hj raise 6.6bb, utg call a♠ 6♥ 2♣ / q♥ / 7♦ hero fold, villain a♦q♣ tenfour_20260409_1942_qzdn1x">
+    <a class="review-card" href="./tenfour_20260409_1942_qzDN1X.html" data-kind="image" data-day="2026-04-09" data-search="utg k♦q♦ の 3bet pot delayed line 対応レビュー utg k♦q♦ hj a♦q♣ utg raise 2bb, hj raise 6.6bb, utg call a♠ 6♥ 2♣ / q♥ / 7♦ hero fold, villain a♦q♣ tenfour_20260409_1942_qzdn1x">
   <div class="time-rail">
     <span class="time-value">19:42</span>
     <span class="time-date">4/9</span>
@@ -3482,7 +3590,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card" href="./tenfour_20260409_0443_nYqAmT.html" data-search="co j♠t♠ の sb donk line 対応レビュー co j♠t♠ sb k♥t♥ co raise 2.3bb, sb call t♦ 9♦ 2♠ / 5♣ / t♣ hero showdown trips t with j kicker, villain trips t with k kicker tenfour_20260409_0443_nyqamt">
+<a class="review-card" href="./tenfour_20260409_0443_nYqAmT.html" data-kind="image" data-day="2026-04-09" data-search="co j♠t♠ の sb donk line 対応レビュー co j♠t♠ sb k♥t♥ co raise 2.3bb, sb call t♦ 9♦ 2♠ / 5♣ / t♣ hero showdown trips t with j kicker, villain trips t with k kicker tenfour_20260409_0443_nyqamt">
   <div class="time-rail">
     <span class="time-value">04:43</span>
     <span class="time-date">4/9</span>
@@ -3502,7 +3610,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card" href="./tenfour_20260409_0333_SSnuns.html" data-search="hj a♥j♥ の 3bet pot turn raise レビュー hj a♥j♥ sb a♠a♣ hj raise 2bb, sb raise 10bb, hj call j♣ 6♠ 5♥ / 2♥ / 5♣ hero showdown a♥j♥ two pair, villain a♠a♣ wins tenfour_20260409_0333_ssnuns">
+<a class="review-card" href="./tenfour_20260409_0333_SSnuns.html" data-kind="image" data-day="2026-04-09" data-search="hj a♥j♥ の 3bet pot turn raise レビュー hj a♥j♥ sb a♠a♣ hj raise 2bb, sb raise 10bb, hj call j♣ 6♠ 5♥ / 2♥ / 5♣ hero showdown a♥j♥ two pair, villain a♠a♣ wins tenfour_20260409_0333_ssnuns">
   <div class="time-rail">
     <span class="time-value">03:33</span>
     <span class="time-date">4/9</span>
@@ -3533,7 +3641,7 @@
     <span class="day-count" data-default-count="1">1&#20214;</span>
   </div>
   <div class="review-list">
-    <a class="review-card" href="./tenfour_20260408_0209_Gxl6TY.html" data-search="hj 9♥9♣ の squeeze pot river lead レビュー hj 9♥9♣ btn j♠j♦ hj raise 2bb, co call 2bb, btn raise 7.5bb, hj call, co fold 7♣ 6♠ 2♣ / a♣ / 8♠ hero bluff 成功, villain j♠j♦ fold tenfour_20260408_0209_gxl6ty">
+    <a class="review-card" href="./tenfour_20260408_0209_Gxl6TY.html" data-kind="image" data-day="2026-04-08" data-search="hj 9♥9♣ の squeeze pot river lead レビュー hj 9♥9♣ btn j♠j♦ hj raise 2bb, co call 2bb, btn raise 7.5bb, hj call, co fold 7♣ 6♠ 2♣ / a♣ / 8♠ hero bluff 成功, villain j♠j♦ fold tenfour_20260408_0209_gxl6ty">
   <div class="time-rail">
     <span class="time-value">02:09</span>
     <span class="time-date">4/8</span>
@@ -3564,7 +3672,7 @@
     <span class="day-count" data-default-count="6">6&#20214;</span>
   </div>
   <div class="review-list">
-    <a class="review-card" href="./tenfour_20260407_2337_GmU9SO.html" data-search="bb q♠j♣ の bvb flop stab と turn barrel レビュー bb q♠j♣ sb k♦j♥ folds to sb raise 2.5bb, bb call 7♣ 3♦ 3♣ / 7♥ hero bluff 成功, villain k♦j♥ fold tenfour_20260407_2337_gmu9so">
+    <a class="review-card" href="./tenfour_20260407_2337_GmU9SO.html" data-kind="image" data-day="2026-04-07" data-search="bb q♠j♣ の bvb flop stab と turn barrel レビュー bb q♠j♣ sb k♦j♥ folds to sb raise 2.5bb, bb call 7♣ 3♦ 3♣ / 7♥ hero bluff 成功, villain k♦j♥ fold tenfour_20260407_2337_gmu9so">
   <div class="time-rail">
     <span class="time-value">23:37</span>
     <span class="time-date">4/7</span>
@@ -3584,7 +3692,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card" href="./tenfour_20260407_1558_34zSk4.html" data-search="btn k♠j♦ の co 3bet pot レビュー btn k♠j♦ co a♥q♣ co raise 2.3bb, btn raise 7.5bb, co call a♠ 9♦ 8♠ / a♣ / j♥ hero fold, villain trips a♥q♣ tenfour_20260407_1558_34zsk4">
+<a class="review-card" href="./tenfour_20260407_1558_34zSk4.html" data-kind="image" data-day="2026-04-07" data-search="btn k♠j♦ の co 3bet pot レビュー btn k♠j♦ co a♥q♣ co raise 2.3bb, btn raise 7.5bb, co call a♠ 9♦ 8♠ / a♣ / j♥ hero fold, villain trips a♥q♣ tenfour_20260407_1558_34zsk4">
   <div class="time-rail">
     <span class="time-value">15:58</span>
     <span class="time-date">4/7</span>
@@ -3604,7 +3712,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card" href="./tenfour_20260407_1556_WDT7IR.html" data-search="bb k♠t♣ の utg 3bar 対応レビュー bb k♠t♣ utg q♦t♦ utg raise 2.5bb, bb call k♦ 9♠ 7♣ / j♦ / 2♦ hero fold, villain q♦t♦ turned straight → river flush tenfour_20260407_1556_wdt7ir">
+<a class="review-card" href="./tenfour_20260407_1556_WDT7IR.html" data-kind="image" data-day="2026-04-07" data-search="bb k♠t♣ の utg 3bar 対応レビュー bb k♠t♣ utg q♦t♦ utg raise 2.5bb, bb call k♦ 9♠ 7♣ / j♦ / 2♦ hero fold, villain q♦t♦ turned straight → river flush tenfour_20260407_1556_wdt7ir">
   <div class="time-rail">
     <span class="time-value">15:56</span>
     <span class="time-date">4/7</span>
@@ -3624,7 +3732,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card" href="./tenfour_20260407_1223_EMYlOp.html" data-search="bb q♣6♣ の flop float と river overbet レビュー bb q♣6♣ btn j♥t♥ btn raise 3bb, bb call a♥ k♣ 4♥ / t♦ / j♣ hero straight, villain two pair tenfour_20260407_1223_emylop">
+<a class="review-card" href="./tenfour_20260407_1223_EMYlOp.html" data-kind="image" data-day="2026-04-07" data-search="bb q♣6♣ の flop float と river overbet レビュー bb q♣6♣ btn j♥t♥ btn raise 3bb, bb call a♥ k♣ 4♥ / t♦ / j♣ hero straight, villain two pair tenfour_20260407_1223_emylop">
   <div class="time-rail">
     <span class="time-value">12:23</span>
     <span class="time-date">4/7</span>
@@ -3644,7 +3752,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card" href="./tenfour_20260407_0358_EhoIqV.html" data-search="co open q♣9♣ vs sb turn x/r レビュー co q♣9♣ sb a♠6♦ co raise 2.3bb, sb call q♥ 7♦ 5♠ / 9♠ / j♣ hero two pair, villain high card tenfour_20260407_0358_ehoiqv">
+<a class="review-card" href="./tenfour_20260407_0358_EhoIqV.html" data-kind="image" data-day="2026-04-07" data-search="co open q♣9♣ vs sb turn x/r レビュー co q♣9♣ sb a♠6♦ co raise 2.3bb, sb call q♥ 7♦ 5♠ / 9♠ / j♣ hero two pair, villain high card tenfour_20260407_0358_ehoiqv">
   <div class="time-rail">
     <span class="time-value">03:58</span>
     <span class="time-date">4/7</span>
@@ -3664,7 +3772,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card" href="./tenfour_20260407_0201_v8UPdC.html" data-search="co 4bet-call aa vs hj 5bet レビュー co a♠a♦ hj q♠q♦ utg raise 2.5bb, hj raise 6.5bb, co raise 16.25bb, utg fold, hj raise 32.5bb, co call t♥ 5♣ 2♦ / 8♥ / 9♣ hero one pair aa, villain one pair qq tenfour_20260407_0201_v8updc">
+<a class="review-card" href="./tenfour_20260407_0201_v8UPdC.html" data-kind="image" data-day="2026-04-07" data-search="co 4bet-call aa vs hj 5bet レビュー co a♠a♦ hj q♠q♦ utg raise 2.5bb, hj raise 6.5bb, co raise 16.25bb, utg fold, hj raise 32.5bb, co call t♥ 5♣ 2♦ / 8♥ / 9♣ hero one pair aa, villain one pair qq tenfour_20260407_0201_v8updc">
   <div class="time-rail">
     <span class="time-value">02:01</span>
     <span class="time-date">4/7</span>
@@ -3695,7 +3803,7 @@
     <span class="day-count" data-default-count="8">8&#20214;</span>
   </div>
   <div class="review-list">
-    <a class="review-card" href="./tenfour_20260406_0209_DHWVMl.html" data-search="hj open q♥j♥ vs sb x/r レビュー hj q♥j♥ sb hj raise 2bb, sb call, bb fold j♠ j♣ 9♥ / 3♦ / j♦ hero four of a kind, villain full house tenfour_20260406_0209_dhwvml">
+    <a class="review-card" href="./tenfour_20260406_0209_DHWVMl.html" data-kind="image" data-day="2026-04-06" data-search="hj open q♥j♥ vs sb x/r レビュー hj q♥j♥ sb hj raise 2bb, sb call, bb fold j♠ j♣ 9♥ / 3♦ / j♦ hero four of a kind, villain full house tenfour_20260406_0209_dhwvml">
   <div class="time-rail">
     <span class="time-value">02:09</span>
     <span class="time-date">4/6</span>
@@ -3715,7 +3823,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card" href="./tenfour_20260406_0134_QjnVFg.html" data-search="bb defend 44 vs co open レビュー bb 4♦4♣ co co raise 2.5bb, bb call k♠ 7♥ 7♦ / t♦ / 4♥ hero full house, villain two pair tenfour_20260406_0134_qjnvfg">
+<a class="review-card" href="./tenfour_20260406_0134_QjnVFg.html" data-kind="image" data-day="2026-04-06" data-search="bb defend 44 vs co open レビュー bb 4♦4♣ co co raise 2.5bb, bb call k♠ 7♥ 7♦ / t♦ / 4♥ hero full house, villain two pair tenfour_20260406_0134_qjnvfg">
   <div class="time-rail">
     <span class="time-value">01:34</span>
     <span class="time-date">4/6</span>
@@ -3735,7 +3843,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card" href="./tenfour_20260406_0131_DJD8YK.html" data-search="co 4bet qq vs sb 3bet レビュー co q♥q♣ sb co raise 2.3bb, sb 3bet 9.2bb, co 4bet 23bb, sb call q♦ 9♦ 9♣ / a♥ / 2♦ hero full house, villain flush tenfour_20260406_0131_djd8yk">
+<a class="review-card" href="./tenfour_20260406_0131_DJD8YK.html" data-kind="image" data-day="2026-04-06" data-search="co 4bet qq vs sb 3bet レビュー co q♥q♣ sb co raise 2.3bb, sb 3bet 9.2bb, co 4bet 23bb, sb call q♦ 9♦ 9♣ / a♥ / 2♦ hero full house, villain flush tenfour_20260406_0131_djd8yk">
   <div class="time-rail">
     <span class="time-value">01:31</span>
     <span class="time-date">4/6</span>
@@ -3755,7 +3863,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card" href="./tenfour_20260406_0115_uTvvr4.html" data-search="bb cold 4bet kk vs co open / btn 3bet レビュー bb k♦k♣ co co raise 2.3bb, btn 3bet 7.5bb, bb 4bet 22.5bb, co call, btn fold 9♣ 4♦ 2♣ / 6♠ / 3♦ hero one pair, villain high card tenfour_20260406_0115_utvvr4">
+<a class="review-card" href="./tenfour_20260406_0115_uTvvr4.html" data-kind="image" data-day="2026-04-06" data-search="bb cold 4bet kk vs co open / btn 3bet レビュー bb k♦k♣ co co raise 2.3bb, btn 3bet 7.5bb, bb 4bet 22.5bb, co call, btn fold 9♣ 4♦ 2♣ / 6♠ / 3♦ hero one pair, villain high card tenfour_20260406_0115_utvvr4">
   <div class="time-rail">
     <span class="time-value">01:15</span>
     <span class="time-date">4/6</span>
@@ -3775,7 +3883,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card" href="./tenfour_20260406_0113_ZuVpjK.html" data-search="bb defend kqo vs co open レビュー bb k♣q♠ co co raise 2.5bb, bb call q♥ 6♣ 4♦ / k♥ / 4♣ hero two pair, villain two pair tenfour_20260406_0113_zuvpjk">
+<a class="review-card" href="./tenfour_20260406_0113_ZuVpjK.html" data-kind="image" data-day="2026-04-06" data-search="bb defend kqo vs co open レビュー bb k♣q♠ co co raise 2.5bb, bb call q♥ 6♣ 4♦ / k♥ / 4♣ hero two pair, villain two pair tenfour_20260406_0113_zuvpjk">
   <div class="time-rail">
     <span class="time-value">01:13</span>
     <span class="time-date">4/6</span>
@@ -3795,7 +3903,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card" href="./tenfour_20260406_0104_XJw1Ty_masked.html" data-search="bb defend q6s vs hj open レビュー bb q♦6♦ hj hj raise 2bb, bb call j♥ 9♣ 3♠ / 8♥ / 2♦ tenfour_20260406_0104_xjw1ty_masked">
+<a class="review-card" href="./tenfour_20260406_0104_XJw1Ty_masked.html" data-kind="image" data-day="2026-04-06" data-search="bb defend q6s vs hj open レビュー bb q♦6♦ hj hj raise 2bb, bb call j♥ 9♣ 3♠ / 8♥ / 2♦ tenfour_20260406_0104_xjw1ty_masked">
   <div class="time-rail">
     <span class="time-value">01:04</span>
     <span class="time-date">4/6</span>
@@ -3815,7 +3923,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card" href="./tenfour_20260406_0059_znjoTr.html" data-search="sb 3bet kqo vs utg open レビュー sb k♦q♣ utg utg raise 2.3bb, sb raise 11bb, utg call t♦ 9♥ 9♣ / q♦ / 5♦ hero two pair, villain two pair tenfour_20260406_0059_znjotr">
+<a class="review-card" href="./tenfour_20260406_0059_znjoTr.html" data-kind="image" data-day="2026-04-06" data-search="sb 3bet kqo vs utg open レビュー sb k♦q♣ utg utg raise 2.3bb, sb raise 11bb, utg call t♦ 9♥ 9♣ / q♦ / 5♦ hero two pair, villain two pair tenfour_20260406_0059_znjotr">
   <div class="time-rail">
     <span class="time-value">00:59</span>
     <span class="time-date">4/6</span>
@@ -3835,7 +3943,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card" href="./tenfour_20260406_0059_DlRhVC.html" data-search="utg aa vs bb defend レビュー utg a♠a♥ bb utg raise 2bb, bb call k♣ q♠ j♣ / a♦ / 7♠ hero three of a kind, villain straight tenfour_20260406_0059_dlrhvc">
+<a class="review-card" href="./tenfour_20260406_0059_DlRhVC.html" data-kind="image" data-day="2026-04-06" data-search="utg aa vs bb defend レビュー utg a♠a♥ bb utg raise 2bb, bb call k♣ q♠ j♣ / a♦ / 7♠ hero three of a kind, villain straight tenfour_20260406_0059_dlrhvc">
   <div class="time-rail">
     <span class="time-value">00:59</span>
     <span class="time-date">4/6</span>
@@ -3866,7 +3974,7 @@
     <span class="day-count" data-default-count="5">5&#20214;</span>
   </div>
   <div class="review-list">
-    <a class="review-card" href="./tenfour_20260405_2333_q3qjkL_masked.html" data-search="hj open-call 22 vs sb 3bet レビュー hj 2♥2♣ sb hj raise 2bb, sb 3bet 7.5bb, hj call 8♦ 5♠ 2♠ / k♥ / 4♠ hero three of a kind, villain one pair tenfour_20260405_2333_q3qjkl_masked">
+    <a class="review-card" href="./tenfour_20260405_2333_q3qjkL_masked.html" data-kind="image" data-day="2026-04-05" data-search="hj open-call 22 vs sb 3bet レビュー hj 2♥2♣ sb hj raise 2bb, sb 3bet 7.5bb, hj call 8♦ 5♠ 2♠ / k♥ / 4♠ hero three of a kind, villain one pair tenfour_20260405_2333_q3qjkl_masked">
   <div class="time-rail">
     <span class="time-value">23:33</span>
     <span class="time-date">4/5</span>
@@ -3886,7 +3994,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card" href="./tenfour_20260405_2242_BCsM3Z_masked.html" data-search="hj 3bet vs bb cold 4bet ajs レビュー hj a♦j♦ bb utg raise 2bb, hj raise 6.5bb, bb cold 4bet 11bb, utg fold, hj call k♦ q♥ 2♠ / 2♦ / 8♥ hero one pair, villain two pair tenfour_20260405_2242_bcsm3z_masked">
+<a class="review-card" href="./tenfour_20260405_2242_BCsM3Z_masked.html" data-kind="image" data-day="2026-04-05" data-search="hj 3bet vs bb cold 4bet ajs レビュー hj a♦j♦ bb utg raise 2bb, hj raise 6.5bb, bb cold 4bet 11bb, utg fold, hj call k♦ q♥ 2♠ / 2♦ / 8♥ hero one pair, villain two pair tenfour_20260405_2242_bcsm3z_masked">
   <div class="time-rail">
     <span class="time-value">22:42</span>
     <span class="time-date">4/5</span>
@@ -3906,7 +4014,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card" href="./tenfour_20260405_1639_Uszfq5_masked.html" data-search="sb iso raise vs utg limp a5s レビュー sb ac5c utg utg limp 1bb, sb raise 5bb, bb fold, utg call jh 4d 2c / ts / 6h hero high card, villain one pair tenfour_20260405_1639_uszfq5_masked">
+<a class="review-card" href="./tenfour_20260405_1639_Uszfq5_masked.html" data-kind="image" data-day="2026-04-05" data-search="sb iso raise vs utg limp a5s レビュー sb ac5c utg utg limp 1bb, sb raise 5bb, bb fold, utg call jh 4d 2c / ts / 6h hero high card, villain one pair tenfour_20260405_1639_uszfq5_masked">
   <div class="time-rail">
     <span class="time-value">16:39</span>
     <span class="time-date">4/5</span>
@@ -3926,7 +4034,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card" href="./tenfour_20260405_1638_D8Ozoc.html" data-search="sb vs bb ajo レビュー ikutan sb adjh bb sb open 3bb, bb call jc 5d 2s / 2d / 9c hero two pair, villain one pair tenfour_20260405_1638_d8ozoc">
+<a class="review-card" href="./tenfour_20260405_1638_D8Ozoc.html" data-kind="image" data-day="2026-04-05" data-search="sb vs bb ajo レビュー ikutan sb adjh bb sb open 3bb, bb call jc 5d 2s / 2d / 9c hero two pair, villain one pair tenfour_20260405_1638_d8ozoc">
   <div class="time-rail">
     <span class="time-value">16:38</span>
     <span class="time-date">4/5</span>
@@ -3946,7 +4054,7 @@
   </div>
   <span class="open-label">&#35211;&#12427;</span>
 </a>
-<a class="review-card" href="./tenfour_20260405_0445_68sVKn.html" data-search="bb vs btn asts レビュー ikutan bb asts btn btn open 2.5bb, bb call 8s 8h 2s / ac / qs hero flush, villain two pair tenfour_20260405_0445_68svkn">
+<a class="review-card" href="./tenfour_20260405_0445_68sVKn.html" data-kind="image" data-day="2026-04-05" data-search="bb vs btn asts レビュー ikutan bb asts btn btn open 2.5bb, bb call 8s 8h 2s / ac / qs hero flush, villain two pair tenfour_20260405_0445_68svkn">
   <div class="time-rail">
     <span class="time-value">04:45</span>
     <span class="time-date">4/5</span>
@@ -3977,7 +4085,7 @@
     <span class="day-count" data-default-count="1">1&#20214;</span>
   </div>
   <div class="review-list">
-    <a class="review-card" href="./tenfour_20260402_0342_QmQEas.html" data-search="btn 3bet pot aqo レビュー ikutan btn asqs hj hj open 2bb, btn 3bet 7.5bb, hj call ad 5h 4h / 9d / 7s hero river fold, villain は turn で set 完成 tenfour_20260402_0342_qmqeas">
+    <a class="review-card" href="./tenfour_20260402_0342_QmQEas.html" data-kind="image" data-day="2026-04-02" data-search="btn 3bet pot aqo レビュー ikutan btn asqs hj hj open 2bb, btn 3bet 7.5bb, hj call ad 5h 4h / 9d / 7s hero river fold, villain は turn で set 完成 tenfour_20260402_0342_qmqeas">
   <div class="time-rail">
     <span class="time-value">03:42</span>
     <span class="time-date">4/2</span>
@@ -4005,44 +4113,160 @@
       <strong>&#35442;&#24403;&#12377;&#12427;&#12524;&#12499;&#12517;&#12540;&#12364;&#12354;&#12426;&#12414;&#12379;&#12435;&#12290;</strong>
       <p>&#12479;&#12452;&#12488;&#12523;&#12289;&#12498;&#12540;&#12525;&#12540;&#12289;&#12508;&#12540;&#12489;&#12289;&#32080;&#26524;&#12398;&#19968;&#37096;&#12391;&#30701;&#12417;&#12395;&#26908;&#32034;&#12375;&#12390;&#12415;&#12390;&#12367;&#12384;&#12373;&#12356;&#12290;</p>
     </section>
+
+    <section id="loadMoreSentinel" class="load-more" aria-live="polite" hidden>
+      <span id="loadMoreStatus">&#32154;&#12365;&#12434;&#35501;&#12415;&#36796;&#12415;&#20013;</span>
+    </section>
   </main>
 
   <script>
+    const batchSize = 20;
     const searchInput = document.getElementById("searchInput");
+    const kindButtons = Array.from(document.querySelectorAll("[data-kind-filter]"));
     const cards = Array.from(document.querySelectorAll(".review-card"));
     const sections = Array.from(document.querySelectorAll(".day-section"));
+    const dateButtons = Array.from(document.querySelectorAll("[data-day-filter]"));
     const visibleCounter = document.getElementById("visibleCounter");
     const noResults = document.getElementById("noResults");
+    const loadMoreSentinel = document.getElementById("loadMoreSentinel");
+    const loadMoreStatus = document.getElementById("loadMoreStatus");
+    let activeKind = "all";
+    let activeDay = "all";
+    let revealLimit = batchSize;
+
+    const cardMatchesBase = (card) => {
+      const query = searchInput.value.trim().toLowerCase();
+      const haystack = card.dataset.search || "";
+      const kind = card.dataset.kind || "image";
+      const matchesQuery = !query || haystack.includes(query);
+      const matchesKind = activeKind === "all" || kind === activeKind;
+      return matchesQuery && matchesKind;
+    };
+
+    const cardMatches = (card) => {
+      const day = card.dataset.day || "";
+      const matchesDay = activeDay === "all" || day === activeDay;
+      return cardMatchesBase(card) && matchesDay;
+    };
+
+    const getMatchedCards = () => cards.filter(cardMatches);
+
+    const resetVisibleBatch = () => {
+      revealLimit = batchSize;
+      updateFilter();
+    };
 
     const updateFilter = () => {
-      const query = searchInput.value.trim().toLowerCase();
+      const matchedCards = getMatchedCards();
+      const matchedSet = new Set(matchedCards);
+      const visibleCards = new Set(matchedCards.slice(0, revealLimit));
       let visibleCount = 0;
 
       cards.forEach((card) => {
-        const haystack = card.dataset.search || "";
-        const match = !query || haystack.includes(query);
-        card.hidden = !match;
-        if (match) {
+        const match = matchedSet.has(card);
+        const visible = visibleCards.has(card);
+        card.dataset.filterMatch = match ? "true" : "false";
+        card.hidden = !visible;
+        if (visible) {
           visibleCount += 1;
         }
       });
 
       sections.forEach((section) => {
         const dayCards = Array.from(section.querySelectorAll(".review-card"));
+        const dayMatched = dayCards.filter((card) => card.dataset.filterMatch === "true").length;
         const dayVisible = dayCards.filter((card) => !card.hidden).length;
         section.hidden = dayVisible === 0;
 
         const badge = section.querySelector(".day-count");
         if (badge) {
-          badge.textContent = dayVisible + "\u4ef6";
+          badge.textContent = dayVisible === dayMatched ? dayVisible + "\u4ef6" : dayVisible + "/" + dayMatched + "\u4ef6";
         }
       });
 
-      visibleCounter.textContent = visibleCount + " / " + cards.length + "\u4ef6";
-      noResults.hidden = visibleCount !== 0 || cards.length === 0;
+      const dayBaseCounts = new Map();
+      let baseMatchedCount = 0;
+      cards.forEach((card) => {
+        if (!cardMatchesBase(card)) {
+          return;
+        }
+
+        baseMatchedCount += 1;
+        const day = card.dataset.day || "";
+        dayBaseCounts.set(day, (dayBaseCounts.get(day) || 0) + 1);
+      });
+
+      dateButtons.forEach((button) => {
+        const day = button.dataset.dayFilter || "all";
+        const active = day === activeDay;
+        const dayMatched = day === "all" ? baseMatchedCount : (dayBaseCounts.get(day) || 0);
+        button.classList.toggle("is-active", active);
+        button.setAttribute("aria-pressed", active ? "true" : "false");
+        button.hidden = day !== "all" && dayMatched === 0 && !active;
+
+        const count = button.querySelector("strong");
+        if (count) {
+          count.textContent = dayMatched;
+        }
+      });
+
+      visibleCounter.textContent = visibleCount + " / " + matchedCards.length + "\u4ef6";
+      noResults.hidden = matchedCards.length !== 0 || cards.length === 0;
+      loadMoreSentinel.hidden = matchedCards.length === 0 || visibleCount >= matchedCards.length;
+      loadMoreStatus.textContent = visibleCount + " / " + matchedCards.length + "\u4ef6";
     };
 
-    searchInput.addEventListener("input", updateFilter);
+    const loadMore = () => {
+      const matchedCount = getMatchedCards().length;
+      if (revealLimit >= matchedCount) {
+        updateFilter();
+        return;
+      }
+
+      revealLimit += batchSize;
+      updateFilter();
+    };
+
+    kindButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        activeKind = button.dataset.kindFilter || "all";
+        kindButtons.forEach((candidate) => {
+          const active = candidate === button;
+          candidate.classList.toggle("is-active", active);
+          candidate.setAttribute("aria-pressed", active ? "true" : "false");
+        });
+        resetVisibleBatch();
+      });
+    });
+
+    dateButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        activeDay = button.dataset.dayFilter || "all";
+        resetVisibleBatch();
+      });
+    });
+
+    searchInput.addEventListener("input", resetVisibleBatch);
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            loadMore();
+          }
+        });
+      }, { rootMargin: "360px 0px" });
+      observer.observe(loadMoreSentinel);
+    }
+    else {
+      window.addEventListener("scroll", () => {
+        const nearBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight - 480;
+        if (nearBottom) {
+          loadMore();
+        }
+      }, { passive: true });
+    }
+
     updateFilter();
   </script>
 </body>
