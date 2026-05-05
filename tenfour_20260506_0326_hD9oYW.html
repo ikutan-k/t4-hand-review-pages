@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UTG 7♥7♣ の AQ7 set value / river shove レビュー</title>
+  <style>
+    :root {
+      --bg: #f4efe6;
+      --panel: rgba(255, 251, 245, 0.94);
+      --panel-strong: #fffdfa;
+      --ink: #1f1a17;
+      --muted: #6f655d;
+      --line: rgba(66, 51, 38, 0.12);
+      --accent: #8e4a2a;
+      --accent-soft: #eed7cb;
+      --good: #1d6b4d;
+      --shadow: 0 18px 50px rgba(61, 43, 32, 0.12);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "BIZ UDPGothic", "Hiragino Sans", "Yu Gothic", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(142, 74, 42, 0.12), transparent 34%),
+        radial-gradient(circle at top right, rgba(29, 107, 77, 0.12), transparent 28%),
+        linear-gradient(180deg, #f8f2ea 0%, var(--bg) 100%);
+    }
+    body.hero-theme-player {
+      --bg: #edf4f8;
+      --panel: rgba(248, 252, 255, 0.94);
+      --panel-strong: #fdfefe;
+      --line: rgba(38, 86, 117, 0.14);
+      --accent: #1f6f97;
+      --accent-soft: #d7ebf6;
+      --good: #1f6f97;
+      --shadow: 0 18px 50px rgba(35, 72, 96, 0.14);
+      background:
+        radial-gradient(circle at top left, rgba(31, 111, 151, 0.16), transparent 34%),
+        radial-gradient(circle at top right, rgba(34, 82, 116, 0.12), transparent 28%),
+        linear-gradient(180deg, #f5fafc 0%, var(--bg) 100%);
+    }
+    body.hero-theme-izacchi {
+      --bg: #eef7f1;
+      --panel: rgba(249, 254, 251, 0.94);
+      --panel-strong: #fdfefd;
+      --line: rgba(45, 138, 91, 0.16);
+      --accent: #2d8a5b;
+      --accent-soft: #d9efe3;
+      --good: #2d8a5b;
+      --shadow: 0 18px 50px rgba(37, 95, 66, 0.14);
+      background:
+        radial-gradient(circle at top left, rgba(45, 138, 91, 0.18), transparent 34%),
+        radial-gradient(circle at top right, rgba(72, 123, 88, 0.12), transparent 28%),
+        linear-gradient(180deg, #f5fbf7 0%, var(--bg) 100%);
+    }
+    body.hero-theme-riku0125 {
+      --bg: #fbf1ec;
+      --panel: rgba(255, 250, 247, 0.94);
+      --panel-strong: #fffdfb;
+      --line: rgba(199, 104, 65, 0.16);
+      --accent: #c76841;
+      --accent-soft: #f5ddd4;
+      --good: #b65935;
+      --shadow: 0 18px 50px rgba(124, 69, 47, 0.14);
+      background:
+        radial-gradient(circle at top left, rgba(199, 104, 65, 0.16), transparent 34%),
+        radial-gradient(circle at top right, rgba(156, 93, 61, 0.12), transparent 28%),
+        linear-gradient(180deg, #fdf7f3 0%, var(--bg) 100%);
+    }
+    body.hero-theme-nu0un {
+      --bg: #eef4f8;
+      --panel: rgba(249, 252, 255, 0.94);
+      --panel-strong: #fdfefe;
+      --line: rgba(77, 120, 150, 0.16);
+      --accent: #4d7896;
+      --accent-soft: #dce8f1;
+      --good: #4d7896;
+      --shadow: 0 18px 50px rgba(48, 75, 94, 0.14);
+      background:
+        radial-gradient(circle at top left, rgba(77, 120, 150, 0.16), transparent 34%),
+        radial-gradient(circle at top right, rgba(67, 104, 130, 0.12), transparent 28%),
+        linear-gradient(180deg, #f6fafc 0%, var(--bg) 100%);
+    }
+    code {
+      font-family: inherit;
+      font-size: 0.95em;
+      font-weight: 600;
+      padding: 0.08em 0.32em;
+      border-radius: 0.45em;
+      background: rgba(142, 74, 42, 0.08);
+      border: 1px solid rgba(142, 74, 42, 0.14);
+    }
+    body.hero-theme-player code {
+      background: rgba(31, 111, 151, 0.08);
+      border-color: rgba(31, 111, 151, 0.16);
+    }
+    body.hero-theme-izacchi code {
+      background: rgba(45, 138, 91, 0.08);
+      border-color: rgba(45, 138, 91, 0.16);
+    }
+    body.hero-theme-riku0125 code {
+      background: rgba(199, 104, 65, 0.08);
+      border-color: rgba(199, 104, 65, 0.16);
+    }
+    body.hero-theme-nu0un code {
+      background: rgba(77, 120, 150, 0.08);
+      border-color: rgba(77, 120, 150, 0.16);
+    }
+    .page { max-width: 1180px; margin: 0 auto; padding: 40px 24px 56px; }
+    .hero { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 24px; align-items: start; margin-bottom: 24px; }
+    .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 24px; box-shadow: var(--shadow); backdrop-filter: blur(8px); }
+    .hero-copy { padding: 28px; }
+    .eyebrow { display: inline-block; margin-bottom: 10px; padding: 6px 10px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); font-size: 13px; font-weight: 700; letter-spacing: 0.04em; }
+    h1, h2, h3 { margin: 0; line-height: 1.2; }
+    h1 { font-size: 34px; margin-bottom: 10px; }
+    .sub { margin: 0 0 18px; color: var(--muted); line-height: 1.7; font-size: 15px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 18px; }
+    .chip { padding: 8px 12px; border-radius: 999px; background: var(--panel-strong); border: 1px solid var(--line); font-size: 13px; color: var(--muted); }
+    .chip-player { background: var(--accent-soft); color: var(--accent); font-weight: 700; }
+    .hero-list { margin: 0; padding-left: 18px; line-height: 1.8; }
+    .summary-mini { margin-top: 18px; padding: 16px 18px; border-radius: 18px; background: rgba(255,255,255,0.62); border: 1px solid var(--line); }
+    .summary-mini h2 { font-size: 15px; margin-bottom: 12px; }
+    .summary-grid { display: grid; grid-template-columns: 110px 1fr; gap: 8px 12px; margin: 0; font-size: 13px; line-height: 1.6; }
+    .summary-grid dt { margin: 0; color: var(--muted); font-weight: 700; }
+    .summary-grid dd { margin: 0; }
+    .shot { padding: 18px; }
+    .shot img { width: 100%; display: block; border-radius: 18px; border: 1px solid var(--line); background: #10151d; }
+    .text-shot { min-height: 100%; display: flex; }
+    .ps-hand { width: 100%; min-height: 420px; display: flex; flex-direction: column; justify-content: space-between; gap: 18px; padding: 18px; border-radius: 18px; border: 1px solid var(--line); background: var(--panel-strong); }
+    .ps-topline { display: flex; justify-content: space-between; gap: 14px; color: var(--muted); font-size: 12px; font-weight: 700; letter-spacing: 0.04em; }
+    .ps-topline strong { color: var(--accent); }
+    .ps-players { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+    .ps-player-card { min-height: 92px; display: flex; flex-direction: column; justify-content: space-between; gap: 10px; padding: 14px; border-radius: 14px; border: 1px solid var(--line); }
+    .ps-player-card-hero { background: var(--accent-soft); color: var(--accent); border-color: rgba(142, 74, 42, 0.22); }
+    .ps-player-card-villain { background: rgba(29, 107, 77, 0.10); color: #1d6b4d; border-color: rgba(29, 107, 77, 0.24); }
+    .ps-player-label { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+    .ps-role { font-size: 11px; font-weight: 800; letter-spacing: 0; text-transform: uppercase; }
+    .ps-seat { font-size: 12px; font-weight: 800; opacity: 0.78; }
+    .ps-hole { font-size: 26px; font-weight: 800; letter-spacing: 0; line-height: 1.1; }
+    .ps-meta { display: grid; grid-template-columns: 70px 1fr; gap: 8px 12px; margin: 0; font-size: 13px; line-height: 1.55; }
+    .ps-meta dt { margin: 0; color: var(--muted); font-weight: 700; }
+    .ps-meta dd { margin: 0; }
+    .ps-actions { margin: 0; padding: 14px 14px 14px 34px; border-radius: 16px; border: 1px solid var(--line); background: rgba(255,255,255,0.54); line-height: 1.65; font-size: 14px; }
+    .ps-actions li::marker { color: var(--accent); font-weight: 700; }
+    .grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-bottom: 24px; }
+    .card { padding: 18px; }
+    .card h3 { font-size: 14px; color: var(--muted); margin-bottom: 10px; }
+    .card p { margin: 0; font-size: 15px; line-height: 1.7; }
+    .tone-good { color: var(--good); font-weight: 700; }
+    .section { padding: 24px 26px; margin-bottom: 20px; }
+    .section h2 { font-size: 22px; margin-bottom: 14px; }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    th, td { border-top: 1px solid var(--line); padding: 12px 10px; text-align: left; vertical-align: top; line-height: 1.65; }
+    th { color: var(--muted); font-weight: 700; background: rgba(255,255,255,0.42); }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    ul { margin: 0; padding-left: 18px; line-height: 1.8; }
+    @media (max-width: 960px) {
+      .hero, .two-col, .grid { grid-template-columns: 1fr; }
+      .page { padding: 24px 16px 40px; }
+      h1 { font-size: 28px; }
+    }
+  </style>
+</head>
+<body class="">
+  <main class="page">
+    <section class="hero">
+      <div class="panel hero-copy">
+        <div class="eyebrow">T4 HAND REVIEW</div>
+        <h1>UTG 7♥7♣ の AQ7 set value / river shove レビュー</h1>
+        <p class="sub">GTO基準で、UTG <code>7♥7♣</code> の <code>2BB</code> open は自然です。flop <code>A♣ Q♦ 7♦</code> でbottom setを作り、small c-bet に対するBBのcheck-raiseへ3betした判断も良いです。turn <code>6♣</code> の大きいbetは、diamond draw、gutshot、two pair、下のset候補に強く価格をつけられます。river <code>4♠</code> は <code>85/53</code> のstraightを完成させるため完全なblankではありませんが、SPRが低く、BBにはworse valueや降りすぎないdraw由来のhandも残るため、<code>57.33BB</code> の打ち切りは良い寄りです。</p>
+        <div class="chips">
+          <div class="chip">Hero: UTG <code>7♥ 7♣</code></div>
+<div class="chip">Villain: BB <code>K♣ J♦</code></div>
+<div class="chip">Board: <code>A♣ Q♦ 7♦</code> / <code>6♣</code> / <code>4♠</code></div>
+        </div>
+        <ul><li>GTO基準の総評: preflop、flopの3bet、turnの大きいvalue、river shoveまで大筋で良いです。</li>
+<li>このハンドの主要論点: flopでbottom setを作った時、相手のcheck-raiseにcallで隠すか、3betしてpotを作るか。</li>
+<li>一番大きい改善ポイント: setは強いですがnutsではありません。riverでstraight完成カードが落ちた時は、上位役を確認したうえで、それでもcallされるworseがどれだけあるかで打ち切る。</li>
+<li>Heroの最善5枚は <code>7♥7♣7♦A♣Q♦</code> です。上には <code>AA/QQ</code> の上位set、<code>85/53</code> のstraightがあります。</li></ul>
+        <section class="summary-mini">
+  <h2>ハンド要約</h2>
+  <dl class="summary-grid">
+    <dt>Hero</dt>
+<dd>UTG <code>7♥ 7♣</code></dd>
+<dt>Villain</dt>
+<dd>BB <code>K♣ J♦</code></dd>
+<dt>形式</dt>
+<dd>T4 6MAX Cash NL50, 100BB, Anteなし</dd>
+<dt>Preflop</dt>
+<dd>UTG Hero raise <code>2BB</code>, HJ fold, CO fold, BTN fold, SB fold, BB call</dd>
+<dt>Board</dt>
+<dd><code>A♣ Q♦ 7♦</code> / <code>6♣</code> / <code>4♠</code></dd>
+<dt>Flop</dt>
+<dd>Pot <code>4.5BB</code>, BB check, UTG Hero bet <code>1.13BB</code>, BB raise <code>3.39BB</code>, UTG Hero raise <code>8.48BB</code>, BB call</dd>
+<dt>Turn</dt>
+<dd>Pot <code>21.46BB</code>, BB check, UTG Hero bet <code>32.19BB</code>, BB call</dd>
+<dt>River</dt>
+<dd>Pot <code>85.84BB</code>, BB check, UTG Hero bet <code>57.33BB</code>, BB fold</dd>
+<dt>Showdown</dt>
+<dd>BB fold</dd>
+<dt>Result</dt>
+<dd>UTG Hero won <code>81.84BB</code>, rake <code>4BB</code></dd>
+  </dl>
+</section>
+      </div>
+      <div class="panel shot">
+  <img src="./assets/hands/tenfour_20260506_0326_hD9oYW.png" alt="tenfour hand screenshot" />
+</div>
+    </section>
+
+    <section class="grid">
+  <article class="panel card">
+  <h3>Preflop</h3>
+  <p><span class="tone-good">良い</span><br /><code>7♥7♣</code> はUTG openとして十分です。</p>
+</article>
+<article class="panel card">
+  <h3>Flop <code>A♣ Q♦ 7♦</code></h3>
+  <p><span class="tone-good">良い</span><br />Heroはbottom setで非常に強いvalue handです。ただし <code>AA/QQ</code> には負けます。</p>
+</article>
+<article class="panel card">
+  <h3>Turn <code>6♣</code></h3>
+  <p><span class="tone-good">良い</span><br />Heroのsetは引き続き強いvalueです。</p>
+</article>
+<article class="panel card">
+  <h3>River <code>4♠</code></h3>
+  <p><span class="tone-good">良い寄り</span><br />Heroは <code>7♥7♣7♦A♣Q♦</code> のsetで、nutsではありませんがかなり強いvalue handです。</p>
+</article>
+</section>
+
+    <section class="panel section">
+      <h2>判断のズレ</h2>
+      <table>
+  <thead>
+    <tr><th>論点</th><th>その場で置いた見立て</th><th>どこがズレやすいか</th><th>次回の基準</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>flop setへのcheck-raise対応</td><td>bottom setなので強いが、相手のraiseも強そうでcallに留めたくなる</td><td><code>AQ7</code> two-tone はdrawが多く、BBのraiseにはdiamond draw、KJ/JT系、A7/Q7、setが混ざります。callだけだとturn以降の悪いカードが多く、valueも逃しやすいです。</td><td>drawが多いA-high boardでsetを持ったら、raiseに対して3betでpotを作る候補を強く持つ</td></tr>
+<tr><td>river straight完成カード</td><td>river <code>4♠</code> は低いカードなので安全に見える</td><td><code>85/53</code> はstraightになります。Heroのsetは強いですが、絶対nutsではありません。とはいえSPRが低く、BBのrangeにはtwo pair、下のset、強いAx、missed drawも残ります。</td><td>riverの低い連結カードは5枚役を列挙する。そのうえで、worseが十分残る低SPRなら打ち切る</td></tr>
+  </tbody>
+</table>
+    </section>
+
+    <section class="panel section">
+      <h2>ストリート別レビュー</h2>
+      <table>
+  <thead>
+    <tr><th>ストリート</th><th>その時点の見え方</th><th>実ハンドの位置づけ</th><th>評価</th><th>その場の一手</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Preflop</td><td>UTG の <code>2BB</code> open は基準サイズです。pocket pair はopen rangeに自然に入り、callされた時もset valueがあります。</td><td><code>7♥7♣</code> はUTG openとして十分です。</td><td>良い</td><td>openで問題ありません。</td></tr>
+<tr><td>Flop <code>A♣ Q♦ 7♦</code></td><td>UTG は <code>AA/QQ/AQ/AK</code> を多く持つ一方、BBもtwo pair、set、diamond draw、broadway drawを持てます。BBのcheck-raiseは強いvalueとdrawが混ざる構造です。</td><td>Heroはbottom setで非常に強いvalue handです。ただし <code>AA/QQ</code> には負けます。</td><td>良い</td><td>small c-bet後、check-raiseに3betしたのは良いです。drawに価格をつけ、A7/Q7や強いdrawからvalueを取れます。</td></tr>
+<tr><td>Turn <code>6♣</code></td><td><code>T9/98/85/65</code> 方面のdrawが増え、diamond drawも残ります。BBがflop 3betにcallした後なので、rangeはかなり濃いですが、drawもまだ多いです。</td><td>Heroのsetは引き続き強いvalueです。</td><td>良い</td><td><code>32.19BB</code> のoverbetは良いです。riverのSPRを下げ、drawとtwo pairに最大圧をかけられます。</td></tr>
+<tr><td>River <code>4♠</code></td><td><code>85/53</code> はstraightを完成します。一方、BBにはflop/turnで粘ったtwo pair、下のset、強いAx、missed diamond / broadway drawも残ります。</td><td>Heroは <code>7♥7♣7♦A♣Q♦</code> のsetで、nutsではありませんがかなり強いvalue handです。</td><td>良い寄り</td><td>effective stackが <code>57.33BB</code> でpotに対して小さく、turnで打ち切る形を作れています。ここはcheckで取り逃すより、worseに払わせる shove が良いです。</td></tr>
+  </tbody>
+</table>
+    </section>
+
+    <section class="two-col">
+      <section class="panel section">
+        <h2>持ち帰り</h2>
+        <ul><li>A-high two-toneでsetを作った時、相手のcheck-raiseにcallだけで済ませると、drawに安く見せやすいです。3betでpotを作る判断は良いです。</li>
+<li>turn overbetは、単に大きく打つためではなく、riverを自然な打ち切りSPRにする意味があります。今回のサイズ設計は良いです。</li>
+<li>river <code>4♠</code> は低いカードですが、<code>85/53</code> のstraight完成カードです。低いカードをblank扱いする前に、必ず5枚役を列挙します。</li>
+<li>それでも今回のsetは十分強く、相手がdrawやone pairを過剰に残すならriver shoveでvalueを取り切れます。</li></ul>
+      </section>
+      <section class="panel section">
+        <h2>exploit 補足</h2>
+        <ul><li>実戦のBBは <code>K♣J♦</code> で、flop check-raise、flop 3bet call、turn overbet call まで進んでいます。このタイプには、set以上のvalue handでかなり強く打ち切ってよいです。</li>
+<li>ただし、riverでstraight完成カードが落ちた時まで「setだから常に安全」とは見ません。相手がtightに強いhandだけで残る場合は、riverのvalue密度を再確認します。</li></ul>
+      </section>
+    </section>
+  </main>
+</body>
+</html>
