@@ -178,7 +178,7 @@
         <ul><li>GTO基準の総評: preflop は良く、flop call はやや境界、turn 以降の攻め方は良いです。</li>
 <li>このハンドの主要論点: 3bet pot の K-high board で、backdoor だけの flop call をどこまで残すか。</li>
 <li>一番大きい改善ポイント: flop call は「two broadwayだから」ではなく、IP・小サイズ・backdoor equity が揃う時だけに絞る。</li>
-<li>river value はかなり良いです。<code>JTs</code> は <code>QT</code> には負けますが、SB の overpair / top pair が多く残るため、大きく打ってよい hand です。</li></ul>
+<li>river value はかなり良いです。<code>JTs</code> はこの board でnutsなので、SB の overpair / top pair から大きく取りにいけます。</li></ul>
         <section class="summary-mini">
   <h2>ハンド要約</h2>
   <dl class="summary-grid">
@@ -225,7 +225,7 @@
 </article>
 <article class="panel card">
   <h3>River <code>8♦</code></h3>
-  <p><span class="tone-good">良い</span><br />非nutsですが、十分強い value hand です。</p>
+  <p><span class="tone-good">良い</span><br />nutsのvalue handです。</p>
 </article>
 </section>
 
@@ -237,7 +237,7 @@
   </thead>
   <tbody>
     <tr><td>flop small c-bet call</td><td>1/3 pot なので、JTs はIPで一度見られそう</td><td>価格は良いですが、flop時点では pair もgutshotもありません。続行理由は broadway 2枚そのものではなく、backdoor spade と <code>Q/9/A</code> 付近で turn に戦えるカードがあることです。</td><td>3bet pot の no pair float は、IP・小サイズ・backdoor が揃う時だけ。turnで改善しなければ素直に諦める</td></tr>
-<tr><td>river の value size</td><td>straight だが <code>QT</code> が上にあるので大きく打ちすぎかもしれない</td><td>上のstraightはありますが、SB の3bet rangeには <code>AA/AK/KQ</code> などの one pair value が厚く残ります。turn check-call後のriver checkにも、それらの bluff-catch が多いです。</td><td>非nuts straight でも、相手に overpair / top pair が多いなら大きめvalue。上のstraightだけを見て小さくしすぎない</td></tr>
+<tr><td>river の value size</td><td>straight だが、上のstraightがあるかもしれず大きく打ちすぎかもしれない</td><td>この board では <code>JTs</code> がnutsです。<code>QT</code> はJがないためstraightにならず、SB の3bet rangeには <code>AA/AK/KQ</code> などの one pair bluff-catcher が厚く残ります。</td><td>nuts straight は大きくvalueを取る。相手に overpair / top pair が多いなら、遠慮して小さくしすぎない</td></tr>
   </tbody>
 </table>
     </section>
@@ -252,7 +252,7 @@
     <tr><td>Preflop</td><td>CO の <code>2.3BB</code> open は基準サイズです。SB の <code>10BB</code> 3bet はOOPからの自然な大きさで、強いAx、overpair、suited broadway、低頻度のbluffが中心になります。</td><td><code>J♠T♠</code> はIPでplayabilityが高く、4betよりcallで実現しやすい hand です。</td><td>良い</td><td>call で問題ありません。dominated risk はありますが、position と suited connectivity で戦えます。</td></tr>
 <tr><td>Flop <code>K♠ 7♣ 3♥</code></td><td>SB は <code>AA/KK/AK/KQ</code> を多く持ち、range advantage があります。1/3 pot は広く打ちやすいサイズです。</td><td>Hero は no pair ですが、backdoor spade、<code>Q</code> 周りの broadway runout、<code>9/8</code> 方面の straight equity が残ります。</td><td>やや薄いが許容</td><td>call はできますが、turnで改善しなければ降りる前提です。spadeなしのJToならかなりfold寄りです。</td></tr>
 <tr><td>Turn <code>9♦</code></td><td>SB がcheckしたことで、強いKxやAAも残りますが、range全体は少し抑えられます。Hero は <code>Q</code> と <code>8</code> でstraightになる open-ended draw を得ました。</td><td><code>J♠T♠</code> は showdown value はほぼなく、equity のあるsemi-bluff候補です。</td><td>良い</td><td><code>8.75BB</code> の小さめbetは良いです。相手のAQ/AJや一部のunderpairを降ろしつつ、callされてもriverで改善できます。</td></tr>
-<tr><td>River <code>8♦</code></td><td>Hero は <code>7-8-9-T-J</code> の straight を完成しました。SB には <code>QT</code> も一部あり得ますが、<code>AA/AK/KQ</code> の bluff-catcher がかなり多く残ります。</td><td>非nutsですが、十分強い value hand です。</td><td>良い</td><td><code>39.38BB</code> の大きめbetで問題ありません。overpair / top pair から最大値を狙えます。raise された場合だけ、<code>QT</code> やset系の残り方を再評価します。</td></tr>
+<tr><td>River <code>8♦</code></td><td>Hero は <code>7-8-9-T-J</code> の straight を完成しました。この board では <code>JTs</code> がnutsで、SB には <code>AA/AK/KQ</code> の bluff-catcher がかなり多く残ります。</td><td>nutsのvalue handです。</td><td>良い</td><td><code>39.38BB</code> の大きめbetで問題ありません。overpair / top pair から最大値を狙えます。raise された場合も、同じ <code>JTs</code> との chop 以外にはかなり強く続行できます。</td></tr>
   </tbody>
 </table>
     </section>
@@ -263,7 +263,7 @@
         <ul><li><code>JTs</code> はCO open後、SB 3betに対してIPでcallしやすい hand です。preflop は良いです。</li>
 <li>K-high 3bet pot の flop call は、pairなしならかなり選別します。今回の続行理由は小サイズ、IP、backdoor spade、turn改善カードがあることです。</li>
 <li>turn で open-ended になったら、check backで無料実現するだけでなく、小さくbetして fold equity と river equity を両方使えます。</li>
-<li>river でstraightを完成したら、上の <code>QT</code> を怖がりすぎず、SBのoverpair / top pair から大きく取ります。</li></ul>
+<li>river で <code>JTs</code> がstraightを完成したら、この board ではnutsです。SBのoverpair / top pair から大きく取ります。</li></ul>
       </section>
       <section class="panel section">
         <h2>exploit 補足</h2>
