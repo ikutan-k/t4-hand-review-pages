@@ -169,16 +169,15 @@
       <div class="panel hero-copy">
         <div class="eyebrow">T4 HAND REVIEW</div>
         <h1>SB 8♥8♣ の BvB 3bet pot river check-raise レビュー</h1>
-        <p class="sub">GTO基準で、SB <code>8♥8♣</code> の <code>3BB</code> open と、BB のかなり小さい <code>5BB</code> 3bet への call は自然です。flop <code>Q♠ 3♠ 2♥</code> の 1/3 c-bet call、turn <code>Q♦</code> の 1/2 bet call も、相手の小さい3betとサイズの崩れを加味すれば許容寄りです。大きく見直したいのは river <code>T♥</code> で、BB の <code>24.99BB</code> into <code>33.32BB</code> に対して <code>83.34BB</code> へ check-raise した点です。<code>88</code> は相手の <code>AK/AJ/KJ</code> のようなmissed handには勝っているため、相手のブラフが多い読みは基本的に raise ではなく call に変換します。</p>
+        <p class="sub">GTO基準では、preflop から turn call までは大きく問題ありません。river check-raise はかなり攻めすぎです。</p>
         <div class="chips">
           <div class="chip">Hero: SB <code>8♥ 8♣</code></div>
 <div class="chip">Villain: BB <code>A♥ K♥</code></div>
 <div class="chip">Board: <code>Q♠ 3♠ 2♥</code> / <code>Q♦</code> / <code>T♥</code></div>
         </div>
-        <ul><li>GTO基準の総評: preflop から turn call までは大きく問題ありません。river check-raise はかなり攻めすぎです。</li>
-<li>このハンドの主要論点: サイズ崩れとスナップ気味の3betを、river の call / raise 判断にどう反映するか。</li>
-<li>一番大きい改善ポイント: <code>88</code> のような showdown value ありの bluff-catcher は、相手のブラフを降ろすより、call で回収する方が自然です。</li>
-<li>BB の <code>5BB</code> 3bet はかなり小さく、flop 1/3、turn 1/2、river 3/4 とサイズを上げる流れも solver 的にきれいな設計とは言いにくいです。ただしその読みは「相手がover-bluffしているかも」までで、<code>88</code> の大レイズを標準化する根拠にはしません。</li></ul>
+        <ul><li>主要論点: サイズ崩れとスナップ気味の3betを、river の call / raise 判断にどう反映するか。</li>
+<li>次回の判断基準: <code>88</code> のような showdown value ありの bluff-catcher は、相手のブラフを降ろすより、call で回収する方が自然です。</li>
+<li>補足: BB の <code>5BB</code> 3bet はかなり小さく、flop 1/3、turn 1/2、river 3/4 とサイズを上げる流れも solver 的にきれいな設計とは言いにくいです。ただしその読みは「相手がover-bluffしているかも」までで、<code>88</code> の大レイズを標準化する根拠にはしません。</li></ul>
         <section class="summary-mini">
   <h2>ハンド要約</h2>
   <dl class="summary-grid">
