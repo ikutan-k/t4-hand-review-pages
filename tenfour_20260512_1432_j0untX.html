@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BB A♠2♦ の A-high board turn probe / raise対応レビュー</title>
+  <title>BB A♠2♠ の A-high board turn probe / raise対応レビュー</title>
   <style>
     :root {
       --bg: #f4efe6;
@@ -168,21 +168,21 @@
     <section class="hero">
       <div class="panel hero-copy">
         <div class="eyebrow">T4 HAND REVIEW</div>
-        <h1>BB A♠2♦ の A-high board turn probe / raise対応レビュー</h1>
-        <p class="sub">GTO基準ではpreflopはfold寄りです。flop checkは自然で、turnの小betは成立しますが、raiseを受けた時点ではfoldが標準寄りです。</p>
+        <h1>BB A♠2♠ の A-high board turn probe / raise対応レビュー</h1>
+        <p class="sub">GTO基準ではpreflop callは境界寄りのdefend候補です。flop checkは自然で、turnの小betは成立しますが、raiseを受けた時点ではfoldが標準寄りです。</p>
         <div class="chips">
-          <div class="chip">Hero: BB <code>A♠ 2♦</code></div>
+          <div class="chip">Hero: BB <code>A♠ 2♠</code></div>
 <div class="chip">Villain: HJ <code>9♥ 9♦</code></div>
 <div class="chip">Board: <code>A♦ 5♣ 3♦ 9♣ K♥</code></div>
         </div>
-        <ul><li>主要論点: HJの大きめopenにBBで <code>A♠2♦</code> を守ったあと、flop check throughからturn <code>9♣</code> で小betし、raiseにcallしてよいか。</li>
+        <ul><li>主要論点: HJの大きめopenにBBで <code>A♠2♠</code> を守ったあと、flop check throughからturn <code>9♣</code> で小betし、raiseにcallしてよいか。</li>
 <li>次回の判断基準: 弱いAxでturnをbetするなら、薄いvalue/protectionのbet/foldとして扱います。raiseに対してはtop pairだけで粘りすぎません。</li>
 <li>5枚役確認: Turn時点のHeroは <code>A♠ A♦ 9♣ 5♣ 3♦</code> のone pairです。4でwheel straightになりますが、現状はtop pair weak kickerで、raiseに強く耐えるhandではありません。</li></ul>
         <section class="summary-mini">
   <h2>ハンド要約</h2>
   <dl class="summary-grid">
     <dt>Hero</dt>
-<dd>BB <code>A♠ 2♦</code></dd>
+<dd>BB <code>A♠ 2♠</code></dd>
 <dt>Villain</dt>
 <dd>HJ <code>9♥ 9♦</code></dd>
 <dt>形式</dt>
@@ -210,7 +210,7 @@
     <section class="grid">
   <article class="panel card">
   <h3>Preflop</h3>
-  <p><span class="tone-good">悪い寄り</span><br /><code>A♠2♦</code> はblockerはありますが、offsuitでdominateされやすく、postflop実現が難しい下限handです。</p>
+  <p><span class="tone-good">境界</span><br /><code>A♠2♠</code> はsuited wheel Aで、blockerとstraight/flushの実現価値があります。ただしopen sizeが大きいため、余裕のあるdefendではありません。</p>
 </article>
 <article class="panel card">
   <h3>Flop <code>A♦ 5♣ 3♦</code></h3>
@@ -233,7 +233,7 @@
     <tr><th>論点</th><th>その場で置いた見立て</th><th>どこがズレやすいか</th><th>次回の基準</th></tr>
   </thead>
   <tbody>
-    <tr><td>preflop defend</td><td>BBなのでA持ちは守れそう</td><td>HJの <code>4BB</code> openに対して、offsuitの弱いAxはdominateされやすく、必要な実現率も高くなります。</td><td>大きめHJ openには <code>A2o</code> をかなりfold寄りにする</td></tr>
+    <tr><td>preflop defend</td><td>suited wheel Aなので守れそう</td><td><code>A2s</code> は守り候補ですが、HJの <code>4BB</code> openは大きく、2BB open相手ほど広く守れません。</td><td>大きめHJ openにはsuited wheel Aを境界扱いにし、offsuit Axは大きく削る</td></tr>
 <tr><td>turn bet</td><td>flopがcheckで回ったのでAが勝っていそう</td><td>bet自体は自然ですが、Heroはkickerが弱く、強いAx・set・two pairに対して脆いです。</td><td>小さく打つならvalue/protectionのbet/foldにする</td></tr>
 <tr><td>turn raise対応</td><td>gutshotもあるのでcallできそう</td><td>必要勝率は約29%ですが、相手のraiseは<code>99/55/33/A9/A5/A3</code>や強いAxに寄りやすく、4以外の改善が薄いです。</td><td>weak top pair + gutshotは、turn raiseに原則fold</td></tr>
   </tbody>
@@ -247,7 +247,7 @@
     <tr><th>ストリート</th><th>その時点の見え方</th><th>実ハンドの位置づけ</th><th>評価</th><th>その場の一手</th></tr>
   </thead>
   <tbody>
-    <tr><td>Preflop</td><td>HJが <code>4BB</code> と大きめにopenし、BBまでfoldで回った場面です。</td><td><code>A♠2♦</code> はblockerはありますが、offsuitでdominateされやすく、postflop実現が難しい下限handです。</td><td>悪い寄り</td><td>このサイズにはfold寄りです。守るならsuited Axやもう少し接続性のあるhandを優先します。</td></tr>
+    <tr><td>Preflop</td><td>HJが <code>4BB</code> と大きめにopenし、BBまでfoldで回った場面です。</td><td><code>A♠2♠</code> はsuited wheel Aで、blockerとstraight/flushの実現価値があります。ただしopen sizeが大きいため、余裕のあるdefendではありません。</td><td>境界</td><td>callは候補に入ります。2BB open相手ほど広く守らず、<code>A2o</code> ならかなりfold寄りにします。</td></tr>
 <tr><td>Flop <code>A♦ 5♣ 3♦</code></td><td>HJは強いAxを多く持ちますが、check backによりレンジは少し弱まります。BBはA5/A3/55/33/42sなどの強いhandもあります。</td><td>Heroはtop pair weak kicker + wheel gutshotです。</td><td>良い</td><td>OOPなのでcheckで問題ありません。HJ check back後も、まだ強いvalue handではありません。</td></tr>
 <tr><td>Turn <code>9♣</code></td><td>HJのflop check back後なので、BBから小さく打ってKK-QQや5x、diamond drawに圧をかける発想はあります。</td><td>Heroはone pairで、4だけが大きな改善です。9はHJの<code>99</code>や一部のA9を強化します。</td><td>betは可、callは悪い</td><td><code>2.13BB</code> の小betはありです。ただしraiseされたらfoldが標準です。callは必要勝率に対して実現しにくく、riverでさらに苦しくなります。</td></tr>
 <tr><td>River <code>K♥</code></td><td>turn raise call後に、HJがpotの約2.9倍をbetしています。</td><td>HeroはAのone pairのままで、turn raiseをcallしたレンジ内でもかなり下側です。</td><td>良い</td><td>foldで良いです。ここでcallする必要はありません。</td></tr>
@@ -258,11 +258,11 @@
     <section class="two-col">
       <section class="panel section">
         <h2>持ち帰り</h2>
-        <ul><li>いちばん大きい修正点はpreflopです。HJの <code>4BB</code> openに <code>A2o</code> をBBで守ると、Aを当ててもkicker問題で難しいpotになりやすいです。</li>
+        <ul><li>preflopは <code>A2s</code> なので、<code>A2o</code> と違ってdefend候補に残せます。ただしHJの <code>4BB</code> openは大きいので、境界handとして扱います。</li>
 <li>turnは「betすべきだったか」で言うと、小betは選択肢に入ります。flop check through後なので、弱いmade handやdrawから薄く取る狙いはあります。</li>
 <li>ただし、このturn betはbet/foldの性質です。raiseされた時点で、Heroのtop pair weak kickerはかなり苦しく、4以外の改善が薄いのでfold寄りです。</li>
 <li>turnでcheckを選ぶのも十分自然です。checkした場合は、相手の小さめbetにはcall、大きめbetやraise圧には慎重に降りる方針にします。</li>
-<li>riverのoverbetにfoldした判断は良いです。問題はriver foldではなく、turn raiseをcallしてしまった点です。</li></ul>
+<li>riverのoverbetにfoldした判断は良いです。今回の主な修正点はriver foldではなく、turn raiseをcallしてしまった点です。</li></ul>
       </section>
       <section class="panel section">
         <h2>exploit 補足</h2>
