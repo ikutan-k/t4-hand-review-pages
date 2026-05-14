@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SB A♦Q♥ の HJ open 3bet pot / turn raise call レビュー</title>
+  <style>
+    :root {
+      --bg: #f4efe6;
+      --panel: rgba(255, 251, 245, 0.94);
+      --panel-strong: #fffdfa;
+      --ink: #1f1a17;
+      --muted: #6f655d;
+      --line: rgba(66, 51, 38, 0.12);
+      --accent: #8e4a2a;
+      --accent-soft: #eed7cb;
+      --good: #1d6b4d;
+      --shadow: 0 18px 50px rgba(61, 43, 32, 0.12);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "BIZ UDPGothic", "Hiragino Sans", "Yu Gothic", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(142, 74, 42, 0.12), transparent 34%),
+        radial-gradient(circle at top right, rgba(29, 107, 77, 0.12), transparent 28%),
+        linear-gradient(180deg, #f8f2ea 0%, var(--bg) 100%);
+    }
+    body.hero-theme-player {
+      --bg: #edf4f8;
+      --panel: rgba(248, 252, 255, 0.94);
+      --panel-strong: #fdfefe;
+      --line: rgba(38, 86, 117, 0.14);
+      --accent: #1f6f97;
+      --accent-soft: #d7ebf6;
+      --good: #1f6f97;
+      --shadow: 0 18px 50px rgba(35, 72, 96, 0.14);
+      background:
+        radial-gradient(circle at top left, rgba(31, 111, 151, 0.16), transparent 34%),
+        radial-gradient(circle at top right, rgba(34, 82, 116, 0.12), transparent 28%),
+        linear-gradient(180deg, #f5fafc 0%, var(--bg) 100%);
+    }
+    body.hero-theme-izacchi {
+      --bg: #eef7f1;
+      --panel: rgba(249, 254, 251, 0.94);
+      --panel-strong: #fdfefd;
+      --line: rgba(45, 138, 91, 0.16);
+      --accent: #2d8a5b;
+      --accent-soft: #d9efe3;
+      --good: #2d8a5b;
+      --shadow: 0 18px 50px rgba(37, 95, 66, 0.14);
+      background:
+        radial-gradient(circle at top left, rgba(45, 138, 91, 0.18), transparent 34%),
+        radial-gradient(circle at top right, rgba(72, 123, 88, 0.12), transparent 28%),
+        linear-gradient(180deg, #f5fbf7 0%, var(--bg) 100%);
+    }
+    body.hero-theme-riku0125 {
+      --bg: #fbf1ec;
+      --panel: rgba(255, 250, 247, 0.94);
+      --panel-strong: #fffdfb;
+      --line: rgba(199, 104, 65, 0.16);
+      --accent: #c76841;
+      --accent-soft: #f5ddd4;
+      --good: #b65935;
+      --shadow: 0 18px 50px rgba(124, 69, 47, 0.14);
+      background:
+        radial-gradient(circle at top left, rgba(199, 104, 65, 0.16), transparent 34%),
+        radial-gradient(circle at top right, rgba(156, 93, 61, 0.12), transparent 28%),
+        linear-gradient(180deg, #fdf7f3 0%, var(--bg) 100%);
+    }
+    body.hero-theme-nu0un {
+      --bg: #eef4f8;
+      --panel: rgba(249, 252, 255, 0.94);
+      --panel-strong: #fdfefe;
+      --line: rgba(77, 120, 150, 0.16);
+      --accent: #4d7896;
+      --accent-soft: #dce8f1;
+      --good: #4d7896;
+      --shadow: 0 18px 50px rgba(48, 75, 94, 0.14);
+      background:
+        radial-gradient(circle at top left, rgba(77, 120, 150, 0.16), transparent 34%),
+        radial-gradient(circle at top right, rgba(67, 104, 130, 0.12), transparent 28%),
+        linear-gradient(180deg, #f6fafc 0%, var(--bg) 100%);
+    }
+    code {
+      font-family: inherit;
+      font-size: 0.95em;
+      font-weight: 600;
+      padding: 0.08em 0.32em;
+      border-radius: 0.45em;
+      background: rgba(142, 74, 42, 0.08);
+      border: 1px solid rgba(142, 74, 42, 0.14);
+    }
+    body.hero-theme-player code {
+      background: rgba(31, 111, 151, 0.08);
+      border-color: rgba(31, 111, 151, 0.16);
+    }
+    body.hero-theme-izacchi code {
+      background: rgba(45, 138, 91, 0.08);
+      border-color: rgba(45, 138, 91, 0.16);
+    }
+    body.hero-theme-riku0125 code {
+      background: rgba(199, 104, 65, 0.08);
+      border-color: rgba(199, 104, 65, 0.16);
+    }
+    body.hero-theme-nu0un code {
+      background: rgba(77, 120, 150, 0.08);
+      border-color: rgba(77, 120, 150, 0.16);
+    }
+    .page { max-width: 1180px; margin: 0 auto; padding: 40px 24px 56px; }
+    .hero { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 24px; align-items: start; margin-bottom: 24px; }
+    .panel { background: var(--panel); border: 1px solid var(--line); border-radius: 24px; box-shadow: var(--shadow); backdrop-filter: blur(8px); }
+    .hero-copy { padding: 28px; }
+    .eyebrow { display: inline-block; margin-bottom: 10px; padding: 6px 10px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); font-size: 13px; font-weight: 700; letter-spacing: 0.04em; }
+    h1, h2, h3 { margin: 0; line-height: 1.2; }
+    h1 { font-size: 34px; margin-bottom: 10px; }
+    .sub { margin: 0 0 18px; color: var(--muted); line-height: 1.7; font-size: 15px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 18px; }
+    .chip { padding: 8px 12px; border-radius: 999px; background: var(--panel-strong); border: 1px solid var(--line); font-size: 13px; color: var(--muted); }
+    .chip-player { background: var(--accent-soft); color: var(--accent); font-weight: 700; }
+    .hero-list { margin: 0; padding-left: 18px; line-height: 1.8; }
+    .summary-mini { margin-top: 18px; padding: 16px 18px; border-radius: 18px; background: rgba(255,255,255,0.62); border: 1px solid var(--line); }
+    .summary-mini h2 { font-size: 15px; margin-bottom: 12px; }
+    .summary-grid { display: grid; grid-template-columns: 110px 1fr; gap: 8px 12px; margin: 0; font-size: 13px; line-height: 1.6; }
+    .summary-grid dt { margin: 0; color: var(--muted); font-weight: 700; }
+    .summary-grid dd { margin: 0; }
+    .shot { padding: 18px; }
+    .shot img { width: 100%; display: block; border-radius: 18px; border: 1px solid var(--line); background: #10151d; }
+    .text-shot { min-height: 100%; display: flex; }
+    .ps-hand { width: 100%; min-height: 420px; display: flex; flex-direction: column; justify-content: space-between; gap: 18px; padding: 18px; border-radius: 18px; border: 1px solid var(--line); background: var(--panel-strong); }
+    .ps-topline { display: flex; justify-content: space-between; gap: 14px; color: var(--muted); font-size: 12px; font-weight: 700; letter-spacing: 0.04em; }
+    .ps-topline strong { color: var(--accent); }
+    .ps-players { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+    .ps-player-card { min-height: 92px; display: flex; flex-direction: column; justify-content: space-between; gap: 10px; padding: 14px; border-radius: 14px; border: 1px solid var(--line); }
+    .ps-player-card-hero { background: var(--accent-soft); color: var(--accent); border-color: rgba(142, 74, 42, 0.22); }
+    .ps-player-card-villain { background: rgba(29, 107, 77, 0.10); color: #1d6b4d; border-color: rgba(29, 107, 77, 0.24); }
+    .ps-player-label { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+    .ps-role { font-size: 11px; font-weight: 800; letter-spacing: 0; text-transform: uppercase; }
+    .ps-seat { font-size: 12px; font-weight: 800; opacity: 0.78; }
+    .ps-hole { font-size: 26px; font-weight: 800; letter-spacing: 0; line-height: 1.1; }
+    .ps-meta { display: grid; grid-template-columns: 70px 1fr; gap: 8px 12px; margin: 0; font-size: 13px; line-height: 1.55; }
+    .ps-meta dt { margin: 0; color: var(--muted); font-weight: 700; }
+    .ps-meta dd { margin: 0; }
+    .ps-actions { margin: 0; padding: 14px 14px 14px 34px; border-radius: 16px; border: 1px solid var(--line); background: rgba(255,255,255,0.54); line-height: 1.65; font-size: 14px; }
+    .ps-actions li::marker { color: var(--accent); font-weight: 700; }
+    .grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-bottom: 24px; }
+    .card { padding: 18px; }
+    .card h3 { font-size: 14px; color: var(--muted); margin-bottom: 10px; }
+    .card p { margin: 0; font-size: 15px; line-height: 1.7; }
+    .tone-good { color: var(--good); font-weight: 700; }
+    .section { padding: 24px 26px; margin-bottom: 20px; }
+    .section h2 { font-size: 22px; margin-bottom: 14px; }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    th, td { border-top: 1px solid var(--line); padding: 12px 10px; text-align: left; vertical-align: top; line-height: 1.65; }
+    th { color: var(--muted); font-weight: 700; background: rgba(255,255,255,0.42); }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    ul { margin: 0; padding-left: 18px; line-height: 1.8; }
+    @media (max-width: 960px) {
+      .hero, .two-col, .grid { grid-template-columns: 1fr; }
+      .page { padding: 24px 16px 40px; }
+      h1 { font-size: 28px; }
+    }
+  </style>
+</head>
+<body class="">
+  <main class="page">
+    <section class="hero">
+      <div class="panel hero-copy">
+        <div class="eyebrow">T4 HAND REVIEW</div>
+        <h1>SB A♦Q♥ の HJ open 3bet pot / turn raise call レビュー</h1>
+        <p class="sub">GTO基準ではHJの <code>3BB</code> openに対するSB <code>A♦Q♥</code> の <code>11BB</code> 3betは自然です。flopの大きめcbet、turnの継続betも成立しますが、turnでraiseを受けた後は、必要勝率が低く、top pair top kicker + nut diamond drawを持つためcallで問題ありません。</p>
+        <div class="chips">
+          <div class="chip">Hero: SB <code>A♦ Q♥</code></div>
+<div class="chip">Villain: HJ <code>Q♠ J♦</code></div>
+<div class="chip">Board: <code>Q♦ T♣ 7♦ 2♦ 3♠</code></div>
+        </div>
+        <ul><li>主要論点: HJ openにSBで <code>A♦Q♥</code> を3betし、<code>Q♦ T♣ 7♦ 2♦</code> のturnでbetしたあと、raise to <code>71.75BB</code> にcallしてよいか。</li>
+<li>GTO基準の総評: preflopの3betサイズは良く、flop/turnもvalueとprotectionを兼ねた自然な攻めです。turn raiseに対しては、追加call額が小さく、Heroはpairだけでなくnut diamond drawも持つので降りません。</li>
+<li>次回の判断基準: 3bet potでtop pair top kickerを大きく打つなら、turnでflushが増えるカードが落ちても、自分がnut blocker / redrawを持つかを先に確認します。<code>A♦</code> 持ちならraise耐性はかなり上がります。</li>
+<li>5枚役確認: River時点のHeroは <code>Q♥ Q♦ A♦ T♣ 7♦</code> のone pairです。Villainは <code>Q♠ Q♦ J♦ T♣ 7♦</code> のone pairで、HeroはA kickerにより勝っています。diamond flushは完成していません。</li></ul>
+        <section class="summary-mini">
+  <h2>ハンド要約</h2>
+  <dl class="summary-grid">
+    <dt>Hero</dt>
+<dd>SB <code>A♦ Q♥</code></dd>
+<dt>Villain</dt>
+<dd>HJ <code>Q♠ J♦</code></dd>
+<dt>形式</dt>
+<dd>T4 6MAX Cash</dd>
+<dt>Preflop</dt>
+<dd>UTG fold, HJ Villain raise <code>3BB</code>, CO fold, BTN fold, SB Hero raise <code>11BB</code>, BB fold, HJ Villain call <code>11BB</code></dd>
+<dt>Board</dt>
+<dd><code>Q♦ T♣ 7♦ 2♦ 3♠</code></dd>
+<dt>Flop</dt>
+<dd>Pot <code>23BB</code>, SB Hero bet <code>17.25BB</code>, HJ Villain call</dd>
+<dt>Turn</dt>
+<dd>Pot <code>57.5BB</code>, SB Hero bet <code>34.75BB</code>, HJ Villain raise to <code>71.75BB</code>, SB Hero call</dd>
+<dt>River</dt>
+<dd>Pot <code>201BB</code>, no action</dd>
+<dt>Showdown</dt>
+<dd>HJ Villain one pair, SB Hero one pair</dd>
+<dt>Result</dt>
+<dd>SB Hero won <code>197BB</code>, rake <code>4BB</code></dd>
+<dt>All-in EV</dt>
+<dd>HJ Villain <code>-86.56BB</code>, SB Hero <code>+83.56BB</code></dd>
+  </dl>
+</section>
+      </div>
+      <div class="panel shot">
+  <img src="./assets/hands/tenfour_20260514_1313_BnvY9i.png" alt="tenfour hand screenshot" />
+</div>
+    </section>
+
+    <section class="grid">
+  <article class="panel card">
+  <h3>Preflop</h3>
+  <p><span class="tone-good">良い寄り</span><br /><code>A♦Q♥</code> はAQoで、HJ openに対して3bet候補に入る強いbroadwayです。SBはOOPなので、callより3betで主導権を取りやすいです。</p>
+</article>
+<article class="panel card">
+  <h3>Flop <code>Q♦ T♣ 7♦</code></h3>
+  <p><span class="tone-good">良い寄り</span><br />Heroはかなり強いmade handですが、set/2pair/強いdrawに対して完全に安全ではありません。</p>
+</article>
+<article class="panel card">
+  <h3>Turn <code>2♦</code></h3>
+  <p><span class="tone-good">良い</span><br />Heroはtop pair top kickerに加え、river diamondでnut flushに改善できます。相手のnut flushをかなりblockしています。</p>
+</article>
+<article class="panel card">
+  <h3>Turn raise対応</h3>
+  <p><span class="tone-good">良い</span><br />Villainのvalueはflush/set/two pairが中心ですが、実戦のようなQx + diamondやpair + drawも混ざります。Heroは必要勝率に対して十分なequityがあります。</p>
+</article>
+<article class="panel card">
+  <h3>River <code>3♠</code></h3>
+  <p><span class="tone-good">良い</span><br />Heroはflushを引けませんでしたが、A kickerのQ one pairでQJに勝っています。</p>
+</article>
+</section>
+
+    <section class="panel section">
+      <h2>判断のズレ</h2>
+      <table>
+  <thead>
+    <tr><th>論点</th><th>その場で置いた見立て</th><th>どこがズレやすいか</th><th>次回の基準</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>preflop 3bet</td><td>AQoなので3betしたい</td><td>HJの <code>3BB</code> openに対してSB <code>11BB</code> は約3.7倍で、OOPの3betとして自然です。<code>A♦Q♥</code> はAQsほど余裕はありませんが、callより3betに回しやすい候補です。</td><td>HJ 3BB openへSB 11BB前後は良い。AQoは3bet候補だが、相手がtightなら頻度を落とす</td></tr>
+<tr><td>flop大きめcbet</td><td>top pairなので大きく打てる</td><td><code>Q♦ T♣ 7♦</code> はdrawが多く、HJ側にもQx/TT/77/J9s/diamond drawがあります。大きく打つほど相手のcontinueは強くなりますが、HeroはTPTKなのでvalue/protectionは取れます。</td><td>TPTKはbet可。相手を広く残すなら半pot、小さく見せず取り切るなら大きめも可</td></tr>
+<tr><td>turn bet / raise対応</td><td>flushが増えてraiseされたので危ない</td><td><code>2♦</code> でdiamondは増えますが、Heroは <code>A♦</code> を持ち、nut flushを強くblockしながらriver diamondで改善できます。raise後の追加callも約37BBで、必要勝率はかなり低いです。</td><td><code>A♦Qx</code> はturn raiseに降りすぎない。特に小さめraiseにはcall</td></tr>
+  </tbody>
+</table>
+    </section>
+
+    <section class="panel section">
+      <h2>ストリート別レビュー</h2>
+      <table>
+  <thead>
+    <tr><th>ストリート</th><th>その時点の見え方</th><th>実ハンドの位置づけ</th><th>評価</th><th>その場の一手</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Preflop</td><td>HJが <code>3BB</code> openし、SBまでfoldで回った場面です。</td><td><code>A♦Q♥</code> はAQoで、HJ openに対して3bet候補に入る強いbroadwayです。SBはOOPなので、callより3betで主導権を取りやすいです。</td><td>良い寄り</td><td><code>11BB</code> 3betで問題ありません。相手がかなりtightなら一部callやfold寄りも考えますが、標準では自然な選択です。</td></tr>
+<tr><td>Flop <code>Q♦ T♣ 7♦</code></td><td>3bet potでHeroがtop pair top kickerを作り、boardはstraight drawとdiamond drawが多い構造です。</td><td>Heroはかなり強いmade handですが、set/2pair/強いdrawに対して完全に安全ではありません。</td><td>良い寄り</td><td><code>17.25BB</code> into <code>23BB</code> は大きめですが、value/protectionとして成立します。相手の弱いfloatを残したいなら半pot寄りも候補です。</td></tr>
+<tr><td>Turn <code>2♦</code></td><td>frontdoor diamondが増え、HJのcall rangeにflushが一部あります。一方でHeroは <code>A♦</code> を持ちます。</td><td>Heroはtop pair top kickerに加え、river diamondでnut flushに改善できます。相手のnut flushをかなりblockしています。</td><td>良い</td><td><code>34.75BB</code> betは可です。valueだけでなく、KJ/JJ/diamond持ちのQxに圧をかける意味があります。</td></tr>
+<tr><td>Turn raise対応</td><td>HJが <code>71.75BB</code> へraiseし、Heroは追加で約37BBを入れる場面です。</td><td>Villainのvalueはflush/set/two pairが中心ですが、実戦のようなQx + diamondやpair + drawも混ざります。Heroは必要勝率に対して十分なequityがあります。</td><td>良い</td><td>callで良いです。ここをfoldすると、TPTK + nut redrawを持つ強い部分まで降りすぎになります。</td></tr>
+<tr><td>River <code>3♠</code></td><td>turnで実質all-inになり、riverはblank寄りです。</td><td>Heroはflushを引けませんでしたが、A kickerのQ one pairでQJに勝っています。</td><td>良い</td><td>追加判断はありません。turn callの時点で十分に利益的です。</td></tr>
+  </tbody>
+</table>
+    </section>
+
+    <section class="two-col">
+      <section class="panel section">
+        <h2>持ち帰り</h2>
+        <ul><li>preflopは良い寄りです。HJ <code>3BB</code> openにSB <code>11BB</code> は自然で、<code>A♦Q♥</code> はAQoとして3bet候補に入ります。</li>
+<li>flopの大きめbetは、top pair top kickerなら成立します。ただしこのサイズを使うと、callされた後の相手レンジはそれなりに強く残る点は意識します。</li>
+<li>turnの <code>2♦</code> は一見かなり嫌なカードですが、Heroが <code>A♦</code> を持っているのが大きいです。nut flushをblockしつつ、river diamondでこちらがnut flushに改善できます。</li>
+<li>turn raiseへのcallは良い判断です。追加call額に対して必要勝率が低く、TPTK + nut diamond drawを降りる場面ではありません。</li></ul>
+      </section>
+      <section class="panel section">
+        <h2>exploit 補足</h2>
+        <ul><li>実戦のVillainは <code>Q♠J♦</code> で、top pair + diamond drawからturn raiseしています。このタイプがpair + drawを強く押すなら、Heroの <code>A♦Q♥</code> はかなり強いcallになります。</li>
+<li>逆に、相手のturn raiseが完成flushやsetだけに極端に偏るタイプでも、今回のようにraise額が小さく、こちらが <code>A♦</code> を持つ場合は簡単には降りません。大きなall-in overbetなら、相手傾向を見て慎重にします。</li></ul>
+      </section>
+    </section>
+  </main>
+</body>
+</html>
