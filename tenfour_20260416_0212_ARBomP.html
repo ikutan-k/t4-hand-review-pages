@@ -144,10 +144,6 @@
     .ps-meta dd { margin: 0; }
     .ps-actions { margin: 0; padding: 14px 14px 14px 34px; border-radius: 16px; border: 1px solid var(--line); background: rgba(255,255,255,0.54); line-height: 1.65; font-size: 14px; }
     .ps-actions li::marker { color: var(--accent); font-weight: 700; }
-    .grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-bottom: 24px; }
-    .card { padding: 18px; }
-    .card h3 { font-size: 14px; color: var(--muted); margin-bottom: 10px; }
-    .card p { margin: 0; font-size: 15px; line-height: 1.7; }
     .tone-good { color: var(--good); font-weight: 700; }
     .section { padding: 24px 26px; margin-bottom: 20px; }
     .section h2 { font-size: 22px; margin-bottom: 14px; }
@@ -157,7 +153,7 @@
     .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
     ul { margin: 0; padding-left: 18px; line-height: 1.8; }
     @media (max-width: 960px) {
-      .hero, .two-col, .grid { grid-template-columns: 1fr; }
+      .hero, .two-col { grid-template-columns: 1fr; }
       .page { padding: 24px 16px 40px; }
       h1 { font-size: 28px; }
     }
@@ -208,25 +204,6 @@
 </div>
     </section>
 
-    <section class="grid">
-  <article class="panel card">
-  <h3>Preflop</h3>
-  <p><span class="tone-good">良い</span><br /><code>A♦9♦</code> はその中でも扱いやすい suited Ax で、明確な defend 候補です。</p>
-</article>
-<article class="panel card">
-  <h3>Flop <code>J♠ 9♣ 2♦</code></h3>
-  <p><span class="tone-good">良い</span><br />Hero は middle pair に加えて nut backdoor を持ち、check-call の中核に入る combo です。</p>
-</article>
-<article class="panel card">
-  <h3>Turn <code>8♦</code></h3>
-  <p><span class="tone-good">良い</span><br /><code>A♦9♦</code> は pair + nut flush draw のかなり強い continue で、実現値も高いです。</p>
-</article>
-<article class="panel card">
-  <h3>River <code>Q♦</code></h3>
-  <p><span class="tone-good">良い</span><br />Hero は nut flush で clear value です。check でも受けられますが、自分から lead して取りにいく価値が高いです。</p>
-</article>
-</section>
-
     <section class="panel section">
       <h2>判断のズレ</h2>
       <table>
@@ -271,4 +248,3 @@
   </main>
 </body>
 </html>
-

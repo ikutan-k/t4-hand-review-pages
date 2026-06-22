@@ -144,10 +144,6 @@
     .ps-meta dd { margin: 0; }
     .ps-actions { margin: 0; padding: 14px 14px 14px 34px; border-radius: 16px; border: 1px solid var(--line); background: rgba(255,255,255,0.54); line-height: 1.65; font-size: 14px; }
     .ps-actions li::marker { color: var(--accent); font-weight: 700; }
-    .grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-bottom: 24px; }
-    .card { padding: 18px; }
-    .card h3 { font-size: 14px; color: var(--muted); margin-bottom: 10px; }
-    .card p { margin: 0; font-size: 15px; line-height: 1.7; }
     .tone-good { color: var(--good); font-weight: 700; }
     .section { padding: 24px 26px; margin-bottom: 20px; }
     .section h2 { font-size: 22px; margin-bottom: 14px; }
@@ -157,7 +153,7 @@
     .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
     ul { margin: 0; padding-left: 18px; line-height: 1.8; }
     @media (max-width: 960px) {
-      .hero, .two-col, .grid { grid-template-columns: 1fr; }
+      .hero, .two-col { grid-template-columns: 1fr; }
       .page { padding: 24px 16px 40px; }
       h1 { font-size: 28px; }
     }
@@ -211,29 +207,6 @@
   <img src="./assets/hands/tenfour_20260514_2349_QvCuKR.png" alt="tenfour hand screenshot" />
 </div>
     </section>
-
-    <section class="grid">
-  <article class="panel card">
-  <h3>Preflop</h3>
-  <p><span class="tone-good">サイズ小さめ</span><br /><code>K♠T♠</code> はsuited broadwayで、callも3betも候補に入ります。ただしHJ open相手なので、無条件のvalue 3betではありません。</p>
-</article>
-<article class="panel card">
-  <h3>Flop <code>K♣ 9♣ 3♦</code></h3>
-  <p><span class="tone-good">可</span><br />Heroはtop pairですが、T kickerでclubなしです。強いhandではありますが、check-raiseに楽に突っ込めるほどではありません。</p>
-</article>
-<article class="panel card">
-  <h3>Turn <code>T♦</code></h3>
-  <p><span class="tone-good">良い</span><br />Heroはかなり強いvalue handです。QJのstraightやsetには負けますが、Kx、T9、pair + draw、club drawには大きく勝っています。</p>
-</article>
-<article class="panel card">
-  <h3>Turn raise対応</h3>
-  <p><span class="tone-good">良い</span><br />Heroはtop two pairで、full houseへの改善もあります。相手に強いvalueはありますが、A♣3♣のようなsemi-bluffも十分あります。</p>
-</article>
-<article class="panel card">
-  <h3>River <code>7♦</code></h3>
-  <p><span class="tone-good">良い</span><br />Heroはflushではありませんが、Villainもflushではなく、two pairで勝っています。</p>
-</article>
-</section>
 
     <section class="panel section">
       <h2>判断のズレ</h2>

@@ -144,10 +144,6 @@
     .ps-meta dd { margin: 0; }
     .ps-actions { margin: 0; padding: 14px 14px 14px 34px; border-radius: 16px; border: 1px solid var(--line); background: rgba(255,255,255,0.54); line-height: 1.65; font-size: 14px; }
     .ps-actions li::marker { color: var(--accent); font-weight: 700; }
-    .grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-bottom: 24px; }
-    .card { padding: 18px; }
-    .card h3 { font-size: 14px; color: var(--muted); margin-bottom: 10px; }
-    .card p { margin: 0; font-size: 15px; line-height: 1.7; }
     .tone-good { color: var(--good); font-weight: 700; }
     .section { padding: 24px 26px; margin-bottom: 20px; }
     .section h2 { font-size: 22px; margin-bottom: 14px; }
@@ -157,7 +153,7 @@
     .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
     ul { margin: 0; padding-left: 18px; line-height: 1.8; }
     @media (max-width: 960px) {
-      .hero, .two-col, .grid { grid-template-columns: 1fr; }
+      .hero, .two-col { grid-template-columns: 1fr; }
       .page { padding: 24px 16px 40px; }
       h1 { font-size: 28px; }
     }
@@ -208,25 +204,6 @@
   <img src="./assets/hands/tenfour_20260505_0158_I2JTap.png" alt="tenfour hand screenshot" />
 </div>
     </section>
-
-    <section class="grid">
-  <article class="panel card">
-  <h3>Preflop</h3>
-  <p><span class="tone-good">良い</span><br /><code>88</code> はBvBでは十分強い pocket pair で、小さい3betにはほぼ必ず続行できます。</p>
-</article>
-<article class="panel card">
-  <h3>Flop <code>Q♠ 3♠ 2♥</code></h3>
-  <p><span class="tone-good">良い</span><br /><code>88</code> はQには負けますが、3/2より上の pocket pair で、AK系や一部のspade drawには勝っています。</p>
-</article>
-<article class="panel card">
-  <h3>Turn <code>Q♦</code></h3>
-  <p><span class="tone-good">許容</span><br /><code>88</code> は明確なvalueではなく bluff-catcher です。相手の小さい3betとスナップ気味のlineを加味すると、AK系のover-bluffも一定あります。</p>
-</article>
-<article class="panel card">
-  <h3>River <code>T♥</code></h3>
-  <p><span class="tone-good">raise は悪い / call は読み次第</span><br /><code>88</code> は相手のブラフには勝つ一方、valueの大半には負けます。しかも <code>Qx/TT/AA/KK/Tx</code> を強くブロックしていません。</p>
-</article>
-</section>
 
     <section class="panel section">
       <h2>判断のズレ</h2>
