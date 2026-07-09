@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BB A♦9♣ の CO single raised pot / turn OESD check-raise レビュー</title>
+  <title>BB A♦9♣ のturn double-gutshot check-raiseレビュー</title>
   <style>
     :root {
       --bg: #f4efe6;
@@ -164,17 +164,16 @@
     <section class="hero">
       <div class="panel hero-copy">
         <div class="eyebrow">T4 HAND REVIEW</div>
-        <h1>BB A♦9♣ の CO single raised pot / turn OESD check-raise レビュー</h1>
-        <p class="sub">GTO基準で明確に悪いと断定するラインではありませんが、turn の check-raise は高頻度で使うと危険な攻撃寄りの一手です。<code>A♦9♣</code> は made hand なしの open-ended draw なので bluff 候補にはなりますが、CO の overbet に対しては「どの hand を降ろすか」と「call されたときにどれだけ equity が残るか」を先に確認したい場面です。</p>
+        <h1>BB A♦9♣ のturn double-gutshot check-raiseレビュー</h1>
+        <p class="sub">preflop defendは境界、flop callも大きいsizeに対しては薄いcontinueですが、turnのcheck-raiseはdouble-gutshotと9 blockerをfold equityへ変える低頻度bluffとして説明できます。重要な修正点は、Heroにflush drawはなく、COのoverbetに対する標準応答を自動raiseにしないことです。</p>
         <div class="chips">
           <div class="chip">Hero: BB <code>A♦ 9♣</code></div>
 <div class="chip">Villain: CO <code>K♥ K♦</code></div>
 <div class="chip">Board: <code>Q♣ T♦ 8♥ 6♦</code></div>
         </div>
-        <ul><li>主要論点: turn で CO の overbet に対し、Aハイの OESD を check-raise bluff に回すか。</li>
-<li>GTO基準の総評: preflop call と flop call は自然です。turn raise は候補にできますが、value range の <code>J9</code> / <code>97</code> / set / two pair と一緒に低頻度で使う位置づけです。</li>
-<li>次回の判断基準: 「OESDだからraise」ではなく、相手の overbet range に fold する中強度 hand がどれだけ残るか、call されたときの outs がどれだけ clean かを見る。</li>
-<li>5枚役確認: Turn時点のHeroは made hand なしのAハイ + OESDです。river <code>J</code> で <code>Q-J-T-9-8</code>、river <code>7</code> で <code>T-9-8-7-6</code> のstraightになります。</li></ul>
+        <ul><li>flop <code>Q♣T♦8♥</code> のHeroはJだけをoutとするgutshotで、OESDではありません。</li>
+<li>turn <code>6♦</code> でJと7をoutとするdouble-gutshotになりますが、river diamond1枚ではflushを作れません。</li>
+<li>turn raiseは<code>J9</code>、<code>97</code>などのvalueと同じlineを使うsemi-bluffです。失敗時のriver計画まで含めて選びます。</li></ul>
         <section class="summary-mini">
   <h2>ハンド要約</h2>
   <dl class="summary-grid">
@@ -183,20 +182,20 @@
 <dt>Villain</dt>
 <dd>CO <code>K♥ K♦</code></dd>
 <dt>形式</dt>
-<dd>T4 6MAX Cash</dd>
+<dd>T4 6MAX Cash、100BB effective</dd>
 <dt>Board</dt>
 <dd><code>Q♣ T♦ 8♥ 6♦</code></dd>
 <dt>ライン</dt>
-<dd>CO openにBB defend。flop check-call後、turn overbetにBBがcheck-raiseしてCO fold</dd>
+<dd>CO <code>2.3BB</code> open、BB call。flop CO <code>3.83BB into 5.1BB</code>、BB call。turn CO <code>15.95BB into 12.76BB</code>、BB raise <code>49.44BB</code>、CO fold</dd>
 <dt>Showdown</dt>
-<dd>なし</dd>
+<dd>なし。turn時点のHeroはA-high + double-gutshot</dd>
 <dt>Result</dt>
-<dd>BB Hero won <code>42.43BB</code>, rake <code>2.23BB</code></dd>
+<dd>Hero won <code>42.43BB</code>, rake <code>2.23BB</code></dd>
   </dl>
 </section>
       </div>
       <div class="panel shot">
-  <img src="./assets/hands/tenfour_20260623_0312_OQpzRi.png" alt="tenfour hand screenshot" />
+  <img src="./assets/hands/privacy-placeholder.svg" alt="tenfour hand screenshot" />
 </div>
     </section>
 
@@ -204,11 +203,11 @@
       <h2>判断のズレ</h2>
       <table>
   <thead>
-    <tr><th>論点</th><th>その場で置きがちな見立て</th><th>どこがズレやすいか</th><th>次回の基準</th></tr>
+    <tr><th>論点</th><th>その場で置きがちな見立て</th><th>どこがズレたか</th><th>次回の基準</th></tr>
   </thead>
   <tbody>
-    <tr><td>draw の強さと raise 頻度</td><td>8 outs の straight draw があり、fold equity もあるので大きく返せる</td><td>OESD は確かに bluff 候補ですが、CO が turn で pot 超えを打った後は range がかなり polar になります。Hero は <code>J9</code> や <code>97</code> ほど強い value ではなく、call されたときはAハイdrawに戻るため、raiseを標準化すると overbluff になりやすいです。</td><td>no-pair OESD は「混ぜる候補」。value側の量と、相手がfoldするoverpair / Qxの量が見えるときだけ強く使う</td></tr>
-<tr><td>fold target の具体化</td><td>KK / AA / AQ のような強そうな1ペアも、圧をかければ降ろせる</td><td>今回のように overpair を降ろせるなら raise は機能します。ただし、相手が <code>J9</code>、<code>97</code>、set、two pair、強いQxで続行する構造なら、Heroのequityは十分ではありません。</td><td>raise前に「降ろしたいhand」と「callされるhand」を分ける。call rangeが強いなら、よりblockerのあるhandか、call / fold寄りに戻す</td></tr>
+    <tr><td>drawの数え方</td><td>flopからOESDで、turnはnut flush drawも加わった</td><td>flopでstraightを完成するのはJだけです。turnで7が追加されますが、Heroはdiamondを1枚しか持たず、river diamondでも合計4枚にしかなりません。</td><td>made hand、straight out、flush outをカード5枚で実際に組んでからequityを評価する</td></tr>
+<tr><td>turn overbetへのraise</td><td>強いdrawなので毎回大きく返せる</td><td>COの125% pot betにcallするには約35.7%必要ですが、double-gutshotの8枚はすべてcleanとも限りません。raiseはfold equityを足せますが、value rangeとriver follow-throughが必要です。</td><td>まずfoldを基準にし、value handをblockして相手のone-pair foldが見込めるcomboだけを低頻度raiseへ回す</td></tr>
   </tbody>
 </table>
     </section>
@@ -220,10 +219,9 @@
     <tr><th>ストリート</th><th>その時点の見え方</th><th>実ハンドの位置づけ</th><th>評価</th><th>その場の一手</th></tr>
   </thead>
   <tbody>
-    <tr><td>Preflop</td><td>CO の <code>2.3BB</code> open は基準サイズです。BB は CO open に対して call bucket が厚く、suited hand、broadway、offsuit Ax の一部まで守ります。</td><td><code>A♦9♣</code> は境界寄りの defend hand です。A blocker はありますが、OOPで dominated risk もあります。</td><td>ほぼ良い</td><td>callで問題ありません。ただし pure defend ではなく、相手や rake 感によって境界に置きます。</td></tr>
-<tr><td>Flop <code>Q♣ T♦ 8♥</code></td><td>CO には overpair、AQ/KQ、set があり、BB には <code>J9</code>、two pair、set、straight draw が残ります。CO の大きめ c-bet は強いQx以上と draw を含む圧です。</td><td>HeroはAハイ + OESDです。現状は showdown value が薄く、主な価値は <code>J</code> / <code>7</code> でstraightを作る equity です。</td><td>良い</td><td>check-call が自然です。raiseも候補にはできますが、flop時点では価格を使ってequityを実現する方が扱いやすいです。</td></tr>
-<tr><td>Turn <code>6♦</code></td><td>BB側には <code>97</code> のstraight、<code>66</code>、two pairが増えます。一方でCOの overbet は、overpair / 強いQx / set / straight / draw を含む polar な圧です。</td><td>HeroはまだAハイのOESDです。callだけでは直近のpot oddsが苦しく、raiseでfold equityを足す発想は理解できます。</td><td>攻撃寄りだが候補</td><td>check-raiseは低頻度のbluff候補です。標準は相手のoverbet頻度とfold量を見て、call / fold / raiseを分けます。</td></tr>
-<tr><td>River</td><td></td><td></td><td></td><td></td></tr>
+    <tr><td>Preflop</td><td>COの<code>2.3BB</code>は基準sizeで、BBは広くdefendできます。</td><td><code>A♦9♣</code> はoffsuitでdominated riskがあり、基準表でも境界のdefendです。</td><td>境界</td><td>callとfoldを混ぜる位置です。pure callにはしません。</td></tr>
+<tr><td>Flop <code>Q♣ T♦ 8♥</code></td><td>COの75% pot betはQx以上、strong draw、polar bluffへrangeを絞ります。</td><td>HeroはA-high + Jだけをoutとするgutshotです。Aや9のpair outも常にcleanではありません。</td><td>callは薄い</td><td>gutshotと将来のbluff候補を使って一部callできますが、large sizeにはfoldも十分選びます。</td></tr>
+<tr><td>Turn <code>6♦</code></td><td>COの125% potはさらにpolarです。BBは<code>J9</code>と<code>97</code>のstraight、set、two pairをvalue raiseに持てます。</td><td>HeroはJまたは7でstraightになるdouble-gutshotです。flush drawはありません。9はCOの主要straightである<code>J9</code>と<code>97</code>を減らします。</td><td>攻撃的なmix</td><td>callは価格不足です。foldを本線にし、raiseするなら今回のsizeからmiss riverのshoveまでvalueと同じ計画を持ちます。</td></tr>
   </tbody>
 </table>
     </section>
@@ -231,14 +229,12 @@
     <section class="two-col">
       <section class="panel section">
         <h2>持ち帰り</h2>
-        <ul><li>turn overbet への draw raise は、<code>fold target</code>、<code>こちらのvalue range</code>、<code>callされたときのclean outs</code> をセットで見る。</li>
-<li><code>A9o</code> の OESD は bluff 候補だが、自動check-raiseではない。</li>
-<li>成功結果だけで「このraiseが常に良い」と固定せず、相手がどの1ペアをfoldできるかまで見て使う。</li></ul>
+        <ul><li>draw名称ではなく、次の1枚で完成するrankとsuitを具体的に数える。</li>
+<li>overbetへのdraw raiseは、raw equity不足をfold equityで補う低頻度lineであり、成功結果だけで標準化しない。</li></ul>
       </section>
       <section class="panel section">
         <h2>exploit 補足</h2>
-        <ul><li>実際にCOは <code>K♥ K♦</code> を turn check-raise に対して fold しており、今回のraiseは「overpairを降ろす」という目的には成功しています。</li>
-<li>ただし、これは相手が overbet 後に overpair を手放せる場合の利益です。overbet後も粘る相手や、強いmade hand中心でbetしている相手には、AハイOESDの大きいraiseは一気に苦しくなります。</li></ul>
+        <ul><li></li></ul>
       </section>
     </section>
   </main>

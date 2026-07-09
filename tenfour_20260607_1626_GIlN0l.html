@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SB Q♦J♦ の 3bet pot / turn straight value レビュー</title>
+  <title>SB Q♦J♦ のpaired 3bet pot / straight valueレビュー</title>
   <style>
     :root {
       --bg: #f4efe6;
@@ -164,17 +164,16 @@
     <section class="hero">
       <div class="panel hero-copy">
         <div class="eyebrow">T4 HAND REVIEW</div>
-        <h1>SB Q♦J♦ の 3bet pot / turn straight value レビュー</h1>
-        <p class="sub">GTO基準で大きく崩れたハンドではありません。preflop の <code>Q♦J♦</code> は共有済みレンジではSB vs COでcall寄りのcontinue候補なので、pure 3betとして固定しない点だけ注意しますが、postflopはdrawからmade handへ移った後にSPRへ合わせて打ち切れている良いラインです。</p>
+        <h1>SB Q♦J♦ のpaired 3bet pot / straight valueレビュー</h1>
+        <p class="sub">preflopの<code>Q♦J♦</code>はcallにも残したいmix handですが、3bet後のpostflopはsmall c-betからturnでnut straightを完成し、SPRに合わせてriverまでvalueを取り切れています。paired boardにfull house候補があることは確認しつつも、COのTx、9x、Kxを相手に強いstraightをcheckへ寄せる必要はありません。</p>
         <div class="chips">
           <div class="chip">Hero: SB <code>Q♦ J♦</code></div>
 <div class="chip">Villain: CO <code>A♦ 9♦</code></div>
 <div class="chip">Board: <code>T♥ T♦ 9♣ K♠ 3♦</code></div>
         </div>
-        <ul><li>主要論点: SB vs COで <code>QJs</code> を3betに回した後、paired board の3bet potでdrawからvalueへどう切り替えるか。</li>
-<li>GTO基準の総評: 3bet sizeは <code>2BB open</code> に対して自然です。hand選択はやや攻撃寄りですが、flop小bet、turn大きめvalue、river all-in は目的が一貫しています。</li>
-<li>次回の判断基準: <code>QJs</code> はplayabilityが高いので、3betだけでなくcallにも残す。3betした場合は、hitした後に相手のTx / 9x / Kxから取り切る計画を持つ。</li>
-<li>5枚役確認: River時点のHeroは <code>K♠ Q♦ J♦ T♥ 9♣</code> のストレートです。上位には <code>TT</code>、<code>99</code>、<code>T9</code>、<code>KT</code> などのfull house / quadsがあります。</li></ul>
+        <ul><li>SB対COの<code>QJs</code>はcontinueできますが、repo基準ではcall寄りで、3bet専用ではありません。</li>
+<li>flopはboardのTによるone pairにOESDとbackdoor diamond flushが加わるため、<code>1/3 pot</code> semi-bluffに適します。</li>
+<li>turnでK-high straightになった後は、large betからriver約55% pot shoveへ自然につながっています。</li></ul>
         <section class="summary-mini">
   <h2>ハンド要約</h2>
   <dl class="summary-grid">
@@ -183,20 +182,20 @@
 <dt>Villain</dt>
 <dd>CO <code>A♦ 9♦</code></dd>
 <dt>形式</dt>
-<dd>T4 6MAX Cash</dd>
+<dd>T4 6MAX Cash、100BB effective</dd>
 <dt>Board</dt>
 <dd><code>T♥ T♦ 9♣ K♠ 3♦</code></dd>
 <dt>ライン</dt>
-<dd>CO openにSB 3bet、CO call。SBがflopから3 street打ち切り、river all-inまでcallされる</dd>
+<dd>CO <code>2BB</code> open、SB <code>11BB</code> 3bet、CO call。flop SB <code>7.67BB into 23BB</code>、turn <code>28.76BB into 38.34BB</code>、river <code>52.57BB into 95.86BB</code> all-in、すべてCO call</dd>
 <dt>Showdown</dt>
-<dd>SB Hero: ストレート, CO: Tと9のツーペア</dd>
+<dd>Hero: <code>K-Q-J-T-9</code> straight / CO: <code>T-T-9-9-A</code> two pair</dd>
 <dt>Result</dt>
-<dd>SB Hero won <code>197BB</code>, rake <code>4BB</code></dd>
+<dd>Hero won <code>197BB</code>, rake <code>4BB</code></dd>
   </dl>
 </section>
       </div>
       <div class="panel shot">
-  <img src="./assets/hands/tenfour_20260607_1626_GIlN0l.png" alt="tenfour hand screenshot" />
+  <img src="./assets/hands/privacy-placeholder.svg" alt="tenfour hand screenshot" />
 </div>
     </section>
 
@@ -204,11 +203,11 @@
       <h2>判断のズレ</h2>
       <table>
   <thead>
-    <tr><th>論点</th><th>その場で置きがちな見立て</th><th>どこがズレやすいか</th><th>次回の基準</th></tr>
+    <tr><th>論点</th><th>その場で置きがちな見立て</th><th>どこがズレたか</th><th>次回の基準</th></tr>
   </thead>
   <tbody>
-    <tr><td>preflop QJs の扱い</td><td>suited broadwayなのでSBから強く3betしてよい</td><td><code>QJs</code> はCO openに対して十分continueできますが、共有済み基準ではcall寄りに残るhandです。3betは悪くありませんが、強いvalueとして固定すると、callで守る中上位suited handが薄くなります。</td><td>SB vs COでは、<code>QJs</code> はcallを基本に残しつつ、3betは混ぜる候補として扱う</td></tr>
-<tr><td>paired board でのvalue継続</td><td>boardがpairedなので、straightでも慎重にcheckしたくなる</td><td>full house候補はありますが、COのcall rangeにはTx、9x、A9s、Kx、pair+drawも残ります。SPRが小さくなっているので、強いmade handをcheckに寄せすぎるとworse handから取る機会を失います。</td><td>SPRが低い3bet potでは、上位役の存在を確認しつつ、worse made hand がcallできるならvalueを打ち切る</td></tr>
+    <tr><td>preflop hand配置</td><td>suited broadwayなので常に3betする</td><td><code>QJs</code>をすべて3betすると、SB call rangeから強くplayableなhandが減ります。</td><td>callを主軸に残し、相手のopen傾向や自分の3bet構成に応じて一部をraiseする</td></tr>
+<tr><td>paired boardの慎重さ</td><td>full houseがあるのでstraightでも減速する</td><td>COのcall rangeにはfull houseだけでなくTx、9x、Kx、pair + drawが多く、SPRもvalueを2streetで入れられる水準です。</td><td>上位役の有無と、callするworse rangeの量を別々に確認する</td></tr>
   </tbody>
 </table>
     </section>
@@ -220,10 +219,10 @@
     <tr><th>ストリート</th><th>その時点の見え方</th><th>実ハンドの位置づけ</th><th>評価</th><th>その場の一手</th></tr>
   </thead>
   <tbody>
-    <tr><td>Preflop</td><td>COの <code>2BB</code> openに対し、SBの <code>11BB</code> 3betは基準サイズ付近です。COの小さめopenでSBは広くcontinueできますが、OOPなのでpostflopの実現率は悪くなります。</td><td><code>Q♦J♦</code> はplayabilityが高い suited broadway です。共有済み基準ではcall寄りですが、3betに混ぜても戦えるhandです。</td><td>やや攻撃寄り</td><td>3betするなら今回のsizeでよいです。ただし、毎回3betではなくcallにも残す整理にします。</td></tr>
-<tr><td>Flop <code>T♥ T♦ 9♣</code></td><td>SBにはoverpair、AK/AQ、強いbroadwayがあり、COにはTx、99、9x、suited broadwayが残ります。paired boardなのでCOもかなり触れています。</td><td>Heroはまだmade handではありませんが、Kまたは8でstraightになるopen-ended drawを持ちます。<code>Q♦J♦</code> はsemi-bluff候補です。</td><td>良い</td><td><code>1/3 pot</code> は自然です。大きく打ちすぎず、fold equityとdrawの実現を両方残します。</td></tr>
-<tr><td>Turn <code>K♠</code></td><td>KはSBのAK/KK/KQを強く見せるカードで、Hero自身もstraightを完成させます。COのTxや9xはまだ残り、Kxも一部改善します。</td><td>Heroは強いvalueです。ただしboardがpairedなので、99、T9、KT、TTには負けます。</td><td>良い</td><td>大きめbetでTx、Kx、9xの一部からvalueを取り、riverの残りスタックを自然に入れられる形にします。</td></tr>
-<tr><td>River <code>3♦</code></td><td>riverは大きく構造を変えないblank寄りです。COがturn大きめbetをcallした後でも、Tx、9x、Kx、stubbornなpairが残ります。</td><td>Heroのstraightはfull houseには負けますが、COのworse made handに対して十分valueがあります。</td><td>良い</td><td>残り <code>52.57BB into 95.86BB</code> は打ち切りでよいです。SPRが低く、checkで取り逃がすよりvalueを押します。</td></tr>
+    <tr><td>Preflop</td><td>COの小さめ<code>2BB</code> openに対し、SBはOOPのため大きい3betを使います。</td><td><code>Q♦J♦</code> はcall寄りのcontinueですが、playabilityとblockerを持つ3bet mixにもできます。</td><td>mixとして可</td><td>3betするなら<code>11BB</code>は自然です。callにも十分残します。</td></tr>
+<tr><td>Flop <code>T♥ T♦ 9♣</code></td><td>SBにoverpairとstrong broadway、COにTx、9x、pocket pair、drawが残ります。</td><td>Heroのbest fiveはTのone pairで、Kまたは8でstraightになるOESDとbackdoor diamond flushも持ちます。</td><td>良い</td><td>約1/3 potでfold equityとdraw realizationを両立します。</td></tr>
+<tr><td>Turn <code>K♠</code></td><td>KはSBのrangeを強くし、COのKxも改善します。COにはTx、9x、Kx、full houseが残ります。</td><td>Heroは<code>K-Q-J-T-9</code>のnut straightです。full houseとquadsには負けます。</td><td>良い</td><td>約75% potでworse made handとdrawからvalueを取り、river shoveのSPRを作ります。</td></tr>
+<tr><td>River <code>3♦</code></td><td>3はboardをpairさせず、diamondもboard上2枚だけなのでflushは完成しません。</td><td>Heroはstraightのままです。主な強いcall対象はTxで、Kx、9x、QQ/JJは二次的なbluff-catcherです。</td><td>良い</td><td>potの約55%となる残り<code>52.57BB</code>をall-inし、Txを中心とするworse made handからvalueを取ります。</td></tr>
   </tbody>
 </table>
     </section>
@@ -231,14 +230,12 @@
     <section class="two-col">
       <section class="panel section">
         <h2>持ち帰り</h2>
-        <ul><li><code>QJs</code> はSB vs COでcontinueしやすいが、3bet専用ではなくcallにも残す。</li>
-<li>paired board でも、SPRが低くworse made handが残るなら、強いstraightはvalueを打ち切れる。</li>
-<li>上位役があるboardでは、役の強さだけでなく、相手がcallするworse rangeを具体的に置いてbet sizeを決める。</li></ul>
+        <ul><li>preflopのmix handはpostflop結果で3bet専用へ固定しない。</li>
+<li>paired boardでも、SPRとworse call rangeが十分ならnut straightを2streetで取り切る。</li></ul>
       </section>
       <section class="panel section">
         <h2>exploit 補足</h2>
-        <ul><li>実際にCOは <code>A♦9♦</code> で、turn大きめbetとriver all-inをcallしています。この相手には、強いmade handを小さく抑えすぎず、しっかり打つ方が収益的です。</li>
-<li>ただし、この結果だけでpreflopの <code>QJs</code> を常に3betへ固定しません。相手がcallしすぎるreadがあるときの exploit と、GTO基準のhand配置は分けて扱います。</li></ul>
+        <ul><li></li></ul>
       </section>
     </section>
   </main>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title description">
+  <title id="title">プライバシー保護のためレビュー画像を非公開</title>
+  <desc id="description">プレイヤー名が表示される可能性があるため、元のポーカースクリーンショットは公開していません。</desc>
+  <rect width="1200" height="675" fill="#10151f"/>
+  <rect x="120" y="138" width="960" height="399" rx="28" fill="#182231" stroke="#34445a" stroke-width="4"/>
+  <path d="M600 228c-60 0-108 48-108 108v34h-28v118h272V370h-28v-34c0-60-48-108-108-108Zm0 42c37 0 66 29 66 66v34H534v-34c0-37 29-66 66-66Z" fill="#8da2bd"/>
+  <text x="600" y="585" fill="#d4deea" font-family="system-ui, sans-serif" font-size="30" text-anchor="middle">プライバシー保護のため画像を非公開</text>
+</svg>

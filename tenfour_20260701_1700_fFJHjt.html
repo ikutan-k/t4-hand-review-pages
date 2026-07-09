@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>UTG Q♥J♥ の BB defend pot / river nuts raise レビュー</title>
+  <title>UTG Q♥J♥ のriver nut straight value raiseレビュー</title>
   <style>
     :root {
       --bg: #f4efe6;
@@ -164,17 +164,16 @@
     <section class="hero">
       <div class="panel hero-copy">
         <div class="eyebrow">T4 HAND REVIEW</div>
-        <h1>UTG Q♥J♥ の BB defend pot / river nuts raise レビュー</h1>
-        <p class="sub">GTO基準で大きくズレたハンドではありません。flop の <code>1/2 pot</code> c-bet はやや攻撃寄りですが、turn で無理に2発目を打たず、river で nuts に改善して BB の overbet lead に value raise した判断は良いです。</p>
+        <h1>UTG Q♥J♥ のriver nut straight value raiseレビュー</h1>
+        <p class="sub">turn check-backとriverのvalue raiseは正しい一方、flopの<code>1/2 pot</code> c-betはno pair、no diamond、即時straight drawなしの<code>Q♥J♥</code>には攻撃的です。riverでraiseを選ぶならbluffはどのsizeにもfoldするため、現在の<code>27BB</code>より大きくしてlower straightと過剰valueから取る方がnutsの役割に合います。</p>
         <div class="chips">
           <div class="chip">Hero: UTG <code>Q♥ J♥</code></div>
 <div class="chip">Villain: BB <code>5♦ 5♣</code></div>
 <div class="chip">Board: <code>T♦ 6♦ 4♠ 8♣ 9♥</code></div>
         </div>
-        <ul><li>主要論点: <code>T♦ 6♦ 4♠</code> のような低めの2トーンボードで、UTG側が <code>Q♥J♥</code> をどれだけ c-bet に回すか。</li>
-<li>GTO基準の総評: preflop open、turn check-back、river raise は自然です。flop はbetしてもよいですが、no diamond の broadway なので check-back も十分混ぜたい hand です。</li>
-<li>次回の判断基準: river で nuts に改善したら、相手の大きいbetを「強いからcall止め」と見ず、worse straight や過剰valueから取れるかを先に見る。</li>
-<li>5枚役確認: River時点のHeroは <code>Q♥ J♥ T♦ 9♥ 8♣</code> のQハイストレートです。board は unpaired かつ flush なしなので、上位役はなく nuts です。</li></ul>
+        <ul><li>flopのHeroは2 overcardだけで、1枚のturnカードではstraightを完成できません。</li>
+<li>turn <code>8♣</code> で初めて、river <code>9</code>をoutとするgutshotになります。</li>
+<li>river <code>9♥</code> の<code>QJ</code>はnut straightです。raiseするかだけでなく、callするworse valueを基準にsizeを決めます。</li></ul>
         <section class="summary-mini">
   <h2>ハンド要約</h2>
   <dl class="summary-grid">
@@ -183,20 +182,20 @@
 <dt>Villain</dt>
 <dd>BB <code>5♦ 5♣</code></dd>
 <dt>形式</dt>
-<dd>T4 6MAX Cash</dd>
+<dd>T4 6MAX Cash、100BB effective</dd>
 <dt>Board</dt>
 <dd><code>T♦ 6♦ 4♠ 8♣ 9♥</code></dd>
 <dt>ライン</dt>
-<dd>UTG openにBB defend。flop c-betはcallされ、turn check-back後、riverでBBのoverbet leadにUTGがraiseしてBB fold</dd>
+<dd>UTG <code>2BB</code> open、BB call。flop UTG <code>2.25BB into 4.5BB</code>、BB call。turn check-check。river BB <code>11.25BB into 9BB</code>、UTG raise <code>27BB</code>、BB fold</dd>
 <dt>Showdown</dt>
-<dd>なし</dd>
+<dd>なし。Heroは<code>Q-J-T-9-8</code>のnut straight</dd>
 <dt>Result</dt>
-<dd>UTG Hero won <code>29.92BB</code>, rake <code>1.58BB</code></dd>
+<dd>Hero won <code>29.92BB</code>, rake <code>1.58BB</code></dd>
   </dl>
 </section>
       </div>
       <div class="panel shot">
-  <img src="./assets/hands/tenfour_20260701_1700_fFJHjt.png" alt="tenfour hand screenshot" />
+  <img src="./assets/hands/privacy-placeholder.svg" alt="tenfour hand screenshot" />
 </div>
     </section>
 
@@ -204,11 +203,11 @@
       <h2>判断のズレ</h2>
       <table>
   <thead>
-    <tr><th>論点</th><th>その場で置きがちな見立て</th><th>どこがズレやすいか</th><th>次回の基準</th></tr>
+    <tr><th>論点</th><th>その場で置きがちな見立て</th><th>どこがズレたか</th><th>次回の基準</th></tr>
   </thead>
   <tbody>
-    <tr><td>flop c-bet の自動化</td><td>UTG open後でovercardが2枚あるので、BB checkに対して半potで押せそう</td><td><code>T64</code> two-tone はBB側にset、two pair、pair + draw、diamond draw、straight draw が多く残るボードです。<code>Q♥J♥</code> はno pair / no diamondで、callされた後にbarrelしやすいturnも限られます。</td><td>低い2トーンボードでは、overcardだけで半potを標準化しない。backdoorやblockerが薄い broadway はcheck-backも混ぜる</td></tr>
-<tr><td>river nuts のvalue raise</td><td>BBのoverbet leadは強そうなので、nutsでもcallで安全に終わりたくなる</td><td>turn check-check後のriver leadはpolarですが、広く守るBBには lower straight やtwo pair、setの過剰valueも残り得ます。Heroの <code>QJ</code> は最上位なので、call止めにすると下のvalueから取り逃がします。</td><td>nutsはraise候補。ただしbluffを消しすぎないよう、all-in級ではなく今回のような小さめraiseから考える</td></tr>
+    <tr><td>flop c-bet</td><td>UTG側にoverpairが多く、2 overcardなら半potで押せる</td><td><code>T♦6♦4♠</code>はBBのpair、set、diamond draw、connected handに当たりやすく、<code>Q♥J♥</code>にはdiamondも即時drawもありません。</td><td>range優位だけで自動betせず、実ハンドのbackdoorとbarrel候補を確認する</td></tr>
+<tr><td>river raise size</td><td>小さくraiseすればbluffを残せる</td><td>raiseした時点でbluffはほぼfoldします。size差が効く主な相手は<code>J7</code>、<code>97</code>、<code>75</code>などのlower straightです。</td><td>nutsでraiseするなら、foldするbluffではなくcallするlower straightを対象に大きく取る</td></tr>
   </tbody>
 </table>
     </section>
@@ -220,10 +219,10 @@
     <tr><th>ストリート</th><th>その時点の見え方</th><th>実ハンドの位置づけ</th><th>評価</th><th>その場の一手</th></tr>
   </thead>
   <tbody>
-    <tr><td>Preflop</td><td>UTG の <code>2BB</code> open は基準サイズです。BB は UTG open に対しても pocket pair、suited broadway、suited connector を広めにdefendできます。</td><td><code>Q♥J♥</code> はUTG openに入る自然な suited broadway です。</td><td>良い</td><td>openで問題ありません。BB call後は、相手に小中 pocket や低め connected hand が残る前提で進めます。</td></tr>
-<tr><td>Flop <code>T♦ 6♦ 4♠</code></td><td>UTGにはoverpairや強いTxがありますが、BBにはset、two pair、pair + straight draw、diamond drawが厚く残ります。</td><td>Heroはno pair / no diamond の2 overcardで、runner-runnerのstraight要素はありますが現状のequityは強くありません。</td><td>やや攻撃寄りだが可</td><td>betするなら小さめから半pot程度で、fold equityを取りに行く形です。毎回打つ hand ではないので、check-backも自然です。</td></tr>
-<tr><td>Turn <code>8♣</code></td><td>BBのflop call後なので、Tx、6x、pocket pair、diamond draw、<code>75</code>、7x系が残ります。8はBB側のconnected handをかなり助けます。</td><td>Heroは9でnutsになるgutshotです。showdown valueは薄く、2発目で降ろし切るにはblockerも足りません。</td><td>良い</td><td>check-backでequityを実現する判断が自然です。ここで無理にbarrelすると、callされたときにriverの選択が難しくなります。</td></tr>
-<tr><td>River <code>9♥</code></td><td>BBのoverbet leadは、straight以上のvalueとmissed diamond / missed straight draw のbluffに寄ったpolar lineです。turn check-backでUTG側が少しcappedに見えるため、BBが先に圧をかけやすい形です。</td><td>HeroはQハイストレートでnutsです。広く守る相手の lower straight や一部の過剰valueから追加で取れる位置です。</td><td>良い</td><td>raiseでよいです。サイズは大きすぎるとbluffを全部消し、下のstraightも苦しくするため、今回のような小さめraiseは実戦的です。</td></tr>
+    <tr><td>Preflop</td><td>UTGの<code>2BB</code> openにBBがpocket pair、suited hand、connected handでdefendします。</td><td><code>Q♥J♥</code> は自然なUTG openです。</td><td>良い</td><td>openで問題ありません。</td></tr>
+<tr><td>Flop <code>T♦ 6♦ 4♠</code></td><td>UTGにoverpairはありますが、BBはset、pair + draw、diamond drawを多く持ちます。</td><td>Heroはno pairで、Kや9が1枚落ちてもstraightは完成しません。</td><td>check優先</td><td>range betする場合も小さくし、<code>1/2 pot</code>をこのcomboで常用しません。</td></tr>
+<tr><td>Turn <code>8♣</code></td><td>flop call後のBBはTx、6x、pocket pair、diamond draw、7xを残し、8はBB側を改善させます。</td><td>Heroはriver9でnutsになるgutshotですが、showdown valueは薄いです。</td><td>良い</td><td>check-backしてequityを実現します。</td></tr>
+<tr><td>River <code>9♥</code></td><td>BBのoverbetはstraight、強いmade hand、missed drawにpolarizeします。</td><td>Heroは<code>Q-J-T-9-8</code>のnutsです。</td><td>raiseは良い、sizeは小さい</td><td><code>27BB</code>より大きいpolar raiseを使い、主にlower straightからvalueを取ります。HeroのJが<code>J7</code>を減らす点も踏まえ、all-inは候補の1つとします。</td></tr>
   </tbody>
 </table>
     </section>
@@ -231,14 +230,12 @@
     <section class="two-col">
       <section class="panel section">
         <h2>持ち帰り</h2>
-        <ul><li>UTG vs BB の低い2トーンボードでは、overcardだけでc-betを自動化しない。</li>
-<li>turn check-back後にriverで相手がpolarに打ってきても、nutsはcall止めにせず value raise を検討する。</li>
-<li>river raise は「勝っているか」だけでなく、相手がcallし得る下のvalueと、foldするbluffの比率を分けてサイズを決める。</li></ul>
+        <ul><li>low two-tone boardでは、preflop aggressorという理由だけでbackdoorの薄いbroadwayを大きくbetしない。</li>
+<li>nutsでraiseした後はbluffを残せないため、callするworse valueを基準にsizeを上げる。</li></ul>
       </section>
       <section class="panel section">
         <h2>exploit 補足</h2>
-        <ul><li>実際のBBは <code>5♦5♣</code> で、flopはpair + straight draw、riverはmissed drawをoverbet bluffに変えています。</li>
-<li>この相手が turn check-back後にmissed drawを強く打てるなら、Heroのmedium strength handではcallしすぎに注意します。一方で今回のようなnutsは、bluffを含むrangeに対してもvalue raiseを残します。</li></ul>
+        <ul><li></li></ul>
       </section>
     </section>
   </main>

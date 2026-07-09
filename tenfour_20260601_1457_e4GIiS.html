@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BB K♣8♣ の multiway defend / river Kハイフラッシュ raise レビュー</title>
+  <title>BB K♣8♣ のpaired board / river non-nut flushレビュー</title>
   <style>
     :root {
       --bg: #f4efe6;
@@ -164,39 +164,38 @@
     <section class="hero">
       <div class="panel hero-copy">
         <div class="eyebrow">T4 HAND REVIEW</div>
-        <h1>BB K♣8♣ の multiway defend / river Kハイフラッシュ raise レビュー</h1>
-        <p class="sub">GTO基準で明確にズレたのは river の raise です。preflop defend、flop / turn の call は自然ですが、paired board でKハイフラッシュを完成させた後、SBのoverbetに対して all-in 級に返すと、bluffを降ろしてAハイフラッシュやフルハウスに寄ったcall rangeへ突っ込みやすくなります。</p>
+        <h1>BB K♣8♣ のpaired board / river non-nut flushレビュー</h1>
+        <p class="sub">preflop defendとflop callは自然で、turn callも続行できますが、明確な修正点はriverのall-in raiseです。paired boardでSBがpot超えを打ったrangeにK-high flushをraiseすると、bluffとlower valueを降ろし、A-high flushやfull houseへcallされる構造になりやすいため、原則callが本線です。</p>
         <div class="chips">
           <div class="chip">Hero: BB <code>K♣ 8♣</code></div>
-<div class="chip">Villain: SB <code>A♣ 2♣</code> / CO flop fold</div>
+<div class="chip">Villain: SB <code>A♣ 2♣</code>、COはflop fold</div>
 <div class="chip">Board: <code>J♣ T♣ 5♠ J♠ 4♣</code></div>
         </div>
-        <ul><li>主要論点: non-nut flush を完成させたとき、相手の大きいriver betに対して value raise まで広げてよいか。</li>
-<li>GTO基準の総評: river は call が本線です。raise するなら、Aハイフラッシュやフルハウス寄りに絞りたい場面です。</li>
-<li>次回の判断基準: 「完成したflush」ではなく、「相手のoverbetにraiseして、どのworse handがcallするか」から逆算する。</li>
-<li>5枚役確認: River時点のHeroは <code>K♣ J♣ T♣ 8♣ 4♣</code> のKハイフラッシュです。上位には <code>A♣x♣</code> のAハイフラッシュと、<code>JT</code> / <code>J5</code> / <code>J4</code> / set由来のフルハウスがあります。</li></ul>
+        <ul><li>flopのK-high club drawは強いものの、COが後ろに残るmultiwayなのでraiseよりcallが安定します。</li>
+<li>turnはcallに約20% equityが必要で、club9枚のraw hit率も約19.6%です。rake、implied odds、reverse implied oddsまで含めて決めます。</li>
+<li>riverのHeroはK-high flushで強いcall handですが、polarなoverbetへのvalue raiseとしては上げすぎです。</li></ul>
         <section class="summary-mini">
   <h2>ハンド要約</h2>
   <dl class="summary-grid">
     <dt>Hero</dt>
 <dd>BB <code>K♣ 8♣</code></dd>
 <dt>Villain</dt>
-<dd>SB <code>A♣ 2♣</code> / CO flop fold</dd>
+<dd>SB <code>A♣ 2♣</code>、COはflop fold</dd>
 <dt>形式</dt>
-<dd>T4 6MAX Cash</dd>
+<dd>T4 6MAX Cash、100BB effective、3-way flop</dd>
 <dt>Board</dt>
 <dd><code>J♣ T♣ 5♠ J♠ 4♣</code></dd>
 <dt>ライン</dt>
-<dd>CO open、SB call、BB defendのmultiway。flopでCOが降り、BBはturnまでcall、riverでSB overbetにraiseしてcallされる</dd>
+<dd>CO <code>2.3BB</code> open、SB call、BB call。flop SB <code>2.3BB into 6.9BB</code>、BB call、CO fold。turn SB <code>3.83BB into 11.5BB</code>、BB call。river SB <code>23.95BB into 19.16BB</code>、BB raise <code>91.57BB</code>、SB call</dd>
 <dt>Showdown</dt>
-<dd>SB: Aハイフラッシュ, BB Hero: Kハイフラッシュ</dd>
+<dd>Hero: <code>K-J-T-8-4</code> K-high flush / SB: <code>A-J-T-4-2</code> A-high flush</dd>
 <dt>Result</dt>
 <dd>SB won <code>198.3BB</code>, rake <code>4BB</code></dd>
   </dl>
 </section>
       </div>
       <div class="panel shot">
-  <img src="./assets/hands/tenfour_20260601_1457_e4GIiS.png" alt="tenfour hand screenshot" />
+  <img src="./assets/hands/privacy-placeholder.svg" alt="tenfour hand screenshot" />
 </div>
     </section>
 
@@ -204,11 +203,11 @@
       <h2>判断のズレ</h2>
       <table>
   <thead>
-    <tr><th>論点</th><th>その場で置きがちな見立て</th><th>どこがズレやすいか</th><th>次回の基準</th></tr>
+    <tr><th>論点</th><th>その場で置きがちな見立て</th><th>どこがズレたか</th><th>次回の基準</th></tr>
   </thead>
   <tbody>
-    <tr><td>river raise の価値対象</td><td>Kハイフラッシュなので、相手の大きいbetに対して勝っているflushから取れる</td><td>SBはflop multiway donk、turn継続、river overbet まで来ています。この線はbluffもありますが、強いvalue側はA♣入りflushとfull houseに寄ります。Kハイflushでraiseすると、callしてほしい下のflushより、上位valueに当たる比率が上がります。</td><td>non-nut flush は、相手がpolarに大きく打ったらまずcallでbluffを残す。raiseは「下のflushが十分callする」と読めるときだけ</td></tr>
-<tr><td>draw完成後のレンジ更新</td><td>flop / turn で良いdrawを持っていたので、river完成後は強いvalueになる</td><td>flop / turn のcallが良いことと、riverでraiseできることは別です。paired board では、flush完成と同時に相手のfull house / nut flush も残るため、完成後に相手レンジを再評価する必要があります。</td><td>drawが完成したら、board pair、相手のbet size、相手のvalue rangeの上限を先に確認する</td></tr>
+    <tr><td>turn draw continue</td><td>K-high flush drawなら小さいbetには自動call</td><td>board pair後のclubはA-high / Q-high flushやfull houseに負ける可能性があり、9 outsすべてを同価値には扱えません。</td><td>pot odds、implied odds、完成後のreverse implied oddsを同時に確認する</td></tr>
+<tr><td>river raise</td><td>K-high flushならlower flushからall-in valueを取れる</td><td>river overbetはpolarです。raiseするとbluffはfoldし、call rangeはnut flushとfull house側へ濃くなります。Heroの<code>8♣</code>も一部のlower flushを減らします。</td><td>non-nut flushはまずcallに置き、raiseはworse handのcallが十分ある根拠がある場合だけに限定する</td></tr>
   </tbody>
 </table>
     </section>
@@ -220,10 +219,10 @@
     <tr><th>ストリート</th><th>その時点の見え方</th><th>実ハンドの位置づけ</th><th>評価</th><th>その場の一手</th></tr>
   </thead>
   <tbody>
-    <tr><td>Preflop</td><td>COの <code>2.3BB</code> open は基準サイズで、SBがcallしたためBBは良いpriceでmultiwayに参加できます。SBのcold callにより、Axs、suited broadway、pair、suited connectorが相手側に残ります。</td><td><code>K♣8♣</code> はdominated risk はありますが、BBでpriceが良く、flush / pair / backdoorで実現できる suited hand です。</td><td>良い</td><td>callで問題ありません。3betより、pot oddsを使って実現するhandです。</td></tr>
-<tr><td>Flop <code>J♣ T♣ 5♠</code></td><td>SBがpreflop aggressorのCOに対してmultiwayで先にbetしており、Jx、Tx、set、club drawが含まれます。COもまだ後ろにいるため、Heroのraiseは強いrangeにぶつかりやすいです。</td><td>HeroはKハイflush drawで、A♣以外のflush完成時に強いshowdown valueを持てます。現状はvalueではなくdrawです。</td><td>良い</td><td>小さいdonk betにはcallが自然です。raiseより、COの行動を見つつequityを実現します。</td></tr>
-<tr><td>Turn <code>J♠</code></td><td>boardがpairになり、SBのJxとset由来のfull house候補が濃くなります。一方、SBのbet sizeは小さく、Heroはflush drawを続けるpriceを得ています。</td><td>Kハイflush drawはまだ十分に続行できますが、完成してもnutではなく、paired board なので逆 implied odds があります。</td><td>良い</td><td>callでよいです。ここでraiseしても強いmade handを降ろしにくく、drawとしての価格を使う方が自然です。</td></tr>
-<tr><td>River <code>4♣</code></td><td>flushは完成しましたが、SBがpot超えで打っています。SBのrangeはmissed handも含む一方、valueはA♣入りflush、Jx、full houseに寄ります。</td><td>HeroはKハイフラッシュで強いですが、raiseしてcallされるvalueとしては薄い位置です。</td><td>悪い</td><td>call止めが本線です。raiseはAハイflush以上を中心にし、Kハイflushはbluffを残してshowdownへ行きます。</td></tr>
+    <tr><td>Preflop</td><td>COの基準<code>2.3BB</code> openにSBがcold callし、BBは良いpriceでmultiwayへ参加できます。</td><td><code>K♣8♣</code> はBB対COのcontinue域にあるsuited handです。</td><td>良い</td><td>callしてequity realizationを狙います。</td></tr>
+<tr><td>Flop <code>J♣ T♣ 5♠</code></td><td>SBがpreflop aggressorへmultiway donkし、COが後ろに残ります。SBにはJx、Tx、set、club drawがあります。</td><td>HeroはK-high flush drawで、完成時に多くのlower flushを支配します。</td><td>良い</td><td>小さいdonkにはcallし、COの強いcontinue rangeへ不要なraiseをしません。</td></tr>
+<tr><td>Turn <code>J♠</code></td><td>board pairでSBのJxがtripsになり、<code>TT</code>、<code>55</code>、<code>JT</code>、<code>J5</code>などはすでにfull houseです。betは約1/3 potです。</td><td>HeroはK-high flush drawですが、完成clubにはreverse implied oddsがあります。</td><td>closeなcall</td><td>必要約20%に対してraw hit率は約19.6%です。implied oddsでcallできますが、rakeと上位flush・full houseへのreverse implied oddsも差し引きます。</td></tr>
+<tr><td>River <code>4♣</code></td><td>flush完成後にSBが125% potを打ち、rangeはfull house、強いflush、bluffへpolarizeします。</td><td>HeroはK-high flushでcallには十分強い一方、A-high flushとfull houseに負けます。</td><td>jamはかなり薄い</td><td><code>23.95BB</code>を原則callしてbluffとlower flushを残します。exact rangeでlower flushのcallが十分あると確認できない限り、all-inへは上げません。</td></tr>
   </tbody>
 </table>
     </section>
@@ -231,14 +230,12 @@
     <section class="two-col">
       <section class="panel section">
         <h2>持ち帰り</h2>
-        <ul><li>non-nut flush は、完成した瞬間に自動でraise候補へ上げない。</li>
-<li>相手がriverでoverbetしたら、先に <code>bluff / nut flush / full house</code> の比率を考え、こちらのraiseにworse handがどれだけcallするかを見る。</li>
-<li>drawのcall判断と、完成後のvalue raise判断は分ける。flop / turn が良いcallでも、river raiseまで正当化されるわけではありません。</li></ul>
+        <ul><li>drawのcontinue判断と、完成後にraiseできるかは別の問題として評価する。</li>
+<li>paired boardのriver overbetにnon-nut flushを持つときは、bluffを残すcallとvalue raiseを明確に分ける。</li></ul>
       </section>
       <section class="panel section">
         <h2>exploit 補足</h2>
-        <ul><li>実際にSBは <code>A♣2♣</code> で、river overbetからraiseをcallできる上位flushを持っていました。</li>
-<li>相手が下のflushでも大きくcallしすぎる明確なreadがない限り、Kハイflushのraiseはvalue過多ではなく、上位handにcallされる形になりやすいです。</li></ul>
+        <ul><li></li></ul>
       </section>
     </section>
   </main>

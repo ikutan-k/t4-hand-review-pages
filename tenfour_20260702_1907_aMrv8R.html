@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HJ A♠3♠ の BB defend pot / monotone flop nut flush レビュー</title>
+  <title>HJ A♠3♠ のmonotone flop nut flushレビュー</title>
   <style>
     :root {
       --bg: #f4efe6;
@@ -164,17 +164,16 @@
     <section class="hero">
       <div class="panel hero-copy">
         <div class="eyebrow">T4 HAND REVIEW</div>
-        <h1>HJ A♠3♠ の BB defend pot / monotone flop nut flush レビュー</h1>
-        <p class="sub">GTO基準で大きくズレたハンドではありません。flop の小さめ c-bet、raise への call、river で nuts に対して再raise all-in した判断は良いです。ただし turn は相手の check に対して、trap だけでなく value bet も強く検討したいノードです。</p>
+        <h1>HJ A♠3♠ のmonotone flop nut flushレビュー</h1>
+        <p class="sub">flopのsmall betとcheck-raiseへのcall、riverの再raise all-inはいずれもrangeを保ちながら最大valueへ進む良い選択です。turnはSPRがまだ大きいため、lower flush、set、pair + spadeから2street分のvalueを作る中size betが有力です。ただしcheck-backもtrapとcheck range保護のmixとして成立します。</p>
         <div class="chips">
           <div class="chip">Hero: HJ <code>A♠ 3♠</code></div>
 <div class="chip">Villain: BB <code>4♣ 3♣</code></div>
 <div class="chip">Board: <code>J♠ 5♠ 2♠ 6♥ K♣</code></div>
         </div>
-        <ul><li>主要論点: monotone flop で nut flush を持ったとき、相手の check-raise に対してどこまで強く返すか。</li>
-<li>GTO基準の総評: flop は小さくbetしてよく、raise にはcallが自然です。turn check-backは悪くありませんが、相手に lower flush、set、pair + spade、straight draw が残るため、value bet も候補です。</li>
-<li>次回の判断基準: nuts級の hand でも、相手がcallできる下のvalueが多い street では「隠す」より「取る」を先に見る。</li>
-<li>5枚役確認: River時点のHeroは <code>A♠ J♠ 5♠ 3♠ 2♠</code> のAハイフラッシュです。board は unpaired で、HeroがA♠を持つため上位フラッシュはなく nuts です。</li></ul>
+        <ul><li><code>A♠3♠</code> はHJの基準openに含まれるsuited Aで、preflopは標準的です。</li>
+<li>flopでnutsを即3betせずcallすると、BBのbluffとlower valueをriverまで残せます。</li>
+<li>turnはtrapの価値より、check-callできるworse handの量と残りSPRを先に見ます。</li></ul>
         <section class="summary-mini">
   <h2>ハンド要約</h2>
   <dl class="summary-grid">
@@ -183,20 +182,20 @@
 <dt>Villain</dt>
 <dd>BB <code>4♣ 3♣</code></dd>
 <dt>形式</dt>
-<dd>T4 6MAX Cash</dd>
+<dd>T4 6MAX Cash、100BB effective</dd>
 <dt>Board</dt>
 <dd><code>J♠ 5♠ 2♠ 6♥ K♣</code></dd>
 <dt>ライン</dt>
-<dd>HJ openにBB defend。flopでHJが小さくbetし、BB check-raiseにcall。turnはcheck-check。riverでHJ bet、BB raise、HJが再raiseしてBB call</dd>
+<dd>HJ <code>2BB</code> open、BB call。flop HJ <code>1.13BB into 4.5BB</code>、BB raise <code>3.39BB</code>、HJ call。turn check-check。river HJ <code>8.46BB</code>、BB raise <code>42.3BB</code>、HJ shove <code>94.61BB</code></dd>
 <dt>Showdown</dt>
-<dd>Hero: Aハイフラッシュ / BB: 6ハイストレート</dd>
+<dd>Hero: <code>A-J-5-3-2</code> A-high flush / BB: <code>6-5-4-3-2</code> straight</dd>
 <dt>Result</dt>
-<dd>HJ Hero won <code>196.5BB</code>, rake <code>4BB</code></dd>
+<dd>Hero won <code>196.5BB</code>, rake <code>4BB</code></dd>
   </dl>
 </section>
       </div>
       <div class="panel shot">
-  <img src="./assets/hands/tenfour_20260702_1907_aMrv8R.png" alt="tenfour hand screenshot" />
+  <img src="./assets/hands/privacy-placeholder.svg" alt="tenfour hand screenshot" />
 </div>
     </section>
 
@@ -204,11 +203,11 @@
       <h2>判断のズレ</h2>
       <table>
   <thead>
-    <tr><th>論点</th><th>その場で置きがちな見立て</th><th>どこがズレやすいか</th><th>次回の基準</th></tr>
+    <tr><th>論点</th><th>その場で置きがちな見立て</th><th>どこがズレたか</th><th>次回の基準</th></tr>
   </thead>
   <tbody>
-    <tr><td>flop raise への対応</td><td>nut flush なので早く大きく返して取り切りたい</td><td>BBのcheck-raise rangeには、lower flushだけでなく、set、pair + spade、Aなしの強いspade、straight draw系のbluffが混ざります。ここで3betすると、弱い継続部分やbluffを降ろしやすくなります。</td><td>monotone flopでnutsを持ってraiseされたら、まずcallで相手のpolar rangeを残す。3betは相手がlower flushを降りないと読めるときに寄せる</td></tr>
-<tr><td>turn の価値取り</td><td>flopでraiseされているので、turn checkにはtrap継続でよさそう</td><td>turn <code>6♥</code> はBBの <code>43</code> や一部のstraight drawを改善させますが、HeroのAハイフラッシュはまだ最上位です。BBがlower flushやspade付きペアでcheck-callできるなら、ここでbetしないとriverだけでは取り切れないことがあります。</td><td>nuts級でも相手のcall対象が多いならbetを優先。check-backは相手のriver bluffを誘う意図が明確なときに使う</td></tr>
+    <tr><td>flop raiseへの応答</td><td>nutsなのでただちに3betして取り切る</td><td>BBのraiseにはlower flushだけでなくset、pair + spade、straight draw、bluffが混ざります。再raiseは弱い部分を降ろします。</td><td>nutsでも相手がpolarならcallでrangeを残し、後streetでstackを取る</td></tr>
+<tr><td>turn check-back</td><td>強さを隠せばriverで大きく取れる</td><td>potは<code>11.28BB</code>、残りstackは約<code>94.6BB</code>です。check-backするとriver1streetだけではlower flushやsetから取り切りにくくなります。</td><td>相手のcheck-call対象が多くSPRが高いときは中size betを有力候補にし、check-backもmixに残す</td></tr>
   </tbody>
 </table>
     </section>
@@ -220,10 +219,10 @@
     <tr><th>ストリート</th><th>その時点の見え方</th><th>実ハンドの位置づけ</th><th>評価</th><th>その場の一手</th></tr>
   </thead>
   <tbody>
-    <tr><td>Preflop</td><td>HJの<code>2BB</code> openにBBがdefendする標準的な single-raised pot です。BBにはsuited hand、低めのconnector、pocket pairが残ります。</td><td><code>A♠3♠</code> はHJでは広め寄りですが、suited Aとしてopen候補に入るhandです。</td><td>可</td><td>openで問題ありません。BB call後は、BB側に低い連結カードとspade絡みが多く残る前提で進めます。</td></tr>
-<tr><td>Flop <code>J♠ 5♠ 2♠</code></td><td>HJにはA♠X♠や強いoverpair + spadeがありますが、BBにもsuited defend由来のflush、set、pair + spade、straight drawが残ります。</td><td>HeroはAハイフラッシュでnutsです。加えて<code>3♠</code>によりwheel方向の要素もありますが、主価値は完成済みのnut flushです。</td><td>良い</td><td>小さめbetは自然です。check-raiseに対してはcallがよく、相手のlower valueとbluffを残せます。</td></tr>
-<tr><td>Turn <code>6♥</code></td><td>BBのflop raise後なので、lower flush、set、spade付きJx、<code>43</code>、<code>74</code>系が残ります。6は一部のstraightを完成させますが、flushの上下関係は変わりません。</td><td>Heroは引き続きnutsです。相手のlower flushやstraightからvalueを取れる位置です。</td><td>可だがvalue betも有力</td><td>check-backは相手のriver betを誘う意味があります。ただし相手がcheck-callできるhandも多いため、半pot前後でbetしてriver shoveを作るラインも強く検討します。</td></tr>
-<tr><td>River <code>K♣</code></td><td>BB check後、Heroのbetに対する大きいraiseはpolarです。lower flush、straightの過剰value、一部のbluffが候補になります。</td><td>Heroはboard unpairedのAハイフラッシュでnutsです。相手のraise rangeに対して降りる理由はありません。</td><td>良い</td><td>再raise all-in相当でよいです。call止めにすると、lower flushやstraightの過剰valueから最大値を取り逃がします。</td></tr>
+    <tr><td>Preflop</td><td>HJの<code>2BB</code> openにBBが広くdefendするsingle-raised potです。</td><td><code>A♠3♠</code> は基準range内のsuited Aです。</td><td>良い</td><td>openで問題ありません。</td></tr>
+<tr><td>Flop <code>J♠ 5♠ 2♠</code></td><td>HJにはA-high flushがあり、BBにはlower flush、set、pair + spade、low-card drawがあります。</td><td>Heroはboard unpairedのnut flushです。</td><td>良い</td><td>約25% potでrangeを広くbetし、check-raiseにはcallしてBBのbluffとlower valueを残します。</td></tr>
+<tr><td>Turn <code>6♥</code></td><td>BBのflop check-raise rangeにlower flush、set、spade付きpair、完成straightが残ります。6はflushの順位を変えません。</td><td>Heroは引き続きnutsです。</td><td>betが有力。checkもmix</td><td>中sizeからvalueを積み、riverでさらに取れるpotを作る案が有力です。check-backもbluff誘発とcheck range保護のために残せます。</td></tr>
+<tr><td>River <code>K♣</code></td><td>BBのcheck-raiseはpolarですが、boardはpairせずHeroのnuts性は変わりません。</td><td>Heroは絶対的なnutsで、lower flushやstraightの過剰valueを支配します。</td><td>良い</td><td>call止めにせず、残りstackを再raise all-inしてよいです。</td></tr>
   </tbody>
 </table>
     </section>
@@ -231,14 +230,12 @@
     <section class="two-col">
       <section class="panel section">
         <h2>持ち帰り</h2>
-        <ul><li>monotone flopでnut flushを持っても、flop raiseにすぐ3betせず、相手のbluffとlower valueを残すcallが強い。</li>
-<li>turnでnuts級を持つときは、trapだけでなく、相手がcallできる下のvalueの量を先に数える。</li>
-<li>riverでboardがpairせず、Aハイフラッシュがnutsのままなら、大きいraiseにも再raiseで取り切る判断を残す。</li></ul>
+        <ul><li>nutsでも「隠すか」より、相手がcallできるworse handと残りstreet数からvalue速度を決める。</li>
+<li>polarなraiseにnutsを持つときはcallでbluffを残し、runoutが安全なら後streetで最大valueへ進む。</li></ul>
       </section>
       <section class="panel section">
         <h2>exploit 補足</h2>
-        <ul><li>実際のBBは <code>4♣3♣</code> で、flop check-raiseはstraight draw、turnでstraight完成、riverでstraightを大きくraiseしています。</li>
-<li>この相手がmonotone flopでnon-spade drawをraiseし、riverでflush完成ボードにもstraightを強くvalue化するなら、Heroのnut flush級は強く取り切ってよいです。一方、medium flushやsetでは同じriver raiseに対して過信しない方がよいです。</li></ul>
+        <ul><li></li></ul>
       </section>
     </section>
   </main>

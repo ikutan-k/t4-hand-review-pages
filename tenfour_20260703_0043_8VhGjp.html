@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CO Q♠Q♦ の 3bet multiway pot / turn top set all-in レビュー</title>
+  <title>CO Q♠Q♦ の3bet multiway pot / turn set shoveレビュー</title>
   <style>
     :root {
       --bg: #f4efe6;
@@ -164,39 +164,38 @@
     <section class="hero">
       <div class="panel hero-copy">
         <div class="eyebrow">T4 HAND REVIEW</div>
-        <h1>CO Q♠Q♦ の 3bet multiway pot / turn top set all-in レビュー</h1>
-        <p class="sub">GTO基準で明確な大ミスというより、flop の大きめ c-bet によって turn でSPRが低くなり、難しいカードでも降りにくい形になったハンドです。turn <code>T♣</code> はHJの <code>AJ</code> を完成させるかなり悪いカードですが、Heroのtop setはfull houseへの改善もあり、残り約potを入れる判断自体は十分あり得ます。</p>
+        <h1>CO Q♠Q♦ の3bet multiway pot / turn set shoveレビュー</h1>
+        <p class="sub">GTO基準では、preflopのvalue 3betからflopでsetを大きく取りに行き、SPR約1のturnでshoveした流れに大きな誤りはありません。<code>T♣</code> はcaller側のstraightを増やす悪いカードですが、Heroはrange上位にあり、worse valueとdrawからまだ取れます。負けているstraightにもfull house / quadsへの改善があります。</p>
         <div class="chips">
           <div class="chip">Hero: CO <code>Q♠ Q♦</code></div>
-<div class="chip">Villain: HJ <code>A♦ J♣</code></div>
+<div class="chip">Villain: HJ <code>A♦ J♣</code>、BTNはflop fold</div>
 <div class="chip">Board: <code>K♠ Q♣ 8♦ T♣ 4♠</code></div>
         </div>
-        <ul><li>主要論点: 3bet pot が multiway になったとき、top setでどのサイズからpotを作るか。</li>
-<li>GTO基準の総評: preflop 3bet は良いです。flop はvalue betでよいですが、multiwayかつ相手レンジが強く残るため、今回のような大きめサイズより小さめから入る選択も有力です。</li>
-<li>次回の判断基準: turnでstraight完成カードが落ちたときは、<code>強いから自動で突っ込む</code> ではなく、flop sizingで作ったSPRと相手のcall rangeを先に確認する。</li>
-<li>5枚役確認: Turn時点のHeroは <code>Q♠ Q♦ Q♣ K♠ T♣</code> のthree of a kindです。HJの <code>A♦J♣</code> は <code>A-K-Q-J-T</code> のstraightで、Heroはriverでboard pairか残りQを引くとfull house / quadsに改善します。</li></ul>
+        <ul><li><code>Q♠Q♦</code> はflopでmiddle setです。<code>KK</code>があり得るためtop setとは呼びません。</li>
+<li>multiwayのflop約75% potはhand単体では成立しますが、range全体では小さいsizeも残すとturnのSPRを柔軟にできます。</li>
+<li>turnは結果からcheckへ寄せず、HJのstraightとworse continueの両方を置いて判断します。</li></ul>
         <section class="summary-mini">
   <h2>ハンド要約</h2>
   <dl class="summary-grid">
     <dt>Hero</dt>
 <dd>CO <code>Q♠ Q♦</code></dd>
 <dt>Villain</dt>
-<dd>HJ <code>A♦ J♣</code></dd>
+<dd>HJ <code>A♦ J♣</code>、BTNはflop fold</dd>
 <dt>形式</dt>
-<dd>T4 6MAX Cash</dd>
+<dd>T4 6MAX Cash、100BB effective</dd>
 <dt>Board</dt>
 <dd><code>K♠ Q♣ 8♦ T♣ 4♠</code></dd>
 <dt>ライン</dt>
-<dd>HJ open、CO 3bet、BTN cold call、HJ call。flopでHJ check、COが大きめbet、BTN fold、HJ call。turnでHJ check、COが残り約potをbetし、HJ call</dd>
+<dd>HJ <code>3BB</code> open、CO <code>9BB</code> 3bet、BTN cold call、HJ call。flop CO <code>21.38BB into 28.5BB</code>、turn CO <code>69.62BB into 71.26BB</code> shove</dd>
 <dt>Showdown</dt>
-<dd>HJ: Aハイストレート / Hero: Qのthree of a kind</dd>
+<dd>HJ: <code>A-K-Q-J-T</code> straight / Hero: <code>Q-Q-Q-K-T</code> three of a kind</dd>
 <dt>Result</dt>
 <dd>HJ won <code>206.5BB</code>, rake <code>4BB</code></dd>
   </dl>
 </section>
       </div>
       <div class="panel shot">
-  <img src="./assets/hands/tenfour_20260703_0043_8VhGjp.png" alt="tenfour hand screenshot" />
+  <img src="./assets/hands/privacy-placeholder.svg" alt="tenfour hand screenshot" />
 </div>
     </section>
 
@@ -204,11 +203,11 @@
       <h2>判断のズレ</h2>
       <table>
   <thead>
-    <tr><th>論点</th><th>その場で置きがちな見立て</th><th>どこがズレやすいか</th><th>次回の基準</th></tr>
+    <tr><th>論点</th><th>その場で置きがちな見立て</th><th>どこがズレたか</th><th>次回の基準</th></tr>
   </thead>
   <tbody>
-    <tr><td>multiway 3bet pot のflop sizing</td><td>top setなので大きく打ってすぐ取り切りたい</td><td>3bet potにBTN cold callとHJ callが入ると、相手レンジはかなり強く、<code>AK</code>、<code>KQ</code>、<code>AJ</code>、<code>JT</code>、set系が残ります。大きく打つほど、turnでpotが膨らみ、悪いカードでも撤退しにくくなります。</td><td>multiwayでは、強いhandでも小さめbetで広く続行させ、turnのカードを見てから大きく取るラインを残す</td></tr>
-<tr><td>turn <code>T♣</code> の扱い</td><td>top setなので、相手のcheckにはそのままall-inでよさそう</td><td><code>T♣</code> は <code>AJ</code> を完成させ、<code>JT</code> や一部のtwo pairも強くします。Heroはまだ非常に強いですが、相手のcall rangeの上側にはstraightがかなり入ります。</td><td>SPRが低いならall-inは可。ただし、flopで大きく打つ前に「悪いturnで自分がどこまで入れるか」を先に決める</td></tr>
+    <tr><td>flopの役とsize</td><td>top setなので大きく打てばよい</td><td>Heroはmiddle setであり、multiwayでは相手2人のcontinue rangeもHUより強いです。ただしKx、two pair、drawから取れるため大きいbet自体は誤りではありません。</td><td>役名を正確にしたうえで、hand単体のvalueとrange全体の使用sizeを分ける</td></tr>
+<tr><td>turnのstraight完成</td><td><code>AJ</code>が見えたのでshoveが失敗だった</td><td>HJには<code>AJ</code>や<code>J9s</code>がある一方、<code>KQ</code>、<code>88</code>、強いKx、two pair、drawも残ります。SPR約1のsetを実ハンド1comboだけで降ろしません。</td><td>悪いturnでは、負けるcomboだけでなくcallするworse handとredrawを同時に数える</td></tr>
   </tbody>
 </table>
     </section>
@@ -220,10 +219,10 @@
     <tr><th>ストリート</th><th>その時点の見え方</th><th>実ハンドの位置づけ</th><th>評価</th><th>その場の一手</th></tr>
   </thead>
   <tbody>
-    <tr><td>Preflop</td><td>HJの<code>3BB</code> openに対してCOが<code>9BB</code>へ3betし、BTNがcold call、HJもcallする形です。BTN cold callが入るため、postflopはかなり強いレンジ同士のmultiwayになります。</td><td><code>Q♠Q♦</code> はCOから明確なvalue 3betです。</td><td>良い</td><td>3betで問題ありません。BTN cold call後は、単なるHU 3bet potより相手レンジを強く見ます。</td></tr>
-<tr><td>Flop <code>K♠ Q♣ 8♦</code></td><td>COにはAA、AK、QQ、KKがありますが、HJとBTNにもKQ、AJ、JT、88、suited broadwayが残ります。multiwayなので、1人だけにbetするHUより相手の継続レンジは強めです。</td><td>Heroはtop setで、ほぼ最上位のvalueです。ただし <code>AJ</code> や <code>JT</code> にはturnでstraightを作られる可能性があります。</td><td>大きめだが可</td><td>value betは必須級です。サイズは今回の約75% potでも取れますが、小さめから入り、Kxやdrawを広く残しつつturnで大きくするラインも自然です。</td></tr>
-<tr><td>Turn <code>T♣</code></td><td>HJがflopをcallした後のTは、<code>AJ</code> をstraightにし、<code>JT</code>、<code>KJ</code>、<code>QT</code>、club drawも強くします。Hero側にもAA、AK、KK、QQはありますが、相手の上側もかなり濃くなります。</td><td>Heroはtop setで、straightには負けていますが、full house / quadsへの改善があります。SPRが約1なので、降りるには強すぎます。</td><td>可</td><td>all-inは実戦的に問題ありません。ただし、turn Tをかなり悪いカードと見て、相手のcheckに対してcheck-backし、riverでpair boardにならない場合の対応を考える選択もあります。</td></tr>
-<tr><td>River <code>4♠</code></td><td>all-in後のrunoutです。board pairせず、straightに対して改善できませんでした。</td><td>HeroはQのthree of a kindのままです。</td><td></td><td>ここは結果確認のみです。turn時点の判断を、river結果から悪く見すぎないことが大事です。</td></tr>
+    <tr><td>Preflop</td><td>HJの大きめ<code>3BB</code> openにCOが3betし、BTN cold call後にHJもcallしました。postflopは通常のHU 3bet potより各rangeが強く残ります。</td><td><code>Q♠Q♦</code> は明確なvalue 3betです。</td><td>良い</td><td><code>9BB</code>で3betして問題ありません。cold call後はmultiway前提へ切り替えます。</td></tr>
+<tr><td>Flop <code>K♠ Q♣ 8♦</code></td><td>Heroにはpremiumとset、HJにはKx、pocket pair、suited broadway、BTNにも強いcold-call rangeがあります。</td><td>Heroはmiddle setで、ほぼ最上位のvalueです。</td><td>良い。sizeは大きめ</td><td>約75% potでKxとdrawへ課金できます。range全体では約25〜50% potも残し、弱いKxやdrawを広く続けさせる設計も有力です。</td></tr>
+<tr><td>Turn <code>T♣</code></td><td>HJのflop call rangeでは<code>AJ</code>と一部<code>J9s</code>がstraightになり、caller側のnut分布が強くなります。一方でtwo pairやclub drawも増えます。</td><td>Heroはsetで、straightには負けますがboard pair9枚と残りQ1枚でfull house / quadsへ改善できます。</td><td>shoveは有力</td><td>SPR約1とrange内での順位を踏まえると、worse valueとdrawから取るshoveは十分成立します。pure shoveとまでは固定しません。</td></tr>
+<tr><td>River <code>4♠</code></td><td>all-in後のrunoutで、boardはpairしませんでした。</td><td>HeroはQのthree of a kindのままです。</td><td>結果確認のみ</td><td>river結果ではなくturn時点のrangeとSPRでshoveを評価します。</td></tr>
   </tbody>
 </table>
     </section>
@@ -231,15 +230,12 @@
     <section class="two-col">
       <section class="panel section">
         <h2>持ち帰り</h2>
-        <ul><li>3bet potがmultiwayになったら、top setでも相手レンジを強く見て、flop sizingからturnのSPRを設計する。</li>
-<li><code>KQ8T</code> のように <code>AJ</code> が完成するturnでは、top setは強いが無敵ではない。</li>
-<li>SPRが約1まで下がっているtop setは、負けているcomboが見えても簡単には降りない。ただし、そこに至る前のflop sizingで難しさを調整できる。</li></ul>
+        <ul><li>multiway 3bet potでは、強いmade handでも相手rangeの強さと次streetのSPRをflop sizeに反映する。</li>
+<li>set対完成straightの場面でも、worse continueと10枚の改善outを確認してからstack-off可否を決める。</li></ul>
       </section>
       <section class="panel section">
         <h2>exploit 補足</h2>
-        <ul><li>実際のHJは <code>A♦J♣</code> で、preflop 3bet call後、flopのgutshot + overcardをcallし、turnでstraightに改善しています。</li>
-<li>このタイプの相手が <code>AJ</code> を3bet potで広くcallするなら、flop top setの大きめbetはvalueを取りやすい一方、turnのA/J/T/9では相手の上側が急に強くなります。</li>
-<li>All-in EV が大きくマイナスなのは、turn all-in時点で相手が完成straightを持っていたためです。判断評価は「その時点の相手レンジ全体に対して、top setをどう扱うか」で見ます。</li></ul>
+        <ul><li></li></ul>
       </section>
     </section>
   </main>

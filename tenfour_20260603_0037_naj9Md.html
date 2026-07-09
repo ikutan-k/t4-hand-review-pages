@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>UTG K♠Q♦ の BB defend pot / river thin value レビュー</title>
+  <title>UTG K♠Q♦ のlow flop c-bet / river value sizingレビュー</title>
   <style>
     :root {
       --bg: #f4efe6;
@@ -164,17 +164,16 @@
     <section class="hero">
       <div class="panel hero-copy">
         <div class="eyebrow">T4 HAND REVIEW</div>
-        <h1>UTG K♠Q♦ の BB defend pot / river thin value レビュー</h1>
-        <p class="sub">GTO基準で大きくズレたハンドではありません。flop の <code>1/2 pot</code> c-bet は少し強めですが、turn で無理に2発目を打たず、river の <code>K♥</code> で小さく value bet に切り替えた判断はかなり良いです。</p>
+        <h1>UTG K♠Q♦ のlow flop c-bet / river value sizingレビュー</h1>
+        <p class="sub">preflop open、turn check-back、river value betは一貫しています。flopの<code>K♠Q♦</code>はbetとcheckの両方を持てるcomboで、small betなら広いrangeを保ちやすい一方、<code>1/2 pot</code>を明確なミスとは断定しません。riverの<code>1/3 pot</code>はmiddle pocketを広くcallさせる良い実戦sizeで、<code>1/2 pot</code>は相手がTxやpocket pairを粘る根拠がある場合の比較候補です。</p>
         <div class="chips">
           <div class="chip">Hero: UTG <code>K♠ Q♦</code></div>
 <div class="chip">Villain: BB <code>9♠ 9♥</code></div>
 <div class="chip">Board: <code>8♣ 3♠ 2♠ T♦ K♥</code></div>
         </div>
-        <ul><li>主要論点: 低いBBディフェンスボードで、UTG側が <code>K♠Q♦</code> をどのサイズで c-bet するか。その後、riverで薄いvalueをどのサイズで取るか。</li>
-<li>GTO基準の総評: preflop open、turn check、river small bet は自然です。flop はbet自体よりも、<code>1/2 pot</code> で押す必要があるかを見直したい場面です。</li>
-<li>次回の判断基準: low board のBB defend potでは、UTGのレンジ優位だけで大きく打たず、BB側のpair / low card / spade continue がどれだけ残るかを先に見る。</li>
-<li>5枚役確認: River時点のHeroは <code>K♠ K♥ Q♦ T♦ 8♣</code> のKワンペアです。BBの <code>9♠9♥</code> は9ワンペアで、Heroの小さめriver betにcallした形です。</li></ul>
+        <ul><li><code>8♣3♠2♠</code>はUTGにoverpairがある一方、BBにもpair、set、spade drawが多く、range全体ではbetとcheckを併用するboardです。</li>
+<li>flopの<code>K♠</code>はblockerとrunner-runner flush要素であり、1枚のspadeだけでflush drawにはなりません。</li>
+<li>river value sizeはhandの強さだけでなく、<code>99-QQ</code>、Tx、8xのどこまでをcall対象にするかで選びます。</li></ul>
         <section class="summary-mini">
   <h2>ハンド要約</h2>
   <dl class="summary-grid">
@@ -183,20 +182,20 @@
 <dt>Villain</dt>
 <dd>BB <code>9♠ 9♥</code></dd>
 <dt>形式</dt>
-<dd>T4 6MAX Cash</dd>
+<dd>T4 6MAX Cash、100BB effective</dd>
 <dt>Board</dt>
 <dd><code>8♣ 3♠ 2♠ T♦ K♥</code></dd>
 <dt>ライン</dt>
-<dd>UTG openにBB defend。flop c-betはcallされ、turn check-back後、riverで小さくvalue betしてcallされる</dd>
+<dd>UTG <code>2BB</code> open、BB call。flop UTG <code>2.25BB into 4.5BB</code>、BB call。turn check-check。river UTG <code>3BB into 9BB</code>、BB call</dd>
 <dt>Showdown</dt>
-<dd>UTG Hero: Kワンペア, BB Villain: 9ワンペア</dd>
+<dd>Hero: <code>K-K-Q-T-8</code> one pair / BB: <code>9-9-K-T-8</code> one pair</dd>
 <dt>Result</dt>
-<dd>UTG Hero won <code>14.25BB</code>, rake <code>0.75BB</code></dd>
+<dd>Hero won <code>14.25BB</code>, rake <code>0.75BB</code></dd>
   </dl>
 </section>
       </div>
       <div class="panel shot">
-  <img src="./assets/hands/tenfour_20260603_0037_naj9Md.png" alt="tenfour hand screenshot" />
+  <img src="./assets/hands/privacy-placeholder.svg" alt="tenfour hand screenshot" />
 </div>
     </section>
 
@@ -204,11 +203,11 @@
       <h2>判断のズレ</h2>
       <table>
   <thead>
-    <tr><th>論点</th><th>その場で置きがちな見立て</th><th>どこがズレやすいか</th><th>次回の基準</th></tr>
+    <tr><th>論点</th><th>その場で置きがちな見立て</th><th>どこがズレたか</th><th>次回の基準</th></tr>
   </thead>
   <tbody>
-    <tr><td>flop c-bet size</td><td>UTG open側なので、低いボードでも主導権を持って打てる</td><td><code>8♣ 3♠ 2♠</code> はUTGにoverpairがある一方、BBにもset、8x、3x、2x、pocket pair、spadeを含むcontinueが多く残ります。<code>K♠Q♦</code> はbet候補ですが、<code>1/2 pot</code> まで上げると相手の続行レンジが残りやすいです。</td><td>BBが低いカードに多く触れるboardでは、打つなら小さめを優先し、実ハンドが薄いときはcheckも残す</td></tr>
-<tr><td>river thin value</td><td>Kを引いてtop pairになったので、しっかりvalueを取りたい</td><td>大きく打つほど、callしてほしい <code>99-QQ</code> の一部、8x、Txの一部が降りやすくなります。Heroのhandは強いvalueではなく、相手の中強度ペアを残すためのthin valueです。</td><td>thin value は強さを主張するサイズではなく、worse hand がcallできるサイズを選ぶ</td></tr>
+    <tr><td>flop size</td><td>UTG側にoverpairがあるので常に半potで押せる</td><td>BBはlow boardに広く触れ、<code>K♠Q♦</code>はまだK-highです。大きくするほど弱いhigh cardがfoldし、pairとdraw中心の強いcontinue rangeが残ります。</td><td>range優位があっても自動betにせず、small bet、half-pot、checkの役割を分ける</td></tr>
+<tr><td>river value size</td><td>top pairなので常に大きく取る、またはthin valueなので常に小さくする</td><td>BBのturn check後にはmiddle pocket、Tx、8x、missed drawが残ります。相手のcall下限で最適sizeが変わります。</td><td>callしてほしいworse handを先に列挙し、その層が耐える最大sizeを選ぶ</td></tr>
   </tbody>
 </table>
     </section>
@@ -220,10 +219,10 @@
     <tr><th>ストリート</th><th>その時点の見え方</th><th>実ハンドの位置づけ</th><th>評価</th><th>その場の一手</th></tr>
   </thead>
   <tbody>
-    <tr><td>Preflop</td><td>UTGの基準open sizeは <code>2BB</code> で、BBだけがcallしたheads-up potです。BBはpocket pair、suited broadway、suited connector、Axs、offsuit broadwayの一部まで残ります。</td><td><code>K♠Q♦</code> はUTGのopen候補として自然で、postflopではovercard valueとblockerを持つhandです。</td><td>良い</td><td>openで問題ありません。サイズも基準線に合っています。</td></tr>
-<tr><td>Flop <code>8♣ 3♠ 2♠</code></td><td>UTGにはoverpairと強いbroadwayが残りますが、BBはこの低いboardにpair、set、spade drawで広く触れます。</td><td>HeroはK highで、K/Qのovercardと <code>K♠</code> blockerを持ちます。valueではなく、相手の未完成high cardや弱い一部のhandに圧をかけるbet候補です。</td><td>betは許容、サイズはやや大きめ</td><td>打つなら <code>1/3 pot</code> 前後を優先し、<code>1/2 pot</code> は相手のcontinueを強くしやすい点に注意します。</td></tr>
-<tr><td>Turn <code>T♦</code></td><td>BBがflopをcallした後なので、8x、pocket pair、spade draw、Tを含むfloatが残ります。UTG側も強いoverpairやTxを持てますが、Heroの実ハンドはまだshowdown valueが薄いです。</td><td><code>K♠Q♦</code> は2発目でvalueを取るhandではなく、相手のpairを十分に降ろせるほどの圧も安定しません。</td><td>良い</td><td>check backでequityを実現し、riverで改善したときだけvalueへ回す整理が自然です。</td></tr>
-<tr><td>River <code>K♥</code></td><td>BBが再度checkし、強いmade handはやや減っています。turn check後なので、BBには99-QQの一部、8x、Tx、missed spadeが残ります。</td><td>Heroはtop pairで、強いvalueではなく、相手の中強度ペアから小さく回収するthin valueです。</td><td>良い</td><td><code>3BB into 9BB</code> は良いサイズです。大きく打つより、worse pair がcallしやすい価格を残す方が目的に合っています。</td></tr>
+    <tr><td>Preflop</td><td>UTGの<code>2BB</code> openにBBがpocket pair、suited hand、offsuit broadwayの一部でdefendします。</td><td><code>K♠Q♦</code> は基準range内のopenです。</td><td>良い</td><td>openで問題ありません。</td></tr>
+<tr><td>Flop <code>8♣ 3♠ 2♠</code></td><td>UTGにはoverpair、BBには8x、low pair、set、spade drawが残ります。</td><td>Heroは2 overcardとrunner-runner spade、K-high spade blockerを持つK-highです。</td><td>bet / checkのmix</td><td>small betなら広いrangeを保ちやすく、check-backも使えます。<code>1/2 pot</code>もpolar寄りの構成に入る余地があり、exact nodeなしに誤りとはしません。</td></tr>
+<tr><td>Turn <code>T♦</code></td><td>BBのflop call後は8x、pocket pair、spade draw、一部Txが残ります。</td><td>HeroはまだK-highで、安定したvalueも強いdrawもありません。</td><td>良い</td><td>check-backでriver equityを実現します。</td></tr>
+<tr><td>River <code>K♥</code></td><td>BBのcheck rangeにはmiddle pairとmissed drawが多い一方、少数のtrapも残ります。</td><td>Heroはstrong top pairで、主に99-JJ、Tx、8xからvalueを取れます。</td><td><code>1/3 pot</code>は良い</td><td>広いcallを得る実戦sizeとして成立します。stickyなmiddle pairまで残る明確な傾向があれば、<code>1/2 pot</code>前後をexploit候補として比較します。</td></tr>
   </tbody>
 </table>
     </section>
@@ -231,14 +230,12 @@
     <section class="two-col">
       <section class="panel section">
         <h2>持ち帰り</h2>
-        <ul><li>UTG vs BB の低いboardでは、UTGのレンジ優位だけで大きく打たず、BB側の低いカード・pocket pair・drawの残り方を見る。</li>
-<li><code>K♠Q♦</code> のような高カード未完成handは、flopで小さく圧をかけても、turnで無理に2発目へ進めない。</li>
-<li>riverで薄いvalueを取るときは、相手の強いhandではなく、callしてほしい中強度ペアを具体的に置いてサイズを決める。</li></ul>
+        <ul><li>low boardのrange advantageを、未完成high cardで大きくbetする理由にしない。</li>
+<li>riverで勝ってcallされた事実は確認しつつ、worse rangeのcall下限からvalue sizeを比較する。</li></ul>
       </section>
       <section class="panel section">
         <h2>exploit 補足</h2>
-        <ul><li>実際にBBが <code>9♠9♥</code> でcallしており、小さめriver betが狙い通り <code>middle pocket</code> からvalueを取れています。</li>
-<li>ただし、この結果からriverをもっと大きくしてよいとは見ません。大きくすると、まさに取りたい <code>99</code> や8xがfold側へ寄りやすくなります。</li></ul>
+        <ul><li></li></ul>
       </section>
     </section>
   </main>
